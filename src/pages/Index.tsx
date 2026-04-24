@@ -16,14 +16,14 @@ const TOOLS: Tool[] = [
   { to: "/hourly", title: "Hourly Wage", desc: "Hourly rate + hours/week → annual take-home.", icon: Clock, status: "live" },
   { to: "/reverse", title: "Reverse Salary", desc: "Target net income → required gross salary.", icon: RotateCcw, status: "live" },
   { to: "/pay-rise", title: "Pay Rise Simulator", desc: "How much of that raise actually reaches your bank account?", icon: TrendingUp, status: "live", unique: true },
-  { to: "#", title: "Two-Salary Compare", desc: "Side-by-side: current job vs new offer.", icon: Users, status: "soon" },
-  { to: "#", title: "Pro-Rata", desc: "Part-time hours → adjusted salary + tax.", icon: Briefcase, status: "soon" },
-  { to: "#", title: "Two Jobs", desc: "Combined tax across two employments.", icon: Briefcase, status: "soon" },
-  { to: "#", title: "Maternity / SMP / Sick", desc: "Reduced-pay periods impact.", icon: Baby, status: "soon" },
-  { to: "#", title: "Self-Employed", desc: "Class 2 + 4 NI, payments on account.", icon: Hammer, status: "soon", unique: true },
-  { to: "#", title: "Dividend Optimiser", desc: "Director salary + dividends split.", icon: Building2, status: "soon", unique: true },
-  { to: "#", title: "IR35 Contractor", desc: "Inside vs outside IR35 take-home.", icon: FileSignature, status: "soon", unique: true },
-  { to: "#", title: "Cost-of-Living Overlay", desc: "Does your net cover London? Manchester?", icon: MapPin, status: "soon", unique: true },
+  { to: "/compare", title: "Two-Salary Compare", desc: "Side-by-side: current job vs new offer.", icon: Users, status: "live" },
+  { to: "/pro-rata", title: "Pro-Rata", desc: "Part-time hours → adjusted salary + tax.", icon: Briefcase, status: "live" },
+  { to: "/two-jobs", title: "Two Jobs", desc: "Combined tax across two employments.", icon: Briefcase, status: "live" },
+  { to: "/maternity", title: "Maternity / SMP", desc: "Reduced-pay periods impact across the year.", icon: Baby, status: "live" },
+  { to: "/self-employed", title: "Self-Employed", desc: "Class 2 + 4 NI, payments on account.", icon: Hammer, status: "live", unique: true },
+  { to: "/dividend", title: "Dividend Optimiser", desc: "Director salary + dividends split, optimal mix.", icon: Building2, status: "live", unique: true },
+  { to: "/ir35", title: "IR35 Contractor", desc: "Inside vs outside IR35 take-home.", icon: FileSignature, status: "live", unique: true },
+  { to: "/cost-of-living", title: "Cost-of-Living Overlay", desc: "Does your net cover London? Manchester?", icon: MapPin, status: "live", unique: true },
 ];
 
 const Index = () => {
