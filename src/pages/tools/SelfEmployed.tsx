@@ -8,7 +8,7 @@ import { calculateSelfEmployed } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 
 const SelfEmployed = () => {
-  const [s, set] = useUrlState({ profit: 50000, voluntary: false });
+  const [s, set] = useUrlState({ profit: 50000, voluntary: false as boolean });
   const r = useMemo(() => calculateSelfEmployed(s.profit, "england", s.voluntary), [s.profit, s.voluntary]);
 
   return (
