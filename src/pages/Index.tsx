@@ -68,15 +68,11 @@ const Index = () => {
           {TOOLS.map((t) => {
             const Icon = t.icon;
             const isLive = t.status === "live";
-            const Wrapper: React.ElementType = isLive ? Link : "div";
-            return (
-              <Wrapper
-                key={t.title}
-                to={isLive ? t.to : undefined}
-                className={`group relative border border-border rounded-lg p-5 bg-card transition-all ${
-                  isLive ? "hover:border-foreground/40 hover:shadow-sm cursor-pointer" : "opacity-60"
-                }`}
-              >
+            const className = `group relative border border-border rounded-lg p-5 bg-card transition-all ${
+              isLive ? "hover:border-foreground/40 hover:shadow-sm cursor-pointer block" : "opacity-60 block"
+            }`;
+            const inner = (
+              <>
                 <div className="flex items-start justify-between">
                   <div className="h-9 w-9 rounded-md bg-secondary flex items-center justify-center">
                     <Icon className="h-4 w-4" />
@@ -97,7 +93,16 @@ const Index = () => {
                     Open <ArrowRight className="h-3 w-3" />
                   </div>
                 )}
-              </Wrapper>
+              </>
+            );
+            return isLive ? (
+              <Link key={t.title} to={t.to} className={className}>
+                {inner}
+              </Link>
+            ) : (
+              <div key={t.title} className={className}>
+                {inner}
+              </div>
             );
           })}
         </div>
