@@ -6,8 +6,9 @@ import logo from "@/assets/logo.png";
 const NAV = [
   { to: "/take-home", label: "Take-Home" },
   { to: "/hourly", label: "Hourly" },
-  { to: "/reverse", label: "Reverse" },
-  { to: "/pay-rise", label: "Pay Rise" },
+  { to: "/compare", label: "Compare" },
+  { to: "/self-employed", label: "Self-Emp" },
+  { to: "/dividend", label: "Dividend" },
 ];
 
 export function Header() {
