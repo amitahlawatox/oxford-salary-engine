@@ -190,3 +190,110 @@ export function solveGrossFromNet(targetAnnualNet: number, base: Omit<CalcInput,
   }
   return Math.round((lo + hi) / 2);
 }
+
+// ─── Self-Employed (Class 4 NI + Income Tax) ──────────
+// 2026/27: Class 2 abolished for most; Class 4 = 6% (£12,570–£50,270) + 2% (>£50,270)
+export interface SelfEmployedResult {
+  profit: number;
+  personalAllowance: number;
+  taxableProfit: number;
+  incomeTax: number;
+  class4: number;
+  class2: number;
+  net: number;
+  paymentsOnAccount: number;
+  effectiveRate: number;
+  bands: BandSlice[];
+}
+
+export function calculateSelfEmployed(profit: number, region: Region = "england", voluntaryClass2 = false): SelfEmployedResult {
+  const pa = personalAllowance(profit);
+  const ti = Math.max(0, profit - pa);
+  const slices = bandSlices(ti, region);
+  const incomeTax = slices.reduce((a, s) => a + s.tax, 0);
+  const lpt = 12_570;
+  const upl = 50_270;
+  const main = Math.max(0, Math.min(profit, upl) - lpt);
+  const upper = Math.max(0, profit - upl);
+  const class4 = main * 0.06 + upper * 0.02;
+  const class2 = voluntaryClass2 ? 179.4 : 0; // £3.45/week × 52
+  const net = profit - incomeTax - class4 - class2;
+  const totalTax = incomeTax + class4 + class2;
+  const paymentsOnAccount = totalTax > 1000 ? totalTax / 2 : 0;
+  return {
+    profit,
+    personalAllowance: pa,
+    taxableProfit: ti,
+    incomeTax,
+    class4,
+    class2,
+    net,
+    paymentsOnAccount,
+    effectiveRate: profit > 0 ? (totalTax / profit) * 100 : 0,
+    bands: slices,
+  };
+}
+
+// ─── Dividend tax (2026/27) ───────────────────────────
+// Allowance £500. Then 8.75% basic / 33.75% higher / 39.35% additional.
+export interface DividendResult {
+  salary: number;
+  dividends: number;
+  total: number;
+  personalAllowance: number;
+  salaryTax: number;
+  ni: number;
+  dividendAllowance: number;
+  dividendTax: number;
+  net: number;
+  effectiveRate: number;
+}
+
+export function calculateDividend(salary: number, dividends: number): DividendResult {
+  const total = salary + dividends;
+  const pa = personalAllowance(total);
+  // Use PA against salary first, then dividends
+  const salaryAfterPA = Math.max(0, salary - pa);
+  const paLeftForDiv = Math.max(0, pa - salary);
+  const salarySlices = bandSlices(salaryAfterPA, "england");
+  const salaryTax = salarySlices.reduce((a, s) => a + s.tax, 0);
+  const ni = employeeNI(salary);
+
+  const divAllowance = 500;
+  const dividendsAfterPA = Math.max(0, dividends - paLeftForDiv);
+  const taxableDiv = Math.max(0, dividendsAfterPA - divAllowance);
+
+  // Bands measured from start of taxable income
+  const basicRoom = Math.max(0, 37_700 - salaryAfterPA);
+  const higherRoom = Math.max(0, (125_140 - 12_570) - Math.max(salaryAfterPA, 37_700));
+  const inBasic = Math.min(taxableDiv, basicRoom);
+  const afterBasic = taxableDiv - inBasic;
+  const inHigher = Math.min(afterBasic, higherRoom);
+  const inAdd = Math.max(0, afterBasic - inHigher);
+  const dividendTax = inBasic * 0.0875 + inHigher * 0.3375 + inAdd * 0.3935;
+
+  const net = total - salaryTax - ni - dividendTax;
+  const totalTax = salaryTax + ni + dividendTax;
+  return {
+    salary,
+    dividends,
+    total,
+    personalAllowance: pa,
+    salaryTax,
+    ni,
+    dividendAllowance: Math.min(divAllowance, dividendsAfterPA),
+    dividendTax,
+    net,
+    effectiveRate: total > 0 ? (totalTax / total) * 100 : 0,
+  };
+}
+
+// Find optimal director split: minimal total tax for given total extraction
+export function optimiseDirectorSplit(target: number, salaryOptions = [0, 6500, 9100, 12570]): { salary: number; dividends: number; result: DividendResult }[] {
+  return salaryOptions
+    .filter((sal) => sal <= target)
+    .map((salary) => {
+      const dividends = target - salary;
+      return { salary, dividends, result: calculateDividend(salary, dividends) };
+    });
+}
