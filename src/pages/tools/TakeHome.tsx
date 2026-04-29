@@ -1,18 +1,21 @@
 import { useMemo } from "react";
-import { Link2, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { toast } from "@/hooks/use-toast";
 import { Shell } from "@/components/layout/Shell";
 import { useUrlState } from "@/hooks/useUrlState";
-import { calculate, type CalcInput, type Region, type StudentLoanPlan, type PensionMode } from "@/lib/tax/engine";
+import { calculate, DEFAULT_TAX_YEAR, type CalcInput, type Region, type StudentLoanPlan, type PensionMode, type TaxYear } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { downloadPayslipPdf } from "@/lib/pdf";
 import { BandBreakdown } from "@/components/charts/BandBreakdown";
 import { MarginalCurve } from "@/components/charts/MarginalCurve";
+import { ToolSeo } from "@/components/seo/ToolSeo";
+import { YearToggle } from "@/components/tools/YearToggle";
+import { YoYDelta } from "@/components/tools/YoYDelta";
+import { ShareSummary } from "@/components/tools/ShareSummary";
 
 const SL_LABELS: Record<StudentLoanPlan, string> = {
   none: "None",
@@ -33,6 +36,8 @@ const TakeHome = () => {
     bonus: 0,
     overtime: 0,
     taxCode: "1257L",
+    year: DEFAULT_TAX_YEAR as TaxYear,
+    compare: false as boolean,
   });
 
   const input: CalcInput = {
@@ -44,14 +49,15 @@ const TakeHome = () => {
     bonus: s.bonus,
     overtime: s.overtime,
     taxCode: s.taxCode,
+    taxYear: s.year,
   };
 
-  const r = useMemo(() => calculate(input), [s.salary, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode]);
+  const r = useMemo(() => calculate(input), [s.salary, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, s.year]);
 
-  const share = async () => {
-    await navigator.clipboard.writeText(window.location.href);
-    toast({ title: "Link copied", description: "Share your calculation with anyone." });
-  };
+  const otherYear: TaxYear = s.year === "2026/27" ? "2025/26" : "2026/27";
+  const rOther = useMemo(() => calculate({ ...input, taxYear: otherYear }), [s.salary, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, otherYear]);
+
+  const shareSummary = `UK Take-Home (${s.year}) on ${fmt(s.salary)} gross${s.region === "scotland" ? " · Scotland" : ""}: ${fmt(r.net)}/yr · ${fmt(r.net / 12)}/mo · effective ${r.effectiveRate.toFixed(1)}%`;
 
   const Row = ({ label, value, sub, negative }: { label: string; value: number; sub?: string; negative?: boolean }) => (
     <div className="flex items-baseline justify-between border-b border-border py-3 last:border-0">
@@ -69,8 +75,17 @@ const TakeHome = () => {
   return (
     <Shell>
       <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
-        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Take-Home Calculator</h1>
-        <p className="mt-2 text-muted-foreground">2026/27 — Income Tax, NI, Student Loan, pension, bonus, overtime.</p>
+        <ToolSeo path="/take-home" />
+        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Take-Home Pay Calculator</h1>
+        <p className="mt-2 text-muted-foreground">{s.year} — Income Tax, NI, Student Loan, pension, bonus, overtime.</p>
+        <div className="mt-5">
+          <YearToggle
+            year={s.year}
+            compare={s.compare}
+            onYearChange={(y) => set({ year: y })}
+            onCompareChange={(v) => set({ compare: v })}
+          />
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-20">
@@ -146,12 +161,10 @@ const TakeHome = () => {
                 <Input id="taxCode" value={s.taxCode} onChange={(e) => set({ taxCode: e.target.value.toUpperCase() })} className="mt-2 font-mono-num" placeholder="1257L" />
               </div>
 
-              <div className="flex gap-2 pt-2">
-                <button onClick={share} className="flex-1 inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition">
-                  <Link2 className="h-3.5 w-3.5" /> Share
-                </button>
-                <button onClick={() => downloadPayslipPdf(r, { region: s.region, pensionPct: s.pensionPct, studentLoan: SL_LABELS[s.studentLoan] })} className="flex-1 inline-flex items-center justify-center gap-2 bg-foreground text-background rounded-md py-2 text-sm hover:opacity-90 transition">
-                  <Download className="h-3.5 w-3.5" /> PDF
+              <div className="pt-2 space-y-2">
+                <ShareSummary summary={shareSummary} title={`UK Take-Home ${s.year} — ${fmt(s.salary)} gross`} />
+                <button onClick={() => downloadPayslipPdf(r, { region: s.region, pensionPct: s.pensionPct, studentLoan: SL_LABELS[s.studentLoan] })} className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition">
+                  <Download className="h-3.5 w-3.5" /> Download PDF payslip
                 </button>
               </div>
             </div>
@@ -159,6 +172,9 @@ const TakeHome = () => {
 
           {/* Results */}
           <div className="lg:col-span-3 space-y-6">
+            {s.compare && (
+              <YoYDelta current={r} previous={rOther} previousLabel={otherYear} />
+            )}
             {/* Headline */}
             <div className="border border-border rounded-lg p-6 bg-card">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
