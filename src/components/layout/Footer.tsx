@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { openConsent } from "@/components/consent/ConsentBanner";
 
 const COLS = [
   {
@@ -78,7 +79,9 @@ export function Footer() {
           </p>
           <div className="flex flex-col md:flex-row justify-between items-start gap-4 text-xs text-muted-foreground">
             <span>© {new Date().getFullYear()} UK Net Pay · Information only · Not financial advice</span>
-            <div className="flex items-center gap-2 font-mono uppercase tracking-widest">
+            <div className="flex items-center gap-3 font-mono uppercase tracking-widest">
+              <button onClick={openConsent} className="hover:text-foreground transition-colors">Cookie settings</button>
+              <span className="opacity-30">·</span>
               <span>Engine v4.3 · 2026/27 verified</span>
               <div className="size-1.5 rounded-full bg-accent animate-pulse" />
             </div>
