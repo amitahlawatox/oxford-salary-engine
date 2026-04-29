@@ -28,19 +28,20 @@ const RATES: Record<TaxYear, YearRates> = {
       { name: "Additional 45%", upTo: Infinity, rate: 0.45 },
     ],
     scotBands: [
-      { name: "Starter 19%", upTo: 2_306, rate: 0.19 },
-      { name: "Basic 20%", upTo: 13_991, rate: 0.2 },
-      { name: "Intermediate 21%", upTo: 31_092, rate: 0.21 },
-      { name: "Higher 42%", upTo: 62_430, rate: 0.42 },
-      { name: "Advanced 45%", upTo: 125_140 - 12_570, rate: 0.45 },
-      { name: "Top 48%", upTo: Infinity, rate: 0.48 },
+      // upTo is cumulative taxable income (gross − PA of £12,570)
+      { name: "Starter 19%",      upTo: 16_537 - 12_570, rate: 0.19 }, // 3,967
+      { name: "Basic 20%",        upTo: 29_526 - 12_570, rate: 0.20 }, // 16,956
+      { name: "Intermediate 21%", upTo: 43_662 - 12_570, rate: 0.21 }, // 31,092
+      { name: "Higher 42%",       upTo: 75_000 - 12_570, rate: 0.42 }, // 62,430
+      { name: "Advanced 45%",     upTo: 125_140 - 12_570, rate: 0.45 }, // 112,570
+      { name: "Top 48%",          upTo: Infinity, rate: 0.48 },
     ],
     ni: { pt: 12_570, uel: 50_270, mainRate: 0.08, upperRate: 0.02 },
     studentLoan: {
       none: { threshold: Infinity, rate: 0 },
-      plan1: { threshold: 26_065, rate: 0.09 },
-      plan2: { threshold: 28_470, rate: 0.09 },
-      plan4: { threshold: 32_745, rate: 0.09 },
+      plan1: { threshold: 26_900, rate: 0.09 },
+      plan2: { threshold: 29_385, rate: 0.09 },
+      plan4: { threshold: 33_795, rate: 0.09 },
       plan5: { threshold: 25_000, rate: 0.09 },
       postgrad: { threshold: 21_000, rate: 0.06 },
     },
