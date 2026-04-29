@@ -6,6 +6,8 @@ import { useUrlState } from "@/hooks/useUrlState";
 import { calculate } from "@/lib/tax/engine";
 import { fmt } from "@/lib/format";
 import { MapPin } from "lucide-react";
+import { ToolSeo } from "@/components/seo/ToolSeo";
+import { ShareSummary } from "@/components/tools/ShareSummary";
 
 // Approx monthly cost-of-living (1-bed rent + bills + transport + modest food) — 2026 estimates.
 const CITIES: { name: string; cost: number; rent: number }[] = [
@@ -33,9 +35,14 @@ const CostOfLiving = () => {
 
   return (
     <Shell>
+      
+      <ToolSeo path="/cost-of-living" />
       <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
         <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Cost-of-Living Overlay</h1>
         <p className="mt-2 text-muted-foreground">Does your net cover the city you live in?</p>
+        <div className="mt-4">
+          <ShareSummary summary={`Cost-of-Living Adjuster — see my UK calculation for the 2026/27 tax year`} title="Cost-of-Living Adjuster | UK Net Pay" compact />
+        </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20">
         <div className="border border-border rounded-lg p-6 bg-card mb-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-end">

@@ -6,6 +6,8 @@ import { useUrlState } from "@/hooks/useUrlState";
 import { calculate } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { ArrowRight } from "lucide-react";
+import { ToolSeo } from "@/components/seo/ToolSeo";
+import { ShareSummary } from "@/components/tools/ShareSummary";
 
 const Compare = () => {
   const [s, set] = useUrlState({ a: 45000, b: 55000, pensionA: 5, pensionB: 5 });
@@ -43,9 +45,14 @@ const Compare = () => {
 
   return (
     <Shell>
+      
+      <ToolSeo path="/compare" />
       <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
         <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Two-Salary Compare</h1>
         <p className="mt-2 text-muted-foreground">Side-by-side: current job vs new offer.</p>
+        <div className="mt-4">
+          <ShareSummary summary={`Two-Salary Comparison — see my UK calculation for the 2026/27 tax year`} title="Two-Salary Comparison | UK Net Pay" compact />
+        </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

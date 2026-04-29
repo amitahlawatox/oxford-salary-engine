@@ -6,6 +6,8 @@ import { Slider } from "@/components/ui/slider";
 import { useUrlState } from "@/hooks/useUrlState";
 import { calculate } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
+import { ToolSeo } from "@/components/seo/ToolSeo";
+import { ShareSummary } from "@/components/tools/ShareSummary";
 
 const ProRata = () => {
   const [s, set] = useUrlState({ ftSalary: 45000, ftHours: 37.5, actualHours: 22.5 });
@@ -16,9 +18,14 @@ const ProRata = () => {
 
   return (
     <Shell>
+      
+      <ToolSeo path="/pro-rata" />
       <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
         <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Pro-Rata Calculator</h1>
         <p className="mt-2 text-muted-foreground">Part-time hours scaled from a full-time salary.</p>
+        <div className="mt-4">
+          <ShareSummary summary={`Pro-Rata Calculator — see my UK calculation for the 2026/27 tax year`} title="Pro-Rata Calculator | UK Net Pay" compact />
+        </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="border border-border rounded-lg p-6 bg-card space-y-5">

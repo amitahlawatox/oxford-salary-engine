@@ -6,6 +6,8 @@ import { Slider } from "@/components/ui/slider";
 import { useUrlState } from "@/hooks/useUrlState";
 import { calculate } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
+import { ToolSeo } from "@/components/seo/ToolSeo";
+import { ShareSummary } from "@/components/tools/ShareSummary";
 
 // 2026/27 SMP: 6 weeks @ 90% AWE, then 33 weeks @ £187.18 or 90% (lower), then 13 weeks unpaid.
 const SMP_FLAT = 187.18;
@@ -45,9 +47,14 @@ const Maternity = () => {
 
   return (
     <Shell>
+      
+      <ToolSeo path="/maternity" />
       <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
         <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Maternity / SMP Calculator</h1>
         <p className="mt-2 text-muted-foreground">2026/27 statutory: 6 weeks @ 90% pay, 33 weeks @ £{SMP_FLAT}/wk, then 13 weeks unpaid.</p>
+        <div className="mt-4">
+          <ShareSummary summary={`Maternity / SMP Calculator — see my UK calculation for the 2026/27 tax year`} title="Maternity / SMP Calculator | UK Net Pay" compact />
+        </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="border border-border rounded-lg p-6 bg-card space-y-5">

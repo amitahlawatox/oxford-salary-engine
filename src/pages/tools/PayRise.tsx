@@ -8,6 +8,8 @@ import { Shell } from "@/components/layout/Shell";
 import { useUrlState } from "@/hooks/useUrlState";
 import { calculate, type Region } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
+import { ToolSeo } from "@/components/seo/ToolSeo";
+import { ShareSummary } from "@/components/tools/ShareSummary";
 
 const base = (gross: number, region: Region) =>
   calculate({ gross, region, pensionPct: 0, pensionMode: "salary-sacrifice", studentLoan: "none", bonus: 0, overtime: 0 });
@@ -28,11 +30,16 @@ const PayRise = () => {
 
   return (
     <Shell>
+      
+      <ToolSeo path="/pay-rise" />
       <section className="mx-auto max-w-5xl px-6 pt-10 pb-6">
         <h1 className="text-2xl md:text-3xl font-semibold tracking-tight flex items-center gap-2">
           <TrendingUp className="h-6 w-6" /> Pay Rise Simulator
         </h1>
         <p className="mt-2 text-muted-foreground">See exactly how much of your raise actually reaches your bank account.</p>
+        <div className="mt-4">
+          <ShareSummary summary={`Pay Rise Simulator — see my UK calculation for the 2026/27 tax year`} title="Pay Rise Simulator | UK Net Pay" compact />
+        </div>
       </section>
 
       <section className="mx-auto max-w-5xl px-6 pb-20 space-y-6">

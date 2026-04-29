@@ -5,6 +5,8 @@ import { Label } from "@/components/ui/label";
 import { useUrlState } from "@/hooks/useUrlState";
 import { calculate, calculateDividend } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
+import { ToolSeo } from "@/components/seo/ToolSeo";
+import { ShareSummary } from "@/components/tools/ShareSummary";
 
 const IR35 = () => {
   const [s, set] = useUrlState({ dayRate: 500, daysPerYear: 220, expenses: 3000 });
@@ -36,9 +38,14 @@ const IR35 = () => {
 
   return (
     <Shell>
+      
+      <ToolSeo path="/ir35" />
       <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
         <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">IR35 Contractor</h1>
         <p className="mt-2 text-muted-foreground">Inside vs outside IR35 take-home at your day rate.</p>
+        <div className="mt-4">
+          <ShareSummary summary={`IR35 Contractor Calculator — see my UK calculation for the 2026/27 tax year`} title="IR35 Contractor Calculator | UK Net Pay" compact />
+        </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20 space-y-6">
         <div className="border border-border rounded-lg p-6 bg-card grid grid-cols-1 md:grid-cols-3 gap-4">
