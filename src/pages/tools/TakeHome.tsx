@@ -28,7 +28,7 @@ const SL_LABELS: Record<StudentLoanPlan, string> = {
 
 const TakeHome = () => {
   const [s, set] = useUrlState({
-    salary: 45000,
+    salary: "" as number | "",
     region: "england" as Region,
     pensionPct: 5,
     pensionMode: "salary-sacrifice" as PensionMode,
@@ -40,8 +40,9 @@ const TakeHome = () => {
     compare: false as boolean,
   });
 
+  const salaryNum = typeof s.salary === "number" ? s.salary : Number(s.salary) || 0;
   const input: CalcInput = {
-    gross: s.salary,
+    gross: salaryNum,
     region: s.region,
     pensionPct: s.pensionPct,
     pensionMode: s.pensionMode,
@@ -52,12 +53,12 @@ const TakeHome = () => {
     taxYear: s.year,
   };
 
-  const r = useMemo(() => calculate(input), [s.salary, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, s.year]);
+  const r = useMemo(() => calculate(input), [salaryNum, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, s.year]);
 
   const otherYear: TaxYear = s.year === "2026/27" ? "2025/26" : "2026/27";
-  const rOther = useMemo(() => calculate({ ...input, taxYear: otherYear }), [s.salary, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, otherYear]);
+  const rOther = useMemo(() => calculate({ ...input, taxYear: otherYear }), [salaryNum, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, otherYear]);
 
-  const shareSummary = `UK Take-Home (${s.year}) on ${fmt(s.salary)} gross${s.region === "scotland" ? " · Scotland" : ""}: ${fmt(r.net)}/yr · ${fmt(r.net / 12)}/mo · effective ${r.effectiveRate.toFixed(1)}%`;
+  const shareSummary = `UK Take-Home (${s.year}) on ${fmt(salaryNum)} gross${s.region === "scotland" ? " · Scotland" : ""}: ${fmt(r.net)}/yr · ${fmt(r.net / 12)}/mo · effective ${r.effectiveRate.toFixed(1)}%`;
 
   const Row = ({ label, value, sub, negative }: { label: string; value: number; sub?: string; negative?: boolean }) => (
     <div className="flex items-baseline justify-between border-b border-border py-3 last:border-0">
@@ -98,9 +99,9 @@ const TakeHome = () => {
                 <Label htmlFor="salary" className="text-sm">Annual gross salary</Label>
                 <div className="mt-2 relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-                  <Input id="salary" type="number" inputMode="numeric" value={s.salary} onChange={(e) => set({ salary: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
+                  <Input id="salary" type="number" inputMode="numeric" placeholder="e.g. 45000" value={s.salary === "" ? "" : s.salary} onChange={(e) => { const v = e.target.value; set({ salary: v === "" ? "" : Number(v) }); }} className="pl-7 font-mono-num text-lg h-11" />
                 </div>
-                <Slider className="mt-4" min={0} max={200000} step={500} value={[s.salary]} onValueChange={(v) => set({ salary: v[0] })} />
+                <Slider className="mt-4" min={0} max={200000} step={500} value={[salaryNum]} onValueChange={(v) => set({ salary: v[0] })} />
               </div>
 
               <div>
