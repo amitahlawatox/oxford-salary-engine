@@ -44,7 +44,7 @@ const Hourly = () => {
             <Label className="text-sm">Hourly rate</Label>
             <div className="mt-2 relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-              <Input type="number" step="0.01" value={s.rate} onChange={(e) => set({ rate: Number(e.target.value) || 0 })} className="pl-7 font-mono-num h-11 text-lg" />
+              <Input type="number" step="0.01" value={s.rate === 0 ? "" : s.rate} onChange={(e) => set({ rate: Number(e.target.value) || 0 })} className="pl-7 font-mono-num h-11 text-lg" />
             </div>
             <Slider className="mt-4" min={0} max={150} step={0.5} value={[s.rate]} onValueChange={(v) => set({ rate: v[0] })} />
           </div>
@@ -52,11 +52,11 @@ const Hourly = () => {
           <div className="grid grid-cols-2 gap-3">
             <div>
               <Label className="text-sm">Hours / week</Label>
-              <Input type="number" step="0.5" value={s.hours} onChange={(e) => set({ hours: Number(e.target.value) || 0 })} className="mt-2 font-mono-num" />
+              <Input type="number" step="0.5" value={s.hours === 0 ? "" : s.hours} onChange={(e) => set({ hours: Number(e.target.value) || 0 })} className="mt-2 font-mono-num" />
             </div>
             <div>
               <Label className="text-sm">Weeks / year</Label>
-              <Input type="number" value={s.weeks} onChange={(e) => set({ weeks: Number(e.target.value) || 0 })} className="mt-2 font-mono-num" />
+              <Input type="number" value={s.weeks === 0 ? "" : s.weeks} onChange={(e) => set({ weeks: Number(e.target.value) || 0 })} className="mt-2 font-mono-num" />
             </div>
           </div>
 

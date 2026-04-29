@@ -53,18 +53,18 @@ const IR35 = () => {
             <Label className="text-sm">Day rate</Label>
             <div className="mt-2 relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-              <Input type="number" value={s.dayRate} onChange={(e) => set({ dayRate: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
+              <Input type="number" value={s.dayRate === 0 ? "" : s.dayRate} onChange={(e) => set({ dayRate: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
             </div>
           </div>
           <div>
             <Label className="text-sm">Billable days / year</Label>
-            <Input type="number" value={s.daysPerYear} onChange={(e) => set({ daysPerYear: Number(e.target.value) || 0 })} className="mt-2 font-mono-num h-11" />
+            <Input type="number" value={s.daysPerYear === 0 ? "" : s.daysPerYear} onChange={(e) => set({ daysPerYear: Number(e.target.value) || 0 })} className="mt-2 font-mono-num h-11" />
           </div>
           <div>
             <Label className="text-sm">Annual expenses (Ltd)</Label>
             <div className="mt-2 relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-              <Input type="number" value={s.expenses} onChange={(e) => set({ expenses: Number(e.target.value) || 0 })} className="pl-7 font-mono-num h-11" />
+              <Input type="number" value={s.expenses === 0 ? "" : s.expenses} onChange={(e) => set({ expenses: Number(e.target.value) || 0 })} className="pl-7 font-mono-num h-11" />
             </div>
           </div>
         </div>

@@ -63,7 +63,7 @@ const Reverse = () => {
             <Label className="text-sm">Target net per month</Label>
             <div className="mt-2 relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-              <Input type="number" value={s.targetMonthly} onChange={(e) => set({ targetMonthly: Number(e.target.value) || 0 })} className="pl-7 font-mono-num h-11 text-lg" />
+              <Input type="number" value={s.targetMonthly === 0 ? "" : s.targetMonthly} onChange={(e) => set({ targetMonthly: Number(e.target.value) || 0 })} className="pl-7 font-mono-num h-11 text-lg" />
             </div>
             <Slider className="mt-4" min={500} max={15000} step={50} value={[s.targetMonthly]} onValueChange={(v) => set({ targetMonthly: v[0] })} />
           </div>

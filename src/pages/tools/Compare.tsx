@@ -29,10 +29,10 @@ const Compare = () => {
       <Label className="text-sm">Gross salary</Label>
       <div className="mt-2 relative">
         <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-        <Input type="number" value={salary} onChange={(e) => onSal(Number(e.target.value) || 0)} className="pl-7 font-mono-num text-lg h-11" />
+        <Input type="number" value={salary === 0 ? "" : salary} onChange={(e) => onSal(Number(e.target.value) || 0)} className="pl-7 font-mono-num text-lg h-11" />
       </div>
       <Label className="text-sm mt-4 block">Pension %</Label>
-      <Input type="number" value={pension} onChange={(e) => onPen(Number(e.target.value) || 0)} className="mt-2 font-mono-num" />
+      <Input type="number" value={pension === 0 ? "" : pension} onChange={(e) => onPen(Number(e.target.value) || 0)} className="mt-2 font-mono-num" />
       <div className="mt-6 space-y-2">
         <Stat label="Net / year" value={fmt(r.net)} big />
         <Stat label="Net / month" value={fmt(r.net / 12)} />

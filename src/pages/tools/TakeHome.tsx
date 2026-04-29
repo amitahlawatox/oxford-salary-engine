@@ -119,14 +119,14 @@ const TakeHome = () => {
                   <Label htmlFor="bonus" className="text-sm">Annual bonus</Label>
                   <div className="mt-2 relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-                    <Input id="bonus" type="number" value={s.bonus} onChange={(e) => set({ bonus: Number(e.target.value) || 0 })} className="pl-7 font-mono-num" />
+                    <Input id="bonus" type="number" value={s.bonus === 0 ? "" : s.bonus} onChange={(e) => set({ bonus: Number(e.target.value) || 0 })} className="pl-7 font-mono-num" />
                   </div>
                 </div>
                 <div>
                   <Label htmlFor="overtime" className="text-sm">Overtime / yr</Label>
                   <div className="mt-2 relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-                    <Input id="overtime" type="number" value={s.overtime} onChange={(e) => set({ overtime: Number(e.target.value) || 0 })} className="pl-7 font-mono-num" />
+                    <Input id="overtime" type="number" value={s.overtime === 0 ? "" : s.overtime} onChange={(e) => set({ overtime: Number(e.target.value) || 0 })} className="pl-7 font-mono-num" />
                   </div>
                 </div>
               </div>

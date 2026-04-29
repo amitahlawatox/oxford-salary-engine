@@ -33,7 +33,7 @@ const ProRata = () => {
             <Label className="text-sm">Full-time equivalent salary</Label>
             <div className="mt-2 relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-              <Input type="number" value={s.ftSalary} onChange={(e) => set({ ftSalary: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
+              <Input type="number" value={s.ftSalary === 0 ? "" : s.ftSalary} onChange={(e) => set({ ftSalary: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
             </div>
           </div>
           <div>
