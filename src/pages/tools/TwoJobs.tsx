@@ -42,14 +42,14 @@ const TwoJobs = () => {
             <Label className="text-sm">Job A salary (primary, 1257L)</Label>
             <div className="mt-2 relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-              <Input type="number" value={s.jobA} onChange={(e) => set({ jobA: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
+              <Input type="number" value={s.jobA === 0 ? "" : s.jobA} onChange={(e) => set({ jobA: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
             </div>
           </div>
           <div>
             <Label className="text-sm">Job B salary (secondary, BR)</Label>
             <div className="mt-2 relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-              <Input type="number" value={s.jobB} onChange={(e) => set({ jobB: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
+              <Input type="number" value={s.jobB === 0 ? "" : s.jobB} onChange={(e) => set({ jobB: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
             </div>
           </div>
           <div className="text-xs text-muted-foreground pt-2">

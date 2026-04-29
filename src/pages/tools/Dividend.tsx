@@ -32,14 +32,14 @@ const Dividend = () => {
             <Label className="text-sm">Director salary</Label>
             <div className="mt-2 relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-              <Input type="number" value={s.salary} onChange={(e) => set({ salary: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
+              <Input type="number" value={s.salary === 0 ? "" : s.salary} onChange={(e) => set({ salary: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
             </div>
           </div>
           <div>
             <Label className="text-sm">Dividends drawn</Label>
             <div className="mt-2 relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-              <Input type="number" value={s.dividends} onChange={(e) => set({ dividends: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
+              <Input type="number" value={s.dividends === 0 ? "" : s.dividends} onChange={(e) => set({ dividends: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
             </div>
           </div>
           <div className="border border-border rounded-md p-4 bg-secondary/40">

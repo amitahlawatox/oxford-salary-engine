@@ -30,7 +30,7 @@ const SelfEmployed = () => {
             <Label className="text-sm">Annual profit (after expenses)</Label>
             <div className="mt-2 relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">£</span>
-              <Input type="number" value={s.profit} onChange={(e) => set({ profit: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
+              <Input type="number" value={s.profit === 0 ? "" : s.profit} onChange={(e) => set({ profit: Number(e.target.value) || 0 })} className="pl-7 font-mono-num text-lg h-11" />
             </div>
           </div>
           <div className="flex items-center justify-between border border-border rounded-md p-3">
