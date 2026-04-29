@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Download } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -16,6 +16,7 @@ import { ToolSeo } from "@/components/seo/ToolSeo";
 import { YearToggle } from "@/components/tools/YearToggle";
 import { YoYDelta } from "@/components/tools/YoYDelta";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { SacrificeItems, annualiseSacrifice, type SacrificeItem } from "@/components/tools/SacrificeItems";
 
 const SL_LABELS: Record<StudentLoanPlan, string> = {
   none: "None",
@@ -39,6 +40,8 @@ const TakeHome = () => {
     year: DEFAULT_TAX_YEAR as TaxYear,
     compare: false as boolean,
   });
+  const [sacrifices, setSacrifices] = useState<SacrificeItem[]>([]);
+  const extraSacrifice = useMemo(() => annualiseSacrifice(sacrifices), [sacrifices]);
 
   const salaryNum = typeof s.salary === "number" ? s.salary : Number(s.salary) || 0;
   const input: CalcInput = {
@@ -51,12 +54,13 @@ const TakeHome = () => {
     overtime: s.overtime,
     taxCode: s.taxCode,
     taxYear: s.year,
+    extraSacrifice,
   };
 
-  const r = useMemo(() => calculate(input), [salaryNum, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, s.year]);
+  const r = useMemo(() => calculate(input), [salaryNum, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, s.year, extraSacrifice]);
 
   const otherYear: TaxYear = s.year === "2026/27" ? "2025/26" : "2026/27";
-  const rOther = useMemo(() => calculate({ ...input, taxYear: otherYear }), [salaryNum, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, otherYear]);
+  const rOther = useMemo(() => calculate({ ...input, taxYear: otherYear }), [salaryNum, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, otherYear, extraSacrifice]);
 
   const shareSummary = `UK Take-Home (${s.year}) on ${fmt(salaryNum)} gross${s.region === "scotland" ? " · Scotland" : ""}: ${fmt(r.net)}/yr · ${fmt(r.net / 12)}/mo · effective ${r.effectiveRate.toFixed(1)}%`;
 
@@ -162,6 +166,8 @@ const TakeHome = () => {
                 <Input id="taxCode" value={s.taxCode} onChange={(e) => set({ taxCode: e.target.value.toUpperCase() })} className="mt-2 font-mono-num" placeholder="1257L" />
               </div>
 
+              <SacrificeItems items={sacrifices} onChange={setSacrifices} />
+
               <div className="pt-2 space-y-2">
                 <ShareSummary summary={shareSummary} title={`UK Take-Home ${s.year} — ${fmt(salaryNum)} gross`} />
                 <button onClick={() => downloadPayslipPdf(r, { region: s.region, pensionPct: s.pensionPct, studentLoan: SL_LABELS[s.studentLoan] })} className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition">
@@ -211,6 +217,9 @@ const TakeHome = () => {
               {s.bonus > 0 && <Row label="Bonus" value={s.bonus} />}
               {s.overtime > 0 && <Row label="Overtime" value={s.overtime} />}
               <Row label={`Pension (${s.pensionMode === "salary-sacrifice" ? "sacrifice" : "personal"})`} value={r.pension} sub={`${s.pensionPct.toFixed(1)}% of total gross`} negative />
+              {extraSacrifice > 0 && (
+                <Row label="Other salary sacrifice" value={extraSacrifice} sub={`${sacrifices.length} item${sacrifices.length > 1 ? "s" : ""} — pre-tax & pre-NI`} negative />
+              )}
               <Row label="Taxable gross" value={r.taxableGross} />
               <Row label="Personal allowance" value={r.personalAllowance} sub={r.taxableGross > 100000 ? "Tapered above £100,000" : `Tax code ${s.taxCode}`} />
               <Row label="Taxable income" value={r.taxableIncome} />
