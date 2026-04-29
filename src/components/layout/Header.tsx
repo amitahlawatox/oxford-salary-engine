@@ -37,7 +37,13 @@ export function Header() {
       <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5">
-            <div className="size-8 rounded-lg bg-aurora shadow-glow" />
+            <img
+              src="/favicon.png"
+              alt="UK Net Pay logo"
+              width={32}
+              height={32}
+              className="size-8 rounded-lg shadow-glow"
+            />
             <div className="flex flex-col leading-none">
               <span className="font-bold text-base tracking-tight">UK Net Pay</span>
               <span className="text-[10px] text-muted-foreground tabular hidden sm:inline">Tax Year 2026/27</span>
