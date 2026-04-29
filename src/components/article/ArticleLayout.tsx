@@ -79,7 +79,7 @@ export function ArticleLayout({ article }: { article: Article }) {
           <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{article.excerpt}</p>
         </header>
 
-        <AdSlot slot="article-top" format="leaderboard" />
+        <AdSlot size="leaderboard" className="my-6" />
 
         <Prose>{article.body()}</Prose>
 
