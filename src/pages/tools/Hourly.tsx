@@ -7,6 +7,8 @@ import { Shell } from "@/components/layout/Shell";
 import { useUrlState } from "@/hooks/useUrlState";
 import { calculate, type Region } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
+import { ToolSeo } from "@/components/seo/ToolSeo";
+import { ShareSummary } from "@/components/tools/ShareSummary";
 
 const Hourly = () => {
   const [s, set] = useUrlState({
@@ -24,9 +26,14 @@ const Hourly = () => {
 
   return (
     <Shell>
+      
+      <ToolSeo path="/hourly" />
       <section className="mx-auto max-w-4xl px-6 pt-10 pb-6">
         <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Hourly Wage Calculator</h1>
         <p className="mt-2 text-muted-foreground">Convert an hourly rate into annual, monthly and weekly take-home.</p>
+        <div className="mt-4">
+          <ShareSummary summary={`Hourly Wage Calculator — see my UK calculation for the 2026/27 tax year`} title="Hourly Wage Calculator | UK Net Pay" compact />
+        </div>
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">

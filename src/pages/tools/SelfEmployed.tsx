@@ -6,6 +6,8 @@ import { Switch } from "@/components/ui/switch";
 import { useUrlState } from "@/hooks/useUrlState";
 import { calculateSelfEmployed } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
+import { ToolSeo } from "@/components/seo/ToolSeo";
+import { ShareSummary } from "@/components/tools/ShareSummary";
 
 const SelfEmployed = () => {
   const [s, set] = useUrlState({ profit: 50000, voluntary: false as boolean });
@@ -13,9 +15,14 @@ const SelfEmployed = () => {
 
   return (
     <Shell>
+      
+      <ToolSeo path="/self-employed" />
       <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
         <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Self-Employed Calculator</h1>
         <p className="mt-2 text-muted-foreground">2026/27 sole trader: Income Tax + Class 4 NI (6%/2%) + payments on account.</p>
+        <div className="mt-4">
+          <ShareSummary summary={`Self-Employed Calculator — see my UK calculation for the 2026/27 tax year`} title="Self-Employed Calculator | UK Net Pay" compact />
+        </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="border border-border rounded-lg p-6 bg-card space-y-5">

@@ -5,6 +5,8 @@ import { Label } from "@/components/ui/label";
 import { useUrlState } from "@/hooks/useUrlState";
 import { calculate, employeeNI } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
+import { ToolSeo } from "@/components/seo/ToolSeo";
+import { ShareSummary } from "@/components/tools/ShareSummary";
 
 const TwoJobs = () => {
   const [s, set] = useUrlState({ jobA: 30000, jobB: 15000 });
@@ -25,9 +27,14 @@ const TwoJobs = () => {
 
   return (
     <Shell>
+      
+      <ToolSeo path="/two-jobs" />
       <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
         <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Two Jobs Calculator</h1>
         <p className="mt-2 text-muted-foreground">Tax across two PAYE employments. Personal allowance applied to Job A; Job B taxed at BR (basic rate).</p>
+        <div className="mt-4">
+          <ShareSummary summary={`Two-Jobs Tax Calculator — see my UK calculation for the 2026/27 tax year`} title="Two-Jobs Tax Calculator | UK Net Pay" compact />
+        </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="border border-border rounded-lg p-6 bg-card space-y-5">

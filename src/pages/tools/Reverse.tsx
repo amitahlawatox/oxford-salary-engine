@@ -7,6 +7,8 @@ import { Shell } from "@/components/layout/Shell";
 import { useUrlState } from "@/hooks/useUrlState";
 import { calculate, solveGrossFromNet, type Region } from "@/lib/tax/engine";
 import { fmt } from "@/lib/format";
+import { ToolSeo } from "@/components/seo/ToolSeo";
+import { ShareSummary } from "@/components/tools/ShareSummary";
 
 const Reverse = () => {
   const [s, set] = useUrlState({
@@ -45,9 +47,14 @@ const Reverse = () => {
 
   return (
     <Shell>
+      
+      <ToolSeo path="/reverse" />
       <section className="mx-auto max-w-4xl px-6 pt-10 pb-6">
         <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Reverse Salary Calculator</h1>
         <p className="mt-2 text-muted-foreground">Set your target monthly take-home — we'll solve for the gross salary you need.</p>
+        <div className="mt-4">
+          <ShareSummary summary={`Reverse Salary Calculator — see my UK calculation for the 2026/27 tax year`} title="Reverse Salary Calculator | UK Net Pay" compact />
+        </div>
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
