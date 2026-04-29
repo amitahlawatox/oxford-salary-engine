@@ -17,6 +17,10 @@ import SelfEmployed from "./pages/tools/SelfEmployed.tsx";
 import Dividend from "./pages/tools/Dividend.tsx";
 import IR35 from "./pages/tools/IR35.tsx";
 import CostOfLiving from "./pages/tools/CostOfLiving.tsx";
+import Disclaimer from "./pages/legal/Disclaimer.tsx";
+import Privacy from "./pages/legal/Privacy.tsx";
+import Terms from "./pages/legal/Terms.tsx";
+import { ConsentBanner } from "./components/consent/ConsentBanner.tsx";
 
 const queryClient = new QueryClient();
 
@@ -40,9 +44,13 @@ const App = () => (
           <Route path="/dividend" element={<Dividend />} />
           <Route path="/ir35" element={<IR35 />} />
           <Route path="/cost-of-living" element={<CostOfLiving />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ConsentBanner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
