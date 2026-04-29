@@ -92,6 +92,8 @@ export interface CalcInput {
   overtime: number;
   taxCode?: string; // e.g. "1257L"
   taxYear?: TaxYear;
+  /** Additional annual salary sacrifice £ (car, cycle-to-work, childcare vouchers, etc.). Reduces taxable & NI-able pay. */
+  extraSacrifice?: number;
 }
 
 export interface CalcResult {
@@ -172,7 +174,9 @@ export function calculate(input: CalcInput): CalcResult {
   const year = input.taxYear ?? DEFAULT_TAX_YEAR;
   const totalGross = Math.max(0, input.gross + input.bonus + input.overtime);
   const pension = (totalGross * input.pensionPct) / 100;
-  const taxableGross = input.pensionMode === "salary-sacrifice" ? totalGross - pension : totalGross;
+  const extraSac = Math.max(0, input.extraSacrifice ?? 0);
+  const sacrificePension = input.pensionMode === "salary-sacrifice" ? pension : 0;
+  const taxableGross = Math.max(0, totalGross - sacrificePension - extraSac);
   const pa = personalAllowance(taxableGross, input.taxCode, year);
   const taxableIncome = Math.max(0, taxableGross - pa);
   const slices = bandSlices(taxableIncome, input.region, year);
@@ -208,10 +212,11 @@ function calcSimpleNext(input: CalcInput): number {
   const year = input.taxYear ?? DEFAULT_TAX_YEAR;
   const r = RATES[year];
   // marginal rate = income tax marginal + NI marginal + SL marginal
+  const extraSac = Math.max(0, input.extraSacrifice ?? 0);
   const taxableGross =
     input.pensionMode === "salary-sacrifice"
-      ? (input.gross + input.bonus + input.overtime) * (1 - input.pensionPct / 100)
-      : input.gross + input.bonus + input.overtime;
+      ? (input.gross + input.bonus + input.overtime) * (1 - input.pensionPct / 100) - extraSac
+      : (input.gross + input.bonus + input.overtime) - extraSac;
   const pa = personalAllowance(taxableGross, input.taxCode, year);
   const ti = Math.max(0, taxableGross - pa);
   const bands = input.region === "scotland" ? r.scotBands : r.rukBands;
