@@ -4,6 +4,82 @@
 export type Region = "england" | "scotland";
 export type StudentLoanPlan = "none" | "plan1" | "plan2" | "plan4" | "plan5" | "postgrad";
 export type PensionMode = "salary-sacrifice" | "personal";
+export type TaxYear = "2026/27" | "2025/26";
+
+// ─── Tax-year rate tables ─────────────────────────────
+interface YearRates {
+  pa: number;           // standard personal allowance
+  paTaperFrom: number;  // income at which PA tapers
+  rukBands: { name: string; upTo: number; rate: number }[];
+  scotBands: { name: string; upTo: number; rate: number }[];
+  ni: { pt: number; uel: number; mainRate: number; upperRate: number };
+  studentLoan: Record<StudentLoanPlan, { threshold: number; rate: number }>;
+  dividend: { allowance: number; basic: number; higher: number; additional: number };
+  selfEmployed: { lowerProfitsLimit: number; upperProfitsLimit: number; class4Main: number; class4Upper: number };
+}
+
+const RATES: Record<TaxYear, YearRates> = {
+  "2026/27": {
+    pa: 12_570,
+    paTaperFrom: 100_000,
+    rukBands: [
+      { name: "Basic 20%", upTo: 37_700, rate: 0.2 },
+      { name: "Higher 40%", upTo: 125_140 - 12_570, rate: 0.4 },
+      { name: "Additional 45%", upTo: Infinity, rate: 0.45 },
+    ],
+    scotBands: [
+      { name: "Starter 19%", upTo: 2_306, rate: 0.19 },
+      { name: "Basic 20%", upTo: 13_991, rate: 0.2 },
+      { name: "Intermediate 21%", upTo: 31_092, rate: 0.21 },
+      { name: "Higher 42%", upTo: 62_430, rate: 0.42 },
+      { name: "Advanced 45%", upTo: 125_140 - 12_570, rate: 0.45 },
+      { name: "Top 48%", upTo: Infinity, rate: 0.48 },
+    ],
+    ni: { pt: 12_570, uel: 50_270, mainRate: 0.08, upperRate: 0.02 },
+    studentLoan: {
+      none: { threshold: Infinity, rate: 0 },
+      plan1: { threshold: 26_065, rate: 0.09 },
+      plan2: { threshold: 28_470, rate: 0.09 },
+      plan4: { threshold: 32_745, rate: 0.09 },
+      plan5: { threshold: 25_000, rate: 0.09 },
+      postgrad: { threshold: 21_000, rate: 0.06 },
+    },
+    dividend: { allowance: 500, basic: 0.0875, higher: 0.3375, additional: 0.3935 },
+    selfEmployed: { lowerProfitsLimit: 12_570, upperProfitsLimit: 50_270, class4Main: 0.06, class4Upper: 0.02 },
+  },
+  "2025/26": {
+    pa: 12_570,
+    paTaperFrom: 100_000,
+    rukBands: [
+      { name: "Basic 20%", upTo: 37_700, rate: 0.2 },
+      { name: "Higher 40%", upTo: 125_140 - 12_570, rate: 0.4 },
+      { name: "Additional 45%", upTo: Infinity, rate: 0.45 },
+    ],
+    scotBands: [
+      { name: "Starter 19%", upTo: 2_306, rate: 0.19 },
+      { name: "Basic 20%", upTo: 13_991, rate: 0.2 },
+      { name: "Intermediate 21%", upTo: 31_092, rate: 0.21 },
+      { name: "Higher 42%", upTo: 62_430, rate: 0.42 },
+      { name: "Advanced 45%", upTo: 125_140 - 12_570, rate: 0.45 },
+      { name: "Top 48%", upTo: Infinity, rate: 0.48 },
+    ],
+    ni: { pt: 12_570, uel: 50_270, mainRate: 0.08, upperRate: 0.02 },
+    studentLoan: {
+      none: { threshold: Infinity, rate: 0 },
+      plan1: { threshold: 25_000, rate: 0.09 },
+      plan2: { threshold: 27_295, rate: 0.09 },
+      plan4: { threshold: 31_395, rate: 0.09 },
+      plan5: { threshold: 25_000, rate: 0.09 },
+      postgrad: { threshold: 21_000, rate: 0.06 },
+    },
+    dividend: { allowance: 500, basic: 0.0875, higher: 0.3375, additional: 0.3935 },
+    selfEmployed: { lowerProfitsLimit: 12_570, upperProfitsLimit: 50_270, class4Main: 0.06, class4Upper: 0.02 },
+  },
+};
+
+export const DEFAULT_TAX_YEAR: TaxYear = "2026/27";
+export const TAX_YEARS: TaxYear[] = ["2026/27", "2025/26"];
+export function getRates(year: TaxYear = DEFAULT_TAX_YEAR) { return RATES[year]; }
 
 export interface CalcInput {
   gross: number;
@@ -14,6 +90,7 @@ export interface CalcInput {
   bonus: number;
   overtime: number;
   taxCode?: string; // e.g. "1257L"
+  taxYear?: TaxYear;
 }
 
 export interface CalcResult {
@@ -40,33 +117,20 @@ export interface BandSlice {
 }
 
 // ─── Personal Allowance ───────────────────────────────
-export function personalAllowance(adjustedNetIncome: number, taxCode?: string) {
+export function personalAllowance(adjustedNetIncome: number, taxCode?: string, year: TaxYear = DEFAULT_TAX_YEAR) {
+  const r = RATES[year];
   // Honour numeric tax codes like "1257L" → 12,570
   if (taxCode && /^\d{3,4}[A-Z]?$/i.test(taxCode.trim())) {
     const num = parseInt(taxCode.replace(/\D/g, ""), 10);
     if (!isNaN(num)) return num * 10;
   }
-  if (adjustedNetIncome <= 100_000) return 12_570;
-  return Math.max(0, 12_570 - (adjustedNetIncome - 100_000) / 2);
+  if (adjustedNetIncome <= r.paTaperFrom) return r.pa;
+  return Math.max(0, r.pa - (adjustedNetIncome - r.paTaperFrom) / 2);
 }
 
-// ─── Income Tax ───────────────────────────────────────
-const RUK_BANDS = [
-  { name: "Basic 20%", upTo: 37_700, rate: 0.2 },
-  { name: "Higher 40%", upTo: 125_140 - 12_570, rate: 0.4 },
-  { name: "Additional 45%", upTo: Infinity, rate: 0.45 },
-];
-const SCOT_BANDS = [
-  { name: "Starter 19%", upTo: 2_306, rate: 0.19 },
-  { name: "Basic 20%", upTo: 13_991, rate: 0.2 },
-  { name: "Intermediate 21%", upTo: 31_092, rate: 0.21 },
-  { name: "Higher 42%", upTo: 62_430, rate: 0.42 },
-  { name: "Advanced 45%", upTo: 125_140 - 12_570, rate: 0.45 },
-  { name: "Top 48%", upTo: Infinity, rate: 0.48 },
-];
-
-function bandSlices(taxable: number, region: Region): BandSlice[] {
-  const bands = region === "scotland" ? SCOT_BANDS : RUK_BANDS;
+function bandSlices(taxable: number, region: Region, year: TaxYear = DEFAULT_TAX_YEAR): BandSlice[] {
+  const r = RATES[year];
+  const bands = region === "scotland" ? r.scotBands : r.rukBands;
   let prev = 0;
   let remaining = taxable;
   const slices: BandSlice[] = [];
@@ -82,47 +146,38 @@ function bandSlices(taxable: number, region: Region): BandSlice[] {
 }
 
 // ─── National Insurance (Class 1 employee) ────────────
-export function employeeNI(gross: number) {
-  const pt = 12_570;
-  const uel = 50_270;
+export function employeeNI(gross: number, year: TaxYear = DEFAULT_TAX_YEAR) {
+  const { pt, uel, mainRate, upperRate } = RATES[year].ni;
   if (gross <= pt) return 0;
   const main = Math.min(gross, uel) - pt;
   const upper = Math.max(0, gross - uel);
-  return main * 0.08 + upper * 0.02;
+  return main * mainRate + upper * upperRate;
 }
 
-function niMarginalRate(gross: number) {
-  if (gross <= 12_570) return 0;
-  if (gross <= 50_270) return 0.08;
-  return 0.02;
+function niMarginalRate(gross: number, year: TaxYear = DEFAULT_TAX_YEAR) {
+  const { pt, uel, mainRate, upperRate } = RATES[year].ni;
+  if (gross <= pt) return 0;
+  if (gross <= uel) return mainRate;
+  return upperRate;
 }
 
-// ─── Student Loans ────────────────────────────────────
-const SL_THRESHOLDS: Record<StudentLoanPlan, { threshold: number; rate: number }> = {
-  none: { threshold: Infinity, rate: 0 },
-  plan1: { threshold: 26_065, rate: 0.09 },
-  plan2: { threshold: 28_470, rate: 0.09 },
-  plan4: { threshold: 32_745, rate: 0.09 },
-  plan5: { threshold: 25_000, rate: 0.09 },
-  postgrad: { threshold: 21_000, rate: 0.06 },
-};
-
-export function studentLoanRepayment(gross: number, plan: StudentLoanPlan) {
-  const { threshold, rate } = SL_THRESHOLDS[plan];
+export function studentLoanRepayment(gross: number, plan: StudentLoanPlan, year: TaxYear = DEFAULT_TAX_YEAR) {
+  const { threshold, rate } = RATES[year].studentLoan[plan];
   return Math.max(0, gross - threshold) * rate;
 }
 
 // ─── Master calculator ────────────────────────────────
 export function calculate(input: CalcInput): CalcResult {
+  const year = input.taxYear ?? DEFAULT_TAX_YEAR;
   const totalGross = Math.max(0, input.gross + input.bonus + input.overtime);
   const pension = (totalGross * input.pensionPct) / 100;
   const taxableGross = input.pensionMode === "salary-sacrifice" ? totalGross - pension : totalGross;
-  const pa = personalAllowance(taxableGross, input.taxCode);
+  const pa = personalAllowance(taxableGross, input.taxCode, year);
   const taxableIncome = Math.max(0, taxableGross - pa);
-  const slices = bandSlices(taxableIncome, input.region);
+  const slices = bandSlices(taxableIncome, input.region, year);
   const incomeTax = slices.reduce((a, s) => a + s.tax, 0);
-  const ni = employeeNI(taxableGross);
-  const sl = studentLoanRepayment(taxableGross, input.studentLoan);
+  const ni = employeeNI(taxableGross, year);
+  const sl = studentLoanRepayment(taxableGross, input.studentLoan, year);
   const personalDeduction = input.pensionMode === "personal" ? pension : 0;
   const net = taxableGross - incomeTax - ni - sl - personalDeduction;
   const effectiveRate = totalGross > 0 ? ((incomeTax + ni + sl) / totalGross) * 100 : 0;
@@ -149,14 +204,16 @@ export function calculate(input: CalcInput): CalcResult {
 }
 
 function calcSimpleNext(input: CalcInput): number {
+  const year = input.taxYear ?? DEFAULT_TAX_YEAR;
+  const r = RATES[year];
   // marginal rate = income tax marginal + NI marginal + SL marginal
   const taxableGross =
     input.pensionMode === "salary-sacrifice"
       ? (input.gross + input.bonus + input.overtime) * (1 - input.pensionPct / 100)
       : input.gross + input.bonus + input.overtime;
-  const pa = personalAllowance(taxableGross, input.taxCode);
+  const pa = personalAllowance(taxableGross, input.taxCode, year);
   const ti = Math.max(0, taxableGross - pa);
-  const bands = input.region === "scotland" ? SCOT_BANDS : RUK_BANDS;
+  const bands = input.region === "scotland" ? r.scotBands : r.rukBands;
   let prev = 0;
   let itRate = 0;
   for (const b of bands) {
@@ -167,13 +224,13 @@ function calcSimpleNext(input: CalcInput): number {
     prev = b.upTo;
   }
   // PA taper between 100k–125,140 effectively adds 20% (PA reduces by 50p per £1)
-  if (taxableGross > 100_000 && taxableGross < 125_140) itRate += 0.2;
-  const niRate = niMarginalRate(taxableGross);
+  if (taxableGross > r.paTaperFrom && taxableGross < r.paTaperFrom + 2 * r.pa) itRate += 0.2;
+  const niRate = niMarginalRate(taxableGross, year);
   const slRate =
     input.studentLoan === "none"
       ? 0
-      : taxableGross > SL_THRESHOLDS[input.studentLoan].threshold
-      ? SL_THRESHOLDS[input.studentLoan].rate
+      : taxableGross > r.studentLoan[input.studentLoan].threshold
+      ? r.studentLoan[input.studentLoan].rate
       : 0;
   return itRate + niRate + slRate;
 }
