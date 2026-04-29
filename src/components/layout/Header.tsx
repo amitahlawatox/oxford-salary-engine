@@ -10,6 +10,7 @@ const NAV = [
   { to: "/self-employed", label: "Self-Emp" },
   { to: "/ir35", label: "IR35" },
   { to: "/compare", label: "Compare" },
+  { to: "/insights", label: "Insights" },
 ];
 
 export function Header() {

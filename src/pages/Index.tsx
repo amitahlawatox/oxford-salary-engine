@@ -6,6 +6,7 @@ import {
   ShieldCheck, Zap, Lock,
 } from "lucide-react";
 import { Shell } from "@/components/layout/Shell";
+import { ARTICLES } from "@/content/articles";
 import { Seo } from "@/components/seo/Seo";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { calculate } from "@/lib/tax/engine";
@@ -165,6 +166,33 @@ const Index = () => {
               </Link>
             );
           })}
+        </div>
+      </section>
+
+      {/* INSIGHTS TEASER */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-14 border-t border-border">
+        <div className="flex items-end justify-between gap-4 mb-8">
+          <div>
+            <div className="text-[10px] font-mono uppercase tracking-widest text-accent mb-2">Insights · {ARTICLES.length} guides</div>
+            <h2 className="text-2xl sm:text-3xl font-light tracking-tight">Latest UK tax & salary guides</h2>
+          </div>
+          <Link to="/insights" className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition">
+            All insights <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {ARTICLES.slice(0, 6).map((a) => (
+            <Link
+              key={a.slug}
+              to={`/insights/${a.slug}`}
+              className="group flex flex-col border border-border rounded-2xl p-5 bg-card hover:border-accent/50 hover:shadow-card transition-all"
+            >
+              <div className="text-[10px] font-mono uppercase tracking-widest text-accent mb-3">{a.category}</div>
+              <h3 className="text-base font-semibold leading-snug tracking-tight group-hover:text-accent transition-colors">{a.title}</h3>
+              <p className="mt-2 text-xs text-muted-foreground leading-relaxed line-clamp-3">{a.excerpt}</p>
+              <div className="mt-auto pt-4 text-[11px] font-mono text-muted-foreground">{a.readMinutes} min read</div>
+            </Link>
+          ))}
         </div>
       </section>
 
