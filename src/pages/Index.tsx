@@ -40,11 +40,16 @@ const FAQ = [
 ];
 
 const Index = () => {
-  const [gross, setGross] = useState(54250);
+  const [gross, setGross] = useState("");
+  const grossAmount = Number(gross) || 0;
   const result = useMemo(
-    () => calculate({ gross, taxCode: "1257L", studentLoan: "none", pensionPct: 0, pensionMode: "personal", bonus: 0, overtime: 0, region: "england" }),
-    [gross]
+    () => calculate({ gross: grossAmount, taxCode: "1257L", studentLoan: "none", pensionPct: 0, pensionMode: "personal", bonus: 0, overtime: 0, region: "england" }),
+    [grossAmount]
   );
+
+  const handleGrossChange = (value: string) => {
+    setGross(value.replace(/[^0-9.]/g, ""));
+  };
 
   const jsonLd = [
     {
@@ -105,24 +110,27 @@ const Index = () => {
           <div className="lg:col-span-5">
             <div className="p-px rounded-2xl bg-gradient-to-b from-border to-transparent">
               <div className="bg-card rounded-2xl p-6 sm:p-7 shadow-card relative">
-                <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-accent/70">Live · v4.2</div>
-                <label className="block text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2 font-semibold">Gross Annual Income</label>
+                <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-accent/70">2026/27</div>
+                <label className="block text-xs font-semibold text-muted-foreground mb-2">Annual salary</label>
                 <div className="relative mb-5">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-mono">£</span>
                   <input
-                    type="number"
+                    type="text"
+                    inputMode="decimal"
                     value={gross}
-                    onChange={(e) => setGross(Math.max(0, Number(e.target.value)))}
-                    className="w-full bg-surface border border-border rounded-xl pl-8 pr-3 py-3 text-foreground font-mono text-2xl tabular focus:outline-none focus:border-accent transition-colors"
+                    onChange={(e) => handleGrossChange(e.target.value)}
+                    placeholder="Enter salary"
+                    aria-label="Annual salary"
+                    className="w-full bg-surface border border-border rounded-xl pl-8 pr-3 py-3 text-foreground text-2xl font-semibold tabular-nums focus:outline-none focus:border-accent transition-colors"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-3 mb-5">
                   <MiniStat label="Net / month" value={fmtGBP(result.net / 12)} accent />
-                  <MiniStat label="Tax + NI / mo" value={fmtGBP((result.incomeTax + result.ni) / 12)} />
-                  <MiniStat label="Effective rate" value={`${(result.effectiveRate * 100).toFixed(1)}%`} />
+                  <MiniStat label="Tax + NI / month" value={fmtGBP((result.incomeTax + result.ni) / 12)} />
+                  <MiniStat label="Tax rate" value={`${result.effectiveRate.toFixed(1)}%`} />
                   <MiniStat label="Net / year" value={fmtGBP(result.net)} />
                 </div>
-                <Link to={`/take-home?gross=${gross}`} className="block w-full text-center bg-foreground text-background hover:bg-accent hover:text-accent-foreground font-semibold py-3 rounded-xl transition-all text-sm">
+                <Link to={`/take-home?salary=${grossAmount}`} className="block w-full text-center bg-foreground text-background hover:bg-accent hover:text-accent-foreground font-semibold py-3 rounded-xl transition-all text-sm">
                   Open full calculator →
                 </Link>
               </div>
