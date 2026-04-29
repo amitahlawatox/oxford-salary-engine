@@ -20,6 +20,9 @@ import CostOfLiving from "./pages/tools/CostOfLiving.tsx";
 import Disclaimer from "./pages/legal/Disclaimer.tsx";
 import Privacy from "./pages/legal/Privacy.tsx";
 import Terms from "./pages/legal/Terms.tsx";
+import Insights from "./pages/insights/Insights.tsx";
+import InsightDetail from "./pages/insights/InsightDetail.tsx";
+import SalaryPage from "./pages/programmatic/SalaryPage.tsx";
 import { ConsentBanner } from "./components/consent/ConsentBanner.tsx";
 
 const queryClient = new QueryClient();
@@ -47,6 +50,9 @@ const App = () => (
           <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/insights/:slug" element={<InsightDetail />} />
+          <Route path="/salary/:amount" element={<SalaryPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
