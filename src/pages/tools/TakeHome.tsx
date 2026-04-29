@@ -163,7 +163,7 @@ const TakeHome = () => {
               </div>
 
               <div className="pt-2 space-y-2">
-                <ShareSummary summary={shareSummary} title={`UK Take-Home ${s.year} — ${fmt(s.salary)} gross`} />
+                <ShareSummary summary={shareSummary} title={`UK Take-Home ${s.year} — ${fmt(salaryNum)} gross`} />
                 <button onClick={() => downloadPayslipPdf(r, { region: s.region, pensionPct: s.pensionPct, studentLoan: SL_LABELS[s.studentLoan] })} className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition">
                   <Download className="h-3.5 w-3.5" /> Download PDF payslip
                 </button>
@@ -207,7 +207,7 @@ const TakeHome = () => {
                 <div className="text-xs uppercase tracking-wider text-muted-foreground">Annual breakdown</div>
                 <div className="text-xs text-muted-foreground tabular">2026/27</div>
               </div>
-              <Row label="Gross salary" value={s.salary} />
+              <Row label="Gross salary" value={salaryNum} />
               {s.bonus > 0 && <Row label="Bonus" value={s.bonus} />}
               {s.overtime > 0 && <Row label="Overtime" value={s.overtime} />}
               <Row label={`Pension (${s.pensionMode === "salary-sacrifice" ? "sacrifice" : "personal"})`} value={r.pension} sub={`${s.pensionPct.toFixed(1)}% of total gross`} negative />
