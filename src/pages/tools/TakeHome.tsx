@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Download } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -16,6 +16,7 @@ import { ToolSeo } from "@/components/seo/ToolSeo";
 import { YearToggle } from "@/components/tools/YearToggle";
 import { YoYDelta } from "@/components/tools/YoYDelta";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { SacrificeItems, annualiseSacrifice, type SacrificeItem } from "@/components/tools/SacrificeItems";
 
 const SL_LABELS: Record<StudentLoanPlan, string> = {
   none: "None",
@@ -39,6 +40,8 @@ const TakeHome = () => {
     year: DEFAULT_TAX_YEAR as TaxYear,
     compare: false as boolean,
   });
+  const [sacrifices, setSacrifices] = useState<SacrificeItem[]>([]);
+  const extraSacrifice = useMemo(() => annualiseSacrifice(sacrifices), [sacrifices]);
 
   const salaryNum = typeof s.salary === "number" ? s.salary : Number(s.salary) || 0;
   const input: CalcInput = {
@@ -51,12 +54,13 @@ const TakeHome = () => {
     overtime: s.overtime,
     taxCode: s.taxCode,
     taxYear: s.year,
+    extraSacrifice,
   };
 
-  const r = useMemo(() => calculate(input), [salaryNum, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, s.year]);
+  const r = useMemo(() => calculate(input), [salaryNum, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, s.year, extraSacrifice]);
 
   const otherYear: TaxYear = s.year === "2026/27" ? "2025/26" : "2026/27";
-  const rOther = useMemo(() => calculate({ ...input, taxYear: otherYear }), [salaryNum, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, otherYear]);
+  const rOther = useMemo(() => calculate({ ...input, taxYear: otherYear }), [salaryNum, s.region, s.pensionPct, s.pensionMode, s.studentLoan, s.bonus, s.overtime, s.taxCode, otherYear, extraSacrifice]);
 
   const shareSummary = `UK Take-Home (${s.year}) on ${fmt(salaryNum)} gross${s.region === "scotland" ? " · Scotland" : ""}: ${fmt(r.net)}/yr · ${fmt(r.net / 12)}/mo · effective ${r.effectiveRate.toFixed(1)}%`;
 
@@ -161,6 +165,8 @@ const TakeHome = () => {
                 <Label htmlFor="taxCode" className="text-sm">Tax code</Label>
                 <Input id="taxCode" value={s.taxCode} onChange={(e) => set({ taxCode: e.target.value.toUpperCase() })} className="mt-2 font-mono-num" placeholder="1257L" />
               </div>
+
+              <SacrificeItems items={sacrifices} onChange={setSacrifices} />
 
               <div className="pt-2 space-y-2">
                 <ShareSummary summary={shareSummary} title={`UK Take-Home ${s.year} — ${fmt(salaryNum)} gross`} />
