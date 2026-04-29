@@ -8,8 +8,8 @@ import {
 import { Shell } from "@/components/layout/Shell";
 import { Seo } from "@/components/seo/Seo";
 import { AdSlot } from "@/components/ads/AdSlot";
-import { calculateTakeHome } from "@/lib/tax/engine";
-import { fmtGBP } from "@/lib/format";
+import { calculate } from "@/lib/tax/engine";
+import { fmt as fmtGBP } from "@/lib/format";
 
 type Tool = {
   to: string; title: string; desc: string; icon: typeof Calculator;
@@ -41,7 +41,7 @@ const FAQ = [
 const Index = () => {
   const [gross, setGross] = useState(54250);
   const result = useMemo(
-    () => calculateTakeHome({ gross, taxCode: "1257L", studentLoan: "none", pensionPct: 0, region: "england-wales-ni" }),
+    () => calculate({ gross, taxCode: "1257L", studentLoan: "none", pensionPct: 0, pensionMode: "personal", bonus: 0, overtime: 0, region: "england" }),
     [gross]
   );
 
@@ -116,10 +116,10 @@ const Index = () => {
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-3 mb-5">
-                  <MiniStat label="Net / month" value={fmtGBP(result.netMonthly)} accent />
-                  <MiniStat label="Tax + NI / mo" value={fmtGBP((result.incomeTaxAnnual + result.niAnnual) / 12)} />
-                  <MiniStat label="Effective rate" value={`${((1 - result.netAnnual / Math.max(gross, 1)) * 100).toFixed(1)}%`} />
-                  <MiniStat label="Net / year" value={fmtGBP(result.netAnnual)} />
+                  <MiniStat label="Net / month" value={fmtGBP(result.net / 12)} accent />
+                  <MiniStat label="Tax + NI / mo" value={fmtGBP((result.incomeTax + result.ni) / 12)} />
+                  <MiniStat label="Effective rate" value={`${(result.effectiveRate * 100).toFixed(1)}%`} />
+                  <MiniStat label="Net / year" value={fmtGBP(result.net)} />
                 </div>
                 <Link to={`/take-home?gross=${gross}`} className="block w-full text-center bg-foreground text-background hover:bg-accent hover:text-accent-foreground font-semibold py-3 rounded-xl transition-all text-sm">
                   Open full calculator →
