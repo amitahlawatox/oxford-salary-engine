@@ -217,6 +217,9 @@ const TakeHome = () => {
               {s.bonus > 0 && <Row label="Bonus" value={s.bonus} />}
               {s.overtime > 0 && <Row label="Overtime" value={s.overtime} />}
               <Row label={`Pension (${s.pensionMode === "salary-sacrifice" ? "sacrifice" : "personal"})`} value={r.pension} sub={`${s.pensionPct.toFixed(1)}% of total gross`} negative />
+              {extraSacrifice > 0 && (
+                <Row label="Other salary sacrifice" value={extraSacrifice} sub={`${sacrifices.length} item${sacrifices.length > 1 ? "s" : ""} — pre-tax & pre-NI`} negative />
+              )}
               <Row label="Taxable gross" value={r.taxableGross} />
               <Row label="Personal allowance" value={r.personalAllowance} sub={r.taxableGross > 100000 ? "Tapered above £100,000" : `Tax code ${s.taxCode}`} />
               <Row label="Taxable income" value={r.taxableIncome} />
