@@ -2,87 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Obsidian Aurora — Design System
+ * Dark sophistication, light precision, aurora accents
+ * All colors HSL. Tokens only — never raw values in components.
+ */
 
 @layer base {
   :root {
+    /* LIGHT */
     --background: 0 0% 100%;
-    --foreground: 222 15% 12%;
+    --surface: 210 33% 98%;
+    --surface-elevated: 0 0% 100%;
+    --foreground: 222 47% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 15% 12%;
+    --card-foreground: 222 47% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 15% 12%;
+    --popover-foreground: 222 47% 8%;
 
-    --primary: 222 20% 14%;
+    --primary: 222 47% 8%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 20% 97%;
-    --secondary-foreground: 222 20% 14%;
+    --secondary: 210 33% 96%;
+    --secondary-foreground: 222 47% 12%;
 
-    --muted: 210 20% 97%;
-    --muted-foreground: 215 12% 45%;
+    --muted: 210 33% 96%;
+    --muted-foreground: 215 16% 42%;
 
-    --accent: 152 60% 38%;
+    --accent: 168 84% 32%;
     --accent-foreground: 0 0% 100%;
+    --accent-glow: 168 100% 50%;
+
+    --aurora-1: 168 84% 40%;
+    --aurora-2: 234 76% 55%;
+    --aurora-3: 271 81% 60%;
 
     --destructive: 0 75% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 20% 92%;
-    --input: 214 20% 92%;
-    --ring: 222 20% 14%;
+    --border: 214 25% 90%;
+    --input: 214 25% 90%;
+    --ring: 168 84% 32%;
 
-    --radius: 0.375rem;
+    --radius: 0.75rem;
+
+    --grad-aurora: linear-gradient(135deg, hsl(var(--aurora-1)) 0%, hsl(var(--aurora-2)) 50%, hsl(var(--aurora-3)) 100%);
+    --grad-aurora-soft: linear-gradient(135deg, hsl(var(--aurora-1) / 0.06) 0%, hsl(var(--aurora-2) / 0.06) 50%, hsl(var(--aurora-3) / 0.06) 100%);
+    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.18);
+    --shadow-card: 0 1px 2px hsl(222 47% 8% / 0.04), 0 8px 24px hsl(222 47% 8% / 0.04);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222 25% 6%;
+    /* DARK — Obsidian */
+    --background: 0 0% 1.5%;
+    --surface: 0 0% 4%;
+    --surface-elevated: 0 0% 6%;
     --foreground: 210 20% 96%;
 
-    --card: 222 25% 8%;
+    --card: 0 0% 4%;
     --card-foreground: 210 20% 96%;
 
-    --popover: 222 25% 8%;
+    --popover: 0 0% 4%;
     --popover-foreground: 210 20% 96%;
 
     --primary: 210 20% 96%;
-    --primary-foreground: 222 25% 8%;
+    --primary-foreground: 0 0% 1.5%;
 
-    --secondary: 222 20% 12%;
+    --secondary: 0 0% 8%;
     --secondary-foreground: 210 20% 96%;
 
-    --muted: 222 20% 12%;
+    --muted: 0 0% 8%;
     --muted-foreground: 215 15% 60%;
 
-    --accent: 152 65% 45%;
-    --accent-foreground: 222 25% 6%;
+    --accent: 168 100% 48%;
+    --accent-foreground: 0 0% 1.5%;
+    --accent-glow: 168 100% 60%;
+
+    --aurora-1: 168 100% 48%;
+    --aurora-2: 234 89% 70%;
+    --aurora-3: 271 91% 75%;
 
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 20% 16%;
-    --input: 222 20% 16%;
-    --ring: 152 65% 45%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 168 100% 48%;
+
+    --grad-aurora-soft: linear-gradient(135deg, hsl(var(--aurora-1) / 0.08) 0%, hsl(var(--aurora-2) / 0.08) 50%, hsl(var(--aurora-3) / 0.08) 100%);
+    --shadow-glow: 0 0 60px hsl(var(--accent) / 0.25);
+    --shadow-card: 0 1px 0 hsl(0 0% 100% / 0.04) inset, 0 8px 32px hsl(0 0% 0% / 0.5);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,17 +121,51 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
     -webkit-font-smoothing: antialiased;
   }
 
-  .font-mono-num {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  .font-mono-num,
+  .font-mono {
+    font-family: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
     font-variant-numeric: tabular-nums;
   }
 
   .tabular {
     font-variant-numeric: tabular-nums;
   }
+}
+
+@layer utilities {
+  .text-aurora {
+    background: var(--grad-aurora);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-aurora-soft { background: var(--grad-aurora-soft); }
+  .bg-aurora { background: var(--grad-aurora); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .ring-aurora {
+    box-shadow: 0 0 0 1px hsl(var(--accent) / 0.3), 0 0 24px hsl(var(--accent) / 0.15);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse at top, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at top, black 30%, transparent 70%);
+  }
+  .aurora-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(120px);
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .dark .aurora-orb { opacity: 0.18; }
 }
