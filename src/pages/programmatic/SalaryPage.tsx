@@ -103,7 +103,7 @@ const SalaryPage = () => {
     englandResult.incomeTax + englandResult.ni + englandResult.studentLoan,
   );
 
-  const prevSalary = adjacentSalary(gross, gross >= 100_000 ? -5_000 : -1_000);
+  const prevSalary = adjacentSalary(gross, gross > 100_000 ? -5_000 : -1_000);
   const nextSalary = adjacentSalary(gross, gross >= 100_000 ? 5_000 : 1_000);
 
   const jsonLd = [
