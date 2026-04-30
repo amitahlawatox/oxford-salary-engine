@@ -7,6 +7,9 @@ import { calculate, calculateDividend } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { Download } from "lucide-react";
+import { BandBreakdown } from "@/components/charts/BandBreakdown";
+import { downloadToolPdf } from "@/lib/toolPdf";
 
 const IR35 = () => {
   const [s, set] = useUrlState({ dayRate: 500, daysPerYear: 220, expenses: 3000 });
@@ -104,6 +107,37 @@ const IR35 = () => {
             {diff >= 0 ? "+" : "−"}{fmt(Math.abs(diff))} <span className="text-sm text-muted-foreground">/ year outside</span>
           </div>
         </div>
+
+        <div className="border border-border rounded-lg p-5 bg-card">
+          <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Inside IR35 - Tax by band</div>
+          <BandBreakdown result={inside} />
+        </div>
+
+        <button
+          onClick={() => downloadToolPdf({
+            title: "IR35 Contractor Calculator",
+            subtitle: `Tax year 2026/27 | Day rate: GBP ${s.dayRate} | ${s.daysPerYear} days/yr`,
+            rows: [
+              { label: "Day rate", value: `GBP ${s.dayRate}` },
+              { label: "Billable days", value: `${s.daysPerYear}` },
+              { label: "Annual turnover", value: grossYear },
+              { label: "---", value: "" },
+              { label: "Outside IR35 - Net", value: outside.net, bold: true },
+              { label: "Corp tax", value: outside.corpTax, negative: true },
+              { label: "Personal tax + NI", value: outside.divTax, negative: true },
+              { label: "---", value: "" },
+              { label: "Inside IR35 - Net", value: inside.net, bold: true },
+              { label: "Income tax", value: inside.incomeTax, negative: true },
+              { label: "NI", value: inside.ni, negative: true },
+              { label: "---", value: "" },
+              { label: "Difference (Outside better by)", value: Math.abs(diff), bold: true },
+            ],
+            filename: `uknetpay-ir35-${s.dayRate}pd.pdf`,
+          })}
+          className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition"
+        >
+          <Download className="h-3.5 w-3.5" /> Download PDF
+        </button>
       </section>
     </Shell>
   );

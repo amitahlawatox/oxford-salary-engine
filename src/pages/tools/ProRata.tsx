@@ -8,6 +8,9 @@ import { calculate } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { Download } from "lucide-react";
+import { BandBreakdown } from "@/components/charts/BandBreakdown";
+import { downloadToolPdf } from "@/lib/toolPdf";
 
 const ProRata = () => {
   const [s, set] = useUrlState({ ftSalary: 45000, ftHours: 37.5, actualHours: 22.5 });
@@ -58,6 +61,33 @@ const ProRata = () => {
           </div>
           <div className="mt-6 pt-4 border-t border-border text-xs text-muted-foreground">
             Vs full-time net of {fmt(rFull.net)} → keeping {((rPro.net / rFull.net) * 100).toFixed(1)}% of net for {(ratio * 100).toFixed(0)}% hours.
+          </div>
+          <div className="mt-6 pt-4 border-t border-border">
+            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Tax by band</div>
+            <BandBreakdown result={rPro} />
+          </div>
+          <div className="mt-4">
+            <button
+              onClick={() => downloadToolPdf({
+                title: "Pro-Rata Calculator",
+                subtitle: `Tax year 2026/27 | FTE: GBP ${s.ftSalary.toLocaleString()} | ${s.actualHours}/${s.ftHours} hrs`,
+                rows: [
+                  { label: "Full-time salary", value: s.ftSalary },
+                  { label: "FTE ratio", value: `${(ratio * 100).toFixed(1)}%` },
+                  { label: "Pro-rata salary", value: proRata },
+                  { label: "Income Tax", value: rPro.incomeTax, negative: true },
+                  { label: "NI", value: rPro.ni, negative: true },
+                  { label: "---", value: "" },
+                  { label: "Net per year", value: rPro.net, bold: true },
+                  { label: "Net per month", value: rPro.net / 12, bold: true },
+                  { label: "Effective rate", value: `${rPro.effectiveRate.toFixed(1)}%`, bold: true },
+                ],
+                filename: `uknetpay-prorata-${proRata}.pdf`,
+              })}
+              className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition"
+            >
+              <Download className="h-3.5 w-3.5" /> Download PDF
+            </button>
           </div>
         </div>
       </section>

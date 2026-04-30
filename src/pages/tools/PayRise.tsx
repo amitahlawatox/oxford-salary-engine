@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { ArrowRight, TrendingUp } from "lucide-react";
+import { ArrowRight, Download, TrendingUp } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
@@ -10,6 +10,9 @@ import { calculate, type Region } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { BandBreakdown } from "@/components/charts/BandBreakdown";
+import { MarginalCurve } from "@/components/charts/MarginalCurve";
+import { downloadToolPdf } from "@/lib/toolPdf";
 
 const base = (gross: number, region: Region) =>
   calculate({ gross, region, pensionPct: 0, pensionMode: "salary-sacrifice", studentLoan: "none", bonus: 0, overtime: 0 });
@@ -27,6 +30,8 @@ const PayRise = () => {
   const netGain = after.net - before.net;
   const keptPct = s.rise > 0 ? (netGain / s.rise) * 100 : 0;
   const lostToTax = s.rise - netGain;
+
+  const calcInputAfter = { gross: s.salary + s.rise, region: s.region, pensionPct: 0 as number, pensionMode: "salary-sacrifice" as const, studentLoan: "none" as const, bonus: 0, overtime: 0 };
 
   return (
     <Shell>
@@ -89,6 +94,17 @@ const PayRise = () => {
           <Compare title="After" gross={s.salary + s.rise} net={after.net} tax={after.incomeTax + after.ni} highlight />
         </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="border border-border rounded-lg p-5 bg-card">
+            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">After raise - Tax by band</div>
+            <BandBreakdown result={after} />
+          </div>
+          <div className="border border-border rounded-lg p-5 bg-card">
+            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Take-home curve</div>
+            <MarginalCurve input={calcInputAfter} />
+          </div>
+        </div>
+
         <div className="border border-border rounded-lg p-6 bg-card">
           <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Marginal rate</div>
           <div className="text-sm">
@@ -102,6 +118,30 @@ const PayRise = () => {
             </div>
           )}
         </div>
+
+        <button
+          onClick={() => downloadToolPdf({
+            title: "Pay Rise Simulator",
+            subtitle: `Tax year 2026/27 | Current: GBP ${s.salary.toLocaleString()} | Rise: GBP ${s.rise.toLocaleString()} | ${s.region}`,
+            rows: [
+              { label: "Current salary", value: s.salary },
+              { label: "Pay rise", value: s.rise },
+              { label: "New salary", value: s.salary + s.rise },
+              { label: "---", value: "" },
+              { label: "Before - Net", value: before.net },
+              { label: "After - Net", value: after.net },
+              { label: "---", value: "" },
+              { label: "Extra take-home", value: netGain, bold: true },
+              { label: "Kept %", value: `${keptPct.toFixed(0)}%`, bold: true },
+              { label: "Lost to tax + NI", value: lostToTax, negative: true },
+              { label: "Marginal rate", value: `${after.marginalRate.toFixed(0)}%` },
+            ],
+            filename: `uknetpay-payrise-${s.salary}-plus-${s.rise}.pdf`,
+          })}
+          className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition"
+        >
+          <Download className="h-3.5 w-3.5" /> Download PDF
+        </button>
       </section>
     </Shell>
   );

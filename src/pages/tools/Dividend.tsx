@@ -7,6 +7,8 @@ import { calculateDividend, optimiseDirectorSplit } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { Download } from "lucide-react";
+import { downloadToolPdf } from "@/lib/toolPdf";
 
 const Dividend = () => {
   const [s, set] = useUrlState({ salary: 12570, dividends: 37430 });
@@ -72,6 +74,30 @@ const Dividend = () => {
             <Row label="NI on salary" v={fmt2(r.ni)} />
             <Row label="Dividend allowance used" v={fmt2(r.dividendAllowance)} />
             <Row label="Dividend tax" v={fmt2(r.dividendTax)} />
+          </div>
+          <div className="mt-6 pt-4 border-t border-border">
+            <button
+              onClick={() => downloadToolPdf({
+                title: "Dividend Optimiser",
+                subtitle: `Tax year 2026/27 | Salary: GBP ${s.salary.toLocaleString()} | Dividends: GBP ${s.dividends.toLocaleString()}`,
+                rows: [
+                  { label: "Total extracted", value: r.total },
+                  { label: "Director salary", value: s.salary },
+                  { label: "Dividends drawn", value: s.dividends },
+                  { label: "Personal allowance", value: r.personalAllowance },
+                  { label: "Salary income tax", value: r.salaryTax, negative: true },
+                  { label: "NI on salary", value: r.ni, negative: true },
+                  { label: "Dividend tax", value: r.dividendTax, negative: true },
+                  { label: "---", value: "" },
+                  { label: "Net take-home", value: r.net, bold: true },
+                  { label: "Effective rate", value: `${r.effectiveRate.toFixed(1)}%`, bold: true },
+                ],
+                filename: `uknetpay-dividend-${Math.round(r.total)}.pdf`,
+              })}
+              className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition"
+            >
+              <Download className="h-3.5 w-3.5" /> Download PDF
+            </button>
           </div>
         </div>
       </section>

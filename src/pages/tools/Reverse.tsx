@@ -9,6 +9,10 @@ import { calculate, solveGrossFromNet, type Region } from "@/lib/tax/engine";
 import { fmt } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { Download } from "lucide-react";
+import { BandBreakdown } from "@/components/charts/BandBreakdown";
+import { MarginalCurve } from "@/components/charts/MarginalCurve";
+import { downloadToolPdf } from "@/lib/toolPdf";
 
 const Reverse = () => {
   const [s, set] = useUrlState({
@@ -44,6 +48,8 @@ const Reverse = () => {
       }),
     [requiredGross, s.region],
   );
+
+  const calcInput = { gross: requiredGross, region: s.region, pensionPct: 0 as number, pensionMode: "salary-sacrifice" as const, studentLoan: "none" as const, bonus: 0, overtime: 0 };
 
   return (
     <Shell>
@@ -89,6 +95,33 @@ const Reverse = () => {
             <div className="flex justify-between"><span className="text-muted-foreground">Verified net (monthly)</span><span>{fmt(verify.net / 12)}</span></div>
             <div className="flex justify-between"><span className="text-muted-foreground">Effective rate</span><span>{verify.effectiveRate.toFixed(1)}%</span></div>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="border border-border rounded-lg p-5 bg-card">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Tax by band</div>
+              <BandBreakdown result={verify} />
+            </div>
+            <div className="border border-border rounded-lg p-5 bg-card">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Take-home curve</div>
+              <MarginalCurve input={calcInput} />
+            </div>
+          </div>
+          <button
+            onClick={() => downloadToolPdf({
+              title: "Reverse Salary Calculator",
+              subtitle: `Tax year 2026/27 | Target: GBP ${s.targetMonthly.toLocaleString()}/mo | ${s.region}`,
+              rows: [
+                { label: "Target net / month", value: s.targetMonthly * 12 / 12 },
+                { label: "Required gross salary", value: requiredGross, bold: true },
+                { label: "Verified net (annual)", value: verify.net },
+                { label: "Verified net (monthly)", value: verify.net / 12 },
+                { label: "Effective rate", value: `${verify.effectiveRate.toFixed(1)}%` },
+              ],
+              filename: `uknetpay-reverse-${s.targetMonthly}mo.pdf`,
+            })}
+            className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition"
+          >
+            <Download className="h-3.5 w-3.5" /> Download PDF
+          </button>
         </div>
       </section>
     </Shell>

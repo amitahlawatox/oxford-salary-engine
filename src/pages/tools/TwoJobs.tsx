@@ -7,6 +7,9 @@ import { calculate, employeeNI } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { Download } from "lucide-react";
+import { BandBreakdown } from "@/components/charts/BandBreakdown";
+import { downloadToolPdf } from "@/lib/toolPdf";
 
 const TwoJobs = () => {
   const [s, set] = useUrlState({ jobA: 30000, jobB: 15000 });
@@ -71,6 +74,32 @@ const TwoJobs = () => {
                 ⚠ You pay {fmt2(niSavingsVsSingle)} more NI than you would on one equivalent salary.
               </div>
             )}
+          </div>
+          <div className="mt-6 pt-4 border-t border-border">
+            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Combined tax by band</div>
+            <BandBreakdown result={combined} />
+          </div>
+          <div className="mt-4">
+            <button
+              onClick={() => downloadToolPdf({
+                title: "Two Jobs Calculator",
+                subtitle: `Tax year 2026/27 | Job A: GBP ${s.jobA.toLocaleString()} | Job B: GBP ${s.jobB.toLocaleString()}`,
+                rows: [
+                  { label: "Job A salary", value: s.jobA },
+                  { label: "Job B salary", value: s.jobB },
+                  { label: "Total gross", value: s.jobA + s.jobB },
+                  { label: "Income Tax (combined)", value: combined.incomeTax, negative: true },
+                  { label: "NI Job A", value: niA, negative: true },
+                  { label: "NI Job B", value: niB, negative: true },
+                  { label: "---", value: "" },
+                  { label: "True net take-home", value: trueNet, bold: true },
+                ],
+                filename: `uknetpay-twojobs-${s.jobA}-${s.jobB}.pdf`,
+              })}
+              className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition"
+            >
+              <Download className="h-3.5 w-3.5" /> Download PDF
+            </button>
           </div>
         </div>
       </section>

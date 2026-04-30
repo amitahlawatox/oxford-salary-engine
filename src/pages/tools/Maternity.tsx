@@ -8,6 +8,9 @@ import { calculate } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { Download } from "lucide-react";
+import { BandBreakdown } from "@/components/charts/BandBreakdown";
+import { downloadToolPdf } from "@/lib/toolPdf";
 
 // 2026/27 SMP: 6 weeks @ 90% AWE, then 33 weeks @ £187.18 or 90% (lower), then 13 weeks unpaid.
 const SMP_FLAT = 187.18;
@@ -83,6 +86,32 @@ const Maternity = () => {
             <Row label="NI" v={fmt2(result.r.ni)} />
             <Row label="Net" v={fmt2(result.r.net)} />
             <Row label="Vs normal-year net" v={`−${fmt2(result.normal.net - result.r.net)}`} />
+          </div>
+          <div className="mt-6 pt-4 border-t border-border">
+            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Tax by band</div>
+            <BandBreakdown result={result.r} />
+          </div>
+          <div className="mt-4">
+            <button
+              onClick={() => downloadToolPdf({
+                title: "Maternity / SMP Calculator",
+                subtitle: `Tax year 2026/27 | Salary: GBP ${s.salary.toLocaleString()} | ${s.weeksFullPay} full-pay wks | ${s.weeksHalfPay} half-pay wks`,
+                rows: [
+                  { label: "Normal annual salary", value: s.salary },
+                  { label: "Maternity-year gross", value: result.totalGrossYear },
+                  { label: "Income Tax", value: result.r.incomeTax, negative: true },
+                  { label: "NI", value: result.r.ni, negative: true },
+                  { label: "---", value: "" },
+                  { label: "Maternity net", value: result.r.net, bold: true },
+                  { label: "Normal-year net", value: result.normal.net },
+                  { label: "Difference", value: result.normal.net - result.r.net, negative: true, bold: true },
+                ],
+                filename: `uknetpay-maternity-${s.salary}.pdf`,
+              })}
+              className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition"
+            >
+              <Download className="h-3.5 w-3.5" /> Download PDF
+            </button>
           </div>
         </div>
       </section>
