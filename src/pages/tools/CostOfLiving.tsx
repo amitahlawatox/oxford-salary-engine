@@ -5,9 +5,11 @@ import { Label } from "@/components/ui/label";
 import { useUrlState } from "@/hooks/useUrlState";
 import { calculate } from "@/lib/tax/engine";
 import { fmt } from "@/lib/format";
-import { MapPin } from "lucide-react";
+import { Download, MapPin } from "lucide-react";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { BandBreakdown } from "@/components/charts/BandBreakdown";
+import { downloadToolPdf } from "@/lib/toolPdf";
 
 // Approx monthly cost-of-living (1-bed rent + bills + transport + modest food) — 2026 estimates.
 const CITIES: { name: string; cost: number; rent: number }[] = [
@@ -91,6 +93,34 @@ const CostOfLiving = () => {
           })}
         </div>
         <p className="mt-6 text-xs text-muted-foreground">Cost-of-living estimates for a single person in a 1-bed flat (rent + bills + transport + modest food). Indicative only.</p>
+
+        <div className="mt-6 border border-border rounded-lg p-5 bg-card">
+          <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Tax by band</div>
+          <BandBreakdown result={r} />
+        </div>
+
+        <div className="mt-4">
+          <button
+            onClick={() => downloadToolPdf({
+              title: "Cost-of-Living Overlay",
+              subtitle: `Tax year 2026/27 | Salary: GBP ${s.salary.toLocaleString()}`,
+              rows: [
+                { label: "Annual salary", value: s.salary },
+                { label: "Monthly take-home", value: r.net / 12 },
+                { label: "Annual net", value: r.net },
+                { label: "---", value: "" },
+                ...CITIES.map((c) => ({
+                  label: `${c.name} (${monthlyNet >= c.cost ? "Affordable" : "Tight"})`,
+                  value: `${monthlyNet >= c.cost ? "+" : "-"}GBP ${Math.abs(monthlyNet - c.cost).toFixed(0)}/mo`,
+                })),
+              ],
+              filename: `uknetpay-costliving-${s.salary}.pdf`,
+            })}
+            className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition"
+          >
+            <Download className="h-3.5 w-3.5" /> Download PDF
+          </button>
+        </div>
       </section>
     </Shell>
   );
