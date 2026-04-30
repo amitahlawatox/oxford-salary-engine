@@ -5,9 +5,11 @@ import { Label } from "@/components/ui/label";
 import { useUrlState } from "@/hooks/useUrlState";
 import { calculate, type CalcResult } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { BandBreakdown } from "@/components/charts/BandBreakdown";
+import { downloadToolPdf } from "@/lib/toolPdf";
 
 const Compare = () => {
   const [s, set] = useUrlState({ a: 45000, b: 55000, pensionA: 5, pensionB: 5 });
@@ -59,6 +61,18 @@ const Compare = () => {
           <Col title="Job A" salary={s.a} pension={s.pensionA} onSal={(v: number) => set({ a: v })} onPen={(v: number) => set({ pensionA: v })} r={ra} />
           <Col title="Job B" salary={s.b} pension={s.pensionB} onSal={(v: number) => set({ b: v })} onPen={(v: number) => set({ pensionB: v })} r={rb} />
         </div>
+
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="border border-border rounded-lg p-5 bg-card">
+            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Job A - Tax by band</div>
+            <BandBreakdown result={ra} />
+          </div>
+          <div className="border border-border rounded-lg p-5 bg-card">
+            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Job B - Tax by band</div>
+            <BandBreakdown result={rb} />
+          </div>
+        </div>
+
         <div className="mt-6 border border-border rounded-lg p-6 bg-card">
           <div className="flex items-center justify-between">
             <div className="text-xs uppercase tracking-wider text-muted-foreground">Difference (B − A)</div>
@@ -73,6 +87,34 @@ const Compare = () => {
             {diff >= 0 ? "+" : "−"}
             {fmt(Math.abs(diff / 12))} per month · effective rate {(rb.effectiveRate - ra.effectiveRate).toFixed(1)}pp difference
           </div>
+        </div>
+
+        <div className="mt-4">
+          <button
+            onClick={() => downloadToolPdf({
+              title: "Two-Salary Comparison",
+              subtitle: `Tax year 2026/27 | Job A: GBP ${s.a.toLocaleString()} | Job B: GBP ${s.b.toLocaleString()}`,
+              rows: [
+                { label: "Job A - Gross", value: s.a },
+                { label: "Job A - Net", value: ra.net },
+                { label: "Job A - Income Tax", value: ra.incomeTax, negative: true },
+                { label: "Job A - NI", value: ra.ni, negative: true },
+                { label: "Job A - Effective rate", value: `${ra.effectiveRate.toFixed(1)}%` },
+                { label: "---", value: "" },
+                { label: "Job B - Gross", value: s.b },
+                { label: "Job B - Net", value: rb.net },
+                { label: "Job B - Income Tax", value: rb.incomeTax, negative: true },
+                { label: "Job B - NI", value: rb.ni, negative: true },
+                { label: "Job B - Effective rate", value: `${rb.effectiveRate.toFixed(1)}%` },
+                { label: "---", value: "" },
+                { label: "Difference (B - A)", value: Math.abs(diff), bold: true },
+              ],
+              filename: `uknetpay-compare-${s.a}-vs-${s.b}.pdf`,
+            })}
+            className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition"
+          >
+            <Download className="h-3.5 w-3.5" /> Download PDF
+          </button>
         </div>
       </section>
     </Shell>
