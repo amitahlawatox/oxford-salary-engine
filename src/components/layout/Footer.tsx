@@ -11,6 +11,7 @@ const COLS = [
       { to: "/pay-rise", label: "Pay Rise" },
       { to: "/compare", label: "Compare Salaries" },
       { to: "/pro-rata", label: "Pro-Rata" },
+      { to: "/directory", label: "Salary Directory" },
     ],
   },
   {
@@ -27,6 +28,7 @@ const COLS = [
   {
     title: "Resources",
     links: [
+      { to: "/oxford-methodology", label: "Oxford Methodology" },
       { to: "/insights", label: "Insights & Guides" },
       { to: "/insights/salary-calculator-uk-2026", label: "2026/27 Tax Bands" },
       { to: "/insights/national-insurance-2026-explained", label: "NI Rates" },
@@ -49,18 +51,19 @@ export function Footer() {
               <span className="font-bold tracking-tight">UK Net Pay</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Precise UK take-home pay & tax calculators for the 2026/27 tax year.
-              Privacy-first. No sign-up.
+              Precise UK take-home pay and tax calculators for the 2026/27 tax year. Privacy-first.
+              No sign-up.
             </p>
           </div>
-          {COLS.map((c) => (
-            <div key={c.title}>
-              <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-4">{c.title}</h4>
+
+          {COLS.map((column) => (
+            <div key={column.title}>
+              <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-4">{column.title}</h4>
               <ul className="space-y-2.5">
-                {c.links.map((l) => (
-                  <li key={l.label}>
-                    <Link to={l.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      {l.label}
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      {link.label}
                     </Link>
                   </li>
                 ))}
@@ -69,19 +72,20 @@ export function Footer() {
           ))}
         </div>
 
-        {/* FCA safe-harbor disclaimer — required on every page */}
         <div className="mt-12 pt-8 border-t border-border space-y-4">
           <p className="text-xs leading-relaxed text-muted-foreground max-w-4xl">
-            <strong className="text-foreground">Important:</strong> This tool is for illustrative purposes only.
-            All calculations are estimates and do not constitute financial advice.
-            UK Net Pay is not regulated by the Financial Conduct Authority (FCA). For professional advice,
-            consult a qualified accountant or independent financial adviser. Calculation data is processed
-            client-side in your browser and is never stored on our servers.
+            <strong className="text-foreground">Important:</strong> This tool provides an illustrative
+            simulation based on 2026/27 HMRC standard rates. It does not constitute financial or tax
+            advice. UK Net Pay is not regulated by the Financial Conduct Authority (FCA). For
+            professional advice, consult a qualified accountant or independent financial adviser.
+            Calculation data is processed client-side in your browser and is never stored on our servers.
           </p>
           <div className="flex flex-col md:flex-row justify-between items-start gap-4 text-xs text-muted-foreground">
             <span>© {new Date().getFullYear()} UK Net Pay · Information only · Not financial advice</span>
             <div className="flex items-center gap-3 font-mono uppercase tracking-widest">
-              <button onClick={openConsent} className="hover:text-foreground transition-colors">Cookie settings</button>
+              <button onClick={openConsent} className="hover:text-foreground transition-colors">
+                Cookie settings
+              </button>
               <span className="opacity-30">·</span>
               <span>Engine v4.3 · 2026/27 verified</span>
               <div className="size-1.5 rounded-full bg-accent animate-pulse" />

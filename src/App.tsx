@@ -20,6 +20,8 @@ import CostOfLiving from "./pages/tools/CostOfLiving.tsx";
 import Disclaimer from "./pages/legal/Disclaimer.tsx";
 import Privacy from "./pages/legal/Privacy.tsx";
 import Terms from "./pages/legal/Terms.tsx";
+import Methodology from "./pages/Methodology.tsx";
+import Directory from "./pages/Directory.tsx";
 import Insights from "./pages/insights/Insights.tsx";
 import InsightDetail from "./pages/insights/InsightDetail.tsx";
 import SalaryPage from "./pages/programmatic/SalaryPage.tsx";
@@ -47,6 +49,9 @@ const App = () => (
           <Route path="/dividend" element={<Dividend />} />
           <Route path="/ir35" element={<IR35 />} />
           <Route path="/cost-of-living" element={<CostOfLiving />} />
+          <Route path="/oxford-methodology" element={<Methodology />} />
+          <Route path="/methodology" element={<Methodology />} />
+          <Route path="/directory" element={<Directory />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />

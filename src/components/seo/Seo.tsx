@@ -5,11 +5,12 @@ type Props = {
   description: string;
   path: string; // e.g. "/take-home"
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  robots?: string;
 };
 
-const SITE = "https://uknetpay.co.uk";
+const SITE = "https://www.uknetpay.co.uk";
 
-export function Seo({ title, description, path, jsonLd }: Props) {
+export function Seo({ title, description, path, jsonLd, robots = "index,follow,max-image-preview:large" }: Props) {
   const url = `${SITE}${path}`;
   const fullTitle = title.includes("UK Net Pay") ? title : `${title} | UK Net Pay`;
   const ld = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
@@ -17,6 +18,7 @@ export function Seo({ title, description, path, jsonLd }: Props) {
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      <meta name="robots" content={robots} />
       <link rel="canonical" href={url} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />

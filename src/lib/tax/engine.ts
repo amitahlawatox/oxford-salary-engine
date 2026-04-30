@@ -1,15 +1,13 @@
-// 2026/27 UK tax engine — single source of truth.
-// All calculations are annual £.
+import currency from "currency.js";
 
 export type Region = "england" | "scotland";
 export type StudentLoanPlan = "none" | "plan1" | "plan2" | "plan4" | "plan5" | "postgrad";
 export type PensionMode = "salary-sacrifice" | "personal";
 export type TaxYear = "2026/27" | "2025/26";
 
-// ─── Tax-year rate tables ─────────────────────────────
 interface YearRates {
-  pa: number;           // standard personal allowance
-  paTaperFrom: number;  // income at which PA tapers
+  pa: number;
+  paTaperFrom: number;
   rukBands: { name: string; upTo: number; rate: number }[];
   scotBands: { name: string; upTo: number; rate: number }[];
   ni: { pt: number; uel: number; mainRate: number; upperRate: number };
@@ -28,13 +26,12 @@ const RATES: Record<TaxYear, YearRates> = {
       { name: "Additional 45%", upTo: Infinity, rate: 0.45 },
     ],
     scotBands: [
-      // upTo is cumulative taxable income (gross − PA of £12,570)
-      { name: "Starter 19%",      upTo: 16_537 - 12_570, rate: 0.19 }, // 3,967
-      { name: "Basic 20%",        upTo: 29_526 - 12_570, rate: 0.20 }, // 16,956
-      { name: "Intermediate 21%", upTo: 43_662 - 12_570, rate: 0.21 }, // 31,092
-      { name: "Higher 42%",       upTo: 75_000 - 12_570, rate: 0.42 }, // 62,430
-      { name: "Advanced 45%",     upTo: 125_140 - 12_570, rate: 0.45 }, // 112,570
-      { name: "Top 48%",          upTo: Infinity, rate: 0.48 },
+      { name: "Starter 19%", upTo: 16_537 - 12_570, rate: 0.19 },
+      { name: "Basic 20%", upTo: 29_526 - 12_570, rate: 0.2 },
+      { name: "Intermediate 21%", upTo: 43_662 - 12_570, rate: 0.21 },
+      { name: "Higher 42%", upTo: 75_000 - 12_570, rate: 0.42 },
+      { name: "Advanced 45%", upTo: 125_140 - 12_570, rate: 0.45 },
+      { name: "Top 48%", upTo: Infinity, rate: 0.48 },
     ],
     ni: { pt: 12_570, uel: 50_270, mainRate: 0.08, upperRate: 0.02 },
     studentLoan: {
@@ -80,7 +77,10 @@ const RATES: Record<TaxYear, YearRates> = {
 
 export const DEFAULT_TAX_YEAR: TaxYear = "2026/27";
 export const TAX_YEARS: TaxYear[] = ["2026/27", "2025/26"];
-export function getRates(year: TaxYear = DEFAULT_TAX_YEAR) { return RATES[year]; }
+
+export function getRates(year: TaxYear = DEFAULT_TAX_YEAR) {
+  return RATES[year];
+}
 
 export interface CalcInput {
   gross: number;
@@ -90,17 +90,23 @@ export interface CalcInput {
   studentLoan: StudentLoanPlan;
   bonus: number;
   overtime: number;
-  taxCode?: string; // e.g. "1257L"
+  taxCode?: string;
   taxYear?: TaxYear;
-  /** Additional annual salary sacrifice £ (car, cycle-to-work, childcare vouchers, etc.). Reduces taxable & NI-able pay. */
   extraSacrifice?: number;
+}
+
+export interface BandSlice {
+  name: string;
+  rate: number;
+  amount: number;
+  tax: number;
 }
 
 export interface CalcResult {
   gross: number;
-  totalGross: number; // gross + bonus + overtime
+  totalGross: number;
   pension: number;
-  taxableGross: number; // after salary-sacrifice pension
+  taxableGross: number;
   personalAllowance: number;
   taxableIncome: number;
   incomeTax: number;
@@ -112,150 +118,6 @@ export interface CalcResult {
   bands: BandSlice[];
 }
 
-export interface BandSlice {
-  name: string;
-  rate: number;
-  amount: number; // £ falling in this band
-  tax: number;
-}
-
-// ─── Personal Allowance ───────────────────────────────
-export function personalAllowance(adjustedNetIncome: number, taxCode?: string, year: TaxYear = DEFAULT_TAX_YEAR) {
-  const r = RATES[year];
-  // Honour numeric tax codes like "1257L" → 12,570
-  if (taxCode && /^\d{3,4}[A-Z]?$/i.test(taxCode.trim())) {
-    const num = parseInt(taxCode.replace(/\D/g, ""), 10);
-    if (!isNaN(num)) return num * 10;
-  }
-  if (adjustedNetIncome <= r.paTaperFrom) return r.pa;
-  return Math.max(0, r.pa - (adjustedNetIncome - r.paTaperFrom) / 2);
-}
-
-function bandSlices(taxable: number, region: Region, year: TaxYear = DEFAULT_TAX_YEAR): BandSlice[] {
-  const r = RATES[year];
-  const bands = region === "scotland" ? r.scotBands : r.rukBands;
-  let prev = 0;
-  let remaining = taxable;
-  const slices: BandSlice[] = [];
-  for (const b of bands) {
-    if (remaining <= 0) break;
-    const width = b.upTo - prev;
-    const amount = Math.min(remaining, width);
-    slices.push({ name: b.name, rate: b.rate, amount, tax: amount * b.rate });
-    remaining -= amount;
-    prev = b.upTo;
-  }
-  return slices;
-}
-
-// ─── National Insurance (Class 1 employee) ────────────
-export function employeeNI(gross: number, year: TaxYear = DEFAULT_TAX_YEAR) {
-  const { pt, uel, mainRate, upperRate } = RATES[year].ni;
-  if (gross <= pt) return 0;
-  const main = Math.min(gross, uel) - pt;
-  const upper = Math.max(0, gross - uel);
-  return main * mainRate + upper * upperRate;
-}
-
-function niMarginalRate(gross: number, year: TaxYear = DEFAULT_TAX_YEAR) {
-  const { pt, uel, mainRate, upperRate } = RATES[year].ni;
-  if (gross <= pt) return 0;
-  if (gross <= uel) return mainRate;
-  return upperRate;
-}
-
-export function studentLoanRepayment(gross: number, plan: StudentLoanPlan, year: TaxYear = DEFAULT_TAX_YEAR) {
-  const { threshold, rate } = RATES[year].studentLoan[plan];
-  return Math.max(0, gross - threshold) * rate;
-}
-
-// ─── Master calculator ────────────────────────────────
-export function calculate(input: CalcInput): CalcResult {
-  const year = input.taxYear ?? DEFAULT_TAX_YEAR;
-  const totalGross = Math.max(0, input.gross + input.bonus + input.overtime);
-  const pension = (totalGross * input.pensionPct) / 100;
-  const extraSac = Math.max(0, input.extraSacrifice ?? 0);
-  const sacrificePension = input.pensionMode === "salary-sacrifice" ? pension : 0;
-  const taxableGross = Math.max(0, totalGross - sacrificePension - extraSac);
-  const pa = personalAllowance(taxableGross, input.taxCode, year);
-  const taxableIncome = Math.max(0, taxableGross - pa);
-  const slices = bandSlices(taxableIncome, input.region, year);
-  const incomeTax = slices.reduce((a, s) => a + s.tax, 0);
-  const ni = employeeNI(taxableGross, year);
-  const sl = studentLoanRepayment(taxableGross, input.studentLoan, year);
-  const personalDeduction = input.pensionMode === "personal" ? pension : 0;
-  const net = taxableGross - incomeTax - ni - sl - personalDeduction;
-  const effectiveRate = totalGross > 0 ? ((incomeTax + ni + sl) / totalGross) * 100 : 0;
-
-  // Marginal: rate on next £1
-  const next = calcSimpleNext(input);
-  const marginalRate = next * 100;
-
-  return {
-    gross: input.gross,
-    totalGross,
-    pension,
-    taxableGross,
-    personalAllowance: pa,
-    taxableIncome,
-    incomeTax,
-    ni,
-    studentLoan: sl,
-    net,
-    effectiveRate,
-    marginalRate,
-    bands: slices,
-  };
-}
-
-function calcSimpleNext(input: CalcInput): number {
-  const year = input.taxYear ?? DEFAULT_TAX_YEAR;
-  const r = RATES[year];
-  // marginal rate = income tax marginal + NI marginal + SL marginal
-  const extraSac = Math.max(0, input.extraSacrifice ?? 0);
-  const taxableGross =
-    input.pensionMode === "salary-sacrifice"
-      ? (input.gross + input.bonus + input.overtime) * (1 - input.pensionPct / 100) - extraSac
-      : (input.gross + input.bonus + input.overtime) - extraSac;
-  const pa = personalAllowance(taxableGross, input.taxCode, year);
-  const ti = Math.max(0, taxableGross - pa);
-  const bands = input.region === "scotland" ? r.scotBands : r.rukBands;
-  let prev = 0;
-  let itRate = 0;
-  for (const b of bands) {
-    if (ti <= b.upTo) {
-      itRate = b.rate;
-      break;
-    }
-    prev = b.upTo;
-  }
-  // PA taper between 100k–125,140 effectively adds 20% (PA reduces by 50p per £1)
-  if (taxableGross > r.paTaperFrom && taxableGross < r.paTaperFrom + 2 * r.pa) itRate += 0.2;
-  const niRate = niMarginalRate(taxableGross, year);
-  const slRate =
-    input.studentLoan === "none"
-      ? 0
-      : taxableGross > r.studentLoan[input.studentLoan].threshold
-      ? r.studentLoan[input.studentLoan].rate
-      : 0;
-  return itRate + niRate + slRate;
-}
-
-// ─── Reverse: target net → gross ──────────────────────
-export function solveGrossFromNet(targetAnnualNet: number, base: Omit<CalcInput, "gross">): number {
-  let lo = 0;
-  let hi = 1_500_000;
-  for (let i = 0; i < 60; i++) {
-    const mid = (lo + hi) / 2;
-    const { net } = calculate({ ...base, gross: mid });
-    if (net < targetAnnualNet) lo = mid;
-    else hi = mid;
-  }
-  return Math.round((lo + hi) / 2);
-}
-
-// ─── Self-Employed (Class 4 NI + Income Tax) ──────────
-// 2026/27: Class 2 abolished for most; Class 4 = 6% (£12,570–£50,270) + 2% (>£50,270)
 export interface SelfEmployedResult {
   profit: number;
   personalAllowance: number;
@@ -269,36 +131,6 @@ export interface SelfEmployedResult {
   bands: BandSlice[];
 }
 
-export function calculateSelfEmployed(profit: number, region: Region = "england", voluntaryClass2 = false): SelfEmployedResult {
-  const pa = personalAllowance(profit);
-  const ti = Math.max(0, profit - pa);
-  const slices = bandSlices(ti, region);
-  const incomeTax = slices.reduce((a, s) => a + s.tax, 0);
-  const lpt = 12_570;
-  const upl = 50_270;
-  const main = Math.max(0, Math.min(profit, upl) - lpt);
-  const upper = Math.max(0, profit - upl);
-  const class4 = main * 0.06 + upper * 0.02;
-  const class2 = voluntaryClass2 ? 179.4 : 0; // £3.45/week × 52
-  const net = profit - incomeTax - class4 - class2;
-  const totalTax = incomeTax + class4 + class2;
-  const paymentsOnAccount = totalTax > 1000 ? totalTax / 2 : 0;
-  return {
-    profit,
-    personalAllowance: pa,
-    taxableProfit: ti,
-    incomeTax,
-    class4,
-    class2,
-    net,
-    paymentsOnAccount,
-    effectiveRate: profit > 0 ? (totalTax / profit) * 100 : 0,
-    bands: slices,
-  };
-}
-
-// ─── Dividend tax (2026/27) ───────────────────────────
-// Allowance £500. Then 8.75% basic / 33.75% higher / 39.35% additional.
 export interface DividendResult {
   salary: number;
   dividends: number;
@@ -312,49 +144,265 @@ export interface DividendResult {
   effectiveRate: number;
 }
 
+const money = (value: number) => currency(value, { precision: 2, symbol: "" });
+const round2 = (value: number) => money(value).value;
+const mul = (value: number, rate: number) => round2(value * rate);
+const safe = (value: number) => (Number.isFinite(value) ? value : 0);
+
+export function personalAllowance(
+  adjustedNetIncome: number,
+  taxCode?: string,
+  year: TaxYear = DEFAULT_TAX_YEAR,
+) {
+  const rates = RATES[year];
+  let baseAllowance = rates.pa;
+
+  if (taxCode && /^\d{3,4}[A-Z]?$/i.test(taxCode.trim())) {
+    const num = Number.parseInt(taxCode.replace(/\D/g, ""), 10);
+    if (!Number.isNaN(num)) {
+      baseAllowance = num * 10;
+    }
+  }
+
+  if (adjustedNetIncome <= rates.paTaperFrom) {
+    return baseAllowance;
+  }
+
+  return Math.max(0, baseAllowance - (adjustedNetIncome - rates.paTaperFrom) / 2);
+}
+
+function bandSlices(taxable: number, region: Region, year: TaxYear = DEFAULT_TAX_YEAR): BandSlice[] {
+  const bands = region === "scotland" ? RATES[year].scotBands : RATES[year].rukBands;
+  const slices: BandSlice[] = [];
+
+  let previousUpper = 0;
+  let remaining = taxable;
+
+  for (const band of bands) {
+    if (remaining <= 0) {
+      break;
+    }
+
+    const width = band.upTo - previousUpper;
+    const amount = Math.min(remaining, width);
+    if (amount > 0) {
+      slices.push({
+        name: band.name,
+        rate: band.rate,
+        amount: round2(amount),
+        tax: mul(amount, band.rate),
+      });
+    }
+
+    remaining -= amount;
+    previousUpper = band.upTo;
+  }
+
+  return slices;
+}
+
+export function employeeNI(gross: number, year: TaxYear = DEFAULT_TAX_YEAR) {
+  const { pt, uel, mainRate, upperRate } = RATES[year].ni;
+  if (gross <= pt) {
+    return 0;
+  }
+
+  const mainBand = Math.max(0, Math.min(gross, uel) - pt);
+  const upperBand = Math.max(0, gross - uel);
+  return round2(mul(mainBand, mainRate) + mul(upperBand, upperRate));
+}
+
+function niMarginalRate(gross: number, year: TaxYear = DEFAULT_TAX_YEAR) {
+  const { pt, uel, mainRate, upperRate } = RATES[year].ni;
+  if (gross <= pt) {
+    return 0;
+  }
+  if (gross <= uel) {
+    return mainRate;
+  }
+  return upperRate;
+}
+
+export function studentLoanRepayment(
+  gross: number,
+  plan: StudentLoanPlan,
+  year: TaxYear = DEFAULT_TAX_YEAR,
+) {
+  const { threshold, rate } = RATES[year].studentLoan[plan];
+  if (gross <= threshold || rate === 0) {
+    return 0;
+  }
+  return mul(gross - threshold, rate);
+}
+
+export function calculate(input: CalcInput): CalcResult {
+  const year = input.taxYear ?? DEFAULT_TAX_YEAR;
+  const gross = Math.max(0, safe(input.gross));
+  const bonus = Math.max(0, safe(input.bonus));
+  const overtime = Math.max(0, safe(input.overtime));
+  const pensionPct = Math.max(0, safe(input.pensionPct));
+  const extraSacrifice = Math.max(0, safe(input.extraSacrifice ?? 0));
+
+  const totalGross = round2(money(gross).add(bonus).add(overtime).value);
+  const pension = mul(totalGross, pensionPct / 100);
+  const sacrificePension = input.pensionMode === "salary-sacrifice" ? pension : 0;
+  const personalPension = input.pensionMode === "personal" ? pension : 0;
+  const taxableGross = Math.max(0, round2(money(totalGross).subtract(sacrificePension).subtract(extraSacrifice).value));
+  const pa = round2(personalAllowance(taxableGross, input.taxCode, year));
+  const taxableIncome = Math.max(0, round2(money(taxableGross).subtract(pa).value));
+  const bands = bandSlices(taxableIncome, input.region, year);
+  const incomeTax = round2(bands.reduce((sum, band) => sum + band.tax, 0));
+  const ni = employeeNI(taxableGross, year);
+  const sl = studentLoanRepayment(taxableGross, input.studentLoan, year);
+  const net = Math.max(
+    0,
+    round2(money(taxableGross).subtract(incomeTax).subtract(ni).subtract(sl).subtract(personalPension).value),
+  );
+  const effectiveRate = totalGross > 0 ? ((incomeTax + ni + sl) / totalGross) * 100 : 0;
+
+  return {
+    gross,
+    totalGross,
+    pension,
+    taxableGross,
+    personalAllowance: pa,
+    taxableIncome,
+    incomeTax,
+    ni,
+    studentLoan: sl,
+    net,
+    effectiveRate: round2(effectiveRate),
+    marginalRate: round2(calcMarginalRate(input) * 100),
+    bands,
+  };
+}
+
+function calcMarginalRate(input: CalcInput) {
+  const year = input.taxYear ?? DEFAULT_TAX_YEAR;
+  const rates = RATES[year];
+  const totalGross = Math.max(0, safe(input.gross) + safe(input.bonus) + safe(input.overtime));
+  const extraSacrifice = Math.max(0, safe(input.extraSacrifice ?? 0));
+  const salarySacrifice = input.pensionMode === "salary-sacrifice" ? (totalGross * Math.max(0, safe(input.pensionPct)) / 100) : 0;
+  const taxableGross = Math.max(0, totalGross - salarySacrifice - extraSacrifice);
+  const allowance = personalAllowance(taxableGross, input.taxCode, year);
+  const taxableIncome = Math.max(0, taxableGross - allowance);
+
+  const bands = input.region === "scotland" ? rates.scotBands : rates.rukBands;
+  let incomeTaxRate = bands[bands.length - 1]?.rate ?? 0;
+  for (const band of bands) {
+    if (taxableIncome <= band.upTo) {
+      incomeTaxRate = band.rate;
+      break;
+    }
+  }
+
+  if (taxableGross > rates.paTaperFrom && taxableGross < rates.paTaperFrom + 2 * rates.pa) {
+    incomeTaxRate += 0.2;
+  }
+
+  const niRate = niMarginalRate(taxableGross, year);
+  const studentLoanRate =
+    input.studentLoan !== "none" && taxableGross > rates.studentLoan[input.studentLoan].threshold
+      ? rates.studentLoan[input.studentLoan].rate
+      : 0;
+
+  return incomeTaxRate + niRate + studentLoanRate;
+}
+
+export function solveGrossFromNet(targetAnnualNet: number, base: Omit<CalcInput, "gross">) {
+  let lower = 0;
+  let upper = 1_500_000;
+
+  for (let index = 0; index < 60; index += 1) {
+    const guess = (lower + upper) / 2;
+    const result = calculate({ ...base, gross: guess });
+    if (result.net < targetAnnualNet) {
+      lower = guess;
+    } else {
+      upper = guess;
+    }
+  }
+
+  return Math.round((lower + upper) / 2);
+}
+
+export function calculateSelfEmployed(
+  profit: number,
+  region: Region = "england",
+  voluntaryClass2 = false,
+): SelfEmployedResult {
+  const cleanProfit = Math.max(0, safe(profit));
+  const rates = RATES[DEFAULT_TAX_YEAR].selfEmployed;
+  const pa = round2(personalAllowance(cleanProfit));
+  const taxableProfit = Math.max(0, round2(money(cleanProfit).subtract(pa).value));
+  const bands = bandSlices(taxableProfit, region);
+  const incomeTax = round2(bands.reduce((sum, band) => sum + band.tax, 0));
+  const mainBand = Math.max(0, Math.min(cleanProfit, rates.upperProfitsLimit) - rates.lowerProfitsLimit);
+  const upperBand = Math.max(0, cleanProfit - rates.upperProfitsLimit);
+  const class4 = round2(mul(mainBand, rates.class4Main) + mul(upperBand, rates.class4Upper));
+  const class2 = voluntaryClass2 ? round2(3.45 * 52) : 0;
+  const totalTax = round2(incomeTax + class4 + class2);
+  const net = Math.max(0, round2(money(cleanProfit).subtract(totalTax).value));
+
+  return {
+    profit: cleanProfit,
+    personalAllowance: pa,
+    taxableProfit,
+    incomeTax,
+    class4,
+    class2,
+    net,
+    paymentsOnAccount: totalTax > 1_000 ? round2(totalTax / 2) : 0,
+    effectiveRate: cleanProfit > 0 ? round2((totalTax / cleanProfit) * 100) : 0,
+    bands,
+  };
+}
+
 export function calculateDividend(salary: number, dividends: number): DividendResult {
-  const total = salary + dividends;
-  const pa = personalAllowance(total);
-  // Use PA against salary first, then dividends
-  const salaryAfterPA = Math.max(0, salary - pa);
-  const paLeftForDiv = Math.max(0, pa - salary);
-  const salarySlices = bandSlices(salaryAfterPA, "england");
-  const salaryTax = salarySlices.reduce((a, s) => a + s.tax, 0);
-  const ni = employeeNI(salary);
+  const cleanSalary = Math.max(0, safe(salary));
+  const cleanDividends = Math.max(0, safe(dividends));
+  const total = round2(cleanSalary + cleanDividends);
+  const pa = round2(personalAllowance(total));
 
-  const divAllowance = 500;
-  const dividendsAfterPA = Math.max(0, dividends - paLeftForDiv);
-  const taxableDiv = Math.max(0, dividendsAfterPA - divAllowance);
+  const salaryAfterPA = Math.max(0, round2(money(cleanSalary).subtract(pa).value));
+  const paLeftForDividends = Math.max(0, round2(pa - cleanSalary));
+  const salaryTax = round2(bandSlices(salaryAfterPA, "england").reduce((sum, band) => sum + band.tax, 0));
+  const ni = employeeNI(cleanSalary);
 
-  // Bands measured from start of taxable income
+  const rates = RATES[DEFAULT_TAX_YEAR].dividend;
+  const dividendsAfterPA = Math.max(0, round2(money(cleanDividends).subtract(paLeftForDividends).value));
+  const taxableDividends = Math.max(0, round2(money(dividendsAfterPA).subtract(rates.allowance).value));
+
   const basicRoom = Math.max(0, 37_700 - salaryAfterPA);
   const higherRoom = Math.max(0, (125_140 - 12_570) - Math.max(salaryAfterPA, 37_700));
-  const inBasic = Math.min(taxableDiv, basicRoom);
-  const afterBasic = taxableDiv - inBasic;
+  const inBasic = Math.min(taxableDividends, basicRoom);
+  const afterBasic = Math.max(0, taxableDividends - inBasic);
   const inHigher = Math.min(afterBasic, higherRoom);
-  const inAdd = Math.max(0, afterBasic - inHigher);
-  const dividendTax = inBasic * 0.0875 + inHigher * 0.3375 + inAdd * 0.3935;
+  const inAdditional = Math.max(0, afterBasic - inHigher);
+  const dividendTax = round2(
+    mul(inBasic, rates.basic) + mul(inHigher, rates.higher) + mul(inAdditional, rates.additional),
+  );
 
-  const net = total - salaryTax - ni - dividendTax;
-  const totalTax = salaryTax + ni + dividendTax;
+  const totalTax = round2(salaryTax + ni + dividendTax);
+  const net = Math.max(0, round2(money(total).subtract(totalTax).value));
+
   return {
-    salary,
-    dividends,
+    salary: cleanSalary,
+    dividends: cleanDividends,
     total,
     personalAllowance: pa,
     salaryTax,
     ni,
-    dividendAllowance: Math.min(divAllowance, dividendsAfterPA),
+    dividendAllowance: Math.min(rates.allowance, dividendsAfterPA),
     dividendTax,
     net,
-    effectiveRate: total > 0 ? (totalTax / total) * 100 : 0,
+    effectiveRate: total > 0 ? round2((totalTax / total) * 100) : 0,
   };
 }
 
-// Find optimal director split: minimal total tax for given total extraction
-export function optimiseDirectorSplit(target: number, salaryOptions = [0, 6500, 9100, 12570]): { salary: number; dividends: number; result: DividendResult }[] {
+export function optimiseDirectorSplit(target: number, salaryOptions = [0, 6_500, 9_100, 12_570]) {
   return salaryOptions
-    .filter((sal) => sal <= target)
+    .filter((salary) => salary <= target)
     .map((salary) => {
       const dividends = target - salary;
       return { salary, dividends, result: calculateDividend(salary, dividends) };

@@ -1,296 +1,260 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://uknetpay.co.uk/</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/take-home</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/take-home</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/oxford-methodology</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/hourly</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/hourly</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/reverse</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/reverse</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/pay-rise</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/pay-rise</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/compare</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/compare</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/pro-rata</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/pro-rata</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/two-jobs</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/two-jobs</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/maternity</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/maternity</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/self-employed</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/self-employed</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/dividend</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/dividend</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/ir35</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/ir35</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/cost-of-living</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/cost-of-living</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/insights</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/insights</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/directory</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/disclaimer</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.uknetpay.co.uk/privacy</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/privacy</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://uknetpay.co.uk/terms</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://uknetpay.co.uk/salary/20</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/20000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/25</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/25000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/30</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/30000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/35</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/35000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/40</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/40000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/45</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/45000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/50</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/50000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/55</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/55000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/60</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/60000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/65</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/65000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/70</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/70000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/75</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/75000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/80</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/80000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/90</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/90000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/100</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/100000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/120</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/120000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/salary/150</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/salary/150000-after-tax</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/insights/uk-cost-of-living-salary-comparison</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/insights/uk-cost-of-living-salary-comparison</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/insights/personal-allowance-taper-100k-trap</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/insights/personal-allowance-taper-100k-trap</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/insights/national-insurance-2026-explained</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/insights/national-insurance-2026-explained</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/insights/pay-rise-after-tax-calculator-uk</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/insights/pay-rise-after-tax-calculator-uk</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/insights/two-jobs-tax-uk-2026</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/insights/two-jobs-tax-uk-2026</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/insights/limited-company-dividend-strategy-2026</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/insights/limited-company-dividend-strategy-2026</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/insights/ir35-inside-vs-outside-2026</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/insights/ir35-inside-vs-outside-2026</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/insights/self-employed-tax-calculator-2026</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/insights/self-employed-tax-calculator-2026</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uknetpay.co.uk/insights/salary-sacrifice-pension-explained</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uknetpay.co.uk/insights/net-pay-on-50k-salary</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uknetpay.co.uk/insights/emergency-tax-code-1257l-explained</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uknetpay.co.uk/insights/student-loan-plan-5-calculator</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uknetpay.co.uk/insights/scottish-tax-hike-2026-explained</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uknetpay.co.uk/insights/scotland-vs-england-tax-2026</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uknetpay.co.uk/insights/salary-calculator-uk-2026</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.uknetpay.co.uk/insights/salary-sacrifice-pension-explained</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://uknetpay.co.uk/sitemap.xml
+Sitemap: https://www.uknetpay.co.uk/sitemap.xml
