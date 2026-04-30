@@ -8,6 +8,8 @@ import { calculateSelfEmployed } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { Download } from "lucide-react";
+import { downloadToolPdf } from "@/lib/toolPdf";
 
 const SelfEmployed = () => {
   const [s, set] = useUrlState({ profit: 50000, voluntary: false as boolean });
@@ -60,6 +62,28 @@ const SelfEmployed = () => {
               <div className="text-xs text-muted-foreground mt-1">Due 31 Jan and 31 Jul — each = 50% of last year's tax bill.</div>
             </div>
           )}
+          <div className="mt-6 pt-4 border-t border-border">
+            <button
+              onClick={() => downloadToolPdf({
+                title: "Self-Employed Calculator",
+                subtitle: `Tax year 2026/27 | Profit: GBP ${s.profit.toLocaleString()}${s.voluntary ? " | Class 2 NI: Yes" : ""}`,
+                rows: [
+                  { label: "Annual profit", value: r.profit },
+                  { label: "Personal allowance", value: r.personalAllowance },
+                  { label: "Income Tax", value: r.incomeTax, negative: true },
+                  { label: "Class 4 NI", value: r.class4, negative: true },
+                  ...(r.class2 > 0 ? [{ label: "Class 2 NI (voluntary)", value: r.class2, negative: true }] : []),
+                  { label: "---", value: "" },
+                  { label: "Net profit", value: r.net, bold: true },
+                  { label: "Effective rate", value: `${r.effectiveRate.toFixed(1)}%`, bold: true },
+                ],
+                filename: `uknetpay-selfemployed-${s.profit}.pdf`,
+              })}
+              className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition"
+            >
+              <Download className="h-3.5 w-3.5" /> Download PDF
+            </button>
+          </div>
         </div>
       </section>
     </Shell>
