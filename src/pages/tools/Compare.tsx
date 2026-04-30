@@ -3,7 +3,7 @@ import { Shell } from "@/components/layout/Shell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useUrlState } from "@/hooks/useUrlState";
-import { calculate } from "@/lib/tax/engine";
+import { calculate, type CalcResult } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { ArrowRight } from "lucide-react";
 import { ToolSeo } from "@/components/seo/ToolSeo";
@@ -23,7 +23,7 @@ const Compare = () => {
 
   const diff = rb.net - ra.net;
 
-  const Col = ({ title, salary, pension, onSal, onPen, r }: any) => (
+  const Col = ({ title, salary, pension, onSal, onPen, r }: { title: string; salary: number; pension: number; onSal: (v: number) => void; onPen: (v: number) => void; r: CalcResult }) => (
     <div className="border border-border rounded-lg p-6 bg-card">
       <div className="text-xs uppercase tracking-wider text-muted-foreground mb-4">{title}</div>
       <Label className="text-sm">Gross salary</Label>

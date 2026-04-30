@@ -33,6 +33,8 @@ const COLS = [
       { to: "/insights/salary-calculator-uk-2026", label: "2026/27 Tax Bands" },
       { to: "/insights/national-insurance-2026-explained", label: "NI Rates" },
       { to: "/insights/student-loan-plan-5-calculator", label: "Student Loan Plans" },
+      { to: "/about", label: "About Us" },
+      { to: "/contact", label: "Contact" },
       { to: "/disclaimer", label: "Disclaimer" },
       { to: "/privacy", label: "Privacy Policy" },
       { to: "/terms", label: "Terms" },
