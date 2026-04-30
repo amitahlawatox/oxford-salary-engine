@@ -9,6 +9,10 @@ import { calculate, type Region } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { Download } from "lucide-react";
+import { BandBreakdown } from "@/components/charts/BandBreakdown";
+import { MarginalCurve } from "@/components/charts/MarginalCurve";
+import { downloadToolPdf } from "@/lib/toolPdf";
 
 const Hourly = () => {
   const [s, set] = useUrlState({
@@ -23,6 +27,7 @@ const Hourly = () => {
     () => calculate({ gross: annualGross, region: s.region, pensionPct: 0, pensionMode: "salary-sacrifice", studentLoan: "none", bonus: 0, overtime: 0 }),
     [annualGross, s.region],
   );
+  const calcInput = { gross: annualGross, region: s.region, pensionPct: 0 as number, pensionMode: "salary-sacrifice" as const, studentLoan: "none" as const, bonus: 0, overtime: 0 };
 
   return (
     <Shell>
@@ -95,6 +100,38 @@ const Hourly = () => {
             <div className="flex justify-between"><span className="text-muted-foreground">National Insurance</span><span>−{fmt2(r.ni)}</span></div>
             <div className="flex justify-between border-t border-border pt-2 font-semibold"><span>Take-home</span><span>{fmt2(r.net)}</span></div>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="border border-border rounded-lg p-5 bg-card">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Tax by band</div>
+              <BandBreakdown result={r} />
+            </div>
+            <div className="border border-border rounded-lg p-5 bg-card">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Take-home curve</div>
+              <MarginalCurve input={calcInput} />
+            </div>
+          </div>
+          <button
+            onClick={() => downloadToolPdf({
+              title: "Hourly Wage Calculator",
+              subtitle: `Tax year 2026/27 | Rate: GBP ${s.rate}/hr | ${s.hours} hrs/wk | ${s.weeks} wks/yr | ${s.region}`,
+              rows: [
+                { label: "Hourly rate", value: `GBP ${s.rate.toFixed(2)}` },
+                { label: "Hours / week", value: `${s.hours}` },
+                { label: "Weeks / year", value: `${s.weeks}` },
+                { label: "Annual gross", value: annualGross },
+                { label: "Income Tax", value: r.incomeTax, negative: true },
+                { label: "National Insurance", value: r.ni, negative: true },
+                { label: "---", value: "" },
+                { label: "Net per year", value: r.net, bold: true },
+                { label: "Net per month", value: r.net / 12, bold: true },
+                { label: "Net per week", value: r.net / s.weeks, bold: true },
+              ],
+              filename: `uknetpay-hourly-${s.rate}.pdf`,
+            })}
+            className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition"
+          >
+            <Download className="h-3.5 w-3.5" /> Download PDF
+          </button>
         </div>
       </section>
     </Shell>
