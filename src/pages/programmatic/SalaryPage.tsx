@@ -43,6 +43,35 @@ function parseSalaryParam(value?: string) {
 const SalaryPage = () => {
   const { amount } = useParams<{ amount: string }>();
   const gross = parseSalaryParam(amount ?? "");
+  const validGross = gross && SUPPORTED_GROSS.includes(gross) ? gross : 0;
+
+  const englandResult = useMemo(
+    () =>
+      calculate({
+        gross: validGross,
+        region: "england",
+        pensionPct: 0,
+        pensionMode: "personal",
+        studentLoan: "none",
+        bonus: 0,
+        overtime: 0,
+      }),
+    [validGross],
+  );
+
+  const scotlandResult = useMemo(
+    () =>
+      calculate({
+        gross: validGross,
+        region: "scotland",
+        pensionPct: 0,
+        pensionMode: "personal",
+        studentLoan: "none",
+        bonus: 0,
+        overtime: 0,
+      }),
+    [validGross],
+  );
 
   if (!gross || !SUPPORTED_GROSS.includes(gross)) {
     return <Navigate to="/take-home" replace />;
@@ -52,34 +81,6 @@ const SalaryPage = () => {
   if (amount !== `${gross}-after-tax`) {
     return <Navigate to={canonicalPath} replace />;
   }
-
-  const englandResult = useMemo(
-    () =>
-      calculate({
-        gross,
-        region: "england",
-        pensionPct: 0,
-        pensionMode: "personal",
-        studentLoan: "none",
-        bonus: 0,
-        overtime: 0,
-      }),
-    [gross],
-  );
-
-  const scotlandResult = useMemo(
-    () =>
-      calculate({
-        gross,
-        region: "scotland",
-        pensionPct: 0,
-        pensionMode: "personal",
-        studentLoan: "none",
-        bonus: 0,
-        overtime: 0,
-      }),
-    [gross],
-  );
 
   const annualDifference = englandResult.net - scotlandResult.net;
   const title = `${salaryLabel(gross)} Salary After Tax 2026/27 | Instant & Oxford Verified`;

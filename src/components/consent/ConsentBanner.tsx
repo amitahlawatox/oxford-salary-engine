@@ -70,7 +70,8 @@ export function ConsentBanner() {
               We use necessary cookies to make the site work. With your consent we'd also use cookies for
               <strong className="text-foreground"> analytics</strong> and
               <strong className="text-foreground"> personalised ads</strong> (Google AdSense, TCF v2 framework).
-              Calculation data stays in your browser.
+              Calculation data stays in your browser.{" "}
+              <a href="/privacy" className="underline hover:text-foreground">Privacy&nbsp;Policy</a>.
             </p>
 
             {details && (
