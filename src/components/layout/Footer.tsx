@@ -44,27 +44,38 @@ const COLS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface mt-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+    <footer className="mt-24 border-t border-border bg-surface">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
-              <img src="/favicon.png" alt="UK Net Pay logo" width={32} height={32} className="size-8 rounded-lg shadow-glow" />
+            <div className="mb-4 flex items-center gap-2.5">
+              <img
+                src="/favicon.png"
+                alt="UK Net Pay logo"
+                width={32}
+                height={32}
+                className="size-8 rounded-lg shadow-glow"
+              />
               <span className="font-bold tracking-tight">UK Net Pay</span>
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Precise UK take-home pay and tax calculators for the 2026/27 tax year. Privacy-first.
-              No sign-up.
+            <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
+              Precise UK take-home pay and tax calculators for the 2026/27 tax year.
+              Privacy-first. No sign-up.
             </p>
           </div>
 
           {COLS.map((column) => (
             <div key={column.title}>
-              <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-4">{column.title}</h4>
+              <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-foreground">
+                {column.title}
+              </h4>
               <ul className="space-y-2.5">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    <Link
+                      to={link.to}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -74,23 +85,27 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border space-y-4">
-          <p className="text-xs leading-relaxed text-muted-foreground max-w-4xl">
-            <strong className="text-foreground">Important:</strong> This tool provides an illustrative
-            simulation based on 2026/27 HMRC standard rates. It does not constitute financial or tax
-            advice. UK Net Pay is not regulated by the Financial Conduct Authority (FCA). For
-            professional advice, consult a qualified accountant or independent financial adviser.
-            Calculation data is processed client-side in your browser and is never stored on our servers.
+        <div className="mt-12 space-y-4 border-t border-border pt-8">
+          <p className="max-w-4xl text-xs leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Important:</strong> This tool provides an
+            illustrative simulation based on 2026/27 HMRC standard rates. It does not
+            constitute financial or tax advice. UK Net Pay is not regulated by the
+            Financial Conduct Authority (FCA). For professional advice, consult a qualified
+            accountant or independent financial adviser. Calculation data is processed
+            client-side in your browser and is never stored on our servers.
           </p>
-          <div className="flex flex-col md:flex-row justify-between items-start gap-4 text-xs text-muted-foreground">
-            <span>© {new Date().getFullYear()} UK Net Pay · Information only · Not financial advice</span>
+          <div className="flex flex-col items-start justify-between gap-4 text-xs text-muted-foreground md:flex-row">
+            <span>
+              Copyright {new Date().getFullYear()} UK Net Pay · Information only · Not
+              financial advice
+            </span>
             <div className="flex items-center gap-3 font-mono uppercase tracking-widest">
-              <button onClick={openConsent} className="hover:text-foreground transition-colors">
+              <button onClick={openConsent} className="transition-colors hover:text-foreground">
                 Cookie settings
               </button>
               <span className="opacity-30">·</span>
               <span>Engine v4.3 · 2026/27 verified</span>
-              <div className="size-1.5 rounded-full bg-accent animate-pulse" />
+              <div className="size-1.5 animate-pulse rounded-full bg-accent" />
             </div>
           </div>
         </div>
