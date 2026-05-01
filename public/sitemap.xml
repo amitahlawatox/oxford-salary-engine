@@ -97,6 +97,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/privacy</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/disclaimer</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/terms</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/about</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -109,24 +127,35 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.uknetpay.co.uk/privacy</loc>
+    <loc>https://www.uknetpay.co.uk/salary/15000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.uknetpay.co.uk/terms</loc>
+    <loc>https://www.uknetpay.co.uk/salary/16000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.uknetpay.co.uk/disclaimer</loc>
+    <loc>https://www.uknetpay.co.uk/salary/17000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
-  <!-- Programmatic salary pages -->
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/18000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/19000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://www.uknetpay.co.uk/salary/20000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
@@ -134,7 +163,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/21000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/22000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/23000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -177,6 +218,12 @@
   </url>
   <url>
     <loc>https://www.uknetpay.co.uk/salary/30000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/31000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -236,6 +283,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/41000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/42000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -248,7 +301,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/44000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/45000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/46000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -266,7 +331,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/49000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/50000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/51000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -278,7 +355,25 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/53000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/54000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/55000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/56000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -296,7 +391,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/59000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/60000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/61000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -308,7 +415,25 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/63000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/64000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/65000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/66000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -326,7 +451,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/69000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/70000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/71000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -338,7 +475,31 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/73000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/74000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/75000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/76000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/77000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -350,7 +511,37 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/79000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/80000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/81000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/82000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/83000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/84000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -362,7 +553,55 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/86000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/87000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/88000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/89000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/90000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/91000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/92000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/93000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/94000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -374,7 +613,37 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/96000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/97000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/98000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/99000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/100000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/105000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -386,7 +655,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/115000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/120000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/125000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -398,7 +679,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/135000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/140000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/145000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -410,7 +703,55 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.uknetpay.co.uk/salary/155000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/160000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/165000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/170000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.uknetpay.co.uk/salary/175000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/180000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/185000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/190000-after-tax</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.uknetpay.co.uk/salary/195000-after-tax</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -421,7 +762,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- Insight articles -->
   <url>
     <loc>https://www.uknetpay.co.uk/insights/uk-cost-of-living-salary-comparison</loc>
     <lastmod>2026-05-01</lastmod>
@@ -507,7 +847,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.uknetpay.co.uk/insights/help-to-buy-isa-vs-lisa-2026</loc>
+    <loc>https://www.uknetpay.co.uk/insights/net-pay-on-50k-salary</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

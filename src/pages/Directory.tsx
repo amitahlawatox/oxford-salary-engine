@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
 import { Shell } from "@/components/layout/Shell";
 import { Seo } from "@/components/seo/Seo";
+import { ALL_SITEMAP_SALARIES } from "@/lib/salaryConstants";
 
 const SITE = "https://www.uknetpay.co.uk";
 
-const SALARY_LEVELS = [
-  20_000, 22_000, 24_000, 25_000, 26_000, 27_000, 28_000, 29_000, 30_000,
-  32_000, 33_000, 34_000, 35_000, 36_000, 37_000, 38_000, 39_000, 40_000,
-  42_000, 43_000, 45_000, 47_000, 48_000, 50_000, 52_000, 55_000, 57_000,
-  58_000, 60_000, 62_000, 65_000, 67_000, 68_000, 70_000, 72_000, 75_000,
-  78_000, 80_000, 85_000, 90_000, 95_000, 100_000, 110_000, 120_000, 130_000,
-  140_000, 150_000, 175_000, 200_000,
-];
-
 const salaryPath = (gross: number) => `/salary/${gross}-after-tax`;
+const salaryLabel = (gross: number) => `£${gross.toLocaleString("en-GB")}`;
+
+const BANDS: { label: string; min: number; max: number }[] = [
+  { label: "£15,000 – £25,000", min: 15_000, max: 25_000 },
+  { label: "£26,000 – £35,000", min: 26_000, max: 35_000 },
+  { label: "£36,000 – £50,000", min: 36_000, max: 50_000 },
+  { label: "£51,000 – £75,000", min: 51_000, max: 75_000 },
+  { label: "£76,000 – £100,000", min: 76_000, max: 100_000 },
+  { label: "£100,000+", min: 100_001, max: Infinity },
+];
 
 const jsonLd = [
   {
@@ -21,9 +23,9 @@ const jsonLd = [
     "@type": "WebPage",
     "@id": `${SITE}/directory`,
     url: `${SITE}/directory`,
-    name: "Salary Directory 2026/27",
+    name: "UK Salary After Tax Directory 2026/27",
     description:
-      "Browse popular UK salary after-tax pages for the 2026/27 tax year, from £20,000 to £200,000.",
+      "Browse 100+ UK salary after-tax pages for the 2026/27 tax year, from £15,000 to £200,000. Find your exact salary and see your take-home pay instantly.",
   },
   {
     "@context": "https://schema.org",
@@ -38,58 +40,75 @@ const jsonLd = [
 const Directory = () => (
   <Shell>
     <Seo
-      title="Salary Directory 2026/27 | Browse After-Tax Salary Pages"
-      description="Browse Oxford-verified UK salary after-tax pages for the 2026/27 tax year. Jump straight to £30k, £50k, £100k and more."
+      title="UK Salary After Tax Directory 2026/27 — Every Salary from £15k to £200k"
+      description="Browse 100+ salary after-tax pages for the 2026/27 UK tax year. See your exact take-home pay on any salary from £15,000 to £200,000 — free, instant, and private."
       path="/directory"
       jsonLd={jsonLd}
     />
 
-    <section className="mx-auto max-w-6xl px-5 sm:px-6 pt-14 pb-16">
+    <section className="mx-auto max-w-6xl px-5 sm:px-6 pt-14 pb-10">
       <div className="max-w-3xl">
-        <p className="text-[10px] font-mono uppercase tracking-widest text-accent mb-3">Internal linking hub</p>
+        <p className="text-[10px] font-mono uppercase tracking-widest text-accent mb-3">
+          Salary directory · 2026/27
+        </p>
         <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight leading-tight">
-          Browse salary pages for 2026/27
+          UK salary after tax — every amount from £15k to £200k
         </h1>
         <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-          This directory gives users and search engines a direct route into the most useful salary
-          scenarios on UK Net Pay. Every page shows an illustrative after-tax projection using the
-          2026/27 public model.
+          Find your exact gross salary below and see the 2026/27 take-home pay instantly. Every page
+          shows a full breakdown of Income Tax, National Insurance, and a side-by-side England vs
+          Scotland comparison. All calculations run in your browser — nothing is sent to a server.
         </p>
       </div>
+    </section>
 
-      <div className="mt-10 rounded-3xl border border-border bg-card p-6 shadow-sm">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight">Popular salary calculations</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Start with the salary closest to your offer, current package, or negotiation target.
-            </p>
+    {BANDS.map((band) => {
+      const salaries = ALL_SITEMAP_SALARIES.filter(
+        (s) => s >= band.min && s <= band.max,
+      );
+      if (salaries.length === 0) return null;
+      return (
+        <section
+          key={band.label}
+          className="mx-auto max-w-6xl px-5 sm:px-6 pb-10"
+        >
+          <h2 className="text-xl font-semibold tracking-tight mb-4">
+            {band.label}
+          </h2>
+          <div className="grid gap-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {salaries.map((gross) => (
+              <Link
+                key={gross}
+                to={salaryPath(gross)}
+                className="rounded-xl border border-border px-4 py-3 hover:border-accent/40 hover:bg-secondary/60 transition-colors"
+              >
+                <div className="text-sm font-semibold tracking-tight">
+                  {salaryLabel(gross)} after tax
+                </div>
+              </Link>
+            ))}
           </div>
-          <Link
-            to="/take-home"
-            className="inline-flex items-center justify-center rounded-xl border border-border px-4 py-2 text-sm font-medium hover:bg-secondary transition-colors"
-          >
-            Use the live calculator
-          </Link>
-        </div>
+        </section>
+      );
+    })}
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {SALARY_LEVELS.map((gross) => (
-            <Link
-              key={gross}
-              to={salaryPath(gross)}
-              className="rounded-2xl border border-border bg-surface px-4 py-4 hover:border-accent/40 hover:bg-secondary/60 transition-colors"
-            >
-              <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-1">
-                Salary page
-              </div>
-              <div className="text-lg font-semibold tracking-tight">£{gross.toLocaleString("en-GB")} after tax</div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                Instant 2026/27 salary simulation and breakdown.
-              </div>
-            </Link>
-          ))}
+    <section className="mx-auto max-w-6xl px-5 sm:px-6 pb-16">
+      <div className="border border-border rounded-2xl p-6 bg-card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h3 className="font-semibold tracking-tight">
+            Don't see your salary?
+          </h3>
+          <p className="text-sm text-muted-foreground mt-1">
+            The full calculator supports any salary amount with pension, bonus,
+            and student loan options.
+          </p>
         </div>
+        <Link
+          to="/take-home"
+          className="inline-flex items-center justify-center rounded-xl border border-border px-5 py-2.5 text-sm font-medium hover:bg-secondary transition-colors"
+        >
+          Use the live calculator
+        </Link>
       </div>
     </section>
   </Shell>
