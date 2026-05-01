@@ -17,7 +17,11 @@ export function ShareSummary({
 }: Props) {
   const [copied, setCopied] = useState<"link" | "text" | null>(null);
 
-  const shareUrl = url ?? (typeof window !== "undefined" ? window.location.href : "");
+  const shareUrl =
+    url ??
+    (typeof window !== "undefined"
+      ? `${window.location.origin}${window.location.pathname}`
+      : "");
   const shareText = `${summary}\n\nCalculate yours -> ${shareUrl}`;
 
   const copyLink = async () => {

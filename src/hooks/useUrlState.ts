@@ -1,10 +1,15 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 /**
- * Bidirectional URL ⇄ state. Encodes a flat object into the query string.
- * Numbers and booleans are auto-coerced.
+ * Privacy-first query-to-state hydration.
+ *
+ * We still accept existing query params so older shared links can prefill the
+ * tool, but we do not write salary or financial inputs back into the URL
+ * during normal use.
  */
-export function useUrlState<T extends Record<string, string | number | boolean>>(initial: T): [T, (patch: Partial<T>) => void] {
+export function useUrlState<T extends Record<string, string | number | boolean>>(
+  initial: T,
+): [T, (patch: Partial<T>) => void] {
   const read = (): T => {
     if (typeof window === "undefined") return initial;
     const sp = new URLSearchParams(window.location.search);
@@ -21,18 +26,6 @@ export function useUrlState<T extends Record<string, string | number | boolean>>
   };
 
   const [state, setState] = useState<T>(read);
-
-  useEffect(() => {
-    const sp = new URLSearchParams();
-    for (const [k, v] of Object.entries(state)) {
-      if (v === "" || v == null) continue;
-      sp.set(k, String(v));
-    }
-    const qs = sp.toString();
-    const url = `${window.location.pathname}${qs ? `?${qs}` : ""}`;
-    window.history.replaceState(null, "", url);
-  }, [state]);
-
   const update = useCallback((patch: Partial<T>) => setState((s) => ({ ...s, ...patch })), []);
   return [state, update];
 }
