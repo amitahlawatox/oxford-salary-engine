@@ -9,6 +9,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
+    "indexnow": "npx vite-node scripts/indexnow-submit.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },
