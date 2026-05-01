@@ -5,8 +5,12 @@ import { Seo } from "@/components/seo/Seo";
 const SITE = "https://www.uknetpay.co.uk";
 
 const SALARY_LEVELS = [
-  20_000, 25_000, 30_000, 35_000, 40_000, 45_000, 50_000, 55_000, 60_000,
-  65_000, 70_000, 75_000, 80_000, 90_000, 100_000, 110_000, 120_000, 150_000,
+  20_000, 22_000, 24_000, 25_000, 26_000, 27_000, 28_000, 29_000, 30_000,
+  32_000, 33_000, 34_000, 35_000, 36_000, 37_000, 38_000, 39_000, 40_000,
+  42_000, 43_000, 45_000, 47_000, 48_000, 50_000, 52_000, 55_000, 57_000,
+  58_000, 60_000, 62_000, 65_000, 67_000, 68_000, 70_000, 72_000, 75_000,
+  78_000, 80_000, 85_000, 90_000, 95_000, 100_000, 110_000, 120_000, 130_000,
+  140_000, 150_000, 175_000, 200_000,
 ];
 
 const salaryPath = (gross: number) => `/salary/${gross}-after-tax`;
@@ -19,7 +23,7 @@ const jsonLd = [
     url: `${SITE}/directory`,
     name: "Salary Directory 2026/27",
     description:
-      "Browse popular UK salary after-tax pages for the 2026/27 tax year, from £20,000 to £150,000.",
+      "Browse popular UK salary after-tax pages for the 2026/27 tax year, from £20,000 to £200,000.",
   },
   {
     "@context": "https://schema.org",
