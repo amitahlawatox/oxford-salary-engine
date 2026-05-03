@@ -865,7 +865,7 @@ export const ARTICLES: Article[] = [
           <tbody>
             <tr><td>£25,000</td><td>£3,000</td><td>£563</td><td>£28,563</td></tr>
             <tr><td>£35,000</td><td>£4,500</td><td>£863</td><td>£40,363</td></tr>
-            <tr><td>£50,000</td><td>£6,750</td><td>£1,321</td><td>£58,071</td></tr>
+            <tr><td>£50,000</td><td>£6,750</td><td>£1,313</td><td>£58,063</td></tr>
             <tr><td>£75,000</td><td>£10,500</td><td>£1,321</td><td>£86,821</td></tr>
           </tbody>
         </table>
