@@ -874,7 +874,7 @@ export const ARTICLES: Article[] = [
         <p>Eligible employers can claim up to <strong>£10,500 per year</strong> off their employer NI bill. You qualify if your total employer NI was under £100,000 in the previous tax year. For a small business hiring one person on £30,000, this could eliminate the entire NI cost.</p>
 
         <h2 id="calculator">Calculate your employment costs</h2>
-        <p>Use the <ToolLink to="/employer">Employer Cost Calculator</ToolLink> to see the total cost of a hire including NI, pension, and any apprenticeship levy.</p>
+        <p>Use the <ToolLink to="/take-home">Take-Home Calculator</ToolLink> to model the employee's net pay, then add employer NI and pension on top to see the true cost of a hire.</p>
       </>
     ),
   },

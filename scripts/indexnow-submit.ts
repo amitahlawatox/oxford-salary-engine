@@ -19,29 +19,29 @@ const ENGINES = [
 function buildUrlList(): string[] {
   const urls: string[] = [];
 
-  // Static pages
+  // Static pages (must match routes in src/App.tsx)
   const staticPaths = [
     "/",
     "/take-home",
-    "/oxford-methodology",
     "/hourly",
     "/reverse",
+    "/pay-rise",
     "/compare",
-    "/employer",
-    "/contractor",
+    "/pro-rata",
+    "/two-jobs",
+    "/maternity",
     "/self-employed",
     "/dividend",
     "/ir35",
-    "/student-loan",
-    "/benefits",
+    "/cost-of-living",
+    "/oxford-methodology",
     "/directory",
     "/about",
     "/contact",
     "/privacy",
     "/terms",
-    "/cookies",
     "/disclaimer",
-    "/accessibility",
+    "/insights",
   ];
 
   for (const p of staticPaths) {
