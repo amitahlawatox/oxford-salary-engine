@@ -19,29 +19,29 @@ const ENGINES = [
 function buildUrlList(): string[] {
   const urls: string[] = [];
 
-  // Static pages
+  // Static pages (must match routes in src/App.tsx)
   const staticPaths = [
     "/",
     "/take-home",
-    "/oxford-methodology",
     "/hourly",
     "/reverse",
+    "/pay-rise",
     "/compare",
-    "/employer",
-    "/contractor",
+    "/pro-rata",
+    "/two-jobs",
+    "/maternity",
     "/self-employed",
     "/dividend",
     "/ir35",
-    "/student-loan",
-    "/benefits",
+    "/cost-of-living",
+    "/oxford-methodology",
     "/directory",
     "/about",
     "/contact",
     "/privacy",
     "/terms",
-    "/cookies",
     "/disclaimer",
-    "/accessibility",
+    "/insights",
   ];
 
   for (const p of staticPaths) {
@@ -53,23 +53,33 @@ function buildUrlList(): string[] {
     urls.push(`${SITE}/salary/${gross}-after-tax`);
   }
 
-  // Insight articles
+  // Insight articles (must match actual slugs in src/content/articles/data.tsx)
   const insights = [
-    "salary-vs-hourly-uk",
-    "pension-auto-enrolment-uk",
-    "student-loan-repayment-uk",
-    "marginal-tax-rate-uk",
-    "tax-code-guide-uk",
-    "national-insurance-guide-uk",
-    "self-employed-vs-ltd-uk",
-    "ir35-explained-uk",
-    "salary-sacrifice-uk",
-    "dividend-tax-guide-uk",
-    "marriage-allowance-uk",
-    "employment-allowance-uk",
-    "capital-gains-tax-uk",
-    "inheritance-tax-uk",
-    "working-from-home-tax-uk",
+    "salary-calculator-uk-2026",
+    "scotland-vs-england-tax-2026",
+    "scottish-tax-hike-2026-explained",
+    "student-loan-plan-5-calculator",
+    "emergency-tax-code-1257l-explained",
+    "net-pay-on-50k-salary",
+    "salary-sacrifice-pension-explained",
+    "self-employed-tax-calculator-2026",
+    "ir35-inside-vs-outside-2026",
+    "limited-company-dividend-strategy-2026",
+    "two-jobs-tax-uk-2026",
+    "pay-rise-after-tax-calculator-uk",
+    "national-insurance-2026-explained",
+    "personal-allowance-taper-100k-trap",
+    "uk-cost-of-living-salary-comparison",
+    "minimum-wage-uk-2026",
+    "average-salary-uk-2026",
+    "marriage-allowance-uk-2026",
+    "pension-auto-enrolment-2026",
+    "how-paye-works-uk",
+    "tax-refund-uk-guide",
+    "employer-ni-guide-2026",
+    "working-from-home-tax-relief-uk",
+    "tax-free-childcare-uk-2026",
+    "uk-tax-bands-explained-2026",
   ];
 
   for (const slug of insights) {
