@@ -7,7 +7,10 @@ export type ArticleCategory =
   | "Pension"
   | "Self-Employed"
   | "Career"
-  | "Cost of Living";
+  | "Cost of Living"
+  | "Wages"
+  | "Benefits"
+  | "Employer";
 
 export interface Article {
   slug: string;
