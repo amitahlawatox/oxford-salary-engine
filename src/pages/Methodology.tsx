@@ -8,8 +8,8 @@ const methodologyJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${SITE}/oxford-methodology`,
-    url: `${SITE}/oxford-methodology`,
+    "@id": `${SITE}/methodology`,
+    url: `${SITE}/methodology`,
     name: "Oxford Methodology: Standards for 2026/27 Tax Accuracy",
     description:
       "The public trust standard behind UK Net Pay, covering source discipline, verification logic, privacy-by-design, and region-specific 2026/27 tax accuracy.",
@@ -35,7 +35,7 @@ const methodologyJsonLd = [
     datePublished: "2026-04-30",
     dateModified: "2026-04-30",
     mainEntityOfPage: {
-      "@id": `${SITE}/oxford-methodology`,
+      "@id": `${SITE}/methodology`,
     },
   },
 ];
@@ -65,7 +65,7 @@ const Methodology = () => (
     <Seo
       title="Oxford Methodology: Standards for 2026/27 Tax Accuracy"
       description="Read the Oxford Methodology behind UK Net Pay: primary-source tax checks, verification logic, privacy-by-design, and region-specific 2026/27 salary accuracy."
-      path="/oxford-methodology"
+      path="/methodology"
       jsonLd={methodologyJsonLd}
     />
 

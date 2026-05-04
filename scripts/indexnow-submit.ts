@@ -34,7 +34,7 @@ function buildUrlList(): string[] {
     "/dividend",
     "/ir35",
     "/cost-of-living",
-    "/oxford-methodology",
+    "/methodology",
     "/directory",
     "/about",
     "/contact",

@@ -298,7 +298,7 @@ const SalaryPage = () => {
               is sent to a server.
             </p>
             <Link
-              to="/oxford-methodology"
+              to="/methodology"
               className="text-sm font-medium text-foreground hover:text-accent transition-colors"
             >
               Read the full methodology
