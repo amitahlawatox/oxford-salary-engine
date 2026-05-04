@@ -51,6 +51,34 @@
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
       }
     </script>
+
+    <!--
+      Google Analytics 4 with Consent Mode v2.
+      All storage signals start denied; the in-app consent banner upgrades them
+      via gtag('consent', 'update', ...) once the user grants permission.
+    -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL1CMWKWY1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "granted",
+        security_storage: "granted",
+        wait_for_update: 500,
+      });
+
+      gtag("js", new Date());
+      gtag("config", "G-VL1CMWKWY1", {
+        anonymize_ip: true,
+        send_page_view: true,
+      });
+    </script>
   </head>
 
   <body>
