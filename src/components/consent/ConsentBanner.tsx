@@ -10,6 +10,11 @@ type Consent = {
   ts: number;
 };
 
+type ConsentWindow = Window & {
+  dataLayer?: unknown[];
+  gtag?: (...args: unknown[]) => void;
+};
+
 function read(): Consent | null {
   try {
     const raw = localStorage.getItem(KEY);
@@ -19,6 +24,24 @@ function read(): Consent | null {
   }
 }
 
+function applyConsentToGtag(c: Pick<Consent, "analytics" | "advertising">) {
+  const w = window as ConsentWindow;
+  w.dataLayer = w.dataLayer || [];
+
+  const signals = {
+    ad_storage: c.advertising ? "granted" : "denied",
+    analytics_storage: c.analytics ? "granted" : "denied",
+    ad_user_data: c.advertising ? "granted" : "denied",
+    ad_personalization: c.advertising ? "granted" : "denied",
+  };
+
+  if (typeof w.gtag === "function") {
+    w.gtag("consent", "update", signals);
+  }
+
+  w.dataLayer.push({ event: "consent_update", ...signals });
+}
+
 function write(c: Consent) {
   try {
     localStorage.setItem(KEY, JSON.stringify(c));
@@ -26,17 +49,7 @@ function write(c: Consent) {
     // ignore storage failures
   }
 
-  type DLWindow = Window & { dataLayer?: unknown[] };
-  const w = window as DLWindow;
-  w.dataLayer = w.dataLayer || [];
-  w.dataLayer.push({
-    event: "consent_update",
-    ad_storage: c.advertising ? "granted" : "denied",
-    analytics_storage: c.analytics ? "granted" : "denied",
-    ad_user_data: c.advertising ? "granted" : "denied",
-    ad_personalization: c.advertising ? "granted" : "denied",
-  });
-
+  applyConsentToGtag(c);
   window.dispatchEvent(new CustomEvent("ukn:consent", { detail: c }));
 }
 
@@ -47,7 +60,14 @@ export function ConsentBanner() {
   const [advertising, setAdvertising] = useState(false);
 
   useEffect(() => {
-    if (!read()) setOpen(true);
+    const stored = read();
+    if (!stored) {
+      setOpen(true);
+    } else {
+      // Returning visitor: re-apply their saved choice so gtag/dataLayer
+      // pick up the correct state on every page load.
+      applyConsentToGtag(stored);
+    }
 
     const onOpen = () => {
       setDetails(true);
