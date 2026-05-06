@@ -11,7 +11,7 @@ const NAV = [
   { to: "/ir35", label: "IR35" },
   { to: "/compare", label: "Compare" },
   { to: "/directory", label: "Salaries" },
-  { to: "/oxford-methodology", label: "Methodology" },
+  { to: "/methodology", label: "Methodology" },
   { to: "/insights", label: "Insights" },
 ];
 
@@ -27,7 +27,7 @@ export function Header() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 h-9 flex items-center justify-between text-[10px] uppercase tracking-widest font-medium">
           <div className="flex items-center gap-3 sm:gap-5 text-muted-foreground">
             <span className="text-aurora font-semibold">Verified 2026/27</span>
-            <Link to="/oxford-methodology" className="hidden sm:inline hover:text-foreground transition-colors">
+            <Link to="/methodology" className="hidden sm:inline hover:text-foreground transition-colors">
               Oxford Methodology v4.2
             </Link>
           </div>

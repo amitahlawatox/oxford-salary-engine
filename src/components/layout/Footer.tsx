@@ -28,7 +28,7 @@ const COLS = [
   {
     title: "Resources",
     links: [
-      { to: "/oxford-methodology", label: "Oxford Methodology" },
+      { to: "/methodology", label: "Methodology" },
       { to: "/insights", label: "Insights & Guides" },
       { to: "/insights/salary-calculator-uk-2026", label: "2026/27 Tax Bands" },
       { to: "/insights/national-insurance-2026-explained", label: "NI Rates" },

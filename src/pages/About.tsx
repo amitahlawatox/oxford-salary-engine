@@ -49,7 +49,7 @@ const About = () => (
       <p>
         We verify our tax engine against HMRC-published thresholds, rates, and worked
         examples. Our{" "}
-        <Link to="/oxford-methodology" className="text-accent underline underline-offset-4 hover:opacity-80">
+        <Link to="/methodology" className="text-accent underline underline-offset-4 hover:opacity-80">
           public methodology page
         </Link>{" "}
         explains the assumptions, verification steps, and where our simplified public

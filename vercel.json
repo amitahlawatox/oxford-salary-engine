@@ -35,6 +35,48 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/guides/april-2026-guide",
+      "destination": "/insights/salary-calculator-uk-2026",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/wfh-relief-gone",
+      "destination": "/insights/working-from-home-tax-relief-uk",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/60-percent-tax-trap",
+      "destination": "/insights/personal-allowance-taper-100k-trap",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/national-insurance-guide",
+      "destination": "/insights/national-insurance-2026-explained",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/student-loan-guide",
+      "destination": "/insights/student-loan-plan-5-calculator",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/:slug",
+      "destination": "/insights/:slug",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides",
+      "destination": "/insights",
+      "statusCode": 301
+    },
+    {
+      "source": "/oxford-methodology",
+      "destination": "/methodology",
+      "statusCode": 301
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
