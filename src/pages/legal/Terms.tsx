@@ -7,7 +7,7 @@ const Terms = () => (
       title="Terms of Use - UK Net Pay"
       description="Terms of use for the UK Net Pay salary and tax calculator suite."
       path="/terms"
-      robots="noindex,follow"
+      robots="index,follow,max-image-preview:large"
     />
     <article className="prose prose-sm mx-auto max-w-3xl px-6 py-16 dark:prose-invert">
       <h1>Terms of Use</h1>
