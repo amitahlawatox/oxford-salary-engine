@@ -1297,4 +1297,487 @@ export const ARTICLES: Article[] = [
       </>
     ),
   },
+
+  // ── CITY SALARY ARTICLES ────────────────────────────────────────────────
+
+  // 31
+  {
+    slug: "average-salary-manchester-2026",
+    title: "Average Salary in Manchester 2026",
+    description: "The average salary in Manchester is £34,100 in 2026. See take-home pay, top-paying sectors, and how Manchester compares to the UK median.",
+    excerpt: "Manchester's average salary sits just below the UK median — but lower housing costs mean it often goes further than an equivalent London wage.",
+    category: "Wages",
+    keywords: ["average salary manchester 2026","average wage manchester","manchester salary 2026","median salary manchester"],
+    readMinutes: 4,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the average salary in Manchester in 2026?", a: "The median gross annual salary in Manchester is approximately £34,100 in 2026, giving a monthly take-home of around £2,444 after income tax and National Insurance." },
+      { q: "Is Manchester a good place to earn a high salary?", a: "Yes — Manchester has strong tech, finance, media and professional services sectors. The average tech salary in Manchester is around £52,000, well above the city median." },
+    ],
+    body: () => (
+      <>
+        <p>Manchester is the UK's second-largest economy outside London. Salaries are competitive — especially in tech, media, and financial services — while living costs remain significantly lower than the capital.</p>
+        <h2 id="median">Average Manchester salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Amount</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£34,100</td><td>£2,444</td></tr>
+            <tr><td>Mean salary</td><td>£37,800</td><td>£2,646</td></tr>
+            <tr><td>UK median (comparison)</td><td>£34,963</td><td>£2,493</td></tr>
+          </tbody>
+        </table>
+        <h2 id="sectors">Top-paying sectors in Manchester</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <tbody>
+            <tr><td>Technology</td><td>£52,000</td></tr>
+            <tr><td>Financial services</td><td>£48,500</td></tr>
+            <tr><td>Legal</td><td>£44,000</td></tr>
+            <tr><td>Engineering</td><td>£42,000</td></tr>
+            <tr><td>Marketing</td><td>£36,000</td></tr>
+            <tr><td>Healthcare (NHS)</td><td>£35,500</td></tr>
+            <tr><td>Education</td><td>£33,800</td></tr>
+            <tr><td>Retail</td><td>£24,000</td></tr>
+          </tbody>
+        </table>
+        <h2 id="vs-london">Manchester vs London: does the pay gap matter?</h2>
+        <p>London's average salary is £44,370 — about £10,000 more than Manchester. But average rent in Manchester is roughly £1,050/month versus £2,200 in London. For many workers, a Manchester salary leaves more disposable income than a higher London wage.</p>
+        <p>Use our <ToolLink to="/cost-of-living">cost of living calculator</ToolLink> to compare your net position in different cities.</p>
+        <h2 id="calculate">Calculate your Manchester take-home</h2>
+        <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact net pay after income tax, NI, and pension.</p>
+      </>
+    ),
+  },
+
+  // 32
+  {
+    slug: "average-salary-birmingham-2026",
+    title: "Average Salary in Birmingham 2026",
+    description: "The average salary in Birmingham is £32,400 in 2026. Breakdown by sector, take-home pay figures, and how Birmingham salaries compare to the UK average.",
+    excerpt: "Birmingham salaries sit below the UK median, but the city's growing tech and professional services sectors are pushing wages up fast.",
+    category: "Wages",
+    keywords: ["average salary birmingham 2026","average wage birmingham","birmingham salary 2026","median salary birmingham"],
+    readMinutes: 4,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the average salary in Birmingham in 2026?", a: "The median gross annual salary in Birmingham is approximately £32,400 in 2026, giving a monthly take-home of around £2,340 after income tax and National Insurance." },
+      { q: "Is Birmingham a good city for salaries?", a: "Birmingham is improving rapidly. The tech and professional services sectors offer salaries well above the city median, and lower living costs than London or Manchester mean your money goes further." },
+    ],
+    body: () => (
+      <>
+        <p>Birmingham is the UK's second-largest city and a growing hub for technology, financial services, and professional services. Salaries are rising as major employers relocate from London.</p>
+        <h2 id="median">Average Birmingham salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Amount</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£32,400</td><td>£2,340</td></tr>
+            <tr><td>Mean salary</td><td>£35,600</td><td>£2,528</td></tr>
+            <tr><td>UK median (comparison)</td><td>£34,963</td><td>£2,493</td></tr>
+          </tbody>
+        </table>
+        <h2 id="sectors">Average Birmingham salaries by sector</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <tbody>
+            <tr><td>Technology</td><td>£48,000</td></tr>
+            <tr><td>Financial services</td><td>£44,000</td></tr>
+            <tr><td>Legal</td><td>£41,000</td></tr>
+            <tr><td>Engineering</td><td>£39,500</td></tr>
+            <tr><td>Healthcare (NHS)</td><td>£35,000</td></tr>
+            <tr><td>Education</td><td>£33,500</td></tr>
+            <tr><td>Retail</td><td>£23,500</td></tr>
+          </tbody>
+        </table>
+        <h2 id="calculate">Calculate your Birmingham take-home</h2>
+        <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact net pay.</p>
+      </>
+    ),
+  },
+
+  // 33
+  {
+    slug: "average-salary-leeds-2026",
+    title: "Average Salary in Leeds 2026",
+    description: "The average salary in Leeds is £33,800 in 2026. See take-home pay by sector, how Leeds compares to UK average, and what your salary is worth.",
+    excerpt: "Leeds punches above its weight — financial and legal services salaries rival Manchester, while the cost of living remains lower than most major UK cities.",
+    category: "Wages",
+    keywords: ["average salary leeds 2026","average wage leeds","leeds salary 2026","median salary leeds"],
+    readMinutes: 4,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the average salary in Leeds in 2026?", a: "The median gross annual salary in Leeds is approximately £33,800 in 2026, giving a monthly take-home of around £2,427 after income tax and National Insurance." },
+      { q: "What are the best-paid jobs in Leeds?", a: "Financial services, legal, and technology are the top-paying sectors in Leeds. Senior roles in these sectors commonly offer £50,000–£80,000." },
+    ],
+    body: () => (
+      <>
+        <p>Leeds is one of the UK's strongest regional economies, particularly in financial and legal services. Its salaries are competitive with Manchester, with a lower cost of living.</p>
+        <h2 id="median">Average Leeds salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Amount</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£33,800</td><td>£2,427</td></tr>
+            <tr><td>Mean salary</td><td>£37,200</td><td>£2,611</td></tr>
+            <tr><td>UK median</td><td>£34,963</td><td>£2,493</td></tr>
+          </tbody>
+        </table>
+        <h2 id="sectors">Leeds salaries by sector</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <tbody>
+            <tr><td>Financial services</td><td>£50,000</td></tr>
+            <tr><td>Technology</td><td>£48,500</td></tr>
+            <tr><td>Legal</td><td>£45,000</td></tr>
+            <tr><td>Engineering</td><td>£40,000</td></tr>
+            <tr><td>Healthcare (NHS)</td><td>£35,200</td></tr>
+            <tr><td>Education</td><td>£33,600</td></tr>
+          </tbody>
+        </table>
+        <h2 id="calculate">Calculate your Leeds take-home pay</h2>
+        <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact net pay after all deductions.</p>
+      </>
+    ),
+  },
+
+  // 34
+  {
+    slug: "average-salary-bristol-2026",
+    title: "Average Salary in Bristol 2026",
+    description: "The average salary in Bristol is £36,200 in 2026 — above the UK median. See take-home figures, top sectors, and how Bristol compares to other UK cities.",
+    excerpt: "Bristol is one of the UK's highest-paying cities outside London, driven by aerospace, tech, and financial services.",
+    category: "Wages",
+    keywords: ["average salary bristol 2026","average wage bristol","bristol salary 2026","median salary bristol"],
+    readMinutes: 4,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the average salary in Bristol in 2026?", a: "The median gross annual salary in Bristol is approximately £36,200 in 2026, giving a monthly take-home of around £2,562 after income tax and National Insurance." },
+      { q: "Why are Bristol salaries above the UK average?", a: "Bristol has a strong concentration of aerospace, defence, technology, and financial services employers. Companies including Airbus, Rolls-Royce, and several major banks have significant operations there." },
+    ],
+    body: () => (
+      <>
+        <p>Bristol consistently ranks among the UK's highest-paying cities outside London. Aerospace, technology, and financial services drive salaries well above the national median.</p>
+        <h2 id="median">Average Bristol salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Amount</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£36,200</td><td>£2,562</td></tr>
+            <tr><td>Mean salary</td><td>£40,100</td><td>£2,776</td></tr>
+            <tr><td>UK median</td><td>£34,963</td><td>£2,493</td></tr>
+          </tbody>
+        </table>
+        <h2 id="sectors">Bristol salaries by sector</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <tbody>
+            <tr><td>Aerospace and defence</td><td>£55,000</td></tr>
+            <tr><td>Technology</td><td>£52,000</td></tr>
+            <tr><td>Financial services</td><td>£48,000</td></tr>
+            <tr><td>Legal</td><td>£44,000</td></tr>
+            <tr><td>Healthcare (NHS)</td><td>£35,800</td></tr>
+            <tr><td>Education</td><td>£34,500</td></tr>
+          </tbody>
+        </table>
+        <h2 id="calculate">Calculate your Bristol take-home pay</h2>
+        <p>Use our <ToolLink to="/take-home">salary calculator</ToolLink> to see your exact net pay.</p>
+      </>
+    ),
+  },
+
+  // 35
+  {
+    slug: "average-salary-edinburgh-2026",
+    title: "Average Salary in Edinburgh 2026",
+    description: "The average salary in Edinburgh is £37,500 in 2026. See take-home under Scottish tax rates, top-paying sectors, and how Edinburgh compares to Glasgow.",
+    excerpt: "Edinburgh has the highest average salary in Scotland — but Scottish income tax rates mean your take-home differs from the rest of the UK at the same gross salary.",
+    category: "Wages",
+    keywords: ["average salary edinburgh 2026","average wage edinburgh","edinburgh salary 2026","median salary edinburgh","scottish salary calculator"],
+    readMinutes: 5,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the average salary in Edinburgh in 2026?", a: "The median gross annual salary in Edinburgh is approximately £37,500 in 2026. Under Scottish income tax rates, this gives a monthly take-home of around £2,600." },
+      { q: "Do Edinburgh workers pay more tax than English workers?", a: "Yes, for most salary levels. Scottish income tax rates are higher from around £29,000 upwards. On a £37,500 salary, a Scottish worker pays roughly £400 more per year in income tax than an equivalent worker in England." },
+    ],
+    body: () => (
+      <>
+        <p>Edinburgh is Scotland's financial and legal capital — and the highest-paying city in Scotland. Its strong financial services, tech, and public sector mean salaries sit comfortably above the UK median.</p>
+        <h2 id="median">Average Edinburgh salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home (Scottish rates)</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£37,500</td><td>£2,600</td></tr>
+            <tr><td>Mean salary</td><td>£42,200</td><td>£2,876</td></tr>
+            <tr><td>Same salary in England</td><td>£37,500</td><td>£2,641 (+£41/month)</td></tr>
+          </tbody>
+        </table>
+        <h2 id="scottish-tax">Scottish tax impact</h2>
+        <p>Edinburgh workers pay Scottish income tax rates — which differ from the rest of the UK above £27,491. On a £37,500 salary, the Intermediate Rate (21%) applies to a portion of income, reducing take-home by approximately £400/year versus England.</p>
+        <p>Use our <ToolLink to="/take-home">calculator</ToolLink> and toggle Scotland to see the exact difference for your salary.</p>
+        <h2 id="sectors">Edinburgh salaries by sector</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <tbody>
+            <tr><td>Financial services</td><td>£58,000</td></tr>
+            <tr><td>Technology</td><td>£52,000</td></tr>
+            <tr><td>Legal</td><td>£46,000</td></tr>
+            <tr><td>Public sector</td><td>£36,000</td></tr>
+            <tr><td>Healthcare (NHS Scotland)</td><td>£35,500</td></tr>
+          </tbody>
+        </table>
+      </>
+    ),
+  },
+
+  // ── JOB TITLE SALARY ARTICLES ───────────────────────────────────────────
+
+  // 36
+  {
+    slug: "nurse-salary-uk-2026",
+    title: "Nurse Salary UK 2026: Take-Home Pay on Every NHS Band",
+    description: "Full breakdown of NHS nurse salaries in 2026 by band (Band 5–8). See exact take-home pay after tax and NI, plus agency nurse rates.",
+    excerpt: "An NHS Band 5 nurse earns £29,970–£36,483 in 2026. After tax and NI, that's £2,050–£2,490/month. Here's take-home for every nursing band.",
+    category: "Career",
+    keywords: ["nurse salary uk 2026","nhs nurse pay 2026","band 5 nurse salary take home","nursing salary uk after tax","nhs pay bands 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the take-home pay for a Band 5 nurse in 2026?", a: "A Band 5 nurse earns £29,970–£36,483 gross. After income tax and NI, take-home pay ranges from approximately £2,050 to £2,490 per month. The exact figure depends on your point on the pay scale and pension contribution rate." },
+      { q: "How much does a Band 6 nurse earn after tax?", a: "A Band 6 nurse earns £37,338–£44,962 gross. Monthly take-home ranges from approximately £2,610 to £3,010 after tax and NI, before pension deductions." },
+      { q: "Do NHS nurses pay a pension?", a: "Yes — NHS nurses are enrolled in the NHS Pension Scheme. Employee contributions range from 5.2% to 12.5% depending on salary, reducing take-home pay but building a valuable defined-benefit pension." },
+    ],
+    body: () => (
+      <>
+        <p>NHS nursing salaries are set by the Agenda for Change (AfC) pay framework. Here's every band's gross salary and exact monthly take-home for 2026.</p>
+        <h2 id="bands">NHS nurse salary by band (2026)</h2>
+        <table>
+          <thead><tr><th>Band</th><th>Gross salary range</th><th>Monthly take-home (mid-point)</th></tr></thead>
+          <tbody>
+            <tr><td>Band 5 (Staff Nurse)</td><td>£29,970–£36,483</td><td>~£2,270/month</td></tr>
+            <tr><td>Band 6 (Senior Nurse)</td><td>£37,338–£44,962</td><td>~£2,810/month</td></tr>
+            <tr><td>Band 7 (Advanced Nurse)</td><td>£46,148–£52,809</td><td>~£3,140/month</td></tr>
+            <tr><td>Band 8a (Consultant Nurse)</td><td>£53,755–£60,504</td><td>~£3,530/month</td></tr>
+          </tbody>
+        </table>
+        <p><small>Take-home estimated at mid-point of each band, England, no student loan, before NHS pension contribution.</small></p>
+        <h2 id="pension">NHS pension impact</h2>
+        <p>NHS pension contributions reduce your take-home. At Band 5 mid-point (~£33,000), you contribute approximately 5.2% — about £143/month. This comes from your net pay (not salary sacrifice), so it doesn't reduce your tax bill.</p>
+        <h2 id="london">London weighting</h2>
+        <p>NHS staff in London receive a High-Cost Area Supplement of 20% of basic salary (min £5,132, max £7,746). This significantly increases take-home for London-based nurses.</p>
+        <h2 id="calculate">Calculate your exact nurse take-home</h2>
+        <p>Enter your exact band salary into our <ToolLink to="/take-home">take-home calculator</ToolLink> to see your precise monthly net after tax, NI, and pension.</p>
+      </>
+    ),
+  },
+
+  // 37
+  {
+    slug: "teacher-salary-uk-2026",
+    title: "Teacher Salary UK 2026: Take-Home Pay for Every Scale Point",
+    description: "Full breakdown of UK teacher salaries in 2026. Main Pay Range, Upper Pay Range, and leadership scale take-home pay after tax and NI.",
+    excerpt: "A newly qualified teacher earns £31,650 in 2026 (£38,765 in London). After tax and NI, that's £2,212/month outside London. Here's the full picture.",
+    category: "Career",
+    keywords: ["teacher salary uk 2026","teacher pay 2026","newly qualified teacher salary take home","uk teacher salary after tax","teacher pay scale 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the take-home pay for a newly qualified teacher in 2026?", a: "A newly qualified teacher earns £31,650 outside London in 2026. After income tax and National Insurance, take-home pay is approximately £2,212 per month." },
+      { q: "What does a teacher earn on the Upper Pay Range?", a: "Teachers on the Upper Pay Range earn £46,525–£50,500 outside London in 2026. Monthly take-home is approximately £3,130–£3,340 after tax and NI." },
+      { q: "How much more do London teachers earn?", a: "Inner London teachers earn approximately £10,000–£15,000 more than their counterparts outside London at each scale point, thanks to the Inner London and Outer London allowances." },
+    ],
+    body: () => (
+      <>
+        <p>Teacher pay in England is set by the School Teachers' Pay and Conditions Document (STPCD). Here's every scale point and its monthly take-home for 2026.</p>
+        <h2 id="main-pay">Main Pay Range (NQT to experienced teacher)</h2>
+        <table>
+          <thead><tr><th>Scale</th><th>Outside London</th><th>Inner London</th><th>Take-home (outside London)</th></tr></thead>
+          <tbody>
+            <tr><td>M1 (NQT)</td><td>£31,650</td><td>£42,637</td><td>£2,212/month</td></tr>
+            <tr><td>M2</td><td>£33,483</td><td>£44,305</td><td>£2,330/month</td></tr>
+            <tr><td>M3</td><td>£35,674</td><td>£46,235</td><td>£2,473/month</td></tr>
+            <tr><td>M4</td><td>£37,935</td><td>£48,235</td><td>£2,630/month</td></tr>
+            <tr><td>M5</td><td>£40,625</td><td>£50,471</td><td>£2,804/month</td></tr>
+            <tr><td>M6</td><td>£43,685</td><td>£53,482</td><td>£2,987/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="upper-pay">Upper Pay Range (experienced teachers)</h2>
+        <table>
+          <thead><tr><th>Scale</th><th>Outside London</th><th>Take-home</th></tr></thead>
+          <tbody>
+            <tr><td>U1</td><td>£46,525</td><td>£3,130/month</td></tr>
+            <tr><td>U2</td><td>£48,389</td><td>£3,238/month</td></tr>
+            <tr><td>U3</td><td>£50,500</td><td>£3,339/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="pension">Teachers' Pension Scheme</h2>
+        <p>Teachers contribute between 7.4% and 11.7% of salary to the Teachers' Pension Scheme depending on earnings. On M1 (£31,650), contributions are approximately £195/month, reducing take-home accordingly.</p>
+        <h2 id="calculate">Calculate your teacher take-home pay</h2>
+        <p>Use our <ToolLink to="/take-home">salary calculator</ToolLink> — enter your scale point salary for your exact monthly net after tax, NI, and pension.</p>
+      </>
+    ),
+  },
+
+  // 38
+  {
+    slug: "software-engineer-salary-uk-2026",
+    title: "Software Engineer Salary UK 2026: Junior to Senior Take-Home Pay",
+    description: "Software engineer salaries in the UK range from £35k to £120k+ in 2026. See take-home pay at every level from junior to principal engineer.",
+    excerpt: "UK software engineers earn £35k–£120k+ depending on seniority. Here's the exact take-home at every level — and what switching from PAYE to contractor status means for your income.",
+    category: "Career",
+    keywords: ["software engineer salary uk 2026","developer salary uk 2026","software developer take home pay uk","junior developer salary uk","senior software engineer salary uk"],
+    readMinutes: 5,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the average software engineer salary in the UK in 2026?", a: "The median software engineer salary in the UK is approximately £58,000 in 2026. Monthly take-home after tax and NI is approximately £3,553." },
+      { q: "What does a junior developer earn after tax in the UK?", a: "Junior software engineers typically earn £28,000–£38,000. At £33,000, monthly take-home is approximately £2,380 after income tax and NI." },
+      { q: "Is it more tax-efficient to contract as a software engineer?", a: "Often yes — contractors operating through a limited company can take a salary/dividend split, reducing NI significantly. Our dividend calculator shows the exact saving for your income level." },
+    ],
+    body: () => (
+      <>
+        <p>Software engineering is one of the UK's best-paid professions at every level. Here's the full salary and take-home breakdown from graduate to principal engineer in 2026.</p>
+        <h2 id="by-level">Software engineer salary by level (UK, 2026)</h2>
+        <table>
+          <thead><tr><th>Level</th><th>Typical salary range</th><th>Monthly take-home (mid)</th></tr></thead>
+          <tbody>
+            <tr><td>Graduate / Junior</td><td>£28,000–£38,000</td><td>~£2,380/month</td></tr>
+            <tr><td>Mid-level</td><td>£40,000–£55,000</td><td>~£2,960/month</td></tr>
+            <tr><td>Senior</td><td>£55,000–£80,000</td><td>~£3,820/month</td></tr>
+            <tr><td>Lead / Staff</td><td>£75,000–£100,000</td><td>~£4,600/month</td></tr>
+            <tr><td>Principal / Architect</td><td>£95,000–£130,000</td><td>~£5,800/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="london">London vs remote</h2>
+        <p>London software engineering salaries typically run 25–40% higher than equivalent roles elsewhere. However, many tech companies now pay London rates for fully remote roles — making location increasingly less relevant.</p>
+        <h2 id="contracting">PAYE vs contracting</h2>
+        <p>A contractor earning £600/day (£144,000/year) through a limited company taking salary + dividends can retain significantly more than a PAYE employee on the same earnings. Use our <ToolLink to="/dividend">dividend calculator</ToolLink> and <ToolLink to="/ir35">IR35 calculator</ToolLink> to compare.</p>
+        <h2 id="calculate">Calculate your take-home</h2>
+        <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact net pay at any salary level.</p>
+      </>
+    ),
+  },
+
+  // 39
+  {
+    slug: "accountant-salary-uk-2026",
+    title: "Accountant Salary UK 2026: Take-Home Pay by Qualification",
+    description: "UK accountant salaries range from £26k (AAT trainee) to £90k+ (FCA partner) in 2026. See exact take-home pay by qualification and experience level.",
+    excerpt: "Accounting is one of the UK's most reliable high-earning career paths. Here's take-home pay from trainee to qualified accountant in 2026.",
+    category: "Career",
+    keywords: ["accountant salary uk 2026","chartered accountant salary uk","aca salary uk 2026","accountant take home pay","cima salary uk 2026"],
+    readMinutes: 4,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the average accountant salary in the UK in 2026?", a: "The median salary for a qualified (ACA/ACCA/CIMA) accountant in the UK is approximately £52,000 in 2026, giving a monthly take-home of around £3,217." },
+      { q: "How much does a trainee accountant earn after tax?", a: "AAT or ACA/ACCA trainees typically earn £22,000–£28,000. At £25,000, monthly take-home is approximately £1,886 after income tax and NI." },
+    ],
+    body: () => (
+      <>
+        <p>Accountancy offers one of the clearest salary progression paths in UK professional services. Here's take-home pay from training through to senior qualified roles.</p>
+        <h2 id="by-level">UK accountant salary by qualification and level (2026)</h2>
+        <table>
+          <thead><tr><th>Level</th><th>Typical salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>AAT trainee / school leaver</td><td>£22,000–£26,000</td><td>~£1,760/month</td></tr>
+            <tr><td>Part-qualified (ACA/ACCA)</td><td>£28,000–£38,000</td><td>~£2,380/month</td></tr>
+            <tr><td>Newly qualified (ACA/ACCA/CIMA)</td><td>£42,000–£52,000</td><td>~£3,110/month</td></tr>
+            <tr><td>Manager (3–5 yrs PQE)</td><td>£55,000–£70,000</td><td>~£3,740/month</td></tr>
+            <tr><td>Senior manager / Director</td><td>£70,000–£100,000</td><td>~£4,920/month</td></tr>
+            <tr><td>Partner / CFO</td><td>£90,000–£150,000+</td><td>~£6,300/month+</td></tr>
+          </tbody>
+        </table>
+        <h2 id="big4">Big Four vs industry</h2>
+        <p>Big Four (Deloitte, PwC, EY, KPMG) newly qualified salaries typically start at £48,000–£54,000. Industry (in-house) roles often pay slightly less but offer better work-life balance and faster progression to senior titles.</p>
+        <h2 id="calculate">Calculate your accountant take-home</h2>
+        <p>Use our <ToolLink to="/take-home">salary calculator</ToolLink> for your exact monthly net pay at any point in your career.</p>
+      </>
+    ),
+  },
+
+  // 40
+  {
+    slug: "average-salary-uk-by-profession-2026",
+    title: "Average UK Salary by Profession 2026: 40+ Jobs Ranked",
+    description: "Average UK salaries for 40+ professions in 2026, with monthly take-home pay for each. From nurses and teachers to software engineers and solicitors.",
+    excerpt: "From £22k for retail workers to £120k+ for surgeons — here are average UK salaries for 40+ professions in 2026, with exact take-home calculations.",
+    category: "Career",
+    keywords: ["average salary by profession uk 2026","uk salary by job 2026","average salary by occupation uk","uk job salary comparison 2026","highest paying jobs uk 2026"],
+    readMinutes: 7,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What are the highest-paying jobs in the UK in 2026?", a: "The highest-paying professions in the UK include surgeons (£100k–£200k), senior software engineers (£80k–£120k), investment bankers (£80k–£150k+), barristers (£80k–£200k+), and commercial pilots (£80k–£120k)." },
+      { q: "What is the best-paid graduate job in the UK?", a: "Investment banking, management consulting, and technology (software engineering) are consistently the highest-paid graduate entry routes, with starting salaries of £45,000–£60,000 at major firms." },
+      { q: "Which public sector jobs pay the most?", a: "Medical consultants, headteachers of large schools, senior civil servants, and senior NHS managers are the highest-paid public sector roles, typically earning £80,000–£150,000." },
+    ],
+    body: () => (
+      <>
+        <p>Here are average gross salaries and monthly take-home pay for over 40 UK professions in 2026, from entry level to experienced.</p>
+        <h2 id="healthcare">Healthcare</h2>
+        <table>
+          <thead><tr><th>Role</th><th>Average salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>GP (salaried)</td><td>£70,000</td><td>£4,010</td></tr>
+            <tr><td>Hospital consultant</td><td>£105,000</td><td>£5,580</td></tr>
+            <tr><td>Pharmacist</td><td>£46,000</td><td>£3,080</td></tr>
+            <tr><td>Physiotherapist</td><td>£36,000</td><td>£2,555</td></tr>
+            <tr><td>Nurse (Band 5–6)</td><td>£33,000</td><td>£2,380</td></tr>
+            <tr><td>Paramedic</td><td>£36,000</td><td>£2,555</td></tr>
+          </tbody>
+        </table>
+        <h2 id="tech">Technology</h2>
+        <table>
+          <thead><tr><th>Role</th><th>Average salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Senior software engineer</td><td>£72,000</td><td>£4,090</td></tr>
+            <tr><td>Data scientist</td><td>£62,000</td><td>£3,723</td></tr>
+            <tr><td>Product manager</td><td>£68,000</td><td>£3,934</td></tr>
+            <tr><td>DevOps engineer</td><td>£65,000</td><td>£3,856</td></tr>
+            <tr><td>UX designer</td><td>£52,000</td><td>£3,217</td></tr>
+            <tr><td>IT support</td><td>£28,000</td><td>£2,040</td></tr>
+          </tbody>
+        </table>
+        <h2 id="legal-finance">Legal and finance</h2>
+        <table>
+          <thead><tr><th>Role</th><th>Average salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Solicitor (5 yrs PQE)</td><td>£65,000</td><td>£3,856</td></tr>
+            <tr><td>Chartered accountant</td><td>£52,000</td><td>£3,217</td></tr>
+            <tr><td>Financial adviser</td><td>£55,000</td><td>£3,392</td></tr>
+            <tr><td>Investment analyst</td><td>£62,000</td><td>£3,723</td></tr>
+            <tr><td>Mortgage broker</td><td>£48,000</td><td>£3,139</td></tr>
+          </tbody>
+        </table>
+        <h2 id="education">Education</h2>
+        <table>
+          <thead><tr><th>Role</th><th>Average salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Headteacher</td><td>£75,000</td><td>£4,224</td></tr>
+            <tr><td>Secondary teacher</td><td>£40,000</td><td>£2,776</td></tr>
+            <tr><td>Primary teacher</td><td>£36,000</td><td>£2,555</td></tr>
+            <tr><td>Teaching assistant</td><td>£22,000</td><td>£1,717</td></tr>
+            <tr><td>University lecturer</td><td>£48,000</td><td>£3,139</td></tr>
+          </tbody>
+        </table>
+        <h2 id="trades">Skilled trades</h2>
+        <table>
+          <thead><tr><th>Role</th><th>Average salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Electrician</td><td>£40,000</td><td>£2,776</td></tr>
+            <tr><td>Plumber</td><td>£38,000</td><td>£2,646</td></tr>
+            <tr><td>Carpenter</td><td>£34,000</td><td>£2,437</td></tr>
+            <tr><td>HGV driver</td><td>£36,000</td><td>£2,555</td></tr>
+            <tr><td>Bricklayer</td><td>£36,500</td><td>£2,583</td></tr>
+          </tbody>
+        </table>
+        <h2 id="calculate">Calculate your exact take-home</h2>
+        <p>Every figure above is before pension and student loan deductions. Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact monthly net.</p>
+      </>
+    ),
+  },
 ];
