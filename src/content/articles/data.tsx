@@ -1045,4 +1045,256 @@ export const ARTICLES: Article[] = [
       </>
     ),
   },
+
+  // 26
+  {
+    slug: "average-salary-by-age-uk-2026",
+    title: "Average UK Salary by Age 2026: What Should You Earn?",
+    description: "Full breakdown of average UK salaries by age group in 2026, from 18–21 to 60+, with take-home pay for each bracket.",
+    excerpt: "Salaries in the UK peak between 40–49. Here's exactly what the median earner takes home at every age bracket in 2026 — and how you compare.",
+    category: "Career",
+    keywords: ["average salary by age uk 2026", "uk salary by age", "what salary should i earn at 30 uk", "average earnings by age uk"],
+    readMinutes: 5,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the average salary for a 30-year-old in the UK?", a: "The median annual salary for workers aged 30–39 in the UK is approximately £36,800 in 2026, giving a monthly take-home of around £2,580 after income tax and National Insurance." },
+      { q: "At what age do UK salaries peak?", a: "UK salaries typically peak between ages 40–49, where the median gross salary reaches around £41,200. After 50, many workers shift to part-time roles or less senior positions, pulling the median down." },
+      { q: "How much does a graduate earn more than a non-graduate?", a: "University graduates earn approximately £12,000 more per year at age 30–34 than non-graduates. This gap narrows significantly by age 50 as vocational experience becomes more valuable." },
+    ],
+    body: () => (
+      <>
+        <p>Your salary at 25 and your salary at 45 can look completely different — and that's by design. The UK labour market rewards experience, seniority, and specialisation. Here's exactly what the data shows for 2026.</p>
+
+        <h2 id="breakdown">Average UK salary by age group (2026)</h2>
+        <table>
+          <thead><tr><th>Age group</th><th>Median gross salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>18–21</td><td>£18,500</td><td>£1,430</td></tr>
+            <tr><td>22–29</td><td>£28,400</td><td>£2,065</td></tr>
+            <tr><td>30–39</td><td>£36,800</td><td>£2,580</td></tr>
+            <tr><td>40–49</td><td>£41,200</td><td>£2,840</td></tr>
+            <tr><td>50–59</td><td>£38,600</td><td>£2,700</td></tr>
+            <tr><td>60+</td><td>£33,100</td><td>£2,380</td></tr>
+          </tbody>
+        </table>
+        <p><small>Source: ONS Annual Survey of Hours and Earnings (ASHE) 2025/26. Take-home figures calculated using 2026/27 tax rates, no pension or student loan deductions.</small></p>
+
+        <h2 id="why-peak">Why do salaries peak in your 40s?</h2>
+        <p>Workers accumulate skills, seniority, and bargaining power through their 30s. By their 40s, many reach management or senior specialist roles. After 50, career choices often shift — part-time working, semi-retirement, or transitioning to lower-pressure roles all pull the median down.</p>
+
+        <h2 id="graduate">Graduate vs non-graduate earnings</h2>
+        <p>At age 30–34, university graduates earn approximately <strong>£12,000 more per year</strong> than non-graduates. By age 50, that gap has largely closed as vocational skills and industry experience become equally valuable to employers.</p>
+
+        <h2 id="calculate">How does your salary compare?</h2>
+        <p>Use our <ToolLink to="/take-home">take-home pay calculator</ToolLink> to see exactly what your salary leaves in your pocket after income tax, National Insurance, and pension contributions. If you're considering a new role, our <ToolLink to="/pay-rise">pay rise calculator</ToolLink> shows the exact after-tax benefit of any increase.</p>
+      </>
+    ),
+  },
+
+  // 27
+  {
+    slug: "what-is-a-good-salary-uk-2026",
+    title: "What Is a Good Salary in the UK in 2026?",
+    description: "Is £35,000 a good salary in the UK? We break down what counts as good, average, and high pay in 2026, with real take-home figures.",
+    excerpt: "The UK median salary is £34,963. But what actually counts as \"good\" depends on where you live, your age, and your cost of living. Here's the full picture.",
+    category: "Wages",
+    keywords: ["what is a good salary uk 2026", "good salary uk", "is 35000 a good salary uk", "is 50000 a good salary uk 2026", "above average salary uk"],
+    readMinutes: 5,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "Is £35,000 a good salary in the UK?", a: "Yes — £35,000 puts you just above the UK median and ahead of around 55% of all workers. After tax you take home approximately £2,496 per month. In most cities outside London this is a comfortable income." },
+      { q: "Is £50,000 a good salary in the UK in 2026?", a: "£50,000 places you in the top 25% of UK earners. Your monthly take-home is approximately £3,217. Note that earnings above £50,270 are taxed at 40%, so each extra £1,000 gross only adds £600 to your take-home." },
+      { q: "What salary puts you in the top 10% in the UK?", a: "Approximately £65,000 gross places you in the top 10% of UK earners in 2026. Take-home is around £3,934 per month." },
+    ],
+    body: () => (
+      <>
+        <p>There's no single answer — but clear benchmarks help. Here's where different salary levels actually sit in the UK earnings distribution for 2026.</p>
+
+        <h2 id="benchmarks">UK salary benchmarks 2026</h2>
+        <table>
+          <thead><tr><th>Salary</th><th>Monthly take-home</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td>£22,308</td><td>£1,698</td><td>National Living Wage (full-time, 21+)</td></tr>
+            <tr><td>£25,168</td><td>£1,895</td><td>Real Living Wage (UK, outside London)</td></tr>
+            <tr><td>£34,963</td><td>£2,493</td><td>UK median — the exact middle earner</td></tr>
+            <tr><td>£45,000</td><td>£3,060</td><td>Above 70% of UK workers</td></tr>
+            <tr><td>£60,000</td><td>£3,800</td><td>Top 15% of earners</td></tr>
+            <tr><td>£100,000</td><td>£5,662</td><td>Top 4% — personal allowance begins tapering</td></tr>
+          </tbody>
+        </table>
+        <p><small>Take-home figures for 2026/27, England, no pension or student loan deductions.</small></p>
+
+        <h2 id="35k">Is £35,000 a good salary in the UK?</h2>
+        <p>Yes. £35,000 sits just above the UK median, placing you ahead of roughly 55% of all workers. You take home approximately <strong>£2,496 per month</strong>. In most cities outside London — Manchester, Leeds, Birmingham, Bristol — this is genuinely comfortable.</p>
+
+        <h2 id="50k">Is £50,000 a good salary?</h2>
+        <p>£50,000 puts you in the top 25% of UK earners at <strong>£3,217 per month</strong> take-home. One important threshold: at £50,270, the Higher Rate (40%) kicks in, so every £1 above this costs you 40p in tax plus 2p in NI.</p>
+
+        <h2 id="london">Does London change the picture?</h2>
+        <p>Significantly. A £44,000 salary in London roughly matches a £32,000 salary in Manchester once housing costs are factored in. Our <ToolLink to="/cost-of-living">cost of living calculator</ToolLink> lets you compare net income across regions.</p>
+
+        <h2 id="calculate">Calculate your exact take-home</h2>
+        <p>Use our <ToolLink to="/take-home">salary calculator</ToolLink> to see precisely what any gross salary means for your monthly budget — including pension, student loan, and Scottish tax rates.</p>
+      </>
+    ),
+  },
+
+  // 28
+  {
+    slug: "income-tax-bands-2026-27",
+    title: "UK Income Tax Bands and Rates 2026/27",
+    description: "Complete guide to UK income tax bands for 2026/27. Personal allowance, basic rate, higher rate, and additional rate thresholds with worked examples.",
+    excerpt: "The personal allowance is still frozen at £12,570. Here are all the UK income tax bands for 2026/27 — England, Wales, and Scotland — with take-home examples.",
+    category: "Tax",
+    keywords: ["income tax bands 2026 27", "uk tax rates 2026", "income tax thresholds 2026", "higher rate tax threshold 2026", "personal allowance 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the personal allowance for 2026/27?", a: "£12,570 — unchanged since 2021/22. It is frozen until at least April 2028, creating a fiscal drag effect as more wages are pulled into the tax net." },
+      { q: "When does the higher rate of income tax kick in for 2026/27?", a: "The Higher Rate (40%) applies to taxable income above £50,270 in England, Wales, and Northern Ireland. In Scotland the Higher Rate is 42% and applies from £43,663." },
+      { q: "What is the 60% tax trap?", a: "Between £100,000 and £125,140, your Personal Allowance is clawed back at £1 for every £2 earned. Combined with the 40% Higher Rate, this creates an effective 60% marginal rate on every pound in this band." },
+    ],
+    body: () => (
+      <>
+        <p>Income tax in the UK is applied in bands — you don't pay one flat rate on your whole salary. Each band has a different rate, and you pay that rate only on the portion of your income that falls within it.</p>
+
+        <h2 id="bands">UK income tax bands 2026/27 (England, Wales, Northern Ireland)</h2>
+        <table>
+          <thead><tr><th>Band</th><th>Taxable income</th><th>Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Personal Allowance</td><td>Up to £12,570</td><td>0%</td></tr>
+            <tr><td>Basic Rate</td><td>£12,571–£50,270</td><td>20%</td></tr>
+            <tr><td>Higher Rate</td><td>£50,271–£125,140</td><td>40%</td></tr>
+            <tr><td>Additional Rate</td><td>Over £125,140</td><td>45%</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="scotland">Scottish income tax rates 2026/27</h2>
+        <table>
+          <thead><tr><th>Band</th><th>Income range</th><th>Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Starter Rate</td><td>£12,571–£15,397</td><td>19%</td></tr>
+            <tr><td>Basic Rate</td><td>£15,398–£27,491</td><td>20%</td></tr>
+            <tr><td>Intermediate Rate</td><td>£27,492–£43,662</td><td>21%</td></tr>
+            <tr><td>Higher Rate</td><td>£43,663–£75,000</td><td>42%</td></tr>
+            <tr><td>Advanced Rate</td><td>£75,001–£125,140</td><td>45%</td></tr>
+            <tr><td>Top Rate</td><td>Over £125,140</td><td>48%</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="ni">National Insurance 2026/27</h2>
+        <p>Employees also pay Class 1 National Insurance: <strong>8%</strong> on earnings between £12,570 and £50,270, and <strong>2%</strong> on anything above. NI is separate from income tax — both are deducted from your pay.</p>
+
+        <h2 id="trap">The 60% tax trap between £100k and £125,140</h2>
+        <p>Above £100,000, your Personal Allowance is withdrawn — £1 of allowance for every £2 earned. This means you effectively pay 60% marginal tax in this band. Our <ToolLink to="/take-home">calculator</ToolLink> shows this clearly — enter £100,000 then £110,000 and compare.</p>
+
+        <h2 id="calculate">See your exact take-home</h2>
+        <p>Tax bands are only part of the picture. Use our <ToolLink to="/take-home">take-home pay calculator</ToolLink> to see your net pay after income tax, NI, pension, and student loan — with one-click Scotland comparison.</p>
+      </>
+    ),
+  },
+
+  // 29
+  {
+    slug: "average-salary-london-2026",
+    title: "Average Salary in London 2026: What Do Londoners Earn?",
+    description: "The average salary in London is £44,370 in 2026. See salaries by sector, exact take-home pay, and whether London wages really offset the higher cost of living.",
+    excerpt: "London workers earn £9,400 more than the UK median — but housing costs a lot more too. Here's the full breakdown of average London salaries by sector and take-home figures.",
+    category: "Wages",
+    keywords: ["average salary london 2026", "average wage london", "london salary 2026", "average income london", "median salary london 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "What is the average salary in London in 2026?", a: "The median gross annual salary in London is £44,370 in 2026 — approximately £9,400 above the UK median. After tax this gives a monthly take-home of around £2,993." },
+      { q: "Is a £40,000 salary good in London?", a: "It is above the UK median but below the London median. After tax your monthly take-home is £2,766. In central London this feels tight; in outer zones it is more manageable." },
+      { q: "Does London pay more tax than the rest of the UK?", a: "No — London workers pay exactly the same national income tax rates as anyone else in England. There is no London-specific tax. However, many employers pay a London weighting allowance on top of base salary." },
+    ],
+    body: () => (
+      <>
+        <p>London workers earn more than anywhere else in the UK — but they also spend more. Here's the data on what Londoners actually earn in 2026, and what it means in practice.</p>
+
+        <h2 id="median">Average London salary 2026</h2>
+        <p>The median gross annual salary in London is <strong>£44,370</strong> — compared to the UK median of £34,963. After tax and National Insurance, that gives a monthly take-home of approximately <strong>£2,993</strong>.</p>
+
+        <h2 id="by-sector">Average London salaries by sector</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Median annual salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Finance and banking</td><td>£68,500</td><td>£3,980</td></tr>
+            <tr><td>Technology</td><td>£62,000</td><td>£3,723</td></tr>
+            <tr><td>Legal</td><td>£58,000</td><td>£3,550</td></tr>
+            <tr><td>Marketing</td><td>£42,000</td><td>£2,866</td></tr>
+            <tr><td>Healthcare (NHS)</td><td>£38,500</td><td>£2,678</td></tr>
+            <tr><td>Education</td><td>£36,200</td><td>£2,562</td></tr>
+            <tr><td>Retail</td><td>£28,500</td><td>£2,073</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="worth-it">Is higher London pay worth it?</h2>
+        <p>Not always. London housing costs approximately 2.3× the UK average. A £44,370 salary in London competes with a £32,000 salary in Manchester once housing is accounted for. Use our <ToolLink to="/cost-of-living">cost of living tool</ToolLink> to compare net income after housing across regions.</p>
+
+        <h2 id="living-wage">London Living Wage 2026</h2>
+        <p>The Real Living Wage for London is <strong>£13.85/hr</strong> (£28,808/year full-time) — versus £12.10/hr outside London. This is set annually by the Living Wage Foundation, separate from the government's National Living Wage.</p>
+
+        <h2 id="calculate">Calculate your London take-home</h2>
+        <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> to see exactly what any London salary means monthly. Toggle Scotland to compare if you're considering a move.</p>
+      </>
+    ),
+  },
+
+  // 30
+  {
+    slug: "how-to-calculate-take-home-pay",
+    title: "How to Calculate Take-Home Pay in the UK (2026/27)",
+    description: "Step-by-step guide to calculating UK take-home pay. Covers income tax, National Insurance, pension, and student loan deductions for 2026/27.",
+    excerpt: "Take-home pay is gross salary minus income tax, National Insurance, pension, and student loan. Here's exactly how each deduction works — with a worked example for £35,000.",
+    category: "Tax",
+    keywords: ["how to calculate take home pay uk", "calculate net salary uk", "gross to net salary uk", "uk take home pay calculation", "how much take home from salary"],
+    readMinutes: 6,
+    publishedISO: "2026-05-07",
+    updatedISO: "2026-05-07",
+    faq: [
+      { q: "How do I calculate my take-home pay from my gross salary?", a: "Subtract income tax (using UK tax bands), National Insurance (8% on earnings £12,570–£50,270, 2% above), any pension contributions, and student loan repayments if applicable. Our calculator does all of this instantly." },
+      { q: "What is the take-home pay on a £35,000 salary?", a: "On a £35,000 salary in England with no pension or student loan, your take-home is approximately £28,720 per year — £2,393 per month. Tax: £4,486. NI: £1,794." },
+      { q: "Does pension reduce my take-home pay?", a: "Yes, but salary sacrifice pensions reduce your tax and NI too, so the net cost to you is less than the contribution amount. A 5% pension contribution on £35,000 reduces take-home by about £108/month, not the full £146 gross amount." },
+    ],
+    body: () => (
+      <>
+        <p>Your take-home pay (net pay) is everything left after four main deductions. Here's exactly how each one works — with a step-by-step worked example.</p>
+
+        <h2 id="deductions">The four main deductions</h2>
+        <ol>
+          <li><strong>Income tax</strong> — applied in bands: 0% up to £12,570, then 20% to £50,270, then 40% above</li>
+          <li><strong>National Insurance</strong> — 8% on earnings between £12,570 and £50,270; 2% above</li>
+          <li><strong>Pension contributions</strong> — minimum 5% employee under auto-enrolment (3% from employer)</li>
+          <li><strong>Student loan repayments</strong> — 9% of income above your plan threshold (if applicable)</li>
+        </ol>
+
+        <h2 id="example">Worked example: £35,000 salary (England, 2026/27)</h2>
+        <table>
+          <thead><tr><th>Deduction</th><th>Calculation</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Taxable income</td><td>£35,000 − £12,570</td><td>£22,430</td></tr>
+            <tr><td>Income tax (20%)</td><td>£22,430 × 20%</td><td>−£4,486</td></tr>
+            <tr><td>National Insurance (8%)</td><td>£22,430 × 8%</td><td>−£1,794</td></tr>
+            <tr><td><strong>Take-home (annual)</strong></td><td></td><td><strong>£28,720</strong></td></tr>
+            <tr><td><strong>Take-home (monthly)</strong></td><td></td><td><strong>£2,393</strong></td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="pension">Adding pension contributions</h2>
+        <p>A 5% salary sacrifice pension contribution on £35,000 (£1,750/year) reduces your taxable income, saving you both income tax and NI. Your actual take-home reduction is approximately <strong>£108/month</strong> — not the full £146 gross contribution.</p>
+
+        <h2 id="student-loan">Student loan repayments</h2>
+        <p>Plan 2 (most graduates from 2012–2023) repays 9% of income above £29,385. On a £35,000 salary, that's 9% × (£35,000 − £29,385) = £505/year — about £42/month.</p>
+
+        <h2 id="calculator">Skip the maths — use the calculator</h2>
+        <p>Our <ToolLink to="/take-home">take-home pay calculator</ToolLink> handles all of this instantly, including salary sacrifice pension, all student loan plans, Scottish rates, and dividend income. Enter your salary and get your exact monthly net in under 10 seconds.</p>
+      </>
+    ),
+  },
 ];

@@ -5,11 +5,11 @@
  *
  * Coverage:
  *   - 12 tool pages         (/take-home, /hourly, ...)
- *   - 25 insight articles   (/insights/{slug})
+ *   - 30 insight articles   (/insights/{slug})
  *   -  9 static pages       (/about, /contact, /privacy, /terms,
  *                            /disclaimer, /methodology, /oxford-methodology,
  *                            /directory, /insights)
- *   - 106 salary pages      (/salary/{amount}-after-tax)
+ *   - 581 salary pages      (/salary/{amount}-after-tax, £10k-£300k in £500 steps)
  *
  * Run with: npx vite-node scripts/prerender.ts
  */
