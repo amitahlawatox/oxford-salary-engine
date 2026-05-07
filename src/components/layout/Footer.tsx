@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ShieldAlert } from "lucide-react";
 import { openConsent } from "@/components/consent/ConsentBanner";
 
 const COLS = [
@@ -86,14 +87,20 @@ export function Footer() {
         </div>
 
         <div className="mt-12 space-y-4 border-t border-border pt-8">
-          <p className="max-w-4xl text-xs leading-relaxed text-muted-foreground">
-            <strong className="text-foreground">Important:</strong> This tool provides an
-            illustrative simulation based on 2026/27 HMRC standard rates. It does not
-            constitute financial or tax advice. UK Net Pay is not regulated by the
-            Financial Conduct Authority (FCA). For professional advice, consult a qualified
-            accountant or independent financial adviser. Calculation data is processed
-            client-side in your browser and is never stored on our servers.
-          </p>
+          <div className="flex items-start gap-3 max-w-4xl rounded-xl border border-border bg-secondary/30 px-4 py-3">
+            <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              <strong className="font-semibold text-foreground">For information only — not financial or tax advice.</strong>{" "}
+              UK Net Pay is not regulated by the FCA. Calculators provide illustrative estimates only and do not
+              account for every personal circumstance.{" "}
+              <strong className="text-foreground">Always consult a qualified accountant or financial adviser before making financial decisions.</strong>{" "}
+              We collect <strong className="text-foreground">no personal data</strong> — no name, email, phone, or salary figures are ever stored or transmitted.
+              All calculations run entirely in your browser.{" "}
+              <Link to="/disclaimer" className="underline underline-offset-2 hover:text-foreground">Disclaimer</Link>
+              {" · "}
+              <Link to="/privacy" className="underline underline-offset-2 hover:text-foreground">Privacy policy</Link>
+            </p>
+          </div>
           <div className="flex flex-col items-start justify-between gap-4 text-xs text-muted-foreground md:flex-row">
             <span>
               Copyright {new Date().getFullYear()} UK Net Pay · Information only · Not

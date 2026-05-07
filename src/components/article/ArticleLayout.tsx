@@ -4,6 +4,7 @@ import { Shell } from "@/components/layout/Shell";
 import { Seo } from "@/components/seo/Seo";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { LegalBanner } from "@/components/legal/LegalBanner";
 import { Prose } from "./Prose";
 import { LeadCTA } from "./LeadCTA";
 import type { Article } from "@/content/articles/types";
@@ -136,6 +137,7 @@ export function ArticleLayout({ article }: { article: Article }) {
             Run your own number <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
+        <LegalBanner />
       </article>
     </Shell>
   );
