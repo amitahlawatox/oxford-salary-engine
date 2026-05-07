@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "indexnow": "npx vite-node scripts/indexnow-submit.ts",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "indexnow": "npx tsx scripts/indexnow.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
