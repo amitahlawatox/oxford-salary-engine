@@ -10,6 +10,7 @@ import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
 import { Download } from "lucide-react";
 import { downloadToolPdf } from "@/lib/toolPdf";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 const SelfEmployed = () => {
   const [s, set] = useUrlState({ profit: 50000, voluntary: false as boolean });
@@ -24,6 +25,7 @@ const SelfEmployed = () => {
         <p className="mt-2 text-muted-foreground">2026/27 sole trader: Income Tax + Class 4 NI (6%/2%) + payments on account.</p>
         <div className="mt-4">
           <ShareSummary summary={`Self-Employed Calculator — see my UK calculation for the 2026/27 tax year`} title="Self-Employed Calculator | UK Net Pay" compact />
+              <ResultDisclaimer />
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">

@@ -9,6 +9,7 @@ import { LeadCTA } from "@/components/article/LeadCTA";
 import { calculate } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { POPULAR_SALARIES, MIN_SALARY, MAX_SALARY } from "@/lib/salaryConstants";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 const SITE = "https://www.uknetpay.co.uk";
 
@@ -334,6 +335,7 @@ const SalaryPage = () => {
               title={title}
               compact
             />
+              <ResultDisclaimer />
             <Link
               to={`/take-home?salary=${gross}`}
               className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-foreground text-background text-sm font-semibold hover:opacity-90 transition"

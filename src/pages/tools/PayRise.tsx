@@ -13,6 +13,7 @@ import { ShareSummary } from "@/components/tools/ShareSummary";
 import { BandBreakdown } from "@/components/charts/BandBreakdown";
 import { MarginalCurve } from "@/components/charts/MarginalCurve";
 import { downloadToolPdf } from "@/lib/toolPdf";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 const base = (gross: number, region: Region) =>
   calculate({ gross, region, pensionPct: 0, pensionMode: "salary-sacrifice", studentLoan: "none", bonus: 0, overtime: 0 });
@@ -44,6 +45,7 @@ const PayRise = () => {
         <p className="mt-2 text-muted-foreground">See exactly how much of your raise actually reaches your bank account.</p>
         <div className="mt-4">
           <ShareSummary summary={`Pay Rise Simulator — see my UK calculation for the 2026/27 tax year`} title="Pay Rise Simulator | UK Net Pay" compact />
+              <ResultDisclaimer />
         </div>
       </section>
 

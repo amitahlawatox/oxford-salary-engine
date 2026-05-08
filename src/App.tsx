@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import { useSessionClear } from "./hooks/useSessionClear";
 import { ConsentBanner } from "./components/consent/ConsentBanner.tsx";
 
 const TakeHome = lazy(() => import("./pages/tools/TakeHome.tsx"));
@@ -39,7 +40,9 @@ const Loader = () => (
   </div>
 );
 
-const App = () => (
+const App = () => {
+  useSessionClear();
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />

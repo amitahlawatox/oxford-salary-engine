@@ -11,6 +11,7 @@ import { ShareSummary } from "@/components/tools/ShareSummary";
 import { Download } from "lucide-react";
 import { BandBreakdown } from "@/components/charts/BandBreakdown";
 import { downloadToolPdf } from "@/lib/toolPdf";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 // 2026/27 SMP: 6 weeks @ 90% AWE, then 33 weeks @ £187.18 or 90% (lower), then 13 weeks unpaid.
 const SMP_FLAT = 187.18;
@@ -57,6 +58,7 @@ const Maternity = () => {
         <p className="mt-2 text-muted-foreground">2026/27 statutory: 6 weeks @ 90% pay, 33 weeks @ £{SMP_FLAT}/wk, then 13 weeks unpaid.</p>
         <div className="mt-4">
           <ShareSummary summary={`Maternity / SMP Calculator — see my UK calculation for the 2026/27 tax year`} title="Maternity / SMP Calculator | UK Net Pay" compact />
+              <ResultDisclaimer />
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
