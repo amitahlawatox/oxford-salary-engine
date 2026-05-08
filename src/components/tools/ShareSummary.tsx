@@ -22,7 +22,7 @@ export function ShareSummary({
     (typeof window !== "undefined"
       ? `${window.location.origin}${window.location.pathname}`
       : "");
-  const shareText = `${summary}\n\nCalculate yours -> ${shareUrl}`;
+  const shareText = `${summary}\n\nCalculate yours -> ${shareUrl}\n\n⚠ Simulation only — illustrative estimate based on standard 2026/27 HMRC rates. Not financial advice. Consult a certified professional before making financial decisions.`;
 
   const copyLink = async () => {
     try {

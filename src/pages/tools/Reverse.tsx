@@ -13,6 +13,7 @@ import { Download } from "lucide-react";
 import { BandBreakdown } from "@/components/charts/BandBreakdown";
 import { MarginalCurve } from "@/components/charts/MarginalCurve";
 import { downloadToolPdf } from "@/lib/toolPdf";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 const Reverse = () => {
   const [s, set] = useUrlState({
@@ -60,6 +61,7 @@ const Reverse = () => {
         <p className="mt-2 text-muted-foreground">Set your target monthly take-home — we'll solve for the gross salary you need.</p>
         <div className="mt-4">
           <ShareSummary summary={`Reverse Salary Calculator — see my UK calculation for the 2026/27 tax year`} title="Reverse Salary Calculator | UK Net Pay" compact />
+              <ResultDisclaimer />
         </div>
       </section>
 

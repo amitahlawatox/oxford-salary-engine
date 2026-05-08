@@ -213,7 +213,7 @@ export const ARTICLES: Article[] = [
           <li>Submit your starter checklist information (your employer should give you this on day one).</li>
           <li>HMRC reissues the cumulative 1257L code. Refunds appear in your next payslip — automatically.</li>
         </ol>
-        <p>Use the <ToolLink to="/take-home">Take-Home calculator</ToolLink> with code <code>1257L</code> to see what you should be netting once the code is corrected.</p>
+        <p>Use the <ToolLink to="/take-home">Take-Home calculator</ToolLink> with code <code>1257L</code> to see the expected net once the correct code is applied.</p>
       </>
     ),
   },
@@ -786,7 +786,7 @@ export const ARTICLES: Article[] = [
     publishedISO: "2026-04-30",
     updatedISO: "2026-04-30",
     faq: [
-      { q: "How do I know if I'm owed a tax refund?", a: "Compare your actual deductions (from payslips or P60) against what you should have paid using a salary calculator. Common causes include wrong tax codes, emergency tax, or working part of the year." },
+      { q: "How do I know if I'm owed a tax refund?", a: "Compare actual deductions (from payslips or P60) against the calculated liability using a salary calculator. Common causes include wrong tax codes, emergency tax, or working part of the year." },
       { q: "How long does a tax refund take?", a: "Online claims via your HMRC personal tax account typically take 5–6 weeks. Postal claims (P50 form) can take 6–8 weeks." },
       { q: "Can I claim a tax refund for previous years?", a: "Yes — you can claim overpaid tax for the previous 4 tax years. For 2026/27, you can go back to 2022/23." },
     ],
@@ -823,7 +823,7 @@ export const ARTICLES: Article[] = [
         <h2 id="avoid-scams">Avoid tax refund scams</h2>
         <p>HMRC will <strong>never</strong> email, text, or call you to say you're owed a refund. If you receive such a message, it's a scam. Always go directly to gov.uk.</p>
 
-        <h2 id="calculator">Check what you should be paying</h2>
+        <h2 id="calculator">See the calculated tax liability</h2>
         <p>Use the <ToolLink to="/take-home">Take-Home Calculator</ToolLink> to compare what you <em>should</em> be deducted against what your payslip shows. A persistent gap means a refund may be due.</p>
       </>
     ),
@@ -946,7 +946,7 @@ export const ARTICLES: Article[] = [
     faq: [
       { q: "How does Tax-Free Childcare work?", a: "You pay into an online account and the government tops up every £8 with £2 — a 20% bonus. The maximum top-up is £2,000 per child per year (£4,000 for disabled children)." },
       { q: "Who is eligible for Tax-Free Childcare?", a: "Both parents must be working and each earning at least the National Minimum Wage for 16 hours/week (about £10,581/year), but neither earning over £100,000." },
-      { q: "Can I use it with childcare vouchers?", a: "No — you must choose one or the other. If you're already on childcare vouchers through your employer, compare which scheme saves you more before switching." },
+      { q: "Can I use it with childcare vouchers?", a: "No — only one scheme applies at a time. Childcare vouchers and Tax-Free Childcare cannot be used simultaneously. Compare both options to see which produces the better outcome for your circumstances before making any change." },
     ],
     body: () => (
       <>

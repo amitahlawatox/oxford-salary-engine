@@ -10,6 +10,7 @@ import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
 import { BandBreakdown } from "@/components/charts/BandBreakdown";
 import { downloadToolPdf } from "@/lib/toolPdf";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 // Approx monthly cost-of-living (1-bed rent + bills + transport + modest food) — 2026 estimates.
 const CITIES: { name: string; cost: number; rent: number }[] = [
@@ -44,6 +45,7 @@ const CostOfLiving = () => {
         <p className="mt-2 text-muted-foreground">Does your net cover the city you live in?</p>
         <div className="mt-4">
           <ShareSummary summary={`Cost-of-Living Adjuster — see my UK calculation for the 2026/27 tax year`} title="Cost-of-Living Adjuster | UK Net Pay" compact />
+              <ResultDisclaimer />
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20">

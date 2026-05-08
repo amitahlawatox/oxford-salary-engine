@@ -11,6 +11,7 @@ import { ShareSummary } from "@/components/tools/ShareSummary";
 import { Download } from "lucide-react";
 import { BandBreakdown } from "@/components/charts/BandBreakdown";
 import { downloadToolPdf } from "@/lib/toolPdf";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 const ProRata = () => {
   const [s, set] = useUrlState({ ftSalary: 45000, ftHours: 37.5, actualHours: 22.5 });
@@ -28,6 +29,7 @@ const ProRata = () => {
         <p className="mt-2 text-muted-foreground">Part-time hours scaled from a full-time salary.</p>
         <div className="mt-4">
           <ShareSummary summary={`Pro-Rata Calculator — see my UK calculation for the 2026/27 tax year`} title="Pro-Rata Calculator | UK Net Pay" compact />
+              <ResultDisclaimer />
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">

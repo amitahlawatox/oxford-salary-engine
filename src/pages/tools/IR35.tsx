@@ -10,6 +10,7 @@ import { ShareSummary } from "@/components/tools/ShareSummary";
 import { Download } from "lucide-react";
 import { BandBreakdown } from "@/components/charts/BandBreakdown";
 import { downloadToolPdf } from "@/lib/toolPdf";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 const IR35 = () => {
   const [s, set] = useUrlState({ dayRate: 500, daysPerYear: 220, expenses: 3000 });
@@ -48,6 +49,7 @@ const IR35 = () => {
         <p className="mt-2 text-muted-foreground">Inside vs outside IR35 take-home at your day rate.</p>
         <div className="mt-4">
           <ShareSummary summary={`IR35 Contractor Calculator — see my UK calculation for the 2026/27 tax year`} title="IR35 Contractor Calculator | UK Net Pay" compact />
+              <ResultDisclaimer />
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20 space-y-6">

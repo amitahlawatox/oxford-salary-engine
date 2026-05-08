@@ -25,6 +25,7 @@ import { YearToggle } from "@/components/tools/YearToggle";
 import { YoYDelta } from "@/components/tools/YoYDelta";
 import { ShareSummary } from "@/components/tools/ShareSummary";
 import { SacrificeItems, annualiseSacrifice, type SacrificeItem } from "@/components/tools/SacrificeItems";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 const SL_LABELS: Record<StudentLoanPlan, string> = {
   none: "None",
@@ -194,6 +195,7 @@ const TakeHome = () => {
 
               <div className="pt-2 space-y-2">
                 <ShareSummary summary={shareSummary} title={`UK Take-Home ${s.year} - ${fmt(salaryNum)} gross`} />
+              <ResultDisclaimer />
                 <button onClick={() => downloadPayslipPdf(r, { region: s.region, pensionPct: s.pensionPct, studentLoan: SL_LABELS[s.studentLoan] })} className="w-full inline-flex items-center justify-center gap-2 border border-border rounded-md py-2 text-sm hover:bg-secondary transition">
                   <Download className="h-3.5 w-3.5" /> Download PDF payslip
                 </button>

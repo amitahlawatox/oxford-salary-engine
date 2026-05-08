@@ -10,6 +10,7 @@ import { ShareSummary } from "@/components/tools/ShareSummary";
 import { Download } from "lucide-react";
 import { BandBreakdown } from "@/components/charts/BandBreakdown";
 import { downloadToolPdf } from "@/lib/toolPdf";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 const TwoJobs = () => {
   const [s, set] = useUrlState({ jobA: 30000, jobB: 15000 });
@@ -37,6 +38,7 @@ const TwoJobs = () => {
         <p className="mt-2 text-muted-foreground">Tax across two PAYE employments. Personal allowance applied to Job A; Job B taxed at BR (basic rate).</p>
         <div className="mt-4">
           <ShareSummary summary={`Two-Jobs Tax Calculator — see my UK calculation for the 2026/27 tax year`} title="Two-Jobs Tax Calculator | UK Net Pay" compact />
+              <ResultDisclaimer />
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">

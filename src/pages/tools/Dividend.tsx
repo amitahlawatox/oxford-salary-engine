@@ -9,6 +9,7 @@ import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
 import { Download } from "lucide-react";
 import { downloadToolPdf } from "@/lib/toolPdf";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 const Dividend = () => {
   const [s, set] = useUrlState({ salary: 12570, dividends: 37430 });
@@ -26,6 +27,7 @@ const Dividend = () => {
         <p className="mt-2 text-muted-foreground">Director salary + dividends. 2026/27 dividend rates: 8.75% / 33.75% / 39.35%. Allowance £500.</p>
         <div className="mt-4">
           <ShareSummary summary={`Dividend Optimiser — see my UK calculation for the 2026/27 tax year`} title="Dividend Optimiser | UK Net Pay" compact />
+              <ResultDisclaimer />
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">

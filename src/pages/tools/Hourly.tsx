@@ -13,6 +13,7 @@ import { Download } from "lucide-react";
 import { BandBreakdown } from "@/components/charts/BandBreakdown";
 import { MarginalCurve } from "@/components/charts/MarginalCurve";
 import { downloadToolPdf } from "@/lib/toolPdf";
+import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
 const Hourly = () => {
   const [s, set] = useUrlState({
@@ -38,6 +39,7 @@ const Hourly = () => {
         <p className="mt-2 text-muted-foreground">Convert an hourly rate into annual, monthly and weekly take-home.</p>
         <div className="mt-4">
           <ShareSummary summary={`Hourly Wage Calculator — see my UK calculation for the 2026/27 tax year`} title="Hourly Wage Calculator | UK Net Pay" compact />
+              <ResultDisclaimer />
         </div>
       </section>
 
