@@ -9,7 +9,7 @@ type Props = {
   ogImage?: string;
 };
 
-const SITE = "https://www.uknetpay.co.uk";
+const SITE = "https://uknetpay.co.uk";
 const DEFAULT_OG_IMAGE = `${SITE}/og-default.png`;
 
 export function Seo({ title, description, path, jsonLd, robots = "index,follow,max-image-preview:large", ogImage }: Props) {

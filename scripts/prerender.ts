@@ -21,7 +21,7 @@ import { TOOL_META, buildToolJsonLd } from "@/lib/seoMeta";
 import { ARTICLES } from "@/content/articles";
 
 const DIST = path.resolve(process.cwd(), "dist");
-const SITE = "https://www.uknetpay.co.uk";
+const SITE = "https://uknetpay.co.uk";
 
 const template = readFileSync(path.join(DIST, "index.html"), "utf-8");
 

@@ -3,7 +3,7 @@ import { Shell } from "@/components/layout/Shell";
 import { Seo } from "@/components/seo/Seo";
 import { ALL_SITEMAP_SALARIES } from "@/lib/salaryConstants";
 
-const SITE = "https://www.uknetpay.co.uk";
+const SITE = "https://uknetpay.co.uk";
 
 const salaryPath = (gross: number) => `/salary/${gross}-after-tax`;
 const salaryLabel = (gross: number) => `£${gross.toLocaleString("en-GB")}`;

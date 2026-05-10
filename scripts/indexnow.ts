@@ -7,7 +7,7 @@
  * Docs:   https://www.indexnow.org/documentation
  */
 
-const HOST = "www.uknetpay.co.uk";
+const HOST = "uknetpay.co.uk";
 const KEY = "5d0a77f231bb49489a2985984b00bc8a";
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const ENDPOINT = "https://api.indexnow.org/IndexNow";

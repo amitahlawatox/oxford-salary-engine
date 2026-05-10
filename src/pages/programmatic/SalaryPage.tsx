@@ -11,7 +11,7 @@ import { fmt, fmt2 } from "@/lib/format";
 import { POPULAR_SALARIES, MIN_SALARY, MAX_SALARY } from "@/lib/salaryConstants";
 import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
-const SITE = "https://www.uknetpay.co.uk";
+const SITE = "https://uknetpay.co.uk";
 
 function canonicalSalaryPath(gross: number) {
   return `/salary/${gross}-after-tax`;

@@ -6,7 +6,7 @@
  */
 import { ALL_SITEMAP_SALARIES } from "@/lib/salaryConstants";
 
-const SITE = "https://www.uknetpay.co.uk";
+const SITE = "https://uknetpay.co.uk";
 const API_KEY = "2cb417ca645de7ca35a9391113e36220";
 const KEY_LOCATION = `${SITE}/${API_KEY}.txt`;
 
@@ -91,7 +91,7 @@ function buildUrlList(): string[] {
 
 async function submitBatch(engine: string, urls: string[]): Promise<void> {
   const body = JSON.stringify({
-    host: "www.uknetpay.co.uk",
+    host: "uknetpay.co.uk",
     key: API_KEY,
     keyLocation: KEY_LOCATION,
     urlList: urls,
