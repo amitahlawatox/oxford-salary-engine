@@ -185,7 +185,7 @@ export const TOOL_META: Record<string, ToolMeta> = {
   },
 };
 
-const SITE = "https://www.uknetpay.co.uk";
+const SITE = "https://uknetpay.co.uk";
 
 export function buildToolJsonLd(meta: ToolMeta) {
   const ld: Record<string, unknown>[] = [

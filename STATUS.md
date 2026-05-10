@@ -1,295 +1,169 @@
 # uknetpay.co.uk — Tech & SEO Status Report
-**Date:** Wednesday 7 May 2026  
-**Prepared by:** Tech Head & SEO Manager  
-**Goal:** 10,000 daily users by May 2027  
-**Current:** ~1 click/day → Target: 10,000/day
+**Date:** Sunday 10 May 2026
+**Prepared by:** Devin (Tech Lead / SEO Manager)
+**Goal:** 10,000 daily users by May 2027
+**Mode change:** From this audit on, Amit provides GA4 + Search Console exports every 3 days; Devin consumes those instead of running expensive Google logins.
 
 ---
 
-## 1. Current Website Status
+## 1. TL;DR
 
-### Traffic (as of 7 May 2026)
-| Metric | Value |
-|---|---|
-| Daily clicks | ~1 |
-| Daily impressions | ~225 |
-| Pages indexed by Google | 17 of 641 |
-| Site age | 27 days (first indexed 10 Apr 2026) |
-| Best ranking keyword | #1 — "auto enrolment min rate 2026" |
-| Best article position | #6 — "average salary uk 2026" |
-
-### What the site is
-- **Domain:** www.uknetpay.co.uk
-- **Stack:** React + TypeScript + Vite, deployed on Vercel
-- **Repo:** github.com/amitahlawatox/oxford-salary-engine
-- **Tools:** 12 salary/tax calculators (take-home, reverse, IR35, dividend, etc.)
-- **Articles:** 40 insight articles
-- **Salary pages:** 581 programmatic pages (£10k–£300k in £500 steps)
-- **Total sitemap URLs:** 641
-
-### Indexation Health
-| Status | Count |
-|---|---|
-| Indexed | 17 |
-| Discovered — not yet indexed | 46 |
-| Not indexed (pending crawl) | ~578 |
-| **Target in 4 weeks** | **200+ indexed** |
+- One concrete, currently-shipping bug fixed today: every internal canonical / sitemap / og:url / IndexNow ping was still pointing at `https://www.uknetpay.co.uk/...` after the production domain was switched to the apex `uknetpay.co.uk`. Every URL Googlebot looks up is therefore hitting a 308 redirect on first hop. Fix is in PR (this branch).
+- Two collateral bugs caught and patched in the same PR: a JSX parse error in `src/App.tsx` (added by the YMYL sprint, lint was failing on `main`), and a duplicate `indexnow` script key in `package.json`.
+- May 7 `STATUS.md` was already stale: 4 sprints landed in the last 3 days (Growth Sprint 1, Growth Sprint 2, Legal, YMYL Hardening). This document supersedes it.
+- The 13 GA4 / Search Console attachments uploaded today returned **401 Unauthorized** on download — they need to be re-attached in a fresh message before I can do data-driven prioritisation. Bug filed.
+- Until the data exports are accessible, the 3-day plan is intentionally conservative: ship the canonical/sitemap fix, watch indexation, draft Sprint 3 content but do not blind-publish.
 
 ---
 
-## 2. Work Completed This Session
+## 2. Current Site State (10 May 2026)
 
-### PR Merges (existing code — merged to main)
-| PR | What it did | Status |
+| Area | Value | Source |
 |---|---|---|
-| PR #7 | GA4 analytics wired + all 152 routes prerendered for Googlebot | ✅ Merged |
-| PR #6 | 301 redirects for broken old /guides/ URLs, fixed /methodology path | ✅ Merged |
-| PR #3 | Favicon LCP fix (735KB → 3KB), non-blocking fonts, IndexNow (Bing/Yandex) | ✅ Merged |
+| Production domain | `https://uknetpay.co.uk` (apex) | Vercel — confirmed via `curl -I` |
+| `www.` subdomain | 308 → apex | Vercel redirect |
+| Sitemap | 641 URLs | `public/sitemap.xml` |
+| Prerendered routes | 643 (1 home + 12 tools + 40 insights + 9 static + 581 salary) | `npm run build` output |
+| Tool pages | 12 | `src/pages/tools/*` |
+| Insight articles | 40 | `src/content/articles/data.tsx` |
+| Programmatic salary pages | 581 (£10k–£300k in £500 steps) | `src/lib/salaryConstants.ts` |
+| GA4 | Live, Consent Mode v2 (G-VL1CMWKWY1) | `index.html`, verified in served HTML |
+| IndexNow | Live, key `5d0a77f231bb49489a2985984b00bc8a` | `scripts/indexnow.ts`, `public/<key>.txt` |
+| AdSense | Placeholder only — `ads.txt` still has `PUBLISHER_ID` | `public/ads.txt` |
 
-### Sprint 1 — Technical SEO foundations
-| Change | File | Impact |
-|---|---|---|
-| Salary pages 106 → 581 | `src/lib/salaryConstants.ts` | 475 new pages targeting "[X] after tax uk" |
-| 5 new articles added | `src/content/articles/data.tsx` | 25k+ combined monthly searches |
-| Sitemap 183 → 630 URLs | `public/sitemap.xml` | Google finds all pages |
-| Terms page noindex fixed | `src/pages/legal/Terms.tsx` | Was blocking Google |
-| Cache-Control headers | `vercel.json` | Faster Googlebot crawl |
+### Live-site health checks performed today
+- `curl https://uknetpay.co.uk/` → 200 OK, GA4 tag present, 4805 bytes of prerendered HTML.
+- `curl -A Googlebot https://uknetpay.co.uk/take-home` → route-specific `<title>`, canonical, JSON-LD all present.
+- `curl -A Googlebot https://uknetpay.co.uk/salary/35000-after-tax` → route-specific `<title>` "£35,000 After Tax UK 2026/27 — Take Home £28,720/yr | UK Net Pay".
+- `curl -A Googlebot https://www.uknetpay.co.uk/take-home` → **308 redirect** (this is the issue PR fixes).
 
-**5 Sprint 1 articles and their target keywords:**
-- `what-is-a-good-salary-uk-2026` — ~8,000 searches/month
-- `how-to-calculate-take-home-pay` — ~6,000 searches/month
-- `income-tax-bands-2026-27` — ~5,000 searches/month
-- `average-salary-london-2026` — ~4,000 searches/month
-- `average-salary-by-age-uk-2026` — ~3,000 searches/month
+---
 
-### Sprint 2 — Content scale + FAQ schema
-| Change | Detail |
+## 3. What Devin Shipped Today (10 May 2026)
+
+Single PR on branch `devin/<ts>-canonical-apex-fix`. Three changes, all tightly scoped:
+
+### 3a. Canonical / sitemap / og:url drift fix (the main reason for this PR)
+- Replaced `https://www.uknetpay.co.uk` → `https://uknetpay.co.uk` across all source files (17 files, 669 occurrences).
+- Files touched: `index.html`, `public/sitemap.xml`, `public/robots.txt`, `src/components/seo/Seo.tsx`, `src/components/article/ArticleLayout.tsx`, `src/lib/seoMeta.ts`, `src/pages/Directory.tsx`, all 4 legal pages, `src/pages/About.tsx`, `src/pages/Contact.tsx`, `src/pages/Methodology.tsx`, `src/pages/programmatic/SalaryPage.tsx`, `scripts/prerender.ts`, `scripts/indexnow.ts`, `scripts/indexnow-submit.ts`.
+- After this lands, every one of the 641 sitemap URLs returns 200 directly instead of a 308 redirect, and canonical tags self-reference the URL Google actually serves.
+
+### 3b. Fix `src/App.tsx` JSX parse error
+- The YMYL sprint that landed on 8 May added `useSessionClear()` inside the `App` component but left the arrow-function body unclosed (`)` instead of `);`/`};`). esbuild was permissive enough to keep prod alive, but ESLint was failing on every CI run.
+- Fix: properly close the function body. `npm run lint` now reports **0 errors** (13 unrelated warnings remain, none new).
+
+### 3c. Drop duplicate `indexnow` script key in `package.json`
+- Two `indexnow` keys existed; the second won, but esbuild was emitting a `Duplicate key` warning on every build. Removed the legacy `indexnow-submit.ts` entry.
+- The `scripts/indexnow-submit.ts` file is left in place for historical reference; the active script is now unambiguously `scripts/indexnow.ts`.
+
+### Verification
+- `npm run lint` → 0 errors, 13 pre-existing warnings.
+- `npm run test` → 5/5 passed.
+- `npm run build` → "Prerendered routes: 1 home + 12 tools + 40 insights + 9 static + 581 salary = 643".
+- `dist/index.html`, `dist/take-home/index.html`, `dist/insights/average-salary-uk-2026/index.html` all show `rel="canonical" href="https://uknetpay.co.uk/..."`.
+- `dist/sitemap.xml` first three `<loc>` entries all use the apex.
+
+### What Devin did NOT do today (deliberately)
+- No new content was published. With 17/641 indexed and the canonical bug live, adding more URLs into the sitemap would have made the redirect-flood worse, not better.
+- No AdSense wiring — still waiting on Amit's publisher ID.
+- No data-driven prioritisation (e.g. fixing high-impression / low-CTR title tags) because the GA4/GSC exports were not accessible. See §4.
+
+---
+
+## 4. Data-Export Blocker
+
+Amit attached 13 files to the kickoff message:
+
+| File | Type |
 |---|---|
-| 10 new articles | City salary pages + job title salary guides |
-| FAQ schema | Added FAQPage JSON-LD to 7 tools that were missing it — all 12 tools now have FAQ schema (triggers rich results in Google SERPs) |
-| Sitemap updated | 641 URLs total |
+| View_user_engagement_&_retention_overview.pdf | GA4 |
+| Pages_and_screens_Page_path_and_screen_class.pdf | GA4 |
+| Tech_details_Browser.pdf + .csv | GA4 |
+| Tech_overview.pdf | GA4 |
+| Audiences_Audience_name.pdf | GA4 |
+| Demographic_details_Country.pdf | GA4 |
+| User_attributes_overview.csv | GA4 |
+| Reports_snapshot.csv | GA4 |
+| uknetpay.co.uk-Coverage-2026-05-10.zip | Search Console |
+| uknetpay.co.uk-Performance-on-Search-2026-05-10.zip (×3) | Search Console |
 
-**5 city articles:**
-- Manchester, Birmingham, Leeds, Bristol, Edinburgh average salaries
+All 13 returned **`HTTP 401 {"detail":"Unauthorized"}`** when downloaded from this VM. The Devin platform's auto-download appears to have been interrupted by the VM reboot earlier today; once that window passes, the URLs are auth-gated and Devin cannot retrieve them.
 
-**5 job title articles:**
-- Nurse salary (all NHS bands), Teacher salary (all pay scales)
-- Software Engineer salary (junior → principal)
-- Accountant salary (trainee → partner)
-- Average salary by profession UK — 40+ jobs ranked (high sharability)
-
-### Legal & Data Protection Sprint
-| Change | What it covers |
-|---|---|
-| Privacy Policy (full rewrite) | Explicit zero data collection: no name, email, phone, salary stored. Client-side only guarantee. Full UK GDPR rights. |
-| Disclaimer (full rewrite + now indexable) | Not financial advice. Not FCA regulated. No professional relationship. Limitation of liability. |
-| Terms of Use (full rewrite) | Zero data clause. Limitation of liability. No warranty. Governing law: England and Wales. |
-| `LegalBanner` component (new) | Shown at bottom of every article page — links to disclaimer + privacy |
-| Footer disclaimer (upgraded) | Stronger language with ShieldAlert icon on every page sitewide |
-| /disclaimer added to sitemap | Now indexable — Google can find it |
+**Action for Amit:** re-attach the same files in a fresh chat message. They will then be auto-downloaded and Devin can run the analysis (top queries, indexed-vs-not-indexed counts, page-level CTR, country split, browser split, period-over-period trend). If this happens again on the next 3-day cycle, Cognition engineers should investigate the auto-download retry behaviour.
 
 ---
 
-## 3. Current Content Inventory
+## 5. What Landed on `main` Between 4 May and 10 May (for context)
 
-### Tool Pages (12 total)
-| Tool | URL | Status |
+Devin shipped PR #7 on 4 May, then the session went idle for 6 days. During that gap, four sprints were merged by other agents:
+
+| Date | Sprint | Highlights |
 |---|---|---|
-| Take-Home Pay | /take-home | ✅ Live, prerendered |
-| Hourly Wage | /hourly | ✅ Live, prerendered |
-| Reverse Salary | /reverse | ✅ Live, prerendered |
-| Pay Rise | /pay-rise | ✅ Live, prerendered |
-| Compare Salaries | /compare | ✅ Live, prerendered |
-| Pro-Rata | /pro-rata | ✅ Live, prerendered |
-| Two Jobs | /two-jobs | ✅ Live, prerendered |
-| Maternity / SMP | /maternity | ✅ Live, prerendered |
-| Self-Employed | /self-employed | ✅ Live, prerendered |
-| Dividend Optimiser | /dividend | ✅ Live, prerendered |
-| IR35 Contractor | /ir35 | ✅ Live, prerendered |
-| Cost of Living | /cost-of-living | ✅ Live, prerendered |
+| 6 May | PR #7 merged | GA4 install + prerender all 152 routes |
+| 6 May | PR #6 merged | 301 redirects for old `/guides/` URLs, `/methodology` consolidation |
+| 7 May | Growth Sprint 1 (`f6f68cd`) | Salary pages 106 → 581 (£500 step), 5 articles (good-salary, take-home, tax-bands, London salary, salary by age), sitemap 183 → 630, fixed Terms `noindex`, edge cache headers |
+| 7 May | Growth Sprint 2 (`a85b0d1`) | +10 articles (5 cities + 5 job titles), FAQ schema on all 12 tools, sitemap → 641 |
+| 7 May | Legal sprint (`ebe2b1d`) | Privacy / Disclaimer / Terms full rewrite, `LegalBanner`, footer disclaimer, disclaimer indexable |
+| 7 May | `STATUS.md` v1 (`506ce50`) | Status report for that point in time (now superseded by this doc) |
+| 8 May | YMYL hardening (`3b741bd`) | Statutory disclaimers, CSP, session clearing, `useSessionClear` hook, `ResultDisclaimer` |
 
-### Insight Articles (40 total)
-| Category | Count |
-|---|---|
-| Tax | 11 |
-| Career | 10 |
-| Wages | 8 |
-| Self-Employed | 3 |
-| Pension | 2 |
-| Scotland | 2 |
-| Benefits | 1 |
-| Cost of Living | 1 |
-| Employer | 1 |
-| Student Loans | 1 |
-
-### Programmatic Salary Pages (581 total)
-- Range: £10,000 to £300,000 in £500 increments
-- Pattern: `/salary/[amount]-after-tax`
-- Example: `/salary/35000-after-tax` → targets "35000 after tax uk"
-- Each page has unique title, description, canonical, schema markup, and prerendered HTML
+The site jumped from 152 indexable routes to 643 in three days. Indexation count was 17 in the May 7 doc — the bigger sitemap will not move that number until Google's crawl picks up the new URLs **and** the canonical fix in this PR removes the 308 redirect from the path.
 
 ---
 
-## 4. Architecture & Tech Stack
+## 6. Three-Day Plan (10 → 13 May 2026)
 
-```
-Frontend:     React 18 + TypeScript + Vite
-Styling:      Tailwind CSS + ShadCN UI
-Routing:      React Router v6 (BrowserRouter)
-Hosting:      Vercel (auto-deploy on git push to main)
-Repo:         GitHub (amitahlawatox/oxford-salary-engine)
-Analytics:    Google Analytics 4 (G-VL1CMWKWY1), Consent Mode v2
-SEO:          react-helmet-async, prerender.ts (static HTML per route)
-Schema:       WebApplication, FAQPage, Article, BreadcrumbList JSON-LD
-Indexing:     IndexNow (Bing/Yandex instant pinging on deploy)
-Ads:          Google AdSense placeholder (ads.txt present, PUBLISHER_ID pending)
-```
+Plan is split into **"can do without GA4/GSC data"** and **"requires GA4/GSC data"**. The first track always runs; the second runs as soon as Amit re-attaches the exports.
 
-### SEO Infrastructure
-- **Prerendering:** Every route generates a static `index.html` at build time with full meta tags, title, description, canonical, og:tags, and JSON-LD — so Googlebot gets real HTML without executing JavaScript
-- **Sitemap:** 641 URLs, submitted to Google Search Console
-- **robots.txt:** `Allow: /` — no restrictions
-- **Canonical tags:** Every page has a canonical URL
-- **Cache-Control:** Salary and insights pages cached at Vercel edge
-- **IndexNow:** Pings Bing and Yandex on every deploy for instant re-crawl
+### Track A — code-only, no data needed (will run regardless)
 
----
+**Day 1 (Sun 10 May, today)**
+- [x] Audit repo state, identify canonical/sitemap drift bug.
+- [x] Open PR with canonical fix + `App.tsx` parse-error fix + dedupe `indexnow` key.
+- [x] Update `STATUS.md` (this doc).
+- [ ] Wait for CI to pass and merge.
+- [ ] Once merged + Vercel auto-deploys, re-curl 5 representative URLs to confirm 200 OK on the apex.
 
-## 5. What Needs to Happen Right Now (CEO Action Required)
+**Day 2 (Mon 11 May)**
+- [ ] Submit fresh `https://uknetpay.co.uk/sitemap.xml` to Google Search Console (replaces the www-host entry).
+- [ ] Run `npm run indexnow` to push the 641 URLs to Bing/Yandex with the corrected `host: uknetpay.co.uk`.
+- [ ] Add Google Search Console **apex property** (`uknetpay.co.uk`) if it is not already verified — the existing `www.` property may be holding outdated data.
+- [ ] Lighthouse audit on the 5 highest-priority pages: `/`, `/take-home`, `/reverse`, `/insights/average-salary-uk-2026`, `/insights/how-to-calculate-take-home-pay`. Record LCP / CLS / TBT.
+- [ ] Tighten the largest JS chunks (`recharts`, `pdf`, `index-es`) — code-split or dynamic-import on the few pages that actually need them. Currently 500KB+ chunks load on first paint.
 
-### 1. Submit sitemap to Google Search Console (5 minutes)
-Go to: https://search.google.com/search-console/sitemaps  
-Submit: `https://www.uknetpay.co.uk/sitemap.xml`  
-This tells Google to crawl all 641 URLs immediately.
+**Day 3 (Tue 12 May)**
+- [ ] Internal-linking audit: every tool page should link to ≥3 relevant articles, every article should link to ≥2 tools. Use `grep` on `src/content/articles/data.tsx` and `src/pages/tools/*.tsx` to find gaps.
+- [ ] Build a `/directory` improvement: group salary pages by band (£10–25k, £25–50k, £50–75k, £75–100k, £100k+) so Google sees structured navigation, not a 581-link wall.
+- [ ] Add `og:image` per major route (currently a single shared `/og-default.png` for everything). Generate 4 type-specific OG images: tool, article, salary-page, home.
 
-### 2. Request indexing for top 10 pages (15 minutes)
-In Google Search Console → URL Inspection, paste each URL and click "Request Indexing":
-1. `https://www.uknetpay.co.uk/`
-2. `https://www.uknetpay.co.uk/take-home`
-3. `https://www.uknetpay.co.uk/reverse`
-4. `https://www.uknetpay.co.uk/insights/average-salary-uk-2026`
-5. `https://www.uknetpay.co.uk/insights/what-is-a-good-salary-uk-2026`
-6. `https://www.uknetpay.co.uk/insights/how-to-calculate-take-home-pay`
-7. `https://www.uknetpay.co.uk/insights/income-tax-bands-2026-27`
-8. `https://www.uknetpay.co.uk/insights/average-salary-london-2026`
-9. `https://www.uknetpay.co.uk/insights/nurse-salary-uk-2026`
-10. `https://www.uknetpay.co.uk/insights/teacher-salary-uk-2026`
+### Track B — runs as soon as data exports are accessible
 
-### 3. Apply for Google AdSense (10 minutes)
-Go to: https://adsense.google.com/start  
-Apply using the domain www.uknetpay.co.uk  
-Once approved (takes 1–4 weeks), update `public/ads.txt` with your publisher ID  
-Expected revenue at 10k/day: £80–£200/day depending on ad placement
+- [ ] Parse the 13 attachments. Extract:
+  - Top 25 search queries by impressions, with current rank + CTR.
+  - Top 25 pages by impressions, with current rank + CTR.
+  - Indexed-URL count (move from 17 → ?).
+  - "Discovered — currently not indexed" list — these are pages I should manually request indexing for.
+  - Crawl errors / soft-404s.
+  - Country / device / browser split.
+- [ ] Identify **high-impression / low-CTR pages** (≥100 impressions, <2% CTR) → rewrite their `<title>` and meta description (cheapest possible win).
+- [ ] Identify **page-2 ranking keywords** (positions 11–20) → add internal links pointing at those pages from the home page and the relevant `/insights/*` articles.
+- [ ] Compare 4–10 May trend vs. 1–3 May to attribute lift to PR #7 (prerender + GA4) and the 4 follow-up sprints.
 
-### 4. ICO registration check
-If you are processing any personal data as a business (even just server logs), check whether you need to register with the Information Commissioner's Office at ico.org.uk. Takes 10 minutes, costs £40/year. Legal requirement.
+### Explicitly out-of-scope this 3-day window
+- New content sprints (city #6+, job title #6+) — paused until indexation moves.
+- AdSense wiring — blocked on Amit's publisher ID.
+- Hourly-rate programmatic pages (`/salary/hourly/*`) — would add ~145 URLs to a sitemap that hasn't been crawled yet. Defer until indexed count is north of 200.
 
 ---
 
-## 6. Next Steps — Sprint 3 (Planned)
+## 7. Open Decisions for Amit
 
-### Technical
-- [ ] Add `SalaryDirectory` index page (all 581 salary pages listed A–Z with amounts) — improves internal linking and crawlability
-- [ ] Add hourly rate salary pages (`/salary/hourly/[rate]-per-hour`) — targets "£X per hour after tax" searches
-- [ ] Add `hreflang` tags for any international pages
-- [ ] Google Search Console — fix any remaining "crawled but not indexed" errors after prerender deploy
-- [ ] Run Lighthouse audit on /take-home — target LCP < 2.0s, CLS = 0
-
-### Content
-- [ ] 5 more city salary articles: Glasgow, Liverpool, Sheffield, Nottingham, Cardiff
-- [ ] 5 more job title articles: solicitor, GP doctor, project manager, electrician, HGV driver salary guides
-- [ ] "Average salary by region UK 2026" — comparison article (high sharability, linkable asset)
-- [ ] "Salary sacrifice vs personal pension — which is better?" — evergreen high-intent article
-- [ ] Update all 40 existing articles with internal links to relevant salary pages and tools
-
-### SEO / Authority
-- [ ] Email 10 HR and finance publications with uknetpay data as a source (AccountingWEB, HR Magazine, Totaljobs blog, Reed blog)
-- [ ] Submit to UK business directories: Yell, Thomson Local, Bing Places
-- [ ] Build one data-driven PR piece: "UK Salary Report May 2026" using anonymised aggregated data
+1. **Re-attach the 13 GA4 / GSC files** in a fresh message so I can run Track B above.
+2. **AdSense publisher ID** — once Google approves, paste the `pub-XXXXXXXX` ID and I'll wire `ads.txt` + the `<AdSlot>` component on day 4.
+3. **GSC properties** — confirm whether `uknetpay.co.uk` (apex) is verified as a property in Search Console. If only `www.uknetpay.co.uk` exists, indexation reports will be misleading after this PR ships.
+4. **Vercel domain config** — confirm apex is set as the production domain (it appears so from the redirect direction). If you want www to be canonical instead, flip the redirect direction on Vercel and I'll re-revert this PR's URL changes.
 
 ---
 
-## 7. Wednesday 14 May 2026 — One-Week Target Plan
-
-### By Wednesday 14 May, the following will be completed and live:
-
-#### Monday 12 May
-- [ ] **Sprint 3a — 5 more city articles:** Glasgow, Liverpool, Sheffield, Nottingham, Cardiff
-- [ ] **Sprint 3b — 5 more job articles:** Solicitor, GP/Doctor, Project Manager, Electrician, HGV Driver
-- [ ] **Salary Directory page:** `/directory` updated to list all 581 salary pages with proper internal links
-- [ ] **Sitemap updated** to 651+ URLs
-
-#### Tuesday 13 May
-- [ ] **Hourly rate pages** — add `/salary/hourly/[rate]` pattern for £8–£150/hour (145 new pages)
-- [ ] **Internal linking audit** — every tool page links to 3 relevant articles; every article links to 2+ tools
-- [ ] **Lighthouse audit** — identify and fix any LCP or CLS issues on the top 5 pages
-- [ ] **AdSense application** submitted (CEO action — 10 minutes)
-
-#### Wednesday 14 May
-- [ ] **Full deploy** — all Sprint 3 changes pushed to main → Vercel auto-deploy
-- [ ] **Google Search Console** — resubmit sitemap, request indexing for all new pages
-- [ ] **IndexNow ping** — auto-fires on deploy for Bing/Yandex
-- [ ] **Progress check:** verify indexation count has grown from 17 to 50+ pages
-- [ ] **Week 1 report** — updated status document
-
-### Wednesday 14 May expected metrics (conservative)
-| Metric | 7 May | Target 14 May |
-|---|---|---|
-| Daily clicks | ~1 | 10–30 |
-| Pages indexed | 17 | 50–80 |
-| Sitemap URLs | 641 | 800+ |
-| Insight articles | 40 | 50 |
-| Salary pages | 581 | 726 (+ hourly rates) |
-
----
-
-## 8. 12-Month Traffic Projection
-
-| Month | Daily users | Key driver |
-|---|---|---|
-| May 2026 | 1–30 | Indexation beginning |
-| Jun 2026 | 50–200 | Salary pages indexed, articles ranking |
-| Jul 2026 | 200–600 | Average salary articles hitting page 1 |
-| Aug 2026 | 500–1,500 | City + job title pages gaining traction |
-| Sep 2026 | 1,000–2,500 | Backlinks from HR/finance publishers |
-| Oct 2026 | 2,000–4,000 | Autumn Budget coverage drives spike |
-| Nov 2026 | 3,000–5,000 | Domain authority building, more page 1 rankings |
-| Dec 2026 | 4,000–6,000 | New tax year search volume rising |
-| Jan 2027 | 5,000–7,500 | New year salary review season |
-| Feb 2027 | 6,000–8,500 | Budget speculation content |
-| Mar 2027 | 7,000–9,000 | Pre-tax year peak |
-| Apr 2027 | 9,000–12,000 | Tax year change — peak season |
-| **May 2027** | **10,000+** | **Goal achieved** |
-
----
-
-## 9. Key Risks & Mitigations
-
-| Risk | Likelihood | Mitigation |
-|---|---|---|
-| Google delays indexing SPA pages | Medium | Prerendering deployed (PR#7) — mitigated |
-| Core algorithm update affects rankings | Low–Medium | High-quality, factual content — lower risk |
-| Competitor launches similar tool | Low | Domain + content moat builds monthly |
-| AdSense rejection (thin content) | Low | 641 URLs, 40 articles — well above threshold |
-| Tax rates change mid-year | Medium | Update process documented in Methodology page |
-| Token/credentials exposure | Low | GitHub token used in session — should be regenerated after use |
-
----
-
-## 10. Credentials & Access
-
-| Service | Access |
-|---|---|
-| GitHub | amitahlawatox/oxford-salary-engine — owner access |
-| Vercel | Auto-deploys from main branch — linked to GitHub |
-| Google Search Console | uknetpay.co.uk — verify sitemap submitted |
-| Google Analytics | G-VL1CMWKWY1 — live, Consent Mode v2 |
-| Google AdSense | ⚠️ Not yet applied — apply this week |
-| ICO registration | ⚠️ Check whether required |
-| IndexNow | Live — pings Bing/Yandex on every deploy |
-
----
-
-*Report generated: Wednesday 7 May 2026*  
-*Next report: Wednesday 14 May 2026*  
-*Tech Head & SEO Manager: Claude (Anthropic)*
+*Generated: Sunday 10 May 2026, by Devin (Tech Lead).
+Next report: Wednesday 13 May 2026 — 3 days from now.*

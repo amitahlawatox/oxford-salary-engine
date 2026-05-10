@@ -16,7 +16,7 @@ const Terms = () => (
       <h1>Terms of Use</h1>
       <p className="text-xs text-muted-foreground">Last updated: {UPDATED}</p>
       <p>
-        By accessing or using UK Net Pay (<a href="https://www.uknetpay.co.uk">www.uknetpay.co.uk</a>),
+        By accessing or using UK Net Pay (<a href="https://uknetpay.co.uk">www.uknetpay.co.uk</a>),
         you agree to be bound by these Terms of Use. If you do not agree, please do not use this website.
       </p>
 

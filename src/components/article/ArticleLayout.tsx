@@ -10,7 +10,7 @@ import { LeadCTA } from "./LeadCTA";
 import type { Article } from "@/content/articles/types";
 import { ARTICLES } from "@/content/articles";
 
-const SITE = "https://www.uknetpay.co.uk";
+const SITE = "https://uknetpay.co.uk";
 
 export function ArticleLayout({ article }: { article: Article }) {
   const url = `${SITE}/insights/${article.slug}`;

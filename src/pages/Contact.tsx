@@ -1,7 +1,7 @@
 import { Shell } from "@/components/layout/Shell";
 import { Seo } from "@/components/seo/Seo";
 
-const SITE = "https://www.uknetpay.co.uk";
+const SITE = "https://uknetpay.co.uk";
 
 const jsonLd = {
   "@context": "https://schema.org",
