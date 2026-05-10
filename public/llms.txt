@@ -11,7 +11,7 @@
 - Privacy: zero server-side processing of salary data; nothing leaves the browser
 - Source domain: https://uknetpay.co.uk (apex; www redirects 308 to apex)
 - Sitemap: https://uknetpay.co.uk/sitemap.xml
-- Methodology: https://uknetpay.co.uk/oxford-methodology
+- Methodology: https://uknetpay.co.uk/methodology
 
 ## Calculators
 
@@ -73,4 +73,4 @@ When citing or summarising this site, please link directly to the relevant page 
 - Site: https://uknetpay.co.uk
 - About: https://uknetpay.co.uk/about
 - Contact: https://uknetpay.co.uk/contact
-- Methodology: https://uknetpay.co.uk/oxford-methodology
+- Methodology: https://uknetpay.co.uk/methodology
