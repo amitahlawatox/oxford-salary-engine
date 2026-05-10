@@ -28,7 +28,7 @@ const Privacy = () => (
 
       <h2>1. Who we are</h2>
       <p>
-        UK Net Pay (<a href="https://uknetpay.co.uk">www.uknetpay.co.uk</a>) provides
+        UK Net Pay (<a href="https://uknetpay.co.uk">uknetpay.co.uk</a>) provides
         free UK salary and tax calculators. For data-protection purposes, the data controller
         is the site operator. Contact us at <a href="mailto:privacy@uknetpay.co.uk">privacy@uknetpay.co.uk</a>.
       </p>

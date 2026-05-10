@@ -28,7 +28,7 @@ const Disclaimer = () => (
       <h2>1. Information only — not professional advice</h2>
       <p>
         All calculators, tools, articles, guides, and other content published on UK Net Pay
-        (<a href="https://uknetpay.co.uk">www.uknetpay.co.uk</a>) are provided for
+        (<a href="https://uknetpay.co.uk">uknetpay.co.uk</a>) are provided for
         <strong> general information and illustrative purposes only</strong>. They do not, and are not
         intended to, constitute:
       </p>
