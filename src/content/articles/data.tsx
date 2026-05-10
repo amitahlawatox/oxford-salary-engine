@@ -1577,7 +1577,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "teacher-salary-uk-2026",
     title: "UK Teacher Pay Scale 2026/27: Salary by Scale Point + Take-Home",
-    description: "Full 2026/27 UK teacher pay scales — Main Pay Range £31,650–£43,607, Upper Pay Range, leadership, plus Inner/Outer London allowances. Take-home pay after tax and NI for every step.",
+    description: "Full 2026/27 UK teacher pay scales — Main Pay Range £31,650–£43,685, Upper Pay Range, leadership, plus Inner/Outer London allowances. Take-home pay after tax and NI for every step.",
     excerpt: "A newly qualified teacher earns £31,650 in 2026 (£38,765 in London). After tax and NI, that's £2,212/month outside London. Here's the full picture.",
     category: "Career",
     keywords: ["teacher salary uk 2026","teacher pay 2026","newly qualified teacher salary take home","uk teacher salary after tax","teacher pay scale 2026"],

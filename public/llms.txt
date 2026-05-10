@@ -62,7 +62,7 @@ A complete list of articles is in the sitemap at `/sitemap.xml`.
 
 ## Programmatic Salary Pages
 
-URLs of the form `/salary/{amount}-after-tax` (e.g. `/salary/35000-after-tax`) provide take-home pay breakdowns for specific gross salaries from £20,000 to £600,000 in standard steps. Each page includes the monthly net, tax paid, NI paid, and a Compare CTA.
+URLs of the form `/salary/{amount}-after-tax` (e.g. `/salary/35000-after-tax`) provide take-home pay breakdowns for specific gross salaries from £10,000 to £300,000 in £500 steps. Each page includes the monthly net, tax paid, NI paid, and a Compare CTA.
 
 ## Citation
 
