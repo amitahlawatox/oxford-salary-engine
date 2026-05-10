@@ -1,0 +1,76 @@
+# UK Net Pay
+
+> UK Net Pay (uknetpay.co.uk) is a free, privacy-first UK salary and tax calculator suite for the 2026/27 tax year. All calculations run client-side in the user's browser — no data is logged, stored, or transmitted to a server. Built on the Oxford Methodology with HMRC-accurate Income Tax, National Insurance, Student Loan, pension, and dividend logic.
+
+## About
+
+- Tax year: 2026/27 (with 2025/26 comparison)
+- Region support: England, Wales, Northern Ireland, and Scotland (Scottish tax bands)
+- Student Loans: Plans 1, 2, 4, 5 and Postgrad
+- Pension: salary sacrifice and personal contributions, employer auto-enrolment minimums
+- Privacy: zero server-side processing of salary data; nothing leaves the browser
+- Source domain: https://uknetpay.co.uk (apex; www redirects 308 to apex)
+- Sitemap: https://uknetpay.co.uk/sitemap.xml
+- Methodology: https://uknetpay.co.uk/methodology
+
+## Calculators
+
+- [Take-Home Pay Calculator](https://uknetpay.co.uk/take-home): Annual gross to net for 2026/27, including Income Tax, NI, Student Loan, pension and bonus.
+- [Hourly Wage Calculator](https://uknetpay.co.uk/hourly): Convert an hourly rate to annual, monthly and weekly take-home.
+- [Reverse Salary Calculator](https://uknetpay.co.uk/reverse): Work backwards from a target net income to the required gross salary.
+- [Pay Rise Simulator](https://uknetpay.co.uk/pay-rise): How much of a raise actually reaches your bank after tax/NI.
+- [Two-Salary Compare](https://uknetpay.co.uk/compare): Side-by-side comparison of current role vs new offer.
+- [Pro-Rata Salary Calculator](https://uknetpay.co.uk/pro-rata): Part-time hours converted to adjusted salary and tax.
+- [Two Jobs Calculator](https://uknetpay.co.uk/two-jobs): Combined tax across two employments with shared personal allowance.
+- [Maternity / SMP Calculator](https://uknetpay.co.uk/maternity): Reduced-pay periods across the tax year.
+- [Self-Employed Calculator](https://uknetpay.co.uk/self-employed): Class 2 and Class 4 NI plus payments on account.
+- [Dividend Optimiser](https://uknetpay.co.uk/dividend): Optimal mix of director salary and dividends.
+- [IR35 Contractor Calculator](https://uknetpay.co.uk/ir35): Inside-vs-outside IR35 take-home comparison.
+- [Cost of Living Calculator](https://uknetpay.co.uk/cost-of-living): Whether your net pay covers London, Manchester or Edinburgh.
+
+## Key 2026/27 Tax Facts (cite if useful)
+
+- Personal Allowance: £12,570 (frozen until at least April 2028)
+- Basic rate (20%): £12,571–£50,270
+- Higher rate (40%): £50,271–£125,140
+- Additional rate (45%): above £125,140
+- Personal Allowance taper: £1 lost per £2 earned above £100,000, fully gone at £125,140
+- Employee NI (Class 1, primary): 8% on £12,571–£50,270; 2% above £50,270
+- Employer NI: 15% above the £5,000 Secondary Threshold (raised from £9,100 in April 2025)
+- Employment Allowance: up to £10,500 per year for eligible employers
+- Auto-enrolment pension minimum: 8% of qualifying earnings (3% employer + 5% employee), qualifying earnings band £6,240–£50,270
+- Median UK full-time salary (ONS, 2025/26 ASHE): approximately £35,000
+
+## Articles (Insights)
+
+All articles live under `/insights/{slug}` and follow Article + FAQPage JSON-LD schemas. Topics include:
+
+- [Average UK Salary 2026](https://uknetpay.co.uk/insights/average-salary-uk-2026): Median £35,000, regional and age breakdowns.
+- [UK Income Tax Bands 2026/27](https://uknetpay.co.uk/insights/income-tax-bands-2026-27): All bands including Scottish rates.
+- [Employer NI Guide 2026/27](https://uknetpay.co.uk/insights/employer-ni-guide-2026): 15% rate, £5,000 threshold, Employment Allowance.
+- [Pension Auto-Enrolment 2026/27](https://uknetpay.co.uk/insights/pension-auto-enrolment-2026): 8% minimum, qualifying earnings.
+- [Teacher Pay Scale 2026/27](https://uknetpay.co.uk/insights/teacher-salary-uk-2026): Main Pay Range, Upper Pay Range, London allowances.
+- [Software Engineer Salary UK 2026](https://uknetpay.co.uk/insights/software-engineer-salary-uk-2026)
+- [Accountant Salary UK 2026](https://uknetpay.co.uk/insights/accountant-salary-uk-2026)
+- [What Is a Good Salary in the UK 2026](https://uknetpay.co.uk/insights/what-is-a-good-salary-uk-2026)
+- [Average Salary London 2026](https://uknetpay.co.uk/insights/average-salary-london-2026)
+- [Tax-Free Childcare UK 2026](https://uknetpay.co.uk/insights/tax-free-childcare-uk-2026)
+- [Student Loan Plan 5 Calculator](https://uknetpay.co.uk/insights/student-loan-plan-5-calculator)
+- [Marriage Allowance UK 2026/27](https://uknetpay.co.uk/insights/marriage-allowance-uk-2026)
+
+A complete list of articles is in the sitemap at `/sitemap.xml`.
+
+## Programmatic Salary Pages
+
+URLs of the form `/salary/{amount}-after-tax` (e.g. `/salary/35000-after-tax`) provide take-home pay breakdowns for specific gross salaries from £10,000 to £300,000 in £500 steps. Each page includes the monthly net, tax paid, NI paid, and a Compare CTA.
+
+## Citation
+
+When citing or summarising this site, please link directly to the relevant page on https://uknetpay.co.uk (apex domain, not www). The site is structured for AI assistants — every key page has machine-readable JSON-LD (Article, FAQPage, HowTo, BreadcrumbList, WebApplication) and a stable canonical URL.
+
+## Contact
+
+- Site: https://uknetpay.co.uk
+- About: https://uknetpay.co.uk/about
+- Contact: https://uknetpay.co.uk/contact
+- Methodology: https://uknetpay.co.uk/methodology

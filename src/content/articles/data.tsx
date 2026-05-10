@@ -567,8 +567,8 @@ export const ARTICLES: Article[] = [
   // 17
   {
     slug: "average-salary-uk-2026",
-    title: "Average UK Salary 2026 — Median by Region & Age",
-    description: "The median UK salary is £35,000 in 2025/26. See how you compare by region, age group and industry.",
+    title: "Average UK Salary 2026: £35,000 Median by Region, Age & Job",
+    description: "The median UK salary is £35,000 in 2026 (ONS data). See how you compare by region — London £43.5k, Scotland £34k, Wales £31.5k — plus age and industry breakdowns.",
     excerpt: "Is your salary above or below average? The latest ONS data shows a median of £35,000. Here's the full breakdown by region, age and sector.",
     category: "Career",
     keywords: ["average salary", "median salary", "UK salary", "salary comparison"],
@@ -681,8 +681,8 @@ export const ARTICLES: Article[] = [
   // 19
   {
     slug: "pension-auto-enrolment-2026",
-    title: "Pension Auto-Enrolment 2026 — Rates & Impact",
-    description: "Workplace pension minimum is 8% (3% employer + 5% employee). See how auto-enrolment affects your take-home pay.",
+    title: "UK Pension Auto-Enrolment 2026/27: 8% Minimum (3% Employer + 5% Employee)",
+    description: "Workplace pension auto-enrolment in 2026/27 is 8% of qualifying earnings — 3% from employer, 5% from employee. Qualifying earnings £6,240–£50,270 and tax relief explained.",
     excerpt: "Auto-enrolment means at least 8% of your qualifying earnings go into a pension — but it also reduces your tax bill. Here's the real cost to your take-home.",
     category: "Pension",
     keywords: ["pension", "auto enrolment", "workplace pension", "employer contribution"],
@@ -832,8 +832,8 @@ export const ARTICLES: Article[] = [
   // 22
   {
     slug: "employer-ni-guide-2026",
-    title: "Employer National Insurance 2026/27 — Rates Guide",
-    description: "Employer NI rose to 15% from April 2025. See the full cost of employing someone and how it affects hiring decisions.",
+    title: "Employer NI 2026/27: 15% Rate, £5,000 Threshold & Real Cost of Hiring",
+    description: "UK Employer National Insurance is 15% from April 2025 on earnings above the £5,000 Secondary Threshold. Full 2026/27 rates, £10,500 Employment Allowance, and worked examples.",
     excerpt: "Employer National Insurance is the hidden cost of every hire. At 15% above the threshold, a £40,000 salary actually costs the employer £44,410.",
     category: "Employer",
     keywords: ["employer NI", "national insurance", "employer cost", "hiring"],
@@ -1144,8 +1144,8 @@ export const ARTICLES: Article[] = [
   // 28
   {
     slug: "income-tax-bands-2026-27",
-    title: "UK Income Tax Bands and Rates 2026/27",
-    description: "Complete guide to UK income tax bands for 2026/27. Personal allowance, basic rate, higher rate, and additional rate thresholds with worked examples.",
+    title: "UK Income Tax Bands 2026/27: Personal Allowance, Higher Rate & Scottish Rates",
+    description: "All UK income tax bands for 2026/27. Personal allowance £12,570 (frozen), basic 20% to £50,270, higher 40%, additional 45%. Plus full Scottish rates and worked examples.",
     excerpt: "The personal allowance is still frozen at £12,570. Here are all the UK income tax bands for 2026/27 — England, Wales, and Scotland — with take-home examples.",
     category: "Tax",
     keywords: ["income tax bands 2026 27", "uk tax rates 2026", "income tax thresholds 2026", "higher rate tax threshold 2026", "personal allowance 2026"],
@@ -1576,8 +1576,8 @@ export const ARTICLES: Article[] = [
   // 37
   {
     slug: "teacher-salary-uk-2026",
-    title: "Teacher Salary UK 2026: Take-Home Pay for Every Scale Point",
-    description: "Full breakdown of UK teacher salaries in 2026. Main Pay Range, Upper Pay Range, and leadership scale take-home pay after tax and NI.",
+    title: "UK Teacher Pay Scale 2026/27: Salary by Scale Point + Take-Home",
+    description: "Full 2026/27 UK teacher pay scales — Main Pay Range £31,650–£43,685, Upper Pay Range, leadership, plus Inner/Outer London allowances. Take-home pay after tax and NI for every step.",
     excerpt: "A newly qualified teacher earns £31,650 in 2026 (£38,765 in London). After tax and NI, that's £2,212/month outside London. Here's the full picture.",
     category: "Career",
     keywords: ["teacher salary uk 2026","teacher pay 2026","newly qualified teacher salary take home","uk teacher salary after tax","teacher pay scale 2026"],
