@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npx vite-node scripts/prerender.ts",
+    "sitemap": "npx vite-node scripts/generate-sitemap.ts",
+    "build": "npx vite-node scripts/generate-sitemap.ts && vite build && npx vite-node scripts/prerender.ts",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
