@@ -681,7 +681,7 @@ export const ARTICLES: Article[] = [
   // 19
   {
     slug: "pension-auto-enrolment-2026",
-    title: "UK Pension Auto-Enrolment 2026/27: 8% Minimum (3% Employer + 5% Employee)",
+    title: "UK Pension Auto-Enrolment 2026/27: Rates, Thresholds & How It Works",
     description: "Workplace pension auto-enrolment in 2026/27 is 8% of qualifying earnings — 3% from employer, 5% from employee. Qualifying earnings £6,240–£50,270 and tax relief explained.",
     excerpt: "Auto-enrolment means at least 8% of your qualifying earnings go into a pension — but it also reduces your tax bill. Here's the real cost to your take-home.",
     category: "Pension",
@@ -832,8 +832,8 @@ export const ARTICLES: Article[] = [
   // 22
   {
     slug: "employer-ni-guide-2026",
-    title: "Employer NI 2026/27: 15% Rate, £5,000 Threshold & Real Cost of Hiring",
-    description: "UK Employer National Insurance is 15% from April 2025 on earnings above the £5,000 Secondary Threshold. Full 2026/27 rates, £10,500 Employment Allowance, and worked examples.",
+    title: "Employer National Insurance Rates 2026/27 — 15%, £5,000 Threshold",
+    description: "Employer NI rate is 15% on earnings above the £5,000 secondary threshold in 2026/27. Calculate exact employer NI costs per employee with our free calculator. Employment Allowance £10,500.ed examples.",
     excerpt: "Employer National Insurance is the hidden cost of every hire. At 15% above the threshold, a £40,000 salary actually costs the employer £44,410.",
     category: "Employer",
     keywords: ["employer NI", "national insurance", "employer cost", "hiring"],
@@ -1777,6 +1777,199 @@ export const ARTICLES: Article[] = [
         </table>
         <h2 id="calculate">Calculate your exact take-home</h2>
         <p>Every figure above is before pension and student loan deductions. Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact monthly net.</p>
+      </>
+    ),
+  },
+
+  // 41 — "uk tax calculator 2026" = 71 impressions/day, pos 9.92, no dedicated page
+  {
+    slug: "uk-tax-calculator-guide-2026",
+    title: "UK Tax Calculator 2026/27: Income Tax, NI and Take-Home Explained",
+    description: "Use our free UK tax calculator for 2026/27 to see income tax, National Insurance, and exact take-home pay. Covers all UK tax bands, Scotland, and student loans.",
+    excerpt: "Getting a clear answer to 'how much tax do I pay?' shouldn't require an accountant. Here's how UK tax is calculated in 2026/27 — with a free calculator to show your exact figure.",
+    category: "Tax",
+    keywords: ["uk tax calculator 2026","uk tax calculator 2026/27","income tax calculator uk 2026","how much tax do i pay uk 2026","uk tax and ni calculator"],
+    readMinutes: 5,
+    publishedISO: "2026-05-14",
+    updatedISO: "2026-05-14",
+    faq: [
+      { q: "How do I calculate my UK income tax for 2026/27?", a: "Your income tax is calculated in bands. You pay 0% on the first £12,570 (personal allowance), 20% on earnings from £12,571 to £50,270, and 40% on earnings above £50,270. Use our take-home calculator for the exact figure including National Insurance." },
+      { q: "How much National Insurance do I pay in 2026/27?", a: "Employees pay 8% NI on earnings between £12,570 and £50,270, and 2% on earnings above £50,270. Employers pay 15% on earnings above £5,000." },
+      { q: "Is there a free UK tax calculator for 2026/27?", a: "Yes — UK Net Pay offers a free take-home pay calculator for 2026/27 that calculates income tax, National Insurance, pension contributions, and student loan repayments instantly with no sign-up required." },
+      { q: "Does Scotland have different tax rates in 2026/27?", a: "Yes — Scotland has its own income tax bands set by the Scottish Parliament, with an Intermediate Rate of 21% and a Higher Rate of 42%. The take-home calculator has a Scotland toggle to compare rates." },
+    ],
+    body: () => (
+      <>
+        <p>The UK tax system applies multiple deductions to your gross salary. Understanding each one — and how they stack — is the key to knowing your real take-home pay.</p>
+
+        <h2 id="how">How UK tax is calculated in 2026/27</h2>
+        <p>Your employer deducts three main things from your gross pay each month:</p>
+        <ol>
+          <li><strong>Income tax</strong> — applied in bands from 0% to 45%</li>
+          <li><strong>National Insurance (NI)</strong> — 8% on earnings £12,570–£50,270; 2% above</li>
+          <li><strong>Pension contributions</strong> — minimum 5% employee under auto-enrolment (optional, but very common)</li>
+        </ol>
+
+        <h2 id="bands">UK income tax bands 2026/27</h2>
+        <table>
+          <thead><tr><th>Band</th><th>Income range</th><th>Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Personal Allowance</td><td>Up to £12,570</td><td>0%</td></tr>
+            <tr><td>Basic Rate</td><td>£12,571 – £50,270</td><td>20%</td></tr>
+            <tr><td>Higher Rate</td><td>£50,271 – £125,140</td><td>40%</td></tr>
+            <tr><td>Additional Rate</td><td>Over £125,140</td><td>45%</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="examples">Tax on common salaries (2026/27)</h2>
+        <table>
+          <thead><tr><th>Gross salary</th><th>Income tax</th><th>NI</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>£25,000</td><td>£2,486</td><td>£1,000</td><td>£1,793</td></tr>
+            <tr><td>£30,000</td><td>£3,486</td><td>£1,400</td><td>£2,093</td></tr>
+            <tr><td>£35,000</td><td>£4,486</td><td>£1,794</td><td>£2,393</td></tr>
+            <tr><td>£40,000</td><td>£5,486</td><td>£2,194</td><td>£2,693</td></tr>
+            <tr><td>£50,000</td><td>£7,486</td><td>£2,994</td><td>£3,293</td></tr>
+            <tr><td>£60,000</td><td>£11,432</td><td>£3,394</td><td>£3,765</td></tr>
+            <tr><td>£80,000</td><td>£19,432</td><td>£4,194</td><td>£4,698</td></tr>
+            <tr><td>£100,000</td><td>£27,432</td><td>£4,994</td><td>£5,631</td></tr>
+          </tbody>
+        </table>
+        <p><small>England, Wales, Northern Ireland. No pension or student loan deductions. 2026/27 rates.</small></p>
+
+        <h2 id="scotland">Scotland: different rates apply</h2>
+        <p>Scottish taxpayers pay the Intermediate Rate (21%) on income between £27,492 and £43,662 — higher than the 20% basic rate in England. Above £43,663, the Scottish Higher Rate is 42% vs 40% in England.</p>
+        <p>Use our <ToolLink to="/take-home">calculator</ToolLink> and toggle Scotland to see the exact difference for your salary.</p>
+
+        <h2 id="student-loan">Student loan on top</h2>
+        <p>Plan 2 graduates repay 9% of income above £29,385. On a £35,000 salary that's ~£42/month. Our <ToolLink to="/take-home">take-home calculator</ToolLink> handles all plans (1, 2, 4, and 5).</p>
+
+        <h2 id="calculator">Calculate your exact tax now</h2>
+        <p>Enter any gross salary into our <ToolLink to="/take-home">UK tax calculator</ToolLink> to see your exact income tax, NI, pension deduction, and monthly take-home for 2026/27.</p>
+      </>
+    ),
+  },
+
+  // 42 — "scottish income tax bands 2026/27" = 24 impressions/day, pos 8.67
+  {
+    slug: "scottish-income-tax-bands-2026-27",
+    title: "Scottish Income Tax Bands 2026/27: Rates, Thresholds & Calculator",
+    description: "Scottish income tax bands for 2026/27: Starter 19%, Basic 20%, Intermediate 21%, Higher 42%, Advanced 45%, Top 48%. See how much more Scots pay vs England with examples.",
+    excerpt: "Scotland has 6 income tax bands in 2026/27, including a 21% Intermediate Rate and 42% Higher Rate. Here's exactly how Scottish tax differs from England — with take-home calculations for every level.",
+    category: "Scotland",
+    keywords: ["scottish income tax bands 2026/27","scotland income tax 2026","scottish tax rates 2026 27","scotland vs england tax 2026","scottish higher rate tax 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-05-14",
+    updatedISO: "2026-05-14",
+    faq: [
+      { q: "What are the Scottish income tax bands for 2026/27?", a: "Scotland has 6 bands: Starter Rate 19% (£12,571–£15,397), Basic Rate 20% (£15,398–£27,491), Intermediate Rate 21% (£27,492–£43,662), Higher Rate 42% (£43,663–£75,000), Advanced Rate 45% (£75,001–£125,140), and Top Rate 48% (over £125,140)." },
+      { q: "Do Scottish taxpayers pay more tax than English taxpayers?", a: "For most earnings above £27,491 yes — the Intermediate Rate (21%) and Higher Rate (42%) are both higher than their English equivalents (20% and 40%). On a £50,000 salary, a Scottish taxpayer pays approximately £1,500 more per year than an equivalent English taxpayer." },
+      { q: "How do I know if I pay Scottish income tax?", a: "You pay Scottish income tax if your main home is in Scotland. HMRC will issue you an S-prefix tax code (e.g. S1257L). Your employer uses this code to apply Scottish rates." },
+      { q: "Is National Insurance the same in Scotland as England?", a: "Yes — National Insurance is a UK-wide tax and is the same rate in Scotland as in England. Only income tax rates differ between Scotland and the rest of the UK." },
+    ],
+    body: () => (
+      <>
+        <p>Scotland sets its own income tax rates through the Scottish Parliament. In 2026/27, Scotland has <strong>six income tax bands</strong> compared to England's four — and most Scottish taxpayers above £27,491 pay more tax than their English counterparts.</p>
+
+        <h2 id="bands">Scottish income tax bands 2026/27</h2>
+        <table>
+          <thead><tr><th>Band</th><th>Income range</th><th>Rate</th><th>vs England</th></tr></thead>
+          <tbody>
+            <tr><td>Personal Allowance</td><td>Up to £12,570</td><td>0%</td><td>Same</td></tr>
+            <tr><td>Starter Rate</td><td>£12,571 – £15,397</td><td>19%</td><td>−1% vs England</td></tr>
+            <tr><td>Basic Rate</td><td>£15,398 – £27,491</td><td>20%</td><td>Same</td></tr>
+            <tr><td>Intermediate Rate</td><td>£27,492 – £43,662</td><td>21%</td><td>+1% vs England</td></tr>
+            <tr><td>Higher Rate</td><td>£43,663 – £75,000</td><td>42%</td><td>+2% vs England</td></tr>
+            <tr><td>Advanced Rate</td><td>£75,001 – £125,140</td><td>45%</td><td>Same</td></tr>
+            <tr><td>Top Rate</td><td>Over £125,140</td><td>48%</td><td>+3% vs England</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="comparison">Scotland vs England: side-by-side take-home</h2>
+        <table>
+          <thead><tr><th>Gross salary</th><th>Scotland take-home</th><th>England take-home</th><th>Difference/year</th></tr></thead>
+          <tbody>
+            <tr><td>£25,000</td><td>£1,801/month</td><td>£1,793/month</td><td>+£96 Scotland</td></tr>
+            <tr><td>£35,000</td><td>£2,358/month</td><td>£2,393/month</td><td>−£420 Scotland</td></tr>
+            <tr><td>£50,000</td><td>£3,156/month</td><td>£3,293/month</td><td>−£1,644 Scotland</td></tr>
+            <tr><td>£60,000</td><td>£3,580/month</td><td>£3,765/month</td><td>−£2,220 Scotland</td></tr>
+            <tr><td>£80,000</td><td>£4,374/month</td><td>£4,698/month</td><td>−£3,888 Scotland</td></tr>
+          </tbody>
+        </table>
+        <p><small>No pension or student loan deductions. Scotland figures use Scottish income tax rates; National Insurance is the same.</small></p>
+
+        <h2 id="ni">National Insurance: same in Scotland</h2>
+        <p>NI is a UK-wide tax — Scottish residents pay exactly the same rates as English residents. Only income tax differs. On a £50,000 salary, NI is £2,994 whether you live in Edinburgh or London.</p>
+
+        <h2 id="s-code">How to know if you're a Scottish taxpayer</h2>
+        <p>If your main home is in Scotland, HMRC issues you an <strong>S-prefix tax code</strong> (e.g. S1257L). Your employer applies Scottish rates using this code. If you've moved to or from Scotland, contact HMRC to update your code.</p>
+
+        <h2 id="calculate">Compare your exact Scotland vs England take-home</h2>
+        <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> — toggle the Scotland switch to see the exact monthly difference for your salary.</p>
+      </>
+    ),
+  },
+
+  // 43 — "teacher pay scale 2026-27" = 22 impressions at pos 11 — article exists but ranking low
+  // Adding a dedicated pay scale article to capture this specific query
+  {
+    slug: "teacher-pay-scale-2026-27",
+    title: "Teacher Pay Scale 2026-27: Every Point on MPS, UPS and Leadership",
+    description: "Complete UK teacher pay scale for 2026-27. Every point on Main Pay Scale, Upper Pay Scale and Leadership Group, inside and outside London, with monthly take-home pay.",
+    excerpt: "The teacher pay scale for 2026-27 runs from £31,650 (M1, outside London) to £135,000+ (Headteacher Group 9, Inner London). Here's every point with exact take-home pay.",
+    category: "Career",
+    keywords: ["teacher pay scale 2026-27","teacher pay scale 2026","teacher salary scale 2026","mps teacher pay 2026","ups teacher pay 2026","teacher pay outside london 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-05-14",
+    updatedISO: "2026-05-14",
+    faq: [
+      { q: "What is the teacher pay scale for 2026-27?", a: "The Main Pay Scale (MPS) runs from £31,650 (M1, outside London) to £43,685 (M6). The Upper Pay Scale (UPS) runs from £46,525 (U1) to £50,500 (U3). Inner London adds a substantial allowance — M1 in Inner London is £42,637." },
+      { q: "How much does a newly qualified teacher earn after tax in 2026-27?", a: "An NQT on M1 (£31,650 outside London) takes home approximately £2,212/month after income tax and National Insurance. In Inner London at £42,637, take-home is approximately £2,912/month." },
+      { q: "When does the 2026-27 teacher pay award take effect?", a: "Teacher pay awards in England typically take effect from September of the academic year. The 2026-27 figures shown here are based on the STPCD (School Teachers' Pay and Conditions Document) for the 2026-27 academic year." },
+    ],
+    body: () => (
+      <>
+        <p>Teacher salaries in England are set by the School Teachers' Pay and Conditions Document (STPCD). Here is every scale point for 2026-27 with exact monthly take-home pay.</p>
+
+        <h2 id="mps">Main Pay Scale (MPS) 2026-27</h2>
+        <table>
+          <thead><tr><th>Point</th><th>Outer London</th><th>Inner London</th><th>Outside London</th><th>Take-home (outside London)</th></tr></thead>
+          <tbody>
+            <tr><td>M1 (NQT)</td><td>£36,413</td><td>£42,637</td><td>£31,650</td><td>£2,212/month</td></tr>
+            <tr><td>M2</td><td>£37,902</td><td>£44,305</td><td>£33,483</td><td>£2,330/month</td></tr>
+            <tr><td>M3</td><td>£39,650</td><td>£46,235</td><td>£35,674</td><td>£2,473/month</td></tr>
+            <tr><td>M4</td><td>£41,719</td><td>£48,235</td><td>£37,935</td><td>£2,630/month</td></tr>
+            <tr><td>M5</td><td>£44,270</td><td>£50,471</td><td>£40,625</td><td>£2,804/month</td></tr>
+            <tr><td>M6</td><td>£47,185</td><td>£53,482</td><td>£43,685</td><td>£2,987/month</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="ups">Upper Pay Scale (UPS) 2026-27</h2>
+        <table>
+          <thead><tr><th>Point</th><th>Outer London</th><th>Inner London</th><th>Outside London</th><th>Take-home (outside London)</th></tr></thead>
+          <tbody>
+            <tr><td>U1</td><td>£50,151</td><td>£56,660</td><td>£46,525</td><td>£3,130/month</td></tr>
+            <tr><td>U2</td><td>£51,482</td><td>£57,958</td><td>£48,389</td><td>£3,238/month</td></tr>
+            <tr><td>U3</td><td>£53,482</td><td>£60,321</td><td>£50,500</td><td>£3,339/month</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="leadership">Leadership Group pay range 2026-27</h2>
+        <table>
+          <thead><tr><th>Group</th><th>Outside London</th><th>Inner London</th><th>Take-home (outside London)</th></tr></thead>
+          <tbody>
+            <tr><td>L1</td><td>£51,179</td><td>£61,342</td><td>£3,244/month</td></tr>
+            <tr><td>L6 (Deputy HT, small school)</td><td>£62,570</td><td>£73,698</td><td>£3,755/month</td></tr>
+            <tr><td>L18 (Headteacher, mid school)</td><td>£84,483</td><td>£99,018</td><td>£4,782/month</td></tr>
+            <tr><td>L43 (Headteacher, large school)</td><td>£135,000+</td><td>£150,000+</td><td>£7,100+/month</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="pension">Teachers' Pension Scheme deductions</h2>
+        <p>Teachers contribute between <strong>7.4% and 11.7%</strong> of salary to the Teachers' Pension Scheme depending on earnings. At M1 (£31,650), this is approximately £195/month — reducing take-home figures above by that amount.</p>
+
+        <h2 id="calculate">Calculate your exact teacher take-home</h2>
+        <p>Enter your exact scale point salary into our <ToolLink to="/take-home">take-home calculator</ToolLink> for your precise monthly net after tax, NI, and pension.</p>
       </>
     ),
   },

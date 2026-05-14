@@ -16,7 +16,7 @@ export const TOOL_META: Record<string, ToolMeta> = {
     path: "/take-home",
     title: "UK Take-Home Pay Calculator 2026/27 - After Tax & NI",
     description:
-      "Calculate your UK take-home pay for 2026/27. Income Tax, NI, Student Loan, pension and bonus to the penny. Compare 2025/26 instantly.",
+      "Free UK salary calculator for 2026/27. See your exact take-home pay after income tax, National Insurance, pension, and student loan. Results in seconds — no sign-up needed.",
     h1: "Take-Home Pay Calculator",
     faq: [
       {
@@ -64,7 +64,7 @@ export const TOOL_META: Record<string, ToolMeta> = {
     path: "/reverse",
     title: "Reverse Salary Calculator UK - Gross from Net 2026/27",
     description:
-      "Enter the take-home pay you need and solve the gross salary required after UK tax, NI and Student Loan in 2026/27.",
+      "What gross salary do you need to take home £X per month? Enter your desired net pay — the reverse calculator instantly shows the gross salary to negotiate, after UK income tax, NI, and pension.",
     h1: "Reverse Salary Calculator",
     faq: [
       { q: "What is a reverse salary calculator?", a: "A reverse salary calculator works backwards from your desired take-home pay to tell you the gross salary you need to negotiate. Enter the monthly net you want and it calculates the gross salary that would produce it after income tax and NI." },
