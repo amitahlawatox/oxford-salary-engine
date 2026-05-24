@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { MiniCalculator } from "@/components/tools/MiniCalculator";
+import { RelatedTools } from "@/components/article/RelatedTools";
 import type { Article } from "./types";
 
 const ToolLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
@@ -626,6 +628,13 @@ export const ARTICLES: Article[] = [
 
         <h2 id="calculator">See where you stand</h2>
         <p>Enter your salary in the <ToolLink to="/take-home">Take-Home Calculator</ToolLink> to see your exact net pay, then use the <ToolLink to="/compare">Compare tool</ToolLink> to benchmark against the median for your region.</p>
+      
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/reverse",label:"Reverse Calculator"},{path:"/compare",label:"Compare Salaries"}]}
+          salaries={[{amount:25000},{amount:30000},{amount:35000},{amount:40000},{amount:50000},{amount:60000},{amount:80000},{amount:100000}]}
+          cities={["London","Manchester","Birmingham","Leeds","Bristol","Edinburgh"]}
+        />
       </>
     ),
   },
@@ -833,7 +842,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "employer-ni-guide-2026",
     title: "Employer National Insurance Rates 2026/27 — 15%, £5,000 Threshold",
-    description: "Employer NI rate is 15% on earnings above the £5,000 secondary threshold in 2026/27. Calculate exact employer NI costs per employee with our free calculator. Employment Allowance £10,500.ed examples.",
+    description: "Employer NI rate is 15% on earnings above the £5,000 secondary threshold in 2026/27. Calculate exact employer NI costs per employee with our free calculator. Full Employment Allowance guide and worked examples.",
     excerpt: "Employer National Insurance is the hidden cost of every hire. At 15% above the threshold, a £40,000 salary actually costs the employer £44,410.",
     category: "Employer",
     keywords: ["employer NI", "national insurance", "employer cost", "hiring"],
@@ -1088,6 +1097,13 @@ export const ARTICLES: Article[] = [
 
         <h2 id="calculate">How does your salary compare?</h2>
         <p>Use our <ToolLink to="/take-home">take-home pay calculator</ToolLink> to see exactly what your salary leaves in your pocket after income tax, National Insurance, and pension contributions. If you're considering a new role, our <ToolLink to="/pay-rise">pay rise calculator</ToolLink> shows the exact after-tax benefit of any increase.</p>
+      
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/pay-rise",label:"Pay Rise Calculator"}]}
+          salaries={[{amount:18500},{amount:28000},{amount:35000},{amount:40000},{amount:50000}]}
+          cities={["London","Manchester"]}
+        />
       </>
     ),
   },
@@ -1137,6 +1153,13 @@ export const ARTICLES: Article[] = [
 
         <h2 id="calculate">Calculate your exact take-home</h2>
         <p>Use our <ToolLink to="/take-home">salary calculator</ToolLink> to see precisely what any gross salary means for your monthly budget — including pension, student loan, and Scottish tax rates.</p>
+      
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/compare",label:"Compare Salaries"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:25000},{amount:35000},{amount:45000},{amount:50000},{amount:60000},{amount:100000}]}
+          cities={["London","Manchester","Birmingham"]}
+        />
       </>
     ),
   },
@@ -1193,6 +1216,12 @@ export const ARTICLES: Article[] = [
 
         <h2 id="calculate">See your exact take-home</h2>
         <p>Tax bands are only part of the picture. Use our <ToolLink to="/take-home">take-home pay calculator</ToolLink> to see your net pay after income tax, NI, pension, and student loan — with one-click Scotland comparison.</p>
+      
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/compare",label:"Compare Salaries"},{path:"/self-employed",label:"Self-Employed Calculator"}]}
+          salaries={[{amount:25000},{amount:35000},{amount:50000},{amount:60000},{amount:100000},{amount:125000}]}
+        />
       </>
     ),
   },
@@ -1242,6 +1271,13 @@ export const ARTICLES: Article[] = [
 
         <h2 id="calculate">Calculate your London take-home</h2>
         <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> to see exactly what any London salary means monthly. Toggle Scotland to compare if you're considering a move.</p>
+      
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"},{path:"/compare",label:"Compare Salaries"}]}
+          salaries={[{amount:35000},{amount:40000},{amount:44000},{amount:50000},{amount:60000},{amount:68000}]}
+          cities={["Manchester","Birmingham","Leeds","Bristol","Edinburgh"]}
+        />
       </>
     ),
   },
@@ -1294,6 +1330,12 @@ export const ARTICLES: Article[] = [
 
         <h2 id="calculator">Skip the maths — use the calculator</h2>
         <p>Our <ToolLink to="/take-home">take-home pay calculator</ToolLink> handles all of this instantly, including salary sacrifice pension, all student loan plans, Scottish rates, and dividend income. Enter your salary and get your exact monthly net in under 10 seconds.</p>
+      
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/reverse",label:"Reverse Calculator"},{path:"/hourly",label:"Hourly Rate Calculator"}]}
+          salaries={[{amount:25000},{amount:30000},{amount:35000},{amount:40000},{amount:50000}]}
+        />
       </>
     ),
   },
@@ -1346,6 +1388,13 @@ export const ARTICLES: Article[] = [
         <p>Use our <ToolLink to="/cost-of-living">cost of living calculator</ToolLink> to compare your net position in different cities.</p>
         <h2 id="calculate">Calculate your Manchester take-home</h2>
         <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact net pay after income tax, NI, and pension.</p>
+      
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:30000},{amount:35000},{amount:40000},{amount:50000},{amount:52000}]}
+          cities={["London","Birmingham","Leeds","Bristol","Edinburgh"]}
+        />
       </>
     ),
   },
@@ -1392,6 +1441,13 @@ export const ARTICLES: Article[] = [
         </table>
         <h2 id="calculate">Calculate your Birmingham take-home</h2>
         <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact net pay.</p>
+      
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:28000},{amount:32000},{amount:35000},{amount:40000},{amount:48000}]}
+          cities={["London","Manchester","Leeds","Bristol","Edinburgh"]}
+        />
       </>
     ),
   },
@@ -1437,6 +1493,13 @@ export const ARTICLES: Article[] = [
         </table>
         <h2 id="calculate">Calculate your Leeds take-home pay</h2>
         <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact net pay after all deductions.</p>
+      
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:30000},{amount:33800},{amount:40000},{amount:48500},{amount:50000}]}
+          cities={["London","Manchester","Birmingham","Bristol","Edinburgh"]}
+        />
       </>
     ),
   },
@@ -1482,6 +1545,13 @@ export const ARTICLES: Article[] = [
         </table>
         <h2 id="calculate">Calculate your Bristol take-home pay</h2>
         <p>Use our <ToolLink to="/take-home">salary calculator</ToolLink> to see your exact net pay.</p>
+      
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:30000},{amount:36200},{amount:40000},{amount:48000},{amount:55000}]}
+          cities={["London","Manchester","Birmingham","Leeds","Edinburgh"]}
+        />
       </>
     ),
   },
@@ -1527,6 +1597,13 @@ export const ARTICLES: Article[] = [
             <tr><td>Healthcare (NHS Scotland)</td><td>£35,500</td></tr>
           </tbody>
         </table>
+      
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:32000},{amount:37500},{amount:42000},{amount:50000},{amount:58000}]}
+          cities={["London","Manchester","Birmingham","Leeds","Bristol"]}
+        />
       </>
     ),
   },
