@@ -89,17 +89,6 @@
   ],
   "redirects": [
     {
-      "source": "/:path(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "uknetpay.co.uk"
-        }
-      ],
-      "destination": "https://www.uknetpay.co.uk/:path",
-      "permanent": true
-    },
-    {
       "source": "/guides/april-2026-guide",
       "destination": "/insights/salary-calculator-uk-2026",
       "permanent": true
