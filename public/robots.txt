@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /take-home?
+Disallow: /*?salary=
 
 Sitemap: https://uknetpay.co.uk/sitemap.xml
