@@ -99,6 +99,26 @@
       "permanent": true
     },
     {
+      "source": "/guides/income-tax-guide",
+      "destination": "/insights/income-tax-bands-2026-27",
+      "permanent": true
+    },
+    {
+      "source": "/guides/salary-sacrifice-employer-ni",
+      "destination": "/insights/salary-sacrifice-pension-explained",
+      "permanent": true
+    },
+    {
+      "source": "/insights/income-tax-guide",
+      "destination": "/insights/income-tax-bands-2026-27",
+      "permanent": true
+    },
+    {
+      "source": "/insights/salary-sacrifice-employer-ni",
+      "destination": "/insights/salary-sacrifice-pension-explained",
+      "permanent": true
+    },
+    {
       "source": "/guides/:slug",
       "destination": "/insights/:slug",
       "permanent": true
