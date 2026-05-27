@@ -2050,4 +2050,536 @@ export const ARTICLES: Article[] = [
       </>
     ),
   },
+
+  // ── SPRINT 5: CITY + NATION + JOB ARTICLES ──────────────────────────
+
+  // 44
+  {
+    slug: "average-salary-glasgow-2026",
+    title: "Average Salary in Glasgow 2026",
+    description: "The average salary in Glasgow is £33,200 in 2026. See take-home pay under Scottish tax rates, top sectors, and how Glasgow compares to Edinburgh and the UK median.",
+    excerpt: "Glasgow salaries are competitive with Edinburgh in several sectors — but Scottish tax rates mean your take-home differs from England at the same gross.",
+    category: "Wages",
+    keywords: ["average salary glasgow 2026","average wage glasgow","glasgow salary 2026","median salary glasgow"],
+    readMinutes: 4,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "What is the average salary in Glasgow in 2026?", a: "The median gross annual salary in Glasgow is approximately £33,200 in 2026. Under Scottish income tax rates, monthly take-home is around £2,310." },
+      { q: "Is Glasgow cheaper than Edinburgh?", a: "Yes — Glasgow housing costs are approximately 15–20% lower than Edinburgh. A £33,200 salary in Glasgow can offer similar purchasing power to a £37,000+ salary in Edinburgh." },
+    ],
+    body: () => (
+      <>
+        <p>Glasgow is Scotland's largest city and a growing hub for technology, financial services, and creative industries. Salaries are competitive with Edinburgh in several sectors, with a lower cost of living.</p>
+        <h2 id="median">Average Glasgow salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home (Scottish rates)</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£33,200</td><td>£2,310/month</td></tr>
+            <tr><td>Mean salary</td><td>£36,500</td><td>£2,510/month</td></tr>
+            <tr><td>UK median</td><td>£34,963</td><td>£2,493/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="sectors">Glasgow salaries by sector</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <tbody>
+            <tr><td>Technology</td><td>£48,000</td></tr>
+            <tr><td>Financial services</td><td>£45,000</td></tr>
+            <tr><td>Engineering</td><td>£42,000</td></tr>
+            <tr><td>Legal</td><td>£40,000</td></tr>
+            <tr><td>Healthcare (NHS Scotland)</td><td>£35,000</td></tr>
+            <tr><td>Education</td><td>£33,500</td></tr>
+          </tbody>
+        </table>
+        <h2 id="scottish-tax">Scottish tax impact</h2>
+        <p>Glasgow workers pay Scottish income tax rates. On a £33,200 salary, the Intermediate Rate (21%) applies above £27,491 — meaning approximately £120/year more income tax than an equivalent English worker. Use our <ToolLink to="/take-home">calculator</ToolLink> with Scotland toggled on to see your exact difference.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:28000},{amount:33000},{amount:40000},{amount:48000}]}
+          cities={["Edinburgh","London","Manchester","Birmingham"]}
+        />
+      </>
+    ),
+  },
+
+  // 45
+  {
+    slug: "average-salary-liverpool-2026",
+    title: "Average Salary in Liverpool 2026",
+    description: "The average salary in Liverpool is £31,800 in 2026. See take-home pay, top-paying sectors, and how Liverpool compares to Manchester and the UK median.",
+    excerpt: "Liverpool salaries sit below the UK median, but a strong public sector and growing digital economy are pushing wages up — and housing costs remain among the lowest of any major city.",
+    category: "Wages",
+    keywords: ["average salary liverpool 2026","average wage liverpool","liverpool salary 2026","median salary liverpool"],
+    readMinutes: 4,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "What is the average salary in Liverpool in 2026?", a: "The median gross annual salary in Liverpool is approximately £31,800 in 2026, giving a monthly take-home of around £2,300." },
+    ],
+    body: () => (
+      <>
+        <p>Liverpool has one of the fastest-growing digital economies outside London. Salaries are below the UK median but housing costs are significantly lower than most major cities — making Liverpool one of the best value cities in the UK.</p>
+        <h2 id="median">Average Liverpool salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£31,800</td><td>£2,300/month</td></tr>
+            <tr><td>Mean salary</td><td>£34,500</td><td>£2,470/month</td></tr>
+            <tr><td>UK median</td><td>£34,963</td><td>£2,493/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="sectors">Liverpool salaries by sector</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <tbody>
+            <tr><td>Technology / Digital</td><td>£45,000</td></tr>
+            <tr><td>Financial services</td><td>£42,000</td></tr>
+            <tr><td>Healthcare (NHS)</td><td>£35,200</td></tr>
+            <tr><td>Public sector</td><td>£33,000</td></tr>
+            <tr><td>Education</td><td>£32,500</td></tr>
+            <tr><td>Retail</td><td>£23,000</td></tr>
+          </tbody>
+        </table>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:28000},{amount:32000},{amount:35000},{amount:42000},{amount:45000}]}
+          cities={["Manchester","London","Birmingham","Leeds"]}
+        />
+      </>
+    ),
+  },
+
+  // 46
+  {
+    slug: "average-salary-sheffield-2026",
+    title: "Average Salary in Sheffield 2026",
+    description: "The average salary in Sheffield is £31,500 in 2026. See take-home pay, top-paying sectors, and how Sheffield compares to Leeds and the UK median.",
+    excerpt: "Sheffield offers strong engineering and advanced manufacturing salaries with housing costs well below the national average.",
+    category: "Wages",
+    keywords: ["average salary sheffield 2026","average wage sheffield","sheffield salary 2026"],
+    readMinutes: 4,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "What is the average salary in Sheffield in 2026?", a: "The median gross annual salary in Sheffield is approximately £31,500 in 2026, giving a monthly take-home of around £2,282." },
+    ],
+    body: () => (
+      <>
+        <p>Sheffield is a centre for advanced manufacturing, engineering, and healthcare. Salaries are below the UK median but the city offers some of the best value living in the UK — housing costs are roughly half those in London.</p>
+        <h2 id="median">Average Sheffield salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£31,500</td><td>£2,282/month</td></tr>
+            <tr><td>Mean salary</td><td>£34,200</td><td>£2,453/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="sectors">Sheffield salaries by sector</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <tbody>
+            <tr><td>Advanced manufacturing</td><td>£44,000</td></tr>
+            <tr><td>Engineering</td><td>£42,000</td></tr>
+            <tr><td>Technology</td><td>£44,000</td></tr>
+            <tr><td>Healthcare (NHS)</td><td>£35,000</td></tr>
+            <tr><td>Education (two universities)</td><td>£34,000</td></tr>
+          </tbody>
+        </table>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:28000},{amount:31500},{amount:35000},{amount:42000}]}
+          cities={["Leeds","Manchester","Birmingham","Nottingham"]}
+        />
+      </>
+    ),
+  },
+
+  // 47
+  {
+    slug: "average-salary-nottingham-2026",
+    title: "Average Salary in Nottingham 2026",
+    description: "The average salary in Nottingham is £31,200 in 2026. See take-home pay, top sectors, and how Nottingham compares to Birmingham and the UK median.",
+    excerpt: "Nottingham offers a strong mix of pharma, financial services, and public sector employment with very competitive housing costs.",
+    category: "Wages",
+    keywords: ["average salary nottingham 2026","average wage nottingham","nottingham salary 2026"],
+    readMinutes: 4,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "What is the average salary in Nottingham in 2026?", a: "The median gross annual salary in Nottingham is approximately £31,200 in 2026, giving a monthly take-home of around £2,264." },
+    ],
+    body: () => (
+      <>
+        <p>Nottingham is home to major pharmaceutical, financial services, and public sector employers. Salaries are slightly below the UK median but housing costs are significantly lower — making it one of England's best-value cities for disposable income.</p>
+        <h2 id="median">Average Nottingham salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£31,200</td><td>£2,264/month</td></tr>
+            <tr><td>Mean salary</td><td>£33,800</td><td>£2,427/month</td></tr>
+          </tbody>
+        </table>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:28000},{amount:31000},{amount:35000},{amount:40000}]}
+          cities={["Birmingham","Sheffield","Leeds","Leicester"]}
+        />
+      </>
+    ),
+  },
+
+  // 48
+  {
+    slug: "average-salary-cardiff-2026",
+    title: "Average Salary in Cardiff 2026",
+    description: "The average salary in Cardiff is £31,000 in 2026. See take-home pay, top sectors, and how Cardiff compares to Bristol and the UK median.",
+    excerpt: "Cardiff is the highest-paying city in Wales, with strong public sector and financial services employment. Housing costs are among the lowest of any UK capital city.",
+    category: "Wages",
+    keywords: ["average salary cardiff 2026","average wage cardiff","cardiff salary 2026","average salary wales 2026"],
+    readMinutes: 4,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "What is the average salary in Cardiff in 2026?", a: "The median gross annual salary in Cardiff is approximately £31,000 in 2026, giving a monthly take-home of around £2,252." },
+      { q: "Does Wales have different tax rates?", a: "No — Wales currently uses the same income tax rates as England. Welsh Rate of Income Tax exists but is set at the same level. National Insurance is also the same UK-wide." },
+    ],
+    body: () => (
+      <>
+        <p>Cardiff is the capital of Wales and the country's main economic hub. The city has a strong concentration of public sector, financial services, and media employers — and housing costs roughly half those of Bristol across the Severn.</p>
+        <h2 id="median">Average Cardiff salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£31,000</td><td>£2,252/month</td></tr>
+            <tr><td>Mean salary</td><td>£33,500</td><td>£2,410/month</td></tr>
+          </tbody>
+        </table>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:26000},{amount:31000},{amount:35000},{amount:40000}]}
+          cities={["Bristol","Birmingham","London","Manchester"]}
+        />
+      </>
+    ),
+  },
+
+  // 49 — "average salary scotland 2026" = 11 impressions at pos 10
+  {
+    slug: "average-salary-scotland-2026",
+    title: "Average Salary in Scotland 2026: Take-Home Under Scottish Tax",
+    description: "The average salary in Scotland is £33,800 in 2026. See exact take-home pay under Scottish tax rates, salary by city, and how Scotland compares to England.",
+    excerpt: "Scotland's median salary is close to the UK average — but Scottish tax rates mean your take-home is different. Here's the full breakdown with city-by-city figures.",
+    category: "Wages",
+    keywords: ["average salary scotland 2026","average scottish salary 2026","median salary scotland","scotland average wage 2026","average salary in scotland"],
+    readMinutes: 5,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "What is the average salary in Scotland in 2026?", a: "The median gross annual salary in Scotland is approximately £33,800 in 2026. Under Scottish income tax rates, monthly take-home is around £2,346 — approximately £50/month less than the same salary in England due to higher Scottish tax rates above £27,491." },
+      { q: "Which Scottish city has the highest salary?", a: "Edinburgh has the highest average salary in Scotland at approximately £37,500, followed by Aberdeen at £36,000 and Glasgow at £33,200." },
+    ],
+    body: () => (
+      <>
+        <p>Scotland's median salary is close to the UK average, but Scottish income tax rates — set by the Scottish Parliament — mean your take-home pay differs from the rest of the UK at the same gross salary.</p>
+        <h2 id="median">Average Scotland salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Gross</th><th>Scottish take-home</th><th>Same salary in England</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£33,800</td><td>£2,346/month</td><td>£2,410/month (+£64)</td></tr>
+            <tr><td>Mean salary</td><td>£37,200</td><td>£2,550/month</td><td>£2,611/month (+£61)</td></tr>
+          </tbody>
+        </table>
+        <h2 id="by-city">Scotland salaries by city</h2>
+        <table>
+          <thead><tr><th>City</th><th>Median salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Edinburgh</td><td>£37,500</td><td>£2,600/month</td></tr>
+            <tr><td>Aberdeen</td><td>£36,000</td><td>£2,510/month</td></tr>
+            <tr><td>Glasgow</td><td>£33,200</td><td>£2,310/month</td></tr>
+            <tr><td>Dundee</td><td>£30,500</td><td>£2,160/month</td></tr>
+            <tr><td>Inverness</td><td>£30,000</td><td>£2,132/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="tax">Scottish vs England tax difference</h2>
+        <p>Above £27,491, Scottish taxpayers pay the Intermediate Rate (21%) compared to England's Basic Rate (20%). Above £43,662, the Scottish Higher Rate is 42% vs England's 40%. On a £50,000 salary, a Scottish worker pays approximately £1,644 more per year in income tax.</p>
+        <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> — toggle Scotland to see the exact difference at your salary level.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/compare",label:"Compare Salaries"}]}
+          salaries={[{amount:30000},{amount:33800},{amount:37500},{amount:45000},{amount:50000}]}
+          cities={["Edinburgh","Glasgow","London","Manchester"]}
+        />
+      </>
+    ),
+  },
+
+  // 50 — "average salary wales 2026" = 3 impressions at pos 8.67
+  {
+    slug: "average-salary-wales-2026",
+    title: "Average Salary in Wales 2026",
+    description: "The average salary in Wales is £30,500 in 2026. See take-home pay, salary by city, top sectors, and how Wales compares to the UK median.",
+    excerpt: "Wales has the lowest median salary of the UK nations, but housing costs are significantly lower — and the same income tax rates as England apply.",
+    category: "Wages",
+    keywords: ["average salary wales 2026","average wage wales","wales salary 2026","median salary wales"],
+    readMinutes: 4,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "What is the average salary in Wales in 2026?", a: "The median gross annual salary in Wales is approximately £30,500 in 2026, giving a monthly take-home of around £2,218." },
+      { q: "Does Wales have different tax rates?", a: "Wales has the Welsh Rate of Income Tax, but it is currently set at the same level as England's rates. Practically, Welsh taxpayers pay the same income tax as English taxpayers." },
+    ],
+    body: () => (
+      <>
+        <p>Wales has the lowest median salary of the four UK nations, but housing costs are significantly lower than England — particularly compared to London and the South East. The Welsh Rate of Income Tax exists but is currently set at the same level as England.</p>
+        <h2 id="median">Average Wales salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£30,500</td><td>£2,218/month</td></tr>
+            <tr><td>Mean salary</td><td>£32,800</td><td>£2,372/month</td></tr>
+            <tr><td>UK median</td><td>£34,963</td><td>£2,493/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="by-city">Wales salaries by city</h2>
+        <table>
+          <thead><tr><th>City</th><th>Median salary</th></tr></thead>
+          <tbody>
+            <tr><td>Cardiff</td><td>£31,000</td></tr>
+            <tr><td>Swansea</td><td>£29,500</td></tr>
+            <tr><td>Newport</td><td>£29,000</td></tr>
+          </tbody>
+        </table>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:25000},{amount:30000},{amount:35000},{amount:40000}]}
+          cities={["Cardiff","Bristol","Birmingham","London"]}
+        />
+      </>
+    ),
+  },
+
+  // 51 — "average salary northern ireland 2026" = 4 impressions at pos 10.25
+  {
+    slug: "average-salary-northern-ireland-2026",
+    title: "Average Salary in Northern Ireland 2026",
+    description: "The average salary in Northern Ireland is £30,200 in 2026. See take-home pay, top sectors, and how NI compares to the Republic of Ireland and UK median.",
+    excerpt: "Northern Ireland has the UK's lowest median salary but also the lowest housing costs of any region — and the same tax rates as England and Wales.",
+    category: "Wages",
+    keywords: ["average salary northern ireland 2026","average wage northern ireland","northern ireland salary 2026"],
+    readMinutes: 4,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "What is the average salary in Northern Ireland in 2026?", a: "The median gross annual salary in Northern Ireland is approximately £30,200 in 2026, giving a monthly take-home of around £2,200." },
+    ],
+    body: () => (
+      <>
+        <p>Northern Ireland has the lowest median salary of any UK region, but also the lowest housing and living costs. The same income tax rates as England and Wales apply — Northern Ireland does not have devolved income tax powers.</p>
+        <h2 id="median">Average Northern Ireland salary 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Median salary</td><td>£30,200</td><td>£2,200/month</td></tr>
+            <tr><td>Mean salary</td><td>£32,500</td><td>£2,355/month</td></tr>
+            <tr><td>UK median</td><td>£34,963</td><td>£2,493/month</td></tr>
+          </tbody>
+        </table>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
+          salaries={[{amount:25000},{amount:30000},{amount:35000},{amount:40000}]}
+          cities={["London","Manchester","Birmingham","Edinburgh"]}
+        />
+      </>
+    ),
+  },
+
+  // 52–56: Job title articles
+  {
+    slug: "solicitor-salary-uk-2026",
+    title: "Solicitor Salary UK 2026: NQ to Partner Take-Home Pay",
+    description: "UK solicitor salaries range from £42k (NQ, regional) to £180k+ (equity partner, City). See exact take-home pay at every level for 2026/27.",
+    excerpt: "Solicitor salaries vary enormously — from £42,000 newly qualified at a regional firm to £180,000+ as a City equity partner. Here's take-home at every level.",
+    category: "Career",
+    keywords: ["solicitor salary uk 2026","lawyer salary uk 2026","nq solicitor salary","solicitor take home pay"],
+    readMinutes: 5,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "What does a newly qualified solicitor earn in the UK?", a: "NQ solicitor salaries range from £38,000–£42,000 at regional firms to £100,000–£150,000 at Magic Circle firms in London in 2026." },
+    ],
+    body: () => (
+      <>
+        <p>Solicitor salaries in the UK vary enormously depending on firm type, location, and seniority. Here is take-home pay at every career level for 2026.</p>
+        <h2 id="by-level">Solicitor salary by level (2026)</h2>
+        <table>
+          <thead><tr><th>Level</th><th>Regional firm</th><th>City / national</th><th>Magic Circle</th></tr></thead>
+          <tbody>
+            <tr><td>Trainee (1st year)</td><td>£26,000</td><td>£38,000</td><td>£52,000</td></tr>
+            <tr><td>Trainee (2nd year)</td><td>£28,000</td><td>£42,000</td><td>£58,000</td></tr>
+            <tr><td>NQ (newly qualified)</td><td>£38,000–£42,000</td><td>£55,000–£70,000</td><td>£100,000–£150,000</td></tr>
+            <tr><td>3–5 PQE</td><td>£45,000–£55,000</td><td>£65,000–£85,000</td><td>£120,000–£170,000</td></tr>
+            <tr><td>Senior Associate</td><td>£55,000–£70,000</td><td>£80,000–£110,000</td><td>£150,000–£200,000</td></tr>
+            <tr><td>Salaried Partner</td><td>£80,000–£120,000</td><td>£120,000–£200,000</td><td>£200,000+</td></tr>
+          </tbody>
+        </table>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/compare",label:"Compare Salaries"},{path:"/dividend",label:"Dividend Calculator"}]}
+          salaries={[{amount:42000},{amount:55000},{amount:70000},{amount:100000},{amount:150000}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "gp-doctor-salary-uk-2026",
+    title: "GP Doctor Salary UK 2026: Salaried, Partner & Locum Pay",
+    description: "UK GP salaries in 2026: salaried GPs earn £70,300–£85,000, partners £100k–£130k+. See exact take-home pay for each type plus locum day rates.",
+    excerpt: "Salaried GPs earn £70,300–£85,000 while GP partners can earn £100k–£130k+. Here is take-home pay for every type of GP role in 2026.",
+    category: "Career",
+    keywords: ["gp salary uk 2026","doctor salary uk 2026","gp take home pay","salaried gp salary 2026","gp partner salary"],
+    readMinutes: 5,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "What is a GP salary in the UK in 2026?", a: "Salaried GPs earn £70,300–£85,000 per year in 2026. GP partners typically earn £100,000–£130,000+ from their share of practice profits. Locum GPs charge £700–£1,000 per day." },
+    ],
+    body: () => (
+      <>
+        <p>GP salaries depend on whether you are salaried, a partner, or working as a locum. Here is the full breakdown for 2026.</p>
+        <h2 id="by-type">GP salary by type (2026)</h2>
+        <table>
+          <thead><tr><th>Role</th><th>Gross salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Salaried GP (minimum BMA)</td><td>£70,300</td><td>~£4,020/month</td></tr>
+            <tr><td>Salaried GP (experienced)</td><td>£85,000</td><td>~£4,700/month</td></tr>
+            <tr><td>GP Partner (average)</td><td>£115,000</td><td>~£5,770/month</td></tr>
+            <tr><td>Locum GP (day rate)</td><td>£700–£1,000/day</td><td>Varies (self-employed)</td></tr>
+          </tbody>
+        </table>
+        <h2 id="pension">NHS Pension impact</h2>
+        <p>GPs contribute 9.3%–12.5% of earnings to the NHS Pension Scheme. At £85,000, that is approximately £8,500/year — reducing monthly take-home by ~£700. Use our <ToolLink to="/take-home">calculator</ToolLink> with pension set to your contribution rate for an exact figure.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/self-employed",label:"Self-Employed (Locums)"},{path:"/dividend",label:"Dividend Calculator"}]}
+          salaries={[{amount:70000},{amount:85000},{amount:100000},{amount:115000},{amount:130000}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "project-manager-salary-uk-2026",
+    title: "Project Manager Salary UK 2026: Junior to Director Take-Home",
+    description: "UK project manager salaries range from £32k (junior) to £90k+ (director/head of PMO) in 2026. See exact take-home pay at every level.",
+    excerpt: "Project management is one of the UK's most in-demand career paths. Here is take-home pay from junior PM to director of PMO in 2026.",
+    category: "Career",
+    keywords: ["project manager salary uk 2026","pm salary uk","project manager take home pay","senior project manager salary uk"],
+    readMinutes: 4,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "What is the average project manager salary in the UK in 2026?", a: "The median project manager salary in the UK is approximately £48,000 in 2026, giving a monthly take-home of around £3,139." },
+    ],
+    body: () => (
+      <>
+        <p>Project management spans every industry. Salaries depend on sector, certification (PRINCE2, PMP, Agile), and seniority.</p>
+        <h2 id="by-level">Project manager salary by level (2026)</h2>
+        <table>
+          <thead><tr><th>Level</th><th>Typical salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Junior / Associate PM</td><td>£30,000–£38,000</td><td>~£2,280/month</td></tr>
+            <tr><td>Project Manager</td><td>£42,000–£55,000</td><td>~£3,060/month</td></tr>
+            <tr><td>Senior PM</td><td>£55,000–£70,000</td><td>~£3,740/month</td></tr>
+            <tr><td>Programme Manager</td><td>£65,000–£85,000</td><td>~£4,400/month</td></tr>
+            <tr><td>Director / Head of PMO</td><td>£80,000–£110,000</td><td>~£5,200/month</td></tr>
+          </tbody>
+        </table>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/pay-rise",label:"Pay Rise Calculator"},{path:"/compare",label:"Compare Salaries"}]}
+          salaries={[{amount:38000},{amount:48000},{amount:55000},{amount:70000},{amount:85000}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "electrician-salary-uk-2026",
+    title: "Electrician Salary UK 2026: Employed vs Self-Employed Take-Home",
+    description: "UK electrician salaries in 2026: employed £34k–£48k, self-employed £40k–£70k+. See take-home pay for both — including the self-employed tax advantage.",
+    excerpt: "Electricians earn £34k–£48k employed and £40k–£70k+ self-employed in 2026. The self-employed route keeps more — here is exactly how much.",
+    category: "Career",
+    keywords: ["electrician salary uk 2026","electrician take home pay","self employed electrician salary","electrician wages uk"],
+    readMinutes: 4,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "How much does an electrician earn in the UK in 2026?", a: "Employed electricians earn £34,000–£48,000 depending on experience and region. Self-employed electricians typically earn £40,000–£70,000+ and retain more due to tax-deductible business expenses." },
+    ],
+    body: () => (
+      <>
+        <p>Electricians are among the best-paid tradespeople in the UK. Self-employed electricians typically earn significantly more than employed — and keep a higher proportion after tax.</p>
+        <h2 id="employed">Employed electrician salary (2026)</h2>
+        <table>
+          <thead><tr><th>Level</th><th>Salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Newly qualified</td><td>£30,000–£34,000</td><td>~£2,280/month</td></tr>
+            <tr><td>Experienced (5+ years)</td><td>£38,000–£45,000</td><td>~£2,770/month</td></tr>
+            <tr><td>Supervisor / foreman</td><td>£42,000–£50,000</td><td>~£3,060/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="self-employed">Self-employed electrician earnings</h2>
+        <p>Self-employed electricians charging £200–£350/day can earn £48,000–£84,000 gross. After deducting business expenses (van, tools, materials, insurance), taxable profit is typically £40,000–£65,000. Use our <ToolLink to="/self-employed">self-employed calculator</ToolLink> for your exact take-home after Class 2 and Class 4 NI.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/self-employed",label:"Self-Employed Calculator"},{path:"/hourly",label:"Hourly Rate Calculator"}]}
+          salaries={[{amount:34000},{amount:40000},{amount:45000},{amount:55000}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "hgv-driver-salary-uk-2026",
+    title: "HGV Driver Salary UK 2026: Cat C, Cat C+E & Agency Take-Home",
+    description: "UK HGV driver salaries in 2026: Cat C £32k–£38k, Cat C+E £36k–£48k, agency/tramping £45k–£60k+. See exact take-home pay for each type.",
+    excerpt: "HGV driver salaries remain elevated after post-pandemic shortages. Cat C+E drivers earn £36k–£48k with agency and tramping work pushing well above £50k.",
+    category: "Career",
+    keywords: ["hgv driver salary uk 2026","lorry driver salary uk","hgv driver take home pay","cat c+e driver salary","class 1 hgv driver salary"],
+    readMinutes: 4,
+    publishedISO: "2026-05-24",
+    updatedISO: "2026-05-24",
+    faq: [
+      { q: "How much does an HGV driver earn in the UK in 2026?", a: "A Cat C (rigid) HGV driver earns £32,000–£38,000. A Cat C+E (articulated) driver earns £36,000–£48,000. Agency and tramping drivers can earn £45,000–£60,000+." },
+    ],
+    body: () => (
+      <>
+        <p>HGV driver salaries have remained elevated since the 2021 shortage. Demand continues to outstrip supply, keeping wages well above many other vocational roles.</p>
+        <h2 id="by-type">HGV driver salary by licence type (2026)</h2>
+        <table>
+          <thead><tr><th>Licence</th><th>Salary range</th><th>Monthly take-home (mid)</th></tr></thead>
+          <tbody>
+            <tr><td>Cat C (Class 2, rigid)</td><td>£32,000–£38,000</td><td>~£2,455/month</td></tr>
+            <tr><td>Cat C+E (Class 1, artic)</td><td>£36,000–£48,000</td><td>~£2,850/month</td></tr>
+            <tr><td>Agency / temp</td><td>£40,000–£55,000</td><td>~£3,200/month</td></tr>
+            <tr><td>Tramping / nights / HIAB</td><td>£45,000–£60,000+</td><td>~£3,600/month</td></tr>
+          </tbody>
+        </table>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/hourly",label:"Hourly Rate Calculator"},{path:"/two-jobs",label:"Two Jobs Calculator"}]}
+          salaries={[{amount:32000},{amount:38000},{amount:42000},{amount:50000},{amount:55000}]}
+        />
+      </>
+    ),
+  },
 ];
