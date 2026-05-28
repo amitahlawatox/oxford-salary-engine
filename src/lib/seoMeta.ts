@@ -183,6 +183,38 @@ export const TOOL_META: Record<string, ToolMeta> = {
       { q: "Should I take a lower salary to move out of London?", a: "It depends. Use the cost of living calculator to compare your current London net income after housing against a lower gross salary elsewhere. Many workers find a £10,000 salary cut outside London leaves them with more disposable income." },
     ],
   },
+
+  "/childcare": {
+    path: "/childcare",
+    title: "Childcare Cost Calculator UK 2026 — After Free Hours & Tax-Free Childcare",
+    description: "Calculate monthly childcare costs after government-funded hours. Covers 30 hours free childcare, Tax-Free Childcare 20% top-up, and salary sacrifice savings. Based on gov.uk 2026 rules.",
+    h1: "Childcare Cost Calculator 2026",
+    faq: [
+      { q: "How do I calculate childcare costs after funded hours?", a: "Subtract your government-funded hours (15 or 30 per week) from your total hours needed. Multiply remaining hours by your local hourly rate. Use Tax-Free Childcare to reduce costs further by 20%, up to £2,000/year." },
+      { q: "Can I use Tax-Free Childcare and the 30 hours free childcare together?", a: "Yes — you can use both Tax-Free Childcare and the 30 funded hours simultaneously. The 30 hours covers the childcare hours; Tax-Free Childcare gives you a 20% government top-up on what you pay for additional hours." },
+      { q: "What is salary sacrifice childcare?", a: "Some employers offer childcare via salary sacrifice, where you pay for childcare from your pre-tax salary, saving income tax and National Insurance on the amount sacrificed." },
+    ],
+  },
+  "/salary-sacrifice/electric-car": {
+    path: "/salary-sacrifice/electric-car",
+    title: "EV Salary Sacrifice Calculator UK 2026 — Electric Car Tax Saving",
+    description: "Calculate your EV salary sacrifice saving for 2026/27. Income tax and NI saved vs BiK at 4%. See your true net monthly cost for an electric company car.",
+    h1: "EV Salary Sacrifice Calculator",
+    faq: [
+      { q: "What is the BiK rate for electric cars in 2026/27?", a: "The Benefit in Kind rate for fully electric cars is 4% of the car's P11D list price in 2026/27 — the lowest BiK rate of any car type." },
+      { q: "How much can I save with EV salary sacrifice?", a: "On a £45,000 salary with a £35,000 EV at £450/month sacrifice, you save approximately £1,800/year in income tax and NI, reduced by the BiK tax cost — giving a true net monthly cost significantly below the gross sacrifice amount." },
+    ],
+  },
+  "/contractor/take-home": {
+    path: "/contractor/take-home",
+    title: "Contractor Take-Home Calculator UK 2026 — Umbrella vs Limited Company",
+    description: "Compare umbrella company vs limited company (outside IR35) take-home pay from your day rate. Uses 2026/27 corporation tax, dividend tax, and NI rates.",
+    h1: "Contractor Take-Home Calculator",
+    faq: [
+      { q: "Is a limited company always better than umbrella for contractors?", a: "For higher day rates (£400+/day), limited company typically takes home £5,000–£15,000 more per year than umbrella. For lower day rates or if inside IR35, the difference narrows significantly." },
+      { q: "What salary/dividend split should I use for my limited company?", a: "The most tax-efficient split in 2026/27 is typically £12,570 salary (using the full personal allowance) with remaining profits taken as dividends. This minimises National Insurance while using all available allowances." },
+    ],
+  },
 };
 
 const SITE = "https://uknetpay.co.uk";

@@ -29,6 +29,9 @@ const Directory = lazy(() => import("./pages/Directory.tsx"));
 const Insights = lazy(() => import("./pages/insights/Insights.tsx"));
 const InsightDetail = lazy(() => import("./pages/insights/InsightDetail.tsx"));
 const SalaryPage = lazy(() => import("./pages/programmatic/SalaryPage.tsx"));
+const Childcare = lazy(() => import("./pages/tools/Childcare.tsx"));
+const EVSalary = lazy(() => import("./pages/tools/EVSalary.tsx"));
+const ContractorTakeHome = lazy(() => import("./pages/tools/ContractorTakeHome.tsx"));
 const About = lazy(() => import("./pages/About.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
 
@@ -69,7 +72,10 @@ const App = () => {
             <Route path="/disclaimer" element={<Disclaimer />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
-            <Route path="/about" element={<About />} />
+                          <Route path="/childcare" element={<Childcare />} />
+              <Route path="/salary-sacrifice/electric-car" element={<EVSalary />} />
+              <Route path="/contractor/take-home" element={<ContractorTakeHome />} />
+              <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/insights/:slug" element={<InsightDetail />} />

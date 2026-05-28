@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Shell } from "@/components/layout/Shell";
 import { Seo } from "@/components/seo/Seo";
+import { Shield, Calculator, BookOpen, Lock } from "lucide-react";
 
 const SITE = "https://uknetpay.co.uk";
 
@@ -9,72 +10,98 @@ const jsonLd = {
   "@type": "AboutPage",
   url: `${SITE}/about`,
   name: "About UK Net Pay",
-  description:
-    "Learn about UK Net Pay — the privacy-first salary and tax calculator for the 2026/27 tax year.",
+  description: "UK Net Pay is built and maintained by Amit Ahlawat. Free, privacy-first salary and tax calculators for the 2026/27 UK tax year, verified against HMRC published rates.",
+  publisher: {
+    "@type": "Organization",
+    name: "UK Net Pay",
+    url: SITE,
+    founder: {
+      "@type": "Person",
+      name: "Amit Ahlawat",
+      url: `${SITE}/about`,
+    },
+  },
 };
 
 const About = () => (
   <Shell>
     <Seo
-      title="About Us — UK Net Pay"
-      description="UK Net Pay is a free, privacy-first salary calculator for the 2026/27 UK tax year. Learn who we are and why we built it."
+      title="About UK Net Pay — Free Salary Calculators Built by Amit Ahlawat"
+      description="UK Net Pay is built by Amit Ahlawat. Free, privacy-first salary and tax calculators for 2026/27. All calculations verified against HMRC published rates. No data collected."
       path="/about"
       jsonLd={jsonLd}
     />
     <article className="mx-auto max-w-3xl px-6 py-16 prose prose-sm dark:prose-invert">
       <h1>About UK Net Pay</h1>
-      <p className="lead">
-        UK Net Pay is a free, privacy-first suite of salary and tax calculators built
-        for the 2026/27 UK tax year. We exist because everyone deserves to understand
-        their take-home pay without handing over personal data.
-      </p>
 
-      <h2>Why we built this</h2>
+      {/* Founder section — E-E-A-T signal */}
+      <div className="not-prose flex items-start gap-4 rounded-xl border border-border bg-secondary/40 p-5 my-6">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-secondary font-semibold text-foreground select-none">
+          AA
+        </div>
+        <div>
+          <p className="font-semibold text-foreground">Amit Ahlawat — Founder</p>
+          <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+            I built UK Net Pay because I was frustrated with salary calculators that either required sign-up, collected financial data, or produced inaccurate results. Every calculation on this site is verified against HMRC published rates and ONS earnings data. The code is open — you can inspect every formula on GitHub.
+          </p>
+          <p className="text-xs text-muted-foreground mt-2">
+            Questions or corrections: <a href="mailto:contact@uknetpay.co.uk" className="text-accent underline underline-offset-2">contact@uknetpay.co.uk</a>
+          </p>
+        </div>
+      </div>
+
+      <h2>What UK Net Pay is</h2>
       <p>
-        Most salary calculators ask you to register, collect your email, or send your
-        financial data to a server. We believe salary information is deeply private.
-        UK Net Pay runs every calculation entirely in your browser — your figures
-        never leave your device.
+        UK Net Pay is a free, privacy-first suite of salary and tax calculators for the 2026/27 UK tax year.
+        Every calculation runs entirely in your browser — your salary figures never leave your device and are never sent to our servers.
       </p>
 
-      <h2>What we offer</h2>
+      <div className="not-prose grid grid-cols-2 gap-4 my-6">
+        {[
+          { icon: Calculator, title: "14 calculators", desc: "Salary, hourly, reverse, IR35, dividend, self-employed, contractor, EV salary sacrifice, childcare, and more" },
+          { icon: Lock, title: "Zero data collection", desc: "No sign-up, no cookies without consent, no server-side storage of your financial inputs" },
+          { icon: Shield, title: "HMRC verified", desc: "All rates cross-referenced with HMRC published thresholds for 2026/27 including Scotland's six-band system" },
+          { icon: BookOpen, title: "56 guides", desc: "In-depth articles on UK tax, salary benchmarks, NHS pay bands, teacher pay scales, and more" },
+        ].map(({ icon: Icon, title, desc }) => (
+          <div key={title} className="rounded-xl border border-border p-4">
+            <Icon className="h-5 w-5 text-muted-foreground mb-2" aria-hidden="true" />
+            <p className="font-semibold text-foreground text-sm">{title}</p>
+            <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2>How we verify our calculations</h2>
+      <p>
+        Every tax rate, threshold, and NI band is sourced directly from HMRC's published documentation for the 2026/27 tax year. 
+        Our calculation engine is verified against:
+      </p>
       <ul>
-        <li><strong>12 specialist calculators</strong> covering salary, hourly, reverse, dividend, IR35, self-employed, cost of living, and more.</li>
-        <li><strong>Privacy by design</strong> — no sign-up, no server storage, no tracking without consent.</li>
-        <li><strong>HMRC-verified rates</strong> for the 2026/27 tax year, including Scotland's six-tier system.</li>
-        <li><strong>In-depth guides</strong> on UK tax, National Insurance, student loans, and salary negotiation.</li>
+        <li><a href="https://www.gov.uk/income-tax-rates" target="_blank" rel="noopener noreferrer">HMRC Income Tax rates and allowances</a></li>
+        <li><a href="https://www.gov.uk/national-insurance-rates-letters" target="_blank" rel="noopener noreferrer">HMRC National Insurance rates</a></li>
+        <li><a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours" target="_blank" rel="noopener noreferrer">ONS Annual Survey of Hours and Earnings (ASHE)</a></li>
+        <li><a href="https://www.revenue.scot/income-tax/income-tax-rates-and-bands" target="_blank" rel="noopener noreferrer">Revenue Scotland — Scottish income tax bands</a></li>
       </ul>
-
-      <h2>Our methodology</h2>
       <p>
-        We verify our tax engine against HMRC-published thresholds, rates, and worked
-        examples. Our{" "}
-        <Link to="/methodology" className="text-accent underline underline-offset-4 hover:opacity-80">
-          public methodology page
-        </Link>{" "}
-        explains the assumptions, verification steps, and where our simplified public
-        model intentionally stops.
+        Our full methodology — including assumptions, known limitations, and where to find professional advice — is documented on the{" "}
+        <Link to="/methodology">methodology page</Link>.
       </p>
 
-      <h2>Important disclaimer</h2>
+      <h2>What we are not</h2>
       <p>
-        UK Net Pay is not regulated by the Financial Conduct Authority (FCA) and does
-        not provide financial advice. The calculators produce illustrative estimates
-        based on standard 2026/27 assumptions. Always consult a qualified accountant
-        or independent financial adviser for decisions about your personal
-        circumstances.
+        UK Net Pay is <strong>not regulated by the Financial Conduct Authority (FCA)</strong> and does not provide financial advice, tax advice, or legal advice.
+        Results are illustrative estimates based on standard HMRC rates. Your individual tax code, employer arrangements, or other personal circumstances may produce different results.
+        Always consult a qualified accountant, tax adviser, or FCA-regulated independent financial adviser before making financial decisions.
+      </p>
+      <p>
+        See our full <Link to="/disclaimer">legal disclaimer</Link> and <Link to="/privacy">privacy policy</Link>.
       </p>
 
-      <h2>Get in touch</h2>
+      <h2>Contact</h2>
       <p>
-        Questions, feedback, or partnership enquiries? Visit our{" "}
-        <Link to="/contact" className="text-accent underline underline-offset-4 hover:opacity-80">
-          contact page
-        </Link>{" "}
-        or email{" "}
-        <a href="mailto:contact@uknetpay.co.uk" className="text-accent underline underline-offset-4 hover:opacity-80">
-          contact@uknetpay.co.uk
-        </a>.
+        General enquiries: <a href="mailto:contact@uknetpay.co.uk">contact@uknetpay.co.uk</a><br />
+        Privacy and data: <a href="mailto:privacy@uknetpay.co.uk">privacy@uknetpay.co.uk</a><br />
+        Calculation corrections: <a href="mailto:contact@uknetpay.co.uk">contact@uknetpay.co.uk</a>
       </p>
     </article>
   </Shell>

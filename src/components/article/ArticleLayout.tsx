@@ -4,6 +4,7 @@ import { Shell } from "@/components/layout/Shell";
 import { Seo } from "@/components/seo/Seo";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { ShareSummary } from "@/components/tools/ShareSummary";
+import { AuthorBio } from "@/components/article/AuthorBio";
 import { LegalBanner } from "@/components/legal/LegalBanner";
 import { Prose } from "./Prose";
 import { LeadCTA } from "./LeadCTA";
@@ -88,7 +89,8 @@ export function ArticleLayout({ article }: { article: Article }) {
 
         <AdSlot size="leaderboard" className="my-6" />
 
-        <Prose>{article.body()}</Prose>
+        <Prose><AuthorBio publishedISO={article.publishedISO} updatedISO={article.updatedISO} />
+          {article.body()}</Prose>
 
         {article.faq?.length ? (
           <section className="mt-12 border-t border-border pt-10">
