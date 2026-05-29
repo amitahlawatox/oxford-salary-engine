@@ -112,6 +112,11 @@ const Childcare = () => {
   const [income1, setIncome1] = useState(35000);
   const [income2, setIncome2] = useState(32000);
 
+  // Universal Credit / benefits
+  const [onUniversalCredit, setOnUniversalCredit] = useState(false);
+  // Childcare vouchers (legacy) — blocks TFC
+  const [hasChildcareVouchers, setHasChildcareVouchers] = useState(false);
+
   // Salary sacrifice
   const [offersSalSacrif, setOffersSalSacrif] = useState(false);
 
@@ -166,11 +171,27 @@ const Childcare = () => {
     return !funded30 && bothParentsWork && income1>=4000;
   },[childAge,bothParentsWork,income1,funded30]);
 
+  // TFC eligibility:
+  // - Both parents working, each earning £10,158–£100,000
+  // - Child under 12 (we can't check this but note it)
+  // - CANNOT combine with Universal Credit childcare, childcare vouchers,
+  //   Working Tax Credit, or Child Tax Credit
   const tfcEligible = useMemo(()=>{
     if(!bothParentsWork) return false;
-    // Each parent earns ≥£2,379/quarter (≈£9,516/year), ≤£100,000
+    if(onUniversalCredit) return false;  // UC users use UC childcare instead
+    if(hasChildcareVouchers) return false; // vouchers block TFC
     return income1>=10158&&income2>=10158&&income1<=100000&&income2<=100000;
-  },[bothParentsWork,income1,income2]);
+  },[bothParentsWork,income1,income2,onUniversalCredit,hasChildcareVouchers]);
+
+  // Universal Credit childcare support (85% of costs, different to TFC)
+  // Max: £1,014.63/month for 1 child, £1,739.37 for 2+ children
+  const ucChildcareEligible = onUniversalCredit && bothParentsWork;
+  const UC_MAX_1_CHILD  = 1014.63 * 12; // annual
+  const UC_MAX_2_PLUS   = 1739.37 * 12;
+  const ucMaxAnnual     = numChildren >= 2 ? UC_MAX_2_PLUS : UC_MAX_1_CHILD;
+  const ucSupportAnnual = ucChildcareEligible
+    ? Math.min(annualTotal * 0.85, ucMaxAnnual) : 0;
+  const monthlyAfterUC  = Math.max(0, (annualTotal - ucSupportAnnual) / 12);
 
   const fundedHoursPerWeek = useMemo(()=>{
     if(careType==="nanny") return 0; // nannies usually don't accept funded hours
@@ -231,8 +252,9 @@ const Childcare = () => {
   const options = [
     { label:"No support",          monthly: fullMonthly,    saving:0 },
     { label:"Funded hours only",   monthly: monthlyTotal,   saving: fundedSavingAnnual/12 },
-    ...(tfcEligible?[{ label:"Funded hrs + Tax-Free Childcare", monthly:monthlyAfterTFC, saving:(fundedSavingAnnual+tfcGovtTotal)/12 }]:[]),
-    ...(offersSalSacrif?[{ label:"Funded hrs + Salary Sacrifice", monthly:monthlyAfterSS, saving:(fundedSavingAnnual+ssSaving.total)/12 }]:[]),
+    ...(tfcEligible&&tfcGovtTotal>0?[{ label:"Funded hrs + Tax-Free Childcare", monthly:monthlyAfterTFC, saving:(fundedSavingAnnual+tfcGovtTotal)/12 }]:[]),
+    ...(ucChildcareEligible&&ucSupportAnnual>0?[{ label:"Funded hrs + Universal Credit (85%)", monthly:monthlyAfterUC, saving:(fundedSavingAnnual+ucSupportAnnual)/12 }]:[]),
+    ...(offersSalSacrif&&ssSaving.total>0?[{ label:"Funded hrs + Salary Sacrifice", monthly:monthlyAfterSS, saving:(fundedSavingAnnual+ssSaving.total)/12 }]:[]),
   ];
   const bestOption = options.reduce((a,b)=>b.monthly<a.monthly?b:a);
 
@@ -383,10 +405,25 @@ const Childcare = () => {
                 <PoundSterling className="h-4 w-4 text-muted-foreground"/>
                 <h2 className="text-sm font-semibold">Government support eligibility</h2>
               </div>
-              <label className="flex items-center gap-2.5 text-sm mb-4 cursor-pointer">
+              <label className="flex items-center gap-2.5 text-sm mb-3 cursor-pointer">
                 <input type="checkbox" checked={bothParentsWork} onChange={e=>setBothParentsWork(e.target.checked)} className="h-4 w-4 rounded"/>
                 Both parents (or single parent) are currently working
               </label>
+              <div className="space-y-2 mb-4 pl-1">
+                <label className="flex items-center gap-2.5 text-sm cursor-pointer">
+                  <input type="checkbox" checked={onUniversalCredit} onChange={e=>setOnUniversalCredit(e.target.checked)} className="h-4 w-4 rounded"/>
+                  <span>Currently claiming Universal Credit</span>
+                </label>
+                <label className="flex items-center gap-2.5 text-sm cursor-pointer">
+                  <input type="checkbox" checked={hasChildcareVouchers} onChange={e=>setHasChildcareVouchers(e.target.checked)} className="h-4 w-4 rounded"/>
+                  <span>Using employer childcare vouchers (legacy scheme)</span>
+                </label>
+              </div>
+              {onUniversalCredit&&(
+                <div className="mb-4 rounded-lg border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/30 p-3 text-xs text-blue-700 dark:text-blue-300">
+                  <strong>Universal Credit:</strong> You can claim 85% of childcare costs through UC instead of Tax-Free Childcare. You <strong>cannot use both</strong>. UC support is usually better for lower earners — TFC is better for higher earners paying more than ~£9,400/year in childcare.
+                </div>
+              )}
               {bothParentsWork&&(
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
@@ -459,11 +496,23 @@ const Childcare = () => {
                     desc: funded15Age2 ? "✓ Eligible (separate from working-parent 30-hour scheme)" : childAge!=="age2" ? "For 2-year-olds not eligible for the 30-hour scheme" : "Applies if on Universal Credit or other qualifying benefits"
                   },
                   {
-                    icon: tfcEligible ? CheckCircle2 : AlertCircle,
-                    color: tfcEligible ? "text-green-500" : "text-amber-500",
+                    icon: tfcEligible ? CheckCircle2 : onUniversalCredit ? XCircle : AlertCircle,
+                    color: tfcEligible ? "text-green-500" : onUniversalCredit ? "text-muted-foreground" : "text-amber-500",
                     title: "Tax-Free Childcare (20% top-up)",
-                    desc: tfcEligible ? `✓ Saves up to ${fmt(2000*numChildren)}/year` : "Each parent must earn £10,158–£100,000/year (16 hrs × NMW)"
+                    desc: onUniversalCredit
+                      ? "Not available — cannot combine with Universal Credit. Use UC childcare support (85%) instead."
+                      : hasChildcareVouchers
+                      ? "Not available — cannot combine with employer childcare vouchers"
+                      : tfcEligible
+                      ? `✓ Saves up to ${fmt(2000*numChildren)}/year on costs you pay — requires separate application at childcarechoices.gov.uk`
+                      : "Each parent must earn £10,158–£100,000/year (16 hrs × NMW)"
                   },
+                  ...(ucChildcareEligible ? [{
+                    icon: CheckCircle2,
+                    color: "text-green-500",
+                    title: "Universal Credit childcare (85%)",
+                    desc: `✓ UC covers 85% of childcare costs, up to ${fmt(numChildren>=2?1739.37:1014.63)}/month — claim through your UC account`
+                  }] : []),
                 ].map(({icon:Icon,color,title,desc})=>(
                   <div key={title} className="flex items-start gap-2.5">
                     <Icon className={`h-4 w-4 mt-0.5 shrink-0 ${color}`}/>
@@ -500,6 +549,12 @@ const Childcare = () => {
                   <div className="flex justify-between">
                     <span className="text-green-600 dark:text-green-400">− Tax-Free Childcare (20%)</span>
                     <span className="text-green-600 dark:text-green-400 font-medium">−{fmt(tfcGovtTotal/12)}/mo</span>
+                  </div>
+                )}
+                {ucChildcareEligible&&ucSupportAnnual>0&&(
+                  <div className="flex justify-between">
+                    <span className="text-green-600 dark:text-green-400">− Universal Credit (85%)</span>
+                    <span className="text-green-600 dark:text-green-400 font-medium">−{fmt(ucSupportAnnual/12)}/mo</span>
                   </div>
                 )}
                 {offersSalSacrif&&ssSaving.total>0&&(
@@ -608,15 +663,21 @@ const Childcare = () => {
 
             {/* CTAs */}
             {tfcEligible&&(
-              <a href="https://www.gov.uk/apply-for-tax-free-childcare" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.childcarechoices.gov.uk" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center w-full rounded-xl border border-accent text-accent bg-accent/5 hover:bg-accent/10 transition-colors px-4 py-3 text-sm font-medium">
-                Apply for Tax-Free Childcare on GOV.UK →
+                Apply for Tax-Free Childcare at childcarechoices.gov.uk →
+              </a>
+            )}
+            {ucChildcareEligible&&(
+              <a href="https://www.gov.uk/guidance/universal-credit-childcare-costs" target="_blank" rel="noopener noreferrer"
+                className="flex items-center justify-center w-full rounded-xl border border-blue-400/40 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 hover:bg-blue-100 dark:hover:bg-blue-950/50 transition-colors px-4 py-3 text-sm font-medium">
+                Claim UC childcare support (85%) on GOV.UK →
               </a>
             )}
             {(funded30||funded15Age2)&&(
-              <a href="https://www.gov.uk/free-childcare-if-youre-working" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.childcarechoices.gov.uk" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center w-full rounded-xl border border-border text-muted-foreground hover:text-foreground transition-colors px-4 py-3 text-sm font-medium">
-                Apply for funded hours on GOV.UK →
+                Apply for funded hours at childcarechoices.gov.uk →
               </a>
             )}
           </div>
