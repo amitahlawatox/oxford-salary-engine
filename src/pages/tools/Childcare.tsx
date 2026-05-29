@@ -98,6 +98,12 @@ const Childcare = () => {
   // Weeks per year
   const [weeksPerYear, setWeeksPerYear] = useState(48);
 
+  // Custom rate override
+  const [useCustomRate, setUseCustomRate] = useState(false);
+  const [customHourlyRate, setCustomHourlyRate] = useState<number>(0);
+  const [customDailyRate, setCustomDailyRate] = useState<number>(0);
+  const [customRateMode, setCustomRateMode] = useState<"hourly"|"daily">("daily");
+
   // Eligibility inputs
   const [bothParentsWork, setBothParentsWork] = useState(true);
   const [income1, setIncome1] = useState(35000);
@@ -109,12 +115,21 @@ const Childcare = () => {
   // ── Derived: hourly rate ─────────────────────────────────────────────────
   const r = REGIONS[regionIdx];
   const ageIdx = childAge==="9mo_2yr"?0:childAge==="age2"?1:2;
-  const hourlyRate = useMemo(()=>{
+  // Regional average rate (used as default / reference)
+  const regionalRate = useMemo(()=>{
     if(careType==="afterschool") return 6.50;
     if(careType==="nanny") return r.nanny;
     if(careType==="childminder") return r.childminder[ageIdx];
     return r.nursery[ageIdx];
   },[careType,r,ageIdx]);
+
+  // Active hourly rate: custom or regional
+  const fullDayHrs = FULL_DAY_HRS[careType==="afterschool"?"afterschool":careType];
+  const hourlyRate = useMemo(()=>{
+    if(!useCustomRate) return regionalRate;
+    if(customRateMode==="daily") return customDailyRate > 0 ? customDailyRate / fullDayHrs : regionalRate;
+    return customHourlyRate > 0 ? customHourlyRate : regionalRate;
+  },[useCustomRate,customRateMode,customDailyRate,customHourlyRate,regionalRate,fullDayHrs]);
 
   // ── Derived: hours per week from day selection ───────────────────────────
   const hoursPerWeek = useMemo(()=>{
@@ -288,11 +303,7 @@ const Childcare = () => {
                 </select>
                 <ChevronDown className="absolute right-2.5 top-3 h-4 w-4 text-muted-foreground pointer-events-none"/>
               </div>
-              <p className="mt-2 text-[11px] text-muted-foreground">
-                Rate: <span className="font-medium text-foreground">£{hourlyRate.toFixed(2)}/hr</span>{" "}
-                · {careType==="afterschool"?"fixed rate":
-                   `${childAge==="under2"?"under 2":childAge==="age2"?"age 2":"age 3–4"} in ${r.label}`}
-              </p>
+
             </div>
 
             {/* 3. Day schedule */}
