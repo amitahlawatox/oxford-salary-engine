@@ -31,7 +31,7 @@ const FULL_DAY_HRS  = { nursery:9, childminder:9, nanny:9, afterschool:3 } as co
 const HALF_DAY_HRS  = { nursery:4.5, childminder:4.5, nanny:4.5, afterschool:3 } as const;
 
 type CareType = "nursery"|"childminder"|"nanny"|"afterschool";
-type ChildAge  = "under2"|"age2"|"age3_4";
+type ChildAge  = "9mo_2yr"|"age2"|"age3_4";
 
 const DAYS = ["Mon","Tue","Wed","Thu","Fri"] as const;
 type Day = typeof DAYS[number];
@@ -108,7 +108,7 @@ const Childcare = () => {
 
   // ── Derived: hourly rate ─────────────────────────────────────────────────
   const r = REGIONS[regionIdx];
-  const ageIdx = childAge==="under2"?0:childAge==="age2"?1:2;
+  const ageIdx = childAge==="9mo_2yr"?0:childAge==="age2"?1:2;
   const hourlyRate = useMemo(()=>{
     if(careType==="afterschool") return 6.50;
     if(careType==="nanny") return r.nanny;
@@ -129,30 +129,41 @@ const Childcare = () => {
   },[days,careType]);
 
   // ── Eligibility checks ───────────────────────────────────────────────────
+  // Since September 2025: 30 hours for ALL ages 9mo+ for eligible working parents
+  // Min income: 16hrs × NMW £12.21 = £10,158/year each parent
+  // Max income: £100,000 adjusted net income per parent
   const funded30 = useMemo(()=>{
-    if(childAge!=="age3_4") return false;
     if(!bothParentsWork) return false;
-    if(income1<4000||income2<4000) return false;
+    if(income1<10158||income2<10158) return false;
     if(income1>100000||income2>100000) return false;
     return true;
-  },[childAge,bothParentsWork,income1,income2]);
+  },[bothParentsWork,income1,income2]);
 
+  // 15 hours for 2-year-olds on certain benefits (Universal Credit etc.)
+  // This is SEPARATE from the working-parent 30 hours scheme
+  // funded30 already handles working parents of 2-year-olds
   const funded15Age2 = useMemo(()=>{
-    if(childAge!=="age2"||!bothParentsWork) return false;
-    return income1>=4000&&income1<=100000;
-  },[childAge,bothParentsWork,income1]);
+    if(childAge!=="age2") return false;
+    // Only relevant if NOT already getting 30 hours
+    return !funded30 && bothParentsWork && income1>=4000;
+  },[childAge,bothParentsWork,income1,funded30]);
 
   const tfcEligible = useMemo(()=>{
     if(!bothParentsWork) return false;
     // Each parent earns ≥£2,379/quarter (≈£9,516/year), ≤£100,000
-    return income1>=9516&&income2>=9516&&income1<=100000&&income2<=100000;
+    return income1>=10158&&income2>=10158&&income1<=100000&&income2<=100000;
   },[bothParentsWork,income1,income2]);
 
   const fundedHoursPerWeek = useMemo(()=>{
-    if(careType==="nanny") return 0;
-    if(childAge==="under2") return 0;
-    if(childAge==="age2") return funded15Age2?15:0;
-    return funded30?30:15; // 3-4 year olds: 30 if eligible, else 15 universal
+    if(careType==="nanny") return 0; // nannies usually don't accept funded hours
+    // Since Sep 2025: 30 hours for all eligible working parents, 9 months to school age
+    if(funded30) return 30;
+    // 3-4 year olds: universal 15 hours (regardless of income/work status)
+    if(childAge==="age3_4") return 15;
+    // 2-year-olds on economic criteria (UC etc): 15 hours
+    if(funded15Age2) return 15;
+    // Under 2 not eligible (working parent 30hrs is the only route for 9mo-2yr)
+    return 0;
   },[childAge,careType,funded30,funded15Age2]);
 
   // ── Core cost calculations (per child) ───────────────────────────────────
@@ -246,7 +257,7 @@ const Childcare = () => {
                 <div>
                   <p className="text-xs font-medium text-muted-foreground mb-2">Age of youngest</p>
                   <div className="space-y-1.5">
-                    {([["under2","Under 2 years"],["age2","2 years old"],["age3_4","3–4 years old"]] as [ChildAge,string][]).map(([val,lbl])=>(
+                    {([["9mo_2yr","9 months – under 2 (eligible for 30 hrs)"],["age2","2 years old"],["age3_4","3–4 years old"]] as [ChildAge,string][]).map(([val,lbl])=>(
                       <label key={val} className={`flex items-center gap-2 p-2.5 rounded-lg border cursor-pointer text-sm transition-colors
                         ${childAge===val?"border-accent bg-accent/5 text-foreground":"border-border text-muted-foreground hover:border-border/70"}`}>
                         <input type="radio" name="age" checked={childAge===val} onChange={()=>setChildAge(val)} className="accent-blue-500"/>
@@ -408,24 +419,23 @@ const Childcare = () => {
                   {
                     icon: funded30 ? CheckCircle2 : childAge==="age3_4"&&bothParentsWork ? AlertCircle : XCircle,
                     color: funded30 ? "text-green-500" : childAge==="age3_4"&&bothParentsWork ? "text-amber-500" : "text-muted-foreground",
-                    title: "30 hrs free (working parents)",
-                    desc: funded30 ? "✓ Eligible — both parents working, within income limits"
-                         : childAge!=="age3_4" ? "For 3–4 year olds only"
+                    title: "30 hrs free (working parents, 9 months+)",
+                    desc: funded30 ? "✓ Eligible — both parents working, income within limits (Sep 2025 expansion)"
                          : !bothParentsWork ? "Both parents must be working"
                          : income1>100000||income2>100000 ? "Not eligible — one or both parents earn over £100,000"
-                         : "Each parent must earn at least £4,000/year"
+                         : `Each parent must earn at least £10,158/year (16 hrs × NMW). You need £${(10158-Math.min(income1,income2)).toLocaleString()} more.`
                   },
                   {
                     icon: funded15Age2 ? CheckCircle2 : childAge==="age2" ? AlertCircle : XCircle,
                     color: funded15Age2 ? "text-green-500" : childAge==="age2" ? "text-amber-500" : "text-muted-foreground",
-                    title: "15 hrs (eligible 2-year-olds)",
-                    desc: funded15Age2 ? "✓ Eligible" : childAge!=="age2" ? "For 2-year-olds only" : "Working parent, earning £4,000–£100,000"
+                    title: "15 hrs (2-year-olds, economic criteria)",
+                    desc: funded15Age2 ? "✓ Eligible (separate from working-parent 30-hour scheme)" : childAge!=="age2" ? "For 2-year-olds not eligible for the 30-hour scheme" : "Applies if on Universal Credit or other qualifying benefits"
                   },
                   {
                     icon: tfcEligible ? CheckCircle2 : AlertCircle,
                     color: tfcEligible ? "text-green-500" : "text-amber-500",
                     title: "Tax-Free Childcare (20% top-up)",
-                    desc: tfcEligible ? `✓ Saves up to ${fmt(2000*numChildren)}/year` : "Each parent must earn £9,516–£100,000/year"
+                    desc: tfcEligible ? `✓ Saves up to ${fmt(2000*numChildren)}/year` : "Each parent must earn £10,158–£100,000/year (16 hrs × NMW)"
                   },
                 ].map(({icon:Icon,color,title,desc})=>(
                   <div key={title} className="flex items-start gap-2.5">
@@ -576,13 +586,14 @@ const Childcare = () => {
           <p>Costs vary enormously. An Inner London nursery charges £16.20/hr for a baby under 2 — nearly double the North East rate of £8.80/hr. Childminders are typically 15–20% cheaper than nurseries. Nannies cost more per hour but become cost-effective for two or more children.</p>
           <h3>Government-funded hours 2026</h3>
           <table>
-            <thead><tr><th>Scheme</th><th>Hours/week</th><th>Eligibility</th></tr></thead>
+            <thead><tr><th>Scheme</th><th>Hours/week</th><th>Who qualifies</th></tr></thead>
             <tbody>
-              <tr><td>Universal 15 hours</td><td>15</td><td>All 3–4 year olds, England</td></tr>
-              <tr><td>Working parents 30 hours</td><td>30</td><td>3–4 yr olds, both parents working, each earning £4,000–£100,000/yr</td></tr>
-              <tr><td>2-year-old 15 hours</td><td>15</td><td>Working parents of 2-year-olds</td></tr>
+              <tr><td><strong>30 hours (working parents)</strong></td><td><strong>30</strong></td><td>Children aged 9 months to school age. Both parents must each earn £10,158–£100,000/year. September 2025 expansion.</td></tr>
+              <tr><td>15 hours (universal)</td><td>15</td><td>All 3–4 year olds in England — no income test</td></tr>
+              <tr><td>15 hours (2-year-olds)</td><td>15</td><td>2-year-olds on Universal Credit or other qualifying benefits</td></tr>
             </tbody>
           </table>
+          <p><strong>Key change from September 2025:</strong> The 30 hours free childcare scheme now covers <strong>all children from 9 months old</strong> — not just 3–4 year olds. An 18-month-old whose parents both earn between £10,158 and £100,000 now qualifies for the full 30 hours, worth approximately £6,000–£7,500/year depending on region. The income minimum is 16 hours/week at National Minimum Wage (£12.21/hr from April 2025) = £10,158/year per parent.</p>
           <h3>Tax-Free Childcare vs salary sacrifice — which is better?</h3>
           <p>Tax-Free Childcare gives a flat 20% top-up (capped at £2,000/child/year). Salary sacrifice saves you your marginal income tax rate plus NI — which is 28% for a basic rate taxpayer and 48% for a higher rate taxpayer. Higher earners almost always save more through salary sacrifice if their employer offers it. The calculator shows the comparison automatically when you tick the salary sacrifice box.</p>
           <p><strong>Sources:</strong> <a href="https://www.familyandchildcaretrust.org" target="_blank" rel="noopener noreferrer">Coram Survey 2025</a> · <a href="https://www.gov.uk/tax-free-childcare" target="_blank" rel="noopener noreferrer">gov.uk TFC</a> · <a href="https://www.gov.uk/free-childcare-if-youre-working" target="_blank" rel="noopener noreferrer">gov.uk funded hours</a></p>
