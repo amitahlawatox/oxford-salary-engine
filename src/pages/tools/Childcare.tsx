@@ -80,6 +80,9 @@ function calcSalSacrifSaving(salary:number, annualSacrifice:number):{tax:number;
 }
 
 const Childcare = () => {
+  // Funded hours apply for 38 standard term weeks (gov.uk)
+  const TERM_WEEKS = 38;
+
   // Child details
   const [numChildren, setNumChildren] = useState(1);
   const [childAge, setChildAge]       = useState<ChildAge>("age3_4");
@@ -182,18 +185,31 @@ const Childcare = () => {
   },[childAge,careType,funded30,funded15Age2]);
 
   // ── Core cost calculations (per child) ───────────────────────────────────
-  const paidHrsPerWeek   = Math.max(0, hoursPerWeek - fundedHoursPerWeek);
-  const weeklyGrossPerChild = paidHrsPerWeek * hourlyRate;
-  const annualGrossPerChild = weeklyGrossPerChild * weeksPerYear;
+  // Funded hours apply for 38 TERM weeks only (gov.uk standard) (standard gov.uk entitlement)
+  // Non-term weeks (holidays etc) are always charged at full rate
+  const nonTermWeeks   = Math.max(0, weeksPerYear - TERM_WEEKS);
+  const termWeeksUsed  = Math.min(weeksPerYear, TERM_WEEKS);
+
+  // Paid hours per week during term (funded hours deducted)
+  const paidHrsTermWeek   = Math.max(0, hoursPerWeek - fundedHoursPerWeek);
+  // Non-term: full hours, no funding
+  const paidHrsNonTermWeek = hoursPerWeek;
+
+  const annualGrossPerChild =
+    (paidHrsTermWeek    * hourlyRate * termWeeksUsed) +
+    (paidHrsNonTermWeek * hourlyRate * nonTermWeeks);
+
   const monthlyGrossPerChild = annualGrossPerChild / 12;
 
   // Total costs
-  const monthlyTotal     = monthlyGrossPerChild * numChildren;
-  const annualTotal      = annualGrossPerChild  * numChildren;
+  const monthlyTotal = monthlyGrossPerChild * numChildren;
+  const annualTotal  = annualGrossPerChild  * numChildren;
 
-  // Funded hours annual saving
-  const fundedSavingAnnual = fundedHoursPerWeek * hourlyRate * weeksPerYear * numChildren;
-  // Full cost (no support at all)
+  // Funded hours saving = what you WOULD have paid during term vs what you pay
+  const fundedSavingAnnual =
+    fundedHoursPerWeek * hourlyRate * termWeeksUsed * numChildren;
+
+  // Full cost (no support at all, all weeks, all hours)
   const fullMonthly = (hoursPerWeek * hourlyRate * weeksPerYear * numChildren) / 12;
 
   // ── Tax-Free Childcare (TFC) ─────────────────────────────────────────────
@@ -512,6 +528,22 @@ const Childcare = () => {
                   <p className="text-xs font-medium text-green-700 dark:text-green-300">
                     You save {fmt(fundedSavingAnnual+Math.max(tfcGovtTotal,ssSaving.total))}/year through government support
                   </p>
+                </div>
+              )}
+
+              {/* Term vs non-term breakdown when funded hours apply */}
+              {fundedHoursPerWeek>0&&nonTermWeeks>0&&(
+                <div className="mt-3 rounded-lg border border-border bg-secondary/20 p-3 space-y-1 text-[11px] text-muted-foreground">
+                  <p className="font-medium text-foreground text-xs">How this is calculated</p>
+                  <div className="flex justify-between">
+                    <span>Term time ({termWeeksUsed} weeks, {fundedHoursPerWeek} hrs funded)</span>
+                    <span className="font-medium">{paidHrsTermWeek>0?fmt(paidHrsTermWeek*hourlyRate*termWeeksUsed/12)+"/mo":"FREE"}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Non-term ({nonTermWeeks} weeks, full rate)</span>
+                    <span className="font-medium">{fmt(hoursPerWeek*hourlyRate*nonTermWeeks/12)}/mo avg</span>
+                  </div>
+                  <p className="text-[10px] pt-1">Funding applies for {TERM_WEEKS} term weeks only. Non-term weeks (school holidays etc.) charged at full rate.</p>
                 </div>
               )}
             </div>
