@@ -46,6 +46,9 @@ const TOOLS: Tool[] = [
   { to: "/dividend", title: "Dividend Optimiser", desc: "Director salary plus dividends, optimal mix.", icon: Building2, unique: true },
   { to: "/ir35", title: "IR35 Contractor", desc: "Inside versus outside take-home.", icon: FileSignature, unique: true },
   { to: "/cost-of-living", title: "Cost of Living", desc: "Does your net cover London, Manchester or Edinburgh?", icon: MapPin, unique: true },
+  { to: "/childcare", title: "Childcare Calculator", desc: "Monthly costs after funded hours. Eligibility for 30 hours free and Tax-Free Childcare.", icon: Baby, unique: true },
+  { to: "/salary-sacrifice/electric-car", title: "EV Salary Sacrifice", desc: "Electric car via salary sacrifice — true net cost after tax and BiK.", icon: Zap, unique: true },
+  { to: "/contractor/take-home", title: "Contractor Take-Home", desc: "Umbrella vs limited company take-home from your day rate.", icon: Briefcase, unique: true },
 ];
 
 const FAQ = [
@@ -122,7 +125,7 @@ const Index = () => {
     <Shell>
       <Seo
         title="UK Salary Calculator 2026/27 - Take-Home Pay After Tax"
-        description="Free UK salary and tax calculator for 2026/27. See take-home pay after Income Tax, NI, Student Loan and pension with privacy-first in-browser calculations."
+        description="Free UK salary, tax and childcare calculators for 2026/27. Take-home pay, 30 hours free childcare, Tax-Free Childcare, IR35, dividends and more. Privacy-first, no sign-up."
         path="/"
         jsonLd={jsonLd}
       />
@@ -144,7 +147,7 @@ const Index = () => {
               of UK Net Income.
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground max-w-[58ch] mb-7 leading-relaxed">
-              Twelve precision calculators for UK salary, tax, dividends and contracting. Calculated
+              Fifteen precision calculators for UK salary, tax, childcare, contracting, and EV salary sacrifice. Calculated
               to the penny against HMRC 2026/27 rates. No sign-up. Privacy-first.
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
@@ -163,7 +166,7 @@ const Index = () => {
             </div>
             <div className="grid grid-cols-3 gap-4 max-w-md">
               <Stat icon={ShieldCheck} label="Accuracy" value="±0.01p" />
-              <Stat icon={Zap} label="Tools" value="12 live" />
+              <Stat icon={Zap} label="Tools" value="15 live" />
               <Stat icon={Lock} label="Privacy" value="In-browser" />
             </div>
           </div>
@@ -205,6 +208,63 @@ const Index = () => {
             </div>
           </div>
         </div>
+      </section>
+
+
+      {/* ── CHILDCARE HERO BANNER ─────────────────────────────────────────── */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-6">
+        <Link to="/childcare" className="group block relative overflow-hidden rounded-2xl border border-border bg-card hover:border-accent/40 transition-all hover:shadow-card">
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent" />
+          <div className="absolute top-0 right-0 w-[300px] h-[200px] bg-gradient-to-bl from-accent/10 to-transparent rounded-bl-full" />
+
+          <div className="relative p-6 sm:p-8 grid sm:grid-cols-[1fr_auto] gap-6 items-center">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-bold uppercase tracking-widest">
+                  <Sparkles className="h-3 w-3" />
+                  New tool
+                </span>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">2026 government rates</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground tracking-tight mb-2">
+                Childcare Cost Calculator
+              </h2>
+              <p className="text-sm text-muted-foreground max-w-lg leading-relaxed mb-4">
+                UK childcare can cost over <strong className="text-foreground">£1,800/month</strong> in London. See exactly what you'll pay after funded hours — and check eligibility for <strong className="text-foreground">30 hours free childcare</strong> and <strong className="text-foreground">Tax-Free Childcare</strong> (saves up to £2,000/year per child).
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex flex-col">
+                  <span className="text-lg font-semibold text-foreground">£2,000</span>
+                  <span className="text-[11px] text-muted-foreground">max TFC saving/year</span>
+                </div>
+                <div className="w-px bg-border" />
+                <div className="flex flex-col">
+                  <span className="text-lg font-semibold text-foreground">30 hrs</span>
+                  <span className="text-[11px] text-muted-foreground">free for working parents</span>
+                </div>
+                <div className="w-px bg-border" />
+                <div className="flex flex-col">
+                  <span className="text-lg font-semibold text-foreground">13</span>
+                  <span className="text-[11px] text-muted-foreground">UK regions covered</span>
+                </div>
+                <div className="w-px bg-border" />
+                <div className="flex flex-col">
+                  <span className="text-lg font-semibold text-foreground">4</span>
+                  <span className="text-[11px] text-muted-foreground">care types: nursery, childminder, nanny, after-school</span>
+                </div>
+              </div>
+            </div>
+            <div className="shrink-0 flex flex-col items-center gap-3">
+              <div className="h-16 w-16 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center group-hover:bg-accent/15 transition-colors">
+                <Baby className="h-8 w-8 text-accent" />
+              </div>
+              <span className="inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:gap-2 transition-all">
+                Calculate now <ArrowRight className="h-4 w-4" />
+              </span>
+            </div>
+          </div>
+        </Link>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
@@ -249,10 +309,10 @@ const Index = () => {
         <div className="flex items-end justify-between mb-8 gap-4">
           <div>
             <h2 className="text-2xl sm:text-3xl font-light tracking-tight">Intelligence Modules</h2>
-            <p className="text-sm text-muted-foreground mt-1">Twelve calculators. One precise tax engine.</p>
+            <p className="text-sm text-muted-foreground mt-1">Fifteen calculators. One precise tax engine.</p>
           </div>
           <span className="text-xs font-mono uppercase text-muted-foreground tabular hidden sm:inline">
-            12 live
+            15 live
           </span>
         </div>
 
