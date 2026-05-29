@@ -3,140 +3,207 @@ import { Link } from "react-router-dom";
 import { Shell } from "@/components/layout/Shell";
 import { Seo } from "@/components/seo/Seo";
 import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
-import { CheckCircle2, XCircle, AlertCircle, ChevronDown, Baby, Clock, MapPin, PoundSterling } from "lucide-react";
+import { CheckCircle2, XCircle, AlertCircle, ChevronDown, Baby, MapPin, PoundSterling, Info } from "lucide-react";
 
 const SITE = "https://uknetpay.co.uk";
 
-// ── REGIONAL HOURLY RATES (nursery / childminder / nanny) ─────────────────────
-// Source: Coram Family & Childcare Survey 2025, Nursery World 2026
-const REGIONS: { label: string; nursery: number[]; childminder: number[]; nanny: number[] }[] = [
-  // nursery: [under2, age2, age3_4]  childminder: [under2, age2, age3_4]  nanny: [all]
-  { label: "Inner London",         nursery: [16.20, 14.80, 13.50], childminder: [13.50, 12.20, 11.00], nanny: [18.00] },
-  { label: "Outer London",         nursery: [13.40, 12.20, 11.10], childminder: [11.20, 10.20,  9.20], nanny: [15.50] },
-  { label: "South East",           nursery: [11.20, 10.20,  9.30], childminder: [ 9.80,  8.90,  8.00], nanny: [14.00] },
-  { label: "East of England",      nursery: [10.60,  9.70,  8.80], childminder: [ 9.20,  8.40,  7.60], nanny: [13.00] },
-  { label: "South West",           nursery: [10.20,  9.30,  8.50], childminder: [ 8.90,  8.10,  7.30], nanny: [12.50] },
-  { label: "East Midlands",        nursery: [ 9.50,  8.70,  7.90], childminder: [ 8.20,  7.50,  6.80], nanny: [12.00] },
-  { label: "West Midlands",        nursery: [ 9.60,  8.80,  8.00], childminder: [ 8.40,  7.70,  7.00], nanny: [12.00] },
-  { label: "Yorkshire & Humber",   nursery: [ 9.30,  8.50,  7.70], childminder: [ 8.00,  7.30,  6.60], nanny: [11.50] },
-  { label: "North West",           nursery: [ 9.20,  8.40,  7.60], childminder: [ 7.90,  7.20,  6.50], nanny: [11.50] },
-  { label: "North East",           nursery: [ 8.80,  8.00,  7.30], childminder: [ 7.50,  6.80,  6.20], nanny: [11.00] },
-  { label: "Wales",                nursery: [ 9.10,  8.30,  7.50], childminder: [ 7.80,  7.10,  6.40], nanny: [11.00] },
-  { label: "Scotland",             nursery: [ 9.40,  8.60,  7.80], childminder: [ 8.20,  7.50,  6.80], nanny: [12.00] },
-  { label: "Northern Ireland",     nursery: [ 8.60,  7.80,  7.10], childminder: [ 7.30,  6.70,  6.00], nanny: [10.50] },
-];
+// ── Regional rates (nursery / childminder / nanny) per age band ────────────
+// Source: Coram Family & Childcare Survey 2025 + Nursery World 2026
+// [under2, age2, age3_4]
+const REGIONS = [
+  { label: "Inner London",       nursery:[16.20,14.80,13.50], childminder:[13.50,12.20,11.00], nanny:18.00 },
+  { label: "Outer London",       nursery:[13.40,12.20,11.10], childminder:[11.20,10.20, 9.20], nanny:15.50 },
+  { label: "South East",         nursery:[11.20,10.20, 9.30], childminder:[ 9.80, 8.90, 8.00], nanny:14.00 },
+  { label: "East of England",    nursery:[10.60, 9.70, 8.80], childminder:[ 9.20, 8.40, 7.60], nanny:13.00 },
+  { label: "South West",         nursery:[10.20, 9.30, 8.50], childminder:[ 8.90, 8.10, 7.30], nanny:12.50 },
+  { label: "East Midlands",      nursery:[ 9.50, 8.70, 7.90], childminder:[ 8.20, 7.50, 6.80], nanny:12.00 },
+  { label: "West Midlands",      nursery:[ 9.60, 8.80, 8.00], childminder:[ 8.40, 7.70, 7.00], nanny:12.00 },
+  { label: "Yorkshire",          nursery:[ 9.30, 8.50, 7.70], childminder:[ 8.00, 7.30, 6.60], nanny:11.50 },
+  { label: "North West",         nursery:[ 9.20, 8.40, 7.60], childminder:[ 7.90, 7.20, 6.50], nanny:11.50 },
+  { label: "North East",         nursery:[ 8.80, 8.00, 7.30], childminder:[ 7.50, 6.80, 6.20], nanny:11.00 },
+  { label: "Wales",              nursery:[ 9.10, 8.30, 7.50], childminder:[ 7.80, 7.10, 6.40], nanny:11.00 },
+  { label: "Scotland",           nursery:[ 9.40, 8.60, 7.80], childminder:[ 8.20, 7.50, 6.80], nanny:12.00 },
+  { label: "Northern Ireland",   nursery:[ 8.60, 7.80, 7.10], childminder:[ 7.30, 6.70, 6.00], nanny:10.50 },
+] as const;
 
-type CareType = "nursery" | "childminder" | "nanny" | "afterschool";
-type ChildAge = "under2" | "age2" | "age3_4";
+// Hours per session by care type
+const FULL_DAY_HRS  = { nursery:9, childminder:9, nanny:9, afterschool:3 } as const;
+const HALF_DAY_HRS  = { nursery:4.5, childminder:4.5, nanny:4.5, afterschool:3 } as const;
 
-const AGE_LABEL: Record<ChildAge, string> = {
-  under2: "Under 2 years",
-  age2: "2 years old",
-  age3_4: "3–4 years old",
-};
+type CareType = "nursery"|"childminder"|"nanny"|"afterschool";
+type ChildAge  = "under2"|"age2"|"age3_4";
 
-const CARE_LABEL: Record<CareType, string> = {
-  nursery: "Nursery",
-  childminder: "Childminder",
-  nanny: "Nanny",
-  afterschool: "After-school / holiday club",
-};
+const DAYS = ["Mon","Tue","Wed","Thu","Fri"] as const;
+type Day = typeof DAYS[number];
 
-const WEEKLY_CONTRACT = 52;
+interface DayConfig { selected: boolean; half: boolean; }
 
 const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Childcare Cost Calculator UK 2026",
-  url: `${SITE}/childcare`,
-  description: "Calculate monthly UK childcare costs for nursery, childminder, or nanny after government-funded hours. Checks eligibility for 30 hours free childcare and Tax-Free Childcare.",
-  applicationCategory: "FinanceApplication",
-  featureList: ["30 hours free childcare", "15 hours funded", "Tax-Free Childcare", "Universal Credit childcare", "Multiple care types", "Regional rates"],
+  "@context":"https://schema.org","@type":"WebApplication",
+  name:"Childcare Cost Calculator UK 2026",url:`${SITE}/childcare`,
+  description:"Calculate monthly UK childcare costs with day-by-day scheduling. Checks eligibility for 30 hours free childcare, Tax-Free Childcare, and salary sacrifice savings.",
+  applicationCategory:"FinanceApplication",
 };
 
-// ── ELIGIBILITY ───────────────────────────────────────────────────────────────
-function get30HoursFunded(childAge: ChildAge, bothParentsWork: boolean, income1: number, income2: number) {
-  if (childAge !== "age3_4") return false;
-  if (!bothParentsWork) return false;
-  const quarterMin = 1000; // £1,000 per quarter minimum (NMW 16hrs)
-  const annualMin = quarterMin * 4;
-  if (income1 < annualMin || income2 < annualMin) return false;
-  if (income1 > 100000 || income2 > 100000) return false;
-  return true;
+// ── Tax / NI helpers ───────────────────────────────────────────────────────
+function incomeTaxRate(salary:number):number {
+  if(salary<=12570) return 0;
+  if(salary<=50270) return 0.20;
+  if(salary<=125140) return 0.40;
+  return 0.45;
 }
-
-function get15HoursAge2(childAge: ChildAge, bothParentsWork: boolean, income1: number) {
-  if (childAge !== "age2") return false;
-  if (!bothParentsWork) return false;
-  return income1 >= 4000 && income1 <= 100000; // must work, earn £4k+, under £100k
+function employeeNIRate(salary:number):number {
+  if(salary<=12570) return 0;
+  if(salary<=50270) return 0.08;
+  return 0.02; // simplified: treats whole salary at top rate — actual calc is banded
 }
-
-function getTFCEligible(bothParentsWork: boolean, income1: number, income2: number) {
-  if (!bothParentsWork) return false;
-  const quarterMin = 2379; // NMW 16hrs per week
-  return income1 >= quarterMin && income2 >= quarterMin && income1 <= 100000 && income2 <= 100000;
+function calcSalSacrifSaving(salary:number, annualSacrifice:number):{tax:number;ni:number;total:number} {
+  // Marginal rates on the sacrificed band
+  const newSalary = Math.max(0, salary - annualSacrifice);
+  // Tax saving: difference between tax on full salary vs reduced salary
+  function annualTax(s:number):number {
+    if(s<=12570) return 0;
+    const basic = Math.min(Math.max(s-12570,0), 37700)*0.20;
+    const higher = Math.min(Math.max(s-50270,0), 74870)*0.40;
+    const addl   = Math.max(s-125140,0)*0.45;
+    return basic+higher+addl;
+  }
+  function annualNI(s:number):number {
+    if(s<=12570) return 0;
+    const main  = Math.min(Math.max(s-12570,0),37700)*0.08;
+    const upper = Math.max(s-50270,0)*0.02;
+    return main+upper;
+  }
+  const taxSaving = annualTax(salary)-annualTax(newSalary);
+  const niSaving  = annualNI(salary) -annualNI(newSalary);
+  return { tax:taxSaving, ni:niSaving, total:taxSaving+niSaving };
 }
 
 const Childcare = () => {
-  // Inputs
+  // Child details
   const [numChildren, setNumChildren] = useState(1);
-  const [childAge, setChildAge] = useState<ChildAge>("age3_4");
+  const [childAge, setChildAge]       = useState<ChildAge>("age3_4");
+
+  // Care type
   const [careType, setCareType] = useState<CareType>("nursery");
-  const [regionIdx, setRegionIdx] = useState(2); // South East default
-  const [hoursPerWeek, setHoursPerWeek] = useState(40);
+  const [regionIdx, setRegionIdx] = useState(2);
+
+  // Day schedule — default Mon-Fri full day
+  const [days, setDays] = useState<Record<Day,DayConfig>>({
+    Mon:{selected:true,half:false}, Tue:{selected:true,half:false},
+    Wed:{selected:true,half:false}, Thu:{selected:true,half:false},
+    Fri:{selected:true,half:false},
+  });
+
+  // Weeks per year
   const [weeksPerYear, setWeeksPerYear] = useState(48);
 
-  // Parent details for eligibility
+  // Eligibility inputs
   const [bothParentsWork, setBothParentsWork] = useState(true);
   const [income1, setIncome1] = useState(35000);
   const [income2, setIncome2] = useState(32000);
 
+  // Salary sacrifice
+  const [offersSalSacrif, setOffersSalSacrif] = useState(false);
+
+  // ── Derived: hourly rate ─────────────────────────────────────────────────
   const r = REGIONS[regionIdx];
-
-  // Hourly rate based on care type + child age
-  const ageIdx = childAge === "under2" ? 0 : childAge === "age2" ? 1 : 2;
-  const hourlyRate = useMemo(() => {
-    if (careType === "afterschool") return 6.50;
-    if (careType === "nanny") return r.nanny[0];
-    if (careType === "childminder") return r.childminder[ageIdx];
+  const ageIdx = childAge==="under2"?0:childAge==="age2"?1:2;
+  const hourlyRate = useMemo(()=>{
+    if(careType==="afterschool") return 6.50;
+    if(careType==="nanny") return r.nanny;
+    if(careType==="childminder") return r.childminder[ageIdx];
     return r.nursery[ageIdx];
-  }, [careType, r, ageIdx]);
+  },[careType,r,ageIdx]);
 
-  // Funded hours per week
-  const funded30 = get30HoursFunded(childAge, bothParentsWork, income1, income2);
-  const funded15Age2 = get15HoursAge2(childAge, bothParentsWork, income1);
-  const tfcEligible = getTFCEligible(bothParentsWork, income1, income2);
+  // ── Derived: hours per week from day selection ───────────────────────────
+  const hoursPerWeek = useMemo(()=>{
+    return DAYS.reduce((sum,d)=>{
+      const cfg = days[d];
+      if(!cfg.selected) return sum;
+      const hrs = cfg.half
+        ? HALF_DAY_HRS[careType==="afterschool"?"afterschool":careType]
+        : FULL_DAY_HRS[careType==="afterschool"?"afterschool":careType];
+      return sum+hrs;
+    },0);
+  },[days,careType]);
 
-  const fundedHours = useMemo(() => {
-    if (careType === "nanny") return 0; // nannies don't accept funded hours
-    if (childAge === "under2") return 0;
-    if (childAge === "age2") return funded15Age2 ? 15 : 0;
-    if (childAge === "age3_4") return funded30 ? 30 : 15; // all 3-4 get 15 universal
-    return 0;
-  }, [childAge, careType, funded30, funded15Age2]);
+  // ── Eligibility checks ───────────────────────────────────────────────────
+  const funded30 = useMemo(()=>{
+    if(childAge!=="age3_4") return false;
+    if(!bothParentsWork) return false;
+    if(income1<4000||income2<4000) return false;
+    if(income1>100000||income2>100000) return false;
+    return true;
+  },[childAge,bothParentsWork,income1,income2]);
 
-  // Calculations (per child)
-  const paidHoursPerWeek = Math.max(0, hoursPerWeek - fundedHours);
-  const weeklyGross = paidHoursPerWeek * hourlyRate;
-  const annualGross = weeklyGross * weeksPerYear;
-  const monthlyGross = annualGross / 12;
+  const funded15Age2 = useMemo(()=>{
+    if(childAge!=="age2"||!bothParentsWork) return false;
+    return income1>=4000&&income1<=100000;
+  },[childAge,bothParentsWork,income1]);
 
-  // Tax-Free Childcare: £2,000/year top-up per child
-  const tfcAnnualTopup = tfcEligible ? Math.min(annualGross * numChildren * 0.25, 2000 * numChildren) : 0;
-  // Note: TFC is 20p per 80p, so top-up = 25% of what you pay (up to £2k per child)
+  const tfcEligible = useMemo(()=>{
+    if(!bothParentsWork) return false;
+    // Each parent earns ≥£2,379/quarter (≈£9,516/year), ≤£100,000
+    return income1>=9516&&income2>=9516&&income1<=100000&&income2<=100000;
+  },[bothParentsWork,income1,income2]);
 
-  const totalMonthlyBeforeSupport = monthlyGross * numChildren;
-  const totalAnnualBeforeSupport = annualGross * numChildren;
-  const monthlyAfterTFC = Math.max(0, (totalAnnualBeforeSupport - tfcAnnualTopup) / 12);
+  const fundedHoursPerWeek = useMemo(()=>{
+    if(careType==="nanny") return 0;
+    if(childAge==="under2") return 0;
+    if(childAge==="age2") return funded15Age2?15:0;
+    return funded30?30:15; // 3-4 year olds: 30 if eligible, else 15 universal
+  },[childAge,careType,funded30,funded15Age2]);
 
-  const fundedHoursSaving = fundedHours * hourlyRate * weeksPerYear * numChildren;
-  const totalMonthlyFullCost = (hoursPerWeek * hourlyRate * weeksPerYear * numChildren) / 12;
+  // ── Core cost calculations (per child) ───────────────────────────────────
+  const paidHrsPerWeek   = Math.max(0, hoursPerWeek - fundedHoursPerWeek);
+  const weeklyGrossPerChild = paidHrsPerWeek * hourlyRate;
+  const annualGrossPerChild = weeklyGrossPerChild * weeksPerYear;
+  const monthlyGrossPerChild = annualGrossPerChild / 12;
+
+  // Total costs
+  const monthlyTotal     = monthlyGrossPerChild * numChildren;
+  const annualTotal      = annualGrossPerChild  * numChildren;
+
+  // Funded hours annual saving
+  const fundedSavingAnnual = fundedHoursPerWeek * hourlyRate * weeksPerYear * numChildren;
+  // Full cost (no support at all)
+  const fullMonthly = (hoursPerWeek * hourlyRate * weeksPerYear * numChildren) / 12;
+
+  // ── Tax-Free Childcare (TFC) ─────────────────────────────────────────────
+  // Govt adds 20p per 80p parent pays (=25% of parent spend), max £2,000 govt/child/yr
+  // => parent needs to spend £8,000/child/yr to get full £2,000 top-up
+  const tfcGovtPerChild = Math.min(annualGrossPerChild * 0.25, 2000);
+  const tfcGovtTotal    = tfcEligible ? tfcGovtPerChild * numChildren : 0;
+  const monthlyAfterTFC = Math.max(0, (annualTotal - tfcGovtTotal) / 12);
+
+  // ── Salary sacrifice calculation ─────────────────────────────────────────
+  // Annual sacrifice = annual childcare cost (what parent pays after funded hours)
+  const annualSacrifice     = annualTotal;
+  const ssSaving            = offersSalSacrif
+    ? calcSalSacrifSaving(income1, annualSacrifice)
+    : {tax:0,ni:0,total:0};
+  const monthlyAfterSS      = Math.max(0, (annualTotal - ssSaving.total) / 12);
+
+  // Best option
+  const options = [
+    { label:"No support",          monthly: fullMonthly,    saving:0 },
+    { label:"Funded hours only",   monthly: monthlyTotal,   saving: fundedSavingAnnual/12 },
+    ...(tfcEligible?[{ label:"Funded hrs + Tax-Free Childcare", monthly:monthlyAfterTFC, saving:(fundedSavingAnnual+tfcGovtTotal)/12 }]:[]),
+    ...(offersSalSacrif?[{ label:"Funded hrs + Salary Sacrifice", monthly:monthlyAfterSS, saving:(fundedSavingAnnual+ssSaving.total)/12 }]:[]),
+  ];
+  const bestOption = options.reduce((a,b)=>b.monthly<a.monthly?b:a);
+
+  const toggleDay = (d:Day)=>setDays(prev=>({...prev,[d]:{...prev[d],selected:!prev[d].selected}}));
+  const toggleHalf=(d:Day)=>setDays(prev=>({...prev,[d]:{...prev[d],half:!prev[d].half}}));
+
+  const fmt=(n:number)=>`£${Math.round(n).toLocaleString("en-GB")}`;
 
   return (
     <Shell>
       <Seo
-        title="Childcare Cost Calculator UK 2026 — Nursery, Childminder & Nanny Costs"
-        description="Calculate UK childcare costs for nursery, childminder, or nanny after funded hours. Checks your eligibility for 30 hours free childcare, 15 hours, and Tax-Free Childcare 2026."
+        title="Childcare Cost Calculator UK 2026 — Day-by-Day Costs, Funded Hours & Salary Sacrifice"
+        description="Calculate weekly childcare costs by day. Choose nursery, childminder or nanny, pick your days and half/full day. Checks eligibility for 30 free hours, Tax-Free Childcare, and salary sacrifice savings."
         path="/childcare"
         jsonLd={jsonLd}
       />
@@ -144,48 +211,46 @@ const Childcare = () => {
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
 
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-6">
           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
-            <Link to="/" className="hover:text-foreground">Home</Link>
-            <span>/</span>
-            <span>Childcare Calculator</span>
+            <Link to="/">Home</Link><span>/</span><span>Childcare Calculator</span>
           </div>
-          <h1 className="text-2xl font-semibold text-foreground">Childcare Cost Calculator 2026</h1>
+          <h1 className="text-2xl font-semibold">Childcare Cost Calculator 2026</h1>
           <p className="text-sm text-muted-foreground mt-1">
-            Estimate your monthly childcare costs, check eligibility for funded hours, and see your Tax-Free Childcare saving.
-            Rates based on <a href="https://www.familyandchildcaretrust.org/childcare-survey" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">Coram Family &amp; Childcare Survey 2025</a>.
+            Pick your days, care type, and region. We check your eligibility for government support and show your real monthly cost.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1fr_380px] gap-6">
+        <div className="grid lg:grid-cols-[1fr_360px] gap-6">
 
-          {/* ── LEFT: INPUTS ─────────────────────────────────────────────── */}
-          <div className="space-y-5">
+          {/* ── LEFT: INPUTS ─────────────────────────────────────────── */}
+          <div className="space-y-4">
 
-            {/* Section 1: Your child */}
+            {/* 1. Child */}
             <div className="rounded-xl border border-border bg-card p-5">
               <div className="flex items-center gap-2 mb-4">
-                <Baby className="h-4 w-4 text-muted-foreground" />
-                <h2 className="text-sm font-semibold">Your child</h2>
+                <Baby className="h-4 w-4 text-muted-foreground"/>
+                <h2 className="text-sm font-semibold">Child details</h2>
               </div>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">Number of children</label>
+                  <p className="text-xs font-medium text-muted-foreground mb-2">Number of children</p>
                   <div className="flex items-center gap-3">
-                    <button onClick={() => setNumChildren(Math.max(1, numChildren - 1))}
-                      className="h-8 w-8 rounded-lg border border-border bg-secondary flex items-center justify-center text-sm font-medium hover:bg-secondary/80">−</button>
-                    <span className="text-lg font-semibold w-6 text-center">{numChildren}</span>
-                    <button onClick={() => setNumChildren(Math.min(5, numChildren + 1))}
-                      className="h-8 w-8 rounded-lg border border-border bg-secondary flex items-center justify-center text-sm font-medium hover:bg-secondary/80">+</button>
+                    <button onClick={()=>setNumChildren(Math.max(1,numChildren-1))}
+                      className="h-9 w-9 rounded-lg border border-border bg-secondary font-semibold text-base hover:bg-secondary/70 transition-colors">−</button>
+                    <span className="text-xl font-semibold w-6 text-center">{numChildren}</span>
+                    <button onClick={()=>setNumChildren(Math.min(5,numChildren+1))}
+                      className="h-9 w-9 rounded-lg border border-border bg-secondary font-semibold text-base hover:bg-secondary/70 transition-colors">+</button>
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">Age of youngest child</label>
+                  <p className="text-xs font-medium text-muted-foreground mb-2">Age of youngest</p>
                   <div className="space-y-1.5">
-                    {(["under2","age2","age3_4"] as ChildAge[]).map(age => (
-                      <label key={age} className={`flex items-center gap-2.5 p-2 rounded-lg cursor-pointer border transition-colors text-sm ${childAge === age ? "border-accent bg-accent/5 text-foreground" : "border-border hover:border-border/80"}`}>
-                        <input type="radio" name="age" value={age} checked={childAge === age} onChange={() => setChildAge(age)} className="accent-current" />
-                        {AGE_LABEL[age]}
+                    {([["under2","Under 2 years"],["age2","2 years old"],["age3_4","3–4 years old"]] as [ChildAge,string][]).map(([val,lbl])=>(
+                      <label key={val} className={`flex items-center gap-2 p-2.5 rounded-lg border cursor-pointer text-sm transition-colors
+                        ${childAge===val?"border-accent bg-accent/5 text-foreground":"border-border text-muted-foreground hover:border-border/70"}`}>
+                        <input type="radio" name="age" checked={childAge===val} onChange={()=>setChildAge(val)} className="accent-blue-500"/>
+                        {lbl}
                       </label>
                     ))}
                   </div>
@@ -193,306 +258,336 @@ const Childcare = () => {
               </div>
             </div>
 
-            {/* Section 2: Care type */}
+            {/* 2. Care type + Region */}
             <div className="rounded-xl border border-border bg-card p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <Clock className="h-4 w-4 text-muted-foreground" />
-                <h2 className="text-sm font-semibold">Type of care</h2>
-              </div>
+              <h2 className="text-sm font-semibold mb-4">Care type &amp; location</h2>
               <div className="grid grid-cols-2 gap-2 mb-4">
-                {(["nursery","childminder","nanny","afterschool"] as CareType[]).map(type => (
-                  <button key={type} onClick={() => setCareType(type)}
-                    className={`p-3 rounded-lg border text-sm text-left transition-colors ${careType === type ? "border-accent bg-accent/5 font-medium text-foreground" : "border-border text-muted-foreground hover:border-border/70 hover:text-foreground"}`}>
-                    {CARE_LABEL[type]}
+                {([["nursery","Nursery"],["childminder","Childminder"],["nanny","Nanny"],["afterschool","After-school"]] as [CareType,string][]).map(([val,lbl])=>(
+                  <button key={val} onClick={()=>setCareType(val)}
+                    className={`p-3 rounded-lg border text-sm text-left transition-colors
+                      ${careType===val?"border-accent bg-accent/5 font-medium text-foreground":"border-border text-muted-foreground hover:border-border/70 hover:text-foreground"}`}>
+                    {lbl}
                   </button>
                 ))}
               </div>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">Hours per week needed</label>
-                  <input type="number" min={1} max={60} value={hoursPerWeek}
-                    onChange={e => setHoursPerWeek(Math.max(1, Math.min(60, Number(e.target.value))))}
-                    className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" />
-                  <p className="text-[11px] text-muted-foreground mt-1">Typical full-time: 40–50 hrs</p>
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">Weeks per year</label>
-                  <input type="number" min={38} max={52} value={weeksPerYear}
-                    onChange={e => setWeeksPerYear(Math.max(38, Math.min(52, Number(e.target.value))))}
-                    className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" />
-                  <p className="text-[11px] text-muted-foreground mt-1">38 = term-time only, 52 = year-round</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Section 3: Location */}
-            <div className="rounded-xl border border-border bg-card p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <MapPin className="h-4 w-4 text-muted-foreground" />
-                <h2 className="text-sm font-semibold">Location</h2>
-              </div>
               <div className="relative">
-                <select value={regionIdx} onChange={e => setRegionIdx(Number(e.target.value))}
+                <select value={regionIdx} onChange={e=>setRegionIdx(Number(e.target.value))}
                   className="w-full appearance-none rounded-lg border border-border bg-background px-3 py-2.5 text-sm pr-8">
-                  {REGIONS.map((reg, i) => <option key={reg.label} value={i}>{reg.label}</option>)}
+                  {REGIONS.map((reg,i)=><option key={reg.label} value={i}>{reg.label}</option>)}
                 </select>
-                <ChevronDown className="absolute right-2.5 top-3 h-4 w-4 text-muted-foreground pointer-events-none" />
+                <ChevronDown className="absolute right-2.5 top-3 h-4 w-4 text-muted-foreground pointer-events-none"/>
               </div>
-              <p className="text-[11px] text-muted-foreground mt-2">
-                {CARE_LABEL[careType]} rate in {r.label}:{" "}
-                <span className="font-medium text-foreground">
-                  £{hourlyRate.toFixed(2)}/hr for {AGE_LABEL[childAge].toLowerCase()}
-                </span>
+              <p className="mt-2 text-[11px] text-muted-foreground">
+                Rate: <span className="font-medium text-foreground">£{hourlyRate.toFixed(2)}/hr</span>{" "}
+                · {careType==="afterschool"?"fixed rate":
+                   `${childAge==="under2"?"under 2":childAge==="age2"?"age 2":"age 3–4"} in ${r.label}`}
               </p>
             </div>
 
-            {/* Section 4: Eligibility check */}
+            {/* 3. Day schedule */}
+            <div className="rounded-xl border border-border bg-card p-5">
+              <h2 className="text-sm font-semibold mb-1">Days needed</h2>
+              <p className="text-xs text-muted-foreground mb-4">Select each day and choose full or half day</p>
+
+              <div className="grid grid-cols-5 gap-2 mb-4">
+                {DAYS.map(d=>{
+                  const cfg = days[d];
+                  return (
+                    <div key={d} className={`rounded-xl border transition-colors overflow-hidden
+                      ${cfg.selected?"border-accent":"border-border"}`}>
+                      {/* Day header */}
+                      <button onClick={()=>toggleDay(d)}
+                        className={`w-full py-2.5 text-sm font-semibold transition-colors
+                          ${cfg.selected?"bg-accent/10 text-foreground":"bg-secondary/30 text-muted-foreground hover:text-foreground"}`}>
+                        {d}
+                      </button>
+                      {/* Half/Full toggle — only if day is selected AND not after-school */}
+                      {cfg.selected && careType!=="afterschool" && (
+                        <div className="border-t border-border">
+                          <button onClick={()=>toggleHalf(d)}
+                            className="w-full py-1.5 text-[10px] font-medium text-center transition-colors hover:bg-secondary/50 text-muted-foreground">
+                            {cfg.half?"½ day":"Full"}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-muted-foreground">
+                  {DAYS.filter(d=>days[d].selected).length} day{DAYS.filter(d=>days[d].selected).length!==1?"s":""} selected
+                  {" · "}{hoursPerWeek.toFixed(1)} hrs/week
+                </span>
+                <span className="text-muted-foreground">
+                  Full day = {FULL_DAY_HRS[careType==="afterschool"?"afterschool":careType]}h · Half day = {HALF_DAY_HRS[careType==="afterschool"?"afterschool":careType]}h
+                </span>
+              </div>
+
+              <div className="mt-4">
+                <label className="text-xs font-medium text-muted-foreground block mb-1.5">Weeks per year</label>
+                <div className="flex items-center gap-3">
+                  <input type="range" min={38} max={52} value={weeksPerYear}
+                    onChange={e=>setWeeksPerYear(Number(e.target.value))}
+                    className="flex-1 accent-blue-500"/>
+                  <span className="text-sm font-semibold w-16 text-right">{weeksPerYear} wks</span>
+                </div>
+                <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
+                  <span>38 = term-time</span><span>48 = with holidays</span><span>52 = year-round</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. Eligibility */}
             <div className="rounded-xl border border-border bg-card p-5">
               <div className="flex items-center gap-2 mb-4">
-                <PoundSterling className="h-4 w-4 text-muted-foreground" />
+                <PoundSterling className="h-4 w-4 text-muted-foreground"/>
                 <h2 className="text-sm font-semibold">Government support eligibility</h2>
               </div>
-              <div className="space-y-3 mb-4">
-                <label className="flex items-center gap-2.5 text-sm cursor-pointer">
-                  <input type="checkbox" checked={bothParentsWork} onChange={e => setBothParentsWork(e.target.checked)}
-                    className="h-4 w-4 rounded" />
-                  Both parents (or single parent) are working
-                </label>
-              </div>
-              {bothParentsWork && (
-                <div className="grid sm:grid-cols-2 gap-4">
+              <label className="flex items-center gap-2.5 text-sm mb-4 cursor-pointer">
+                <input type="checkbox" checked={bothParentsWork} onChange={e=>setBothParentsWork(e.target.checked)} className="h-4 w-4 rounded"/>
+                Both parents (or single parent) are currently working
+              </label>
+              {bothParentsWork&&(
+                <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label className="block text-xs font-medium text-muted-foreground mb-1.5">Your salary (£/year)</label>
+                    <label className="block text-xs font-medium text-muted-foreground mb-1.5">Your salary £/yr</label>
                     <input type="number" min={0} max={500000} step={1000} value={income1}
-                      onChange={e => setIncome1(Number(e.target.value))}
-                      className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" />
+                      onChange={e=>setIncome1(Number(e.target.value))}
+                      className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"/>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-muted-foreground mb-1.5">Partner's salary (£/year)</label>
+                    <label className="block text-xs font-medium text-muted-foreground mb-1.5">Partner's salary £/yr</label>
                     <input type="number" min={0} max={500000} step={1000} value={income2}
-                      onChange={e => setIncome2(Number(e.target.value))}
-                      className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" />
+                      onChange={e=>setIncome2(Number(e.target.value))}
+                      className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"/>
                   </div>
                 </div>
               )}
+
+              {/* Salary sacrifice toggle */}
+              <div className="border-t border-border pt-4">
+                <label className="flex items-start gap-2.5 cursor-pointer">
+                  <input type="checkbox" checked={offersSalSacrif} onChange={e=>setOffersSalSacrif(e.target.checked)}
+                    className="h-4 w-4 mt-0.5 rounded"/>
+                  <div>
+                    <span className="text-sm font-medium">My employer offers childcare salary sacrifice</span>
+                    <p className="text-[11px] text-muted-foreground mt-0.5">
+                      You pay childcare from pre-tax salary, saving income tax and National Insurance on the full amount.
+                    </p>
+                  </div>
+                </label>
+                {offersSalSacrif&&(
+                  <div className="mt-3 rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-3 flex gap-2">
+                    <Info className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5"/>
+                    <p className="text-[11px] text-amber-700 dark:text-amber-300">
+                      Only available with OFSTED-registered providers. Cannot be combined with Tax-Free Childcare — the calculator shows the better option below.
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
-          {/* ── RIGHT: RESULTS ────────────────────────────────────────────── */}
+          {/* ── RIGHT: RESULTS ─────────────────────────────────────────── */}
           <div className="space-y-4">
 
             {/* Eligibility summary */}
             <div className="rounded-xl border border-border bg-card p-5">
               <h2 className="text-sm font-semibold mb-3">Your eligibility</h2>
-              <div className="space-y-2.5">
+              <div className="space-y-3">
 
-                {/* 15 hours universal */}
-                <div className="flex items-start gap-2.5">
-                  {childAge === "age3_4"
-                    ? <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                    : <XCircle className="h-4 w-4 text-muted-foreground mt-0.5 shrink-0" />}
-                  <div>
-                    <p className={`text-sm font-medium ${childAge === "age3_4" ? "text-foreground" : "text-muted-foreground"}`}>
-                      15 hours free (universal)
-                    </p>
-                    <p className="text-[11px] text-muted-foreground">
-                      {childAge === "age3_4" ? "✓ All 3–4 year olds qualify" : "For 3–4 year olds only"}
-                    </p>
+                {[
+                  {
+                    icon: childAge==="age3_4" ? CheckCircle2 : XCircle,
+                    color: childAge==="age3_4" ? "text-green-500" : "text-muted-foreground",
+                    title: "15 hrs free (universal)",
+                    desc: childAge==="age3_4" ? "✓ All 3–4 year olds in England qualify" : "Only for 3–4 year olds"
+                  },
+                  {
+                    icon: funded30 ? CheckCircle2 : childAge==="age3_4"&&bothParentsWork ? AlertCircle : XCircle,
+                    color: funded30 ? "text-green-500" : childAge==="age3_4"&&bothParentsWork ? "text-amber-500" : "text-muted-foreground",
+                    title: "30 hrs free (working parents)",
+                    desc: funded30 ? "✓ Eligible — both parents working, within income limits"
+                         : childAge!=="age3_4" ? "For 3–4 year olds only"
+                         : !bothParentsWork ? "Both parents must be working"
+                         : income1>100000||income2>100000 ? "Not eligible — one or both parents earn over £100,000"
+                         : "Each parent must earn at least £4,000/year"
+                  },
+                  {
+                    icon: funded15Age2 ? CheckCircle2 : childAge==="age2" ? AlertCircle : XCircle,
+                    color: funded15Age2 ? "text-green-500" : childAge==="age2" ? "text-amber-500" : "text-muted-foreground",
+                    title: "15 hrs (eligible 2-year-olds)",
+                    desc: funded15Age2 ? "✓ Eligible" : childAge!=="age2" ? "For 2-year-olds only" : "Working parent, earning £4,000–£100,000"
+                  },
+                  {
+                    icon: tfcEligible ? CheckCircle2 : AlertCircle,
+                    color: tfcEligible ? "text-green-500" : "text-amber-500",
+                    title: "Tax-Free Childcare (20% top-up)",
+                    desc: tfcEligible ? `✓ Saves up to ${fmt(2000*numChildren)}/year` : "Each parent must earn £9,516–£100,000/year"
+                  },
+                ].map(({icon:Icon,color,title,desc})=>(
+                  <div key={title} className="flex items-start gap-2.5">
+                    <Icon className={`h-4 w-4 mt-0.5 shrink-0 ${color}`}/>
+                    <div>
+                      <p className="text-sm font-medium text-foreground">{title}</p>
+                      <p className="text-[11px] text-muted-foreground">{desc}</p>
+                    </div>
                   </div>
-                </div>
-
-                {/* 30 hours */}
-                <div className="flex items-start gap-2.5">
-                  {funded30
-                    ? <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                    : childAge === "age3_4" && bothParentsWork
-                    ? <AlertCircle className="h-4 w-4 text-amber-500 mt-0.5 shrink-0" />
-                    : <XCircle className="h-4 w-4 text-muted-foreground mt-0.5 shrink-0" />}
-                  <div>
-                    <p className={`text-sm font-medium ${funded30 ? "text-foreground" : "text-muted-foreground"}`}>
-                      30 hours free (working parents)
-                    </p>
-                    <p className="text-[11px] text-muted-foreground">
-                      {funded30 ? "✓ Eligible — both parents working, income within limits"
-                        : childAge !== "age3_4" ? "For 3–4 year olds only"
-                        : !bothParentsWork ? "Both parents must be working"
-                        : income1 > 100000 || income2 > 100000 ? "Not eligible if either parent earns over £100,000"
-                        : "Each parent must earn at least £4,000/year"}
-                    </p>
-                  </div>
-                </div>
-
-                {/* 15 hours age 2 */}
-                <div className="flex items-start gap-2.5">
-                  {funded15Age2
-                    ? <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                    : childAge === "age2"
-                    ? <AlertCircle className="h-4 w-4 text-amber-500 mt-0.5 shrink-0" />
-                    : <XCircle className="h-4 w-4 text-muted-foreground mt-0.5 shrink-0" />}
-                  <div>
-                    <p className={`text-sm font-medium ${funded15Age2 ? "text-foreground" : "text-muted-foreground"}`}>
-                      15 hours (eligible 2-year-olds)
-                    </p>
-                    <p className="text-[11px] text-muted-foreground">
-                      {funded15Age2 ? "✓ Eligible working parent, 2-year-old"
-                        : childAge !== "age2" ? "For 2-year-olds only"
-                        : "Working parent required, earning £4,000–£100,000"}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Tax-Free Childcare */}
-                <div className="flex items-start gap-2.5">
-                  {tfcEligible
-                    ? <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                    : <AlertCircle className="h-4 w-4 text-amber-500 mt-0.5 shrink-0" />}
-                  <div>
-                    <p className={`text-sm font-medium ${tfcEligible ? "text-foreground" : "text-muted-foreground"}`}>
-                      Tax-Free Childcare (20% top-up)
-                    </p>
-                    <p className="text-[11px] text-muted-foreground">
-                      {tfcEligible
-                        ? `✓ Saves up to £${(2000 * numChildren).toLocaleString()}/year`
-                        : "Both parents must earn £2,379+/quarter and under £100,000"}
-                    </p>
-                  </div>
-                </div>
+                ))}
 
               </div>
             </div>
 
-            {/* Cost summary */}
+            {/* Cost breakdown */}
             <div className="rounded-xl border-2 border-accent/30 bg-card p-5">
-              <h2 className="text-sm font-semibold mb-4">Monthly cost summary</h2>
+              <h2 className="text-sm font-semibold mb-4">Monthly cost breakdown</h2>
 
-              {/* Full cost without support */}
-              <div className="space-y-2 mb-4">
-                <div className="flex justify-between text-sm">
+              <div className="space-y-2 text-sm mb-4">
+                <div className="flex justify-between">
                   <span className="text-muted-foreground">Full cost (no support)</span>
-                  <span className="font-medium">£{Math.round(totalMonthlyFullCost).toLocaleString()}/mo</span>
+                  <span className="font-medium">{fmt(fullMonthly)}/mo</span>
                 </div>
-
-                {fundedHours > 0 && (
-                  <div className="flex justify-between text-sm">
-                    <span className="text-green-600 dark:text-green-400">
-                      − {fundedHours} funded hours/week
-                    </span>
-                    <span className="text-green-600 dark:text-green-400 font-medium">
-                      −£{Math.round(fundedHoursSaving / 12).toLocaleString()}/mo
-                    </span>
+                {fundedHoursPerWeek>0&&(
+                  <div className="flex justify-between">
+                    <span className="text-green-600 dark:text-green-400">− {fundedHoursPerWeek} funded hrs/week</span>
+                    <span className="text-green-600 dark:text-green-400 font-medium">−{fmt(fundedSavingAnnual/12)}/mo</span>
                   </div>
                 )}
-
-                <div className="flex justify-between text-sm border-t border-border pt-2">
+                <div className="flex justify-between border-t border-border pt-2">
                   <span className="text-muted-foreground">After funded hours</span>
-                  <span className="font-medium">£{Math.round(totalMonthlyBeforeSupport).toLocaleString()}/mo</span>
+                  <span className="font-medium">{fmt(monthlyTotal)}/mo</span>
                 </div>
-
-                {tfcEligible && tfcAnnualTopup > 0 && (
-                  <div className="flex justify-between text-sm">
-                    <span className="text-green-600 dark:text-green-400">
-                      − Tax-Free Childcare (20%)
-                    </span>
-                    <span className="text-green-600 dark:text-green-400 font-medium">
-                      −£{Math.round(tfcAnnualTopup / 12).toLocaleString()}/mo
-                    </span>
+                {tfcEligible&&tfcGovtTotal>0&&(
+                  <div className="flex justify-between">
+                    <span className="text-green-600 dark:text-green-400">− Tax-Free Childcare (20%)</span>
+                    <span className="text-green-600 dark:text-green-400 font-medium">−{fmt(tfcGovtTotal/12)}/mo</span>
                   </div>
+                )}
+                {offersSalSacrif&&ssSaving.total>0&&(
+                  <>
+                    <div className="flex justify-between">
+                      <span className="text-green-600 dark:text-green-400">− Tax saving (salary sacrifice)</span>
+                      <span className="text-green-600 dark:text-green-400 font-medium">−{fmt(ssSaving.tax/12)}/mo</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-green-600 dark:text-green-400">− NI saving (salary sacrifice)</span>
+                      <span className="text-green-600 dark:text-green-400 font-medium">−{fmt(ssSaving.ni/12)}/mo</span>
+                    </div>
+                  </>
                 )}
               </div>
 
-              {/* Final number */}
-              <div className="rounded-xl bg-secondary/50 p-4 text-center mt-2">
-                <p className="text-xs text-muted-foreground mb-1">Your estimated monthly cost</p>
-                <p className="text-3xl font-semibold text-foreground">
-                  £{Math.round(monthlyAfterTFC).toLocaleString()}
-                </p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  £{Math.round(monthlyAfterTFC * 12).toLocaleString()}/year · {r.label}
-                </p>
+              {/* Best option hero */}
+              <div className="rounded-xl bg-secondary/50 p-4 text-center">
+                <p className="text-[11px] text-muted-foreground mb-0.5">{bestOption.label}</p>
+                <p className="text-3xl font-semibold">{fmt(bestOption.monthly)}</p>
+                <p className="text-xs text-muted-foreground mt-1">/month · {fmt(bestOption.monthly*12)}/year</p>
               </div>
 
-              {/* Annual saving badge */}
-              {(fundedHoursSaving + tfcAnnualTopup) > 0 && (
+              {(fundedSavingAnnual+Math.max(tfcGovtTotal,ssSaving.total))>0&&(
                 <div className="mt-3 rounded-lg bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 p-3 text-center">
-                  <p className="text-xs text-green-700 dark:text-green-300">
-                    You save <strong>£{Math.round(fundedHoursSaving + tfcAnnualTopup).toLocaleString()}/year</strong> through government support
+                  <p className="text-xs font-medium text-green-700 dark:text-green-300">
+                    You save {fmt(fundedSavingAnnual+Math.max(tfcGovtTotal,ssSaving.total))}/year through government support
                   </p>
                 </div>
               )}
             </div>
 
-            {/* Funding note */}
-            {careType === "nanny" && (
-              <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-4 text-sm text-amber-800 dark:text-amber-300">
-                <strong>Note:</strong> Government-funded hours cannot be used directly with a nanny unless they are OFSTED-registered. Most nannies are not. Tax-Free Childcare can still be used with a registered nanny.
+            {/* Salary sacrifice projection */}
+            {offersSalSacrif&&ssSaving.total>0&&(
+              <div className="rounded-xl border border-border bg-card p-5">
+                <h2 className="text-sm font-semibold mb-3">Salary sacrifice projection</h2>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Annual sacrifice</span>
+                    <span className="font-medium">{fmt(annualSacrifice)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Income tax saved</span>
+                    <span className="font-medium text-green-600 dark:text-green-400">{fmt(ssSaving.tax)}/yr</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">NI saved</span>
+                    <span className="font-medium text-green-600 dark:text-green-400">{fmt(ssSaving.ni)}/yr</span>
+                  </div>
+                  <div className="flex justify-between border-t border-border pt-2">
+                    <span className="font-medium text-foreground">Total annual saving</span>
+                    <span className="font-semibold text-green-600 dark:text-green-400">{fmt(ssSaving.total)}/yr</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Net monthly cost</span>
+                    <span className="font-semibold text-foreground">{fmt(monthlyAfterSS)}/mo</span>
+                  </div>
+                </div>
+                {tfcEligible&&(
+                  <div className="mt-3 rounded-lg border border-border bg-secondary/30 p-3 text-[11px] text-muted-foreground">
+                    <strong className="text-foreground">TFC vs Salary Sacrifice: </strong>
+                    {tfcGovtTotal>ssSaving.total
+                      ? `Tax-Free Childcare saves you ${fmt(tfcGovtTotal-ssSaving.total)}/yr more. Use TFC.`
+                      : `Salary sacrifice saves you ${fmt(ssSaving.total-tfcGovtTotal)}/yr more. Use salary sacrifice.`}
+                  </div>
+                )}
               </div>
             )}
 
-            {/* Apply CTA */}
-            {tfcEligible && (
+            {/* Options comparison */}
+            {options.length>2&&(
+              <div className="rounded-xl border border-border bg-card p-5">
+                <h2 className="text-sm font-semibold mb-3">All options compared</h2>
+                <div className="space-y-2">
+                  {options.map((opt)=>(
+                    <div key={opt.label} className={`flex items-center justify-between p-2.5 rounded-lg text-sm
+                      ${opt.label===bestOption.label?"bg-accent/10 border border-accent/20":""}`}>
+                      <span className={opt.label===bestOption.label?"font-medium text-foreground":"text-muted-foreground"}>
+                        {opt.label}
+                        {opt.label===bestOption.label&&<span className="ml-2 text-[10px] bg-accent/20 text-accent px-1.5 py-0.5 rounded font-semibold uppercase">Best</span>}
+                      </span>
+                      <span className={`font-semibold ${opt.label===bestOption.label?"text-accent":"text-foreground"}`}>
+                        {fmt(opt.monthly)}/mo
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* CTAs */}
+            {tfcEligible&&(
               <a href="https://www.gov.uk/apply-for-tax-free-childcare" target="_blank" rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full rounded-xl border border-accent text-accent bg-accent/5 hover:bg-accent/10 transition-colors px-4 py-3 text-sm font-medium">
+                className="flex items-center justify-center w-full rounded-xl border border-accent text-accent bg-accent/5 hover:bg-accent/10 transition-colors px-4 py-3 text-sm font-medium">
                 Apply for Tax-Free Childcare on GOV.UK →
               </a>
             )}
-            {(funded30 || funded15Age2) && (
+            {(funded30||funded15Age2)&&(
               <a href="https://www.gov.uk/free-childcare-if-youre-working" target="_blank" rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full rounded-xl border border-border text-muted-foreground hover:text-foreground hover:border-border/80 transition-colors px-4 py-3 text-sm font-medium">
+                className="flex items-center justify-center w-full rounded-xl border border-border text-muted-foreground hover:text-foreground transition-colors px-4 py-3 text-sm font-medium">
                 Apply for funded hours on GOV.UK →
               </a>
             )}
           </div>
         </div>
 
-        {/* ── GUIDE CONTENT ─────────────────────────────────────────────────── */}
+        {/* Guide */}
         <div className="mt-12 prose prose-sm dark:prose-invert max-w-none">
-
-          <h2>UK Childcare Costs 2026 — What You Need to Know</h2>
-          <p>Childcare is one of the biggest monthly expenses for working families in the UK. Costs vary substantially by type of care, region, and child age — and several government schemes can significantly reduce what you pay.</p>
-
-          <h3>Average childcare costs by type (2026)</h3>
+          <h2>UK Childcare Costs 2026 — Complete Guide</h2>
+          <h3>Average hourly rates by care type and region</h3>
+          <p>Costs vary enormously. An Inner London nursery charges £16.20/hr for a baby under 2 — nearly double the North East rate of £8.80/hr. Childminders are typically 15–20% cheaper than nurseries. Nannies cost more per hour but become cost-effective for two or more children.</p>
+          <h3>Government-funded hours 2026</h3>
           <table>
-            <thead><tr><th>Type</th><th>Typical weekly cost (full-time)</th><th>Best for</th></tr></thead>
+            <thead><tr><th>Scheme</th><th>Hours/week</th><th>Eligibility</th></tr></thead>
             <tbody>
-              <tr><td>Nursery (London)</td><td>£370–£540 (under 2s)</td><td>Consistent care, full-time working parents</td></tr>
-              <tr><td>Nursery (outside London)</td><td>£220–£320 (under 2s)</td><td>Consistent care, part or full-time</td></tr>
-              <tr><td>Childminder</td><td>£200–£280 (under 2s)</td><td>Flexible hours, home setting, often cheaper</td></tr>
-              <tr><td>Nanny</td><td>£450–£720 (London)</td><td>Multiple children, irregular hours, highest flexibility</td></tr>
-              <tr><td>After-school club</td><td>£60–£120</td><td>School-age children, 3pm–6pm</td></tr>
+              <tr><td>Universal 15 hours</td><td>15</td><td>All 3–4 year olds, England</td></tr>
+              <tr><td>Working parents 30 hours</td><td>30</td><td>3–4 yr olds, both parents working, each earning £4,000–£100,000/yr</td></tr>
+              <tr><td>2-year-old 15 hours</td><td>15</td><td>Working parents of 2-year-olds</td></tr>
             </tbody>
           </table>
-
-          <h3>Government-funded childcare hours 2026</h3>
-          <table>
-            <thead><tr><th>Scheme</th><th>Hours/week</th><th>Who qualifies</th></tr></thead>
-            <tbody>
-              <tr><td>15 hours free (universal)</td><td>15</td><td>All 3–4 year olds in England</td></tr>
-              <tr><td>30 hours free</td><td>30</td><td>3–4 year olds, both parents working, each earning £4,000–£100,000/year</td></tr>
-              <tr><td>15 hours for 2-year-olds</td><td>15</td><td>Eligible working parents of 2-year-olds</td></tr>
-              <tr><td>15 hours for 9-month-olds+</td><td>15</td><td>Eligible working parents, children from 9 months (from Sep 2025)</td></tr>
-            </tbody>
-          </table>
-          <p><em>Note: Funded hours rules differ in Scotland, Wales, and Northern Ireland. The figures above apply to England.</em></p>
-
-          <h3>Tax-Free Childcare</h3>
-          <p>For every £8 you pay into your Tax-Free Childcare account, the government adds £2 — a 20% top-up worth up to <strong>£2,000 per year per child</strong> (£4,000 if your child is disabled). Both parents must be working and earning at least £2,379 per quarter. Neither parent can earn over £100,000. Apply at <a href="https://childcare.gov.uk" target="_blank" rel="noopener noreferrer">childcare.gov.uk</a>.</p>
-
-          <h3>Universal Credit childcare support</h3>
-          <p>If you receive Universal Credit, you may be able to claim back up to <strong>85% of childcare costs</strong> (maximum £1,014.63/month for one child, £1,739.37 for two or more). You must be in paid work. This cannot be combined with Tax-Free Childcare — choose whichever saves you more.</p>
-
-          <h3>Salary sacrifice childcare</h3>
-          <p>Some employers offer childcare through salary sacrifice — you pay from your pre-tax salary, saving income tax (20–40%) and National Insurance (8%) on the amount sacrificed. Use our <Link to="/take-home">take-home calculator</Link> to model the impact on your net pay.</p>
-
-          <p><strong>Sources:</strong>{" "}
-            <a href="https://www.familyandchildcaretrust.org/childcare-survey" target="_blank" rel="noopener noreferrer">Coram Family & Childcare Survey 2025</a> ·{" "}
-            <a href="https://www.gov.uk/free-childcare-if-youre-working" target="_blank" rel="noopener noreferrer">gov.uk — Free childcare</a> ·{" "}
-            <a href="https://www.gov.uk/tax-free-childcare" target="_blank" rel="noopener noreferrer">gov.uk — Tax-Free Childcare</a>
-          </p>
+          <h3>Tax-Free Childcare vs salary sacrifice — which is better?</h3>
+          <p>Tax-Free Childcare gives a flat 20% top-up (capped at £2,000/child/year). Salary sacrifice saves you your marginal income tax rate plus NI — which is 28% for a basic rate taxpayer and 48% for a higher rate taxpayer. Higher earners almost always save more through salary sacrifice if their employer offers it. The calculator shows the comparison automatically when you tick the salary sacrifice box.</p>
+          <p><strong>Sources:</strong> <a href="https://www.familyandchildcaretrust.org" target="_blank" rel="noopener noreferrer">Coram Survey 2025</a> · <a href="https://www.gov.uk/tax-free-childcare" target="_blank" rel="noopener noreferrer">gov.uk TFC</a> · <a href="https://www.gov.uk/free-childcare-if-youre-working" target="_blank" rel="noopener noreferrer">gov.uk funded hours</a></p>
         </div>
-
-        <div className="mt-8">
-          <ResultDisclaimer />
-        </div>
+        <div className="mt-8"><ResultDisclaimer/></div>
       </div>
     </Shell>
   );
