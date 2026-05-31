@@ -89,6 +89,58 @@
   ],
   "redirects": [
     {
+      "source": "/take-home",
+      "has": [
+        {
+          "type": "query",
+          "key": "salary",
+          "value": "(?<amount>.+)"
+        }
+      ],
+      "destination": "/salary/:amount-after-tax",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/cookie-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/oxford-methodology",
+      "destination": "/methodology",
+      "permanent": true
+    },
+    {
+      "source": "/insights/national-insurance-guide",
+      "destination": "/insights/national-insurance-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/insights/income-tax-guide",
+      "destination": "/insights/income-tax-bands-2026-27",
+      "permanent": true
+    },
+    {
+      "source": "/insights/two-jobs-tax-uk-2026",
+      "destination": "/insights/two-jobs-tax-uk",
+      "permanent": true
+    },
+    {
+      "source": "/insights/salary-sacrifice-employer-ni",
+      "destination": "/insights/employer-ni-guide-2026",
+      "permanent": true
+    },
+    {
       "source": "/guides/april-2026-guide",
       "destination": "/insights/salary-calculator-uk-2026",
       "permanent": true
@@ -106,11 +158,6 @@
     {
       "source": "/guides",
       "destination": "/insights",
-      "statusCode": 301
-    },
-    {
-      "source": "/oxford-methodology",
-      "destination": "/methodology",
       "statusCode": 301
     }
   ],
