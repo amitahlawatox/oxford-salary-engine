@@ -89,6 +89,12 @@
   ],
   "redirects": [
     {
+      "source": "/:path(.*)",
+      "has": [{ "type": "host", "value": "www.uknetpay.co.uk" }],
+      "destination": "https://uknetpay.co.uk/:path",
+      "permanent": true
+    },
+    {
       "source": "/take-home",
       "has": [
         {
