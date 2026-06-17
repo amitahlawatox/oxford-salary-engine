@@ -9,7 +9,7 @@ import { fmt, fmt2 } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
 import { Download } from "lucide-react";
-import { BandBreakdown } from "@/components/charts/BandBreakdown";
+import { LazyBandBreakdown as BandBreakdown } from "@/components/charts/LazyBandBreakdown";
 import { downloadToolPdf } from "@/lib/toolPdf";
 import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
@@ -91,6 +91,38 @@ const ProRata = () => {
               <Download className="h-3.5 w-3.5" /> Download PDF
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* SEO content — crawlable text that makes this page rankable */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>How Pro-Rata Salary Works in the UK (2026/27)</h2>
+          <p>A pro-rata salary is a full-time salary scaled proportionally to the hours you actually work. The formula is straightforward: <strong>Pro-Rata Salary = Full-Time Salary × (Your Hours ÷ Full-Time Hours)</strong>. So if the full-time equivalent role pays £45,000 for 37.5 hours per week and you work 22.5 hours, your pro-rata salary is £27,000.</p>
+          <p>What matters for take-home pay is that your pro-rata salary is then taxed in exactly the same way as any other income — Personal Allowance (£12,570), Income Tax bands, and Class 1 National Insurance all apply based on your actual annual salary, not the full-time equivalent.</p>
+
+          <h2>Worked Example: Part-Time at £45,000 FTE</h2>
+          <table>
+            <thead><tr><th>Component</th><th>Full-time (37.5 hrs)</th><th>Part-time (22.5 hrs)</th></tr></thead>
+            <tbody>
+              <tr><td>Annual gross</td><td>£45,000</td><td>£27,000</td></tr>
+              <tr><td>Income Tax</td><td>−£6,486</td><td>−£2,886</td></tr>
+              <tr><td>National Insurance</td><td>−£2,994</td><td>−£1,634</td></tr>
+              <tr><td><strong>Monthly take-home</strong></td><td><strong>£2,960</strong></td><td><strong>£1,873</strong></td></tr>
+              <tr><td>Effective rate</td><td>21.1%</td><td>16.7%</td></tr>
+            </tbody>
+          </table>
+          <p><small>England, 2026/27 rates, no pension or student loan deductions.</small></p>
+
+          <h2>Common Pro-Rata Scenarios</h2>
+          <p><strong>Returning from maternity leave part-time:</strong> Many employees return on 3 or 4 days per week. Your pro-rata salary preserves your contractual hourly rate — you're not paid less per hour, only fewer hours. Use this calculator to compare take-home before and after the change.</p>
+          <p><strong>Job offer with part-time hours:</strong> When comparing a new part-time offer to your current full-time role, always compare net take-home rather than gross. A £30,000 pro-rata salary can look significantly different after tax depending on your other income sources.</p>
+          <p><strong>Term-time only roles:</strong> Teachers, teaching assistants, and school staff often work term-time only. The full-year pro-rata salary spreads the pay across 52 weeks even though work is only during 38–40 term weeks. The calculator handles this via the weeks-per-year input.</p>
+
+          <h3>Frequently Asked Questions</h3>
+          <p><strong>Is a pro-rata salary before or after tax?</strong> Salaries are always quoted gross (before tax) in the UK. The take-home figures shown after running the calculator are the net (after tax and NI) amounts.</p>
+          <p><strong>Do I get the same pension contributions on a pro-rata salary?</strong> Yes — auto-enrolment pension percentages apply to your actual (pro-rata) earnings, not the full-time equivalent. Qualifying earnings are £6,240–£50,270, and the minimum 8% total contribution (3% employer + 5% employee) applies to the proportion of your salary within that band.</p>
+          <p><strong>What if I have two part-time jobs?</strong> Each employment is initially taxed separately, but your total income across all jobs is assessed for tax. Use our <a href="/two-jobs">Two Jobs Calculator</a> to see the combined picture.</p>
         </div>
       </section>
     </Shell>

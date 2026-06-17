@@ -27,7 +27,13 @@ export function ArticleLayout({ article }: { article: Article }) {
       description: article.description,
       datePublished: article.publishedISO,
       dateModified: article.updatedISO,
-      author: { "@type": "Organization", name: "UK Net Pay" },
+      author: {
+        "@type": "Person",
+        name: "Amit Ahlawat",
+        url: `${SITE}/about`,
+        jobTitle: "Founder",
+        worksFor: { "@type": "Organization", name: "UK Net Pay", url: SITE },
+      },
       publisher: {
         "@type": "Organization",
         name: "UK Net Pay",

@@ -10,8 +10,8 @@ import { fmt, fmt2 } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
 import { Download } from "lucide-react";
-import { BandBreakdown } from "@/components/charts/BandBreakdown";
-import { MarginalCurve } from "@/components/charts/MarginalCurve";
+import { LazyBandBreakdown as BandBreakdown } from "@/components/charts/LazyBandBreakdown";
+import { LazyMarginalCurve as MarginalCurve } from "@/components/charts/LazyMarginalCurve";
 import { downloadToolPdf } from "@/lib/toolPdf";
 import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 
@@ -134,6 +134,47 @@ const Hourly = () => {
           >
             <Download className="h-3.5 w-3.5" /> Download PDF
           </button>
+        </div>
+      </section>
+
+      {/* SEO content block */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>How to Convert an Hourly Rate to Annual Salary in the UK (2026/27)</h2>
+          <p>To work out your annual gross salary from an hourly rate: <strong>Annual Salary = Hourly Rate × Hours per Week × Weeks per Year</strong>. Most full-time employees use 37.5 hours/week and 52 weeks, giving a standard working year of 1,950 hours. Contractors and freelancers typically use 46–48 weeks to account for holidays and gaps between contracts.</p>
+
+          <h2>Worked Example: £20/hour Full-Time</h2>
+          <table>
+            <thead><tr><th>Component</th><th>Amount</th></tr></thead>
+            <tbody>
+              <tr><td>Hourly rate</td><td>£20.00</td></tr>
+              <tr><td>Hours per week</td><td>37.5</td></tr>
+              <tr><td>Weeks per year</td><td>52</td></tr>
+              <tr><td>Annual gross</td><td>£39,000</td></tr>
+              <tr><td>Income Tax</td><td>−£5,286</td></tr>
+              <tr><td>National Insurance</td><td>−£2,194</td></tr>
+              <tr><td><strong>Monthly take-home</strong></td><td><strong>£2,627</strong></td></tr>
+              <tr><td>Net hourly rate (effective)</td><td>£16.17/hour</td></tr>
+            </tbody>
+          </table>
+          <p><small>England, 2026/27, no student loan or pension deductions.</small></p>
+
+          <h2>UK National Minimum Wage Hourly Rates (2026/27)</h2>
+          <table>
+            <thead><tr><th>Age group</th><th>Hourly rate</th><th>Est. annual full-time</th><th>Monthly take-home</th></tr></thead>
+            <tbody>
+              <tr><td>21 and over (National Living Wage)</td><td>£12.21</td><td>£23,809</td><td>~£1,745/month</td></tr>
+              <tr><td>18–20</td><td>£10.00</td><td>£19,500</td><td>~£1,498/month</td></tr>
+              <tr><td>Under 18</td><td>£7.55</td><td>£14,722</td><td>~£1,226/month</td></tr>
+              <tr><td>Apprentice</td><td>£7.55</td><td>£14,722</td><td>~£1,226/month</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Frequently Asked Questions</h3>
+          <p><strong>How many weeks should I use for my annual calculation?</strong> Employees with 28 days of statutory holiday should use 52 weeks — your annual salary already accounts for paid holiday. Contractors and self-employed workers who are only paid when working should use 46–48 weeks to model realistic annual income.</p>
+          <p><strong>Does the calculator include National Insurance?</strong> Yes. Class 1 Employee NI is deducted at 8% on earnings between £12,571 and £50,270, and 2% above £50,270. This is calculated on your annualised salary.</p>
+          <p><strong>What is a good hourly rate in the UK in 2026?</strong> The UK median hourly rate for full-time employees is approximately £19.10/hour based on ONS ASHE data (equivalent to the ~£37,400 median full-time salary). London roles typically pay £22–£28/hour at the median. Skilled technical roles (engineers, software developers, accountants) typically start at £25–£35/hour.</p>
+          <p><strong>How do I work out my day rate as a contractor?</strong> Divide your target annual earnings by your working days. A contractor targeting £70,000/year over 230 working days needs a day rate of approximately £304/day. Most UK contractors charge £300–£600/day depending on specialism. Use our <a href="/ir35">IR35 Calculator</a> to compare inside vs outside IR35 take-home on a given day rate.</p>
         </div>
       </section>
     </Shell>

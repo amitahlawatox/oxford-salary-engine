@@ -2582,4 +2582,526 @@ export const ARTICLES: Article[] = [
       </>
     ),
   },
+
+  // --- PROFESSION SALARY ARTICLES ---
+
+  {
+    slug: "police-officer-salary-uk-2026",
+    title: "Police Officer Salary UK 2026: Take-Home Pay by Rank",
+    description: "UK police officer salaries 2026 by rank — from Constable to Chief Superintendent. See exact monthly take-home pay after tax and NI.",
+    excerpt: "A newly qualified Police Constable earns £26,682 in 2026. After tax and NI, that's approximately £1,870/month. Here's take-home for every rank.",
+    category: "Career",
+    keywords: ["police officer salary uk 2026","police constable salary take home","uk police pay 2026","police sergeant salary uk","inspector salary uk 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-06-16",
+    updatedISO: "2026-06-16",
+    faq: [
+      { q: "How much does a Police Constable earn in 2026?", a: "A newly joined Police Constable earns £26,682 during their probationary period. After two years' service, pay rises to the constable scale of £30,456–£46,044, depending on force and service length. Monthly take-home at the starting rate is approximately £1,870 after income tax and National Insurance." },
+      { q: "How much more do Metropolitan Police officers earn?", a: "Metropolitan Police officers receive a London weighting allowance on top of the national pay scale. A Metropolitan PC earns £31,011 on appointment, rising to £46,044 at the top of the scale. Inner London officers additionally receive a £1,000–£2,000 per year location allowance." },
+      { q: "Do police officers pay pension contributions?", a: "Yes — police officers contribute to the Police Pension Scheme. Contribution rates range from 12.44% to 13.78% of pensionable pay depending on earnings. These come after income tax and NI, so they reduce take-home further but build a substantial defined-benefit pension." },
+    ],
+    body: () => (
+      <>
+        <p>Police officer pay in England and Wales is set by the Police Remuneration Review Body. Here's every rank's salary and monthly take-home for 2026.</p>
+        <h2 id="ranks">Police salary by rank (2026)</h2>
+        <table>
+          <thead><tr><th>Rank</th><th>Salary range</th><th>Est. monthly take-home (mid-point)</th></tr></thead>
+          <tbody>
+            <tr><td>Police Constable (on appointment)</td><td>£26,682</td><td>~£1,870/month</td></tr>
+            <tr><td>Police Constable (scale)</td><td>£30,456–£46,044</td><td>~£2,120–£2,940/month</td></tr>
+            <tr><td>Sergeant</td><td>£47,472–£49,977</td><td>~£3,010–£3,160/month</td></tr>
+            <tr><td>Inspector</td><td>£58,332–£62,532</td><td>~£3,560–£3,790/month</td></tr>
+            <tr><td>Chief Inspector</td><td>£65,621–£70,533</td><td>~£3,920–£4,190/month</td></tr>
+            <tr><td>Superintendent</td><td>£83,931–£88,440</td><td>~£4,740–£4,980/month</td></tr>
+            <tr><td>Chief Superintendent</td><td>£92,058–£96,483</td><td>~£5,140–£5,370/month</td></tr>
+          </tbody>
+        </table>
+        <p><small>Take-home estimates assume England (outside London), no student loan, before pension contributions. Metropolitan Police officers receive a London weighting on top of the figures above.</small></p>
+        <h2 id="allowances">Additional allowances</h2>
+        <p>Police officers may receive additional pensionable allowances, including shift disturbance allowance (up to £3,399/year), on-call allowance, and, for detectives, a detective allowance. Officers in London receive a London weighting that adds £1,000–£2,500/year to gross pay.</p>
+        <h2 id="pension">Police pension impact on take-home</h2>
+        <p>Police pension contributions are 12.44%–13.78% of pensionable pay, taken after tax and NI. At a Constable mid-point salary of ~£38,000, contributions are approximately £460–£520/month. This reduces take-home significantly but builds one of the most generous defined-benefit pensions in the public sector.</p>
+        <h2 id="scotland">Scotland</h2>
+        <p>Police Scotland officers are paid on the same national framework but subject to Scottish income tax rates, which are higher for earnings above £43,662. A Constable on £38,000 in Scotland pays approximately £470 more per year in income tax than an equivalent officer in England.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/take-home",label:"Scottish Take-Home"}]}
+          salaries={[{amount:26682},{amount:38000},{amount:47472},{amount:58332},{amount:83931}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "paramedic-salary-uk-2026",
+    title: "Paramedic Salary UK 2026: NHS Take-Home Pay by Band",
+    description: "NHS paramedic salaries 2026 — from Student Paramedic to Consultant. Take-home pay after tax and NI for every AfC band, plus private sector rates.",
+    excerpt: "An NHS Band 5 paramedic earns £29,970–£36,483 in 2026. Monthly take-home at the midpoint is approximately £2,270 after tax and NI.",
+    category: "Career",
+    keywords: ["paramedic salary uk 2026","nhs paramedic pay bands 2026","band 5 paramedic take home","ambulance technician salary uk","advanced paramedic salary 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-06-16",
+    updatedISO: "2026-06-16",
+    faq: [
+      { q: "What is the starting salary for a paramedic in the UK in 2026?", a: "A newly qualified NHS paramedic starts on Agenda for Change Band 5, which pays £29,970–£36,483 per year. Monthly take-home at the starting point is approximately £2,050 after income tax and National Insurance." },
+      { q: "How much does a specialist paramedic earn?", a: "Specialist Paramedics are typically Band 6, earning £37,338–£44,962 per year. Monthly take-home ranges from approximately £2,610 to £3,010 after tax and NI." },
+      { q: "Can paramedics earn more in the private sector?", a: "Yes. Private ambulance operators pay £28,000–£40,000 for qualified paramedics, broadly in line with NHS Band 5–6. Offshore, aviation, and event medical roles can pay £40,000–£60,000+, though these lack NHS benefits and the defined-benefit pension." },
+    ],
+    body: () => (
+      <>
+        <p>NHS paramedics are employed under the Agenda for Change (AfC) pay framework, the same as nurses and other NHS clinical staff. Here's every relevant band's gross salary and monthly take-home for 2026.</p>
+        <h2 id="bands">NHS paramedic salary by band (2026)</h2>
+        <table>
+          <thead><tr><th>Role / Band</th><th>Gross salary range</th><th>Monthly take-home (mid-point)</th></tr></thead>
+          <tbody>
+            <tr><td>Emergency Care Assistant (Band 3)</td><td>£24,625–£26,259</td><td>~£1,810/month</td></tr>
+            <tr><td>Ambulance Technician (Band 4)</td><td>£26,530–£29,114</td><td>~£1,930/month</td></tr>
+            <tr><td>Paramedic — newly qualified (Band 5)</td><td>£29,970–£36,483</td><td>~£2,270/month</td></tr>
+            <tr><td>Specialist Paramedic (Band 6)</td><td>£37,338–£44,962</td><td>~£2,810/month</td></tr>
+            <tr><td>Advanced Paramedic (Band 7)</td><td>£46,148–£52,809</td><td>~£3,140/month</td></tr>
+            <tr><td>Consultant Paramedic (Band 8a)</td><td>£53,755–£60,504</td><td>~£3,530/month</td></tr>
+          </tbody>
+        </table>
+        <p><small>Take-home estimated at mid-point, England, no student loan, before NHS pension contribution.</small></p>
+        <h2 id="unsocial">Unsocial hours supplements</h2>
+        <p>Paramedics regularly work nights, weekends, and bank holidays. AfC unsocial hours supplements add 30% for Saturday evenings and Sunday work and 50–60% for nights and bank holidays. A Band 5 paramedic working a standard mixed shift pattern typically earns an additional £2,500–£4,500/year from these supplements, which are pensionable.</p>
+        <h2 id="pension">NHS pension for paramedics</h2>
+        <p>NHS paramedics contribute 5.2%–12.5% to the NHS Pension Scheme depending on earnings. At Band 5 (mid-point ~£33,000), contributions are approximately £143/month, reducing take-home further but building a defined-benefit pension.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/nurse-salary-uk-2026",label:"NHS Nurse Salary 2026"}]}
+          salaries={[{amount:29970},{amount:33000},{amount:37338},{amount:46148},{amount:53755}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "dentist-salary-uk-2026",
+    title: "Dentist Salary UK 2026: NHS vs Private Take-Home Pay",
+    description: "UK dentist salaries in 2026 — NHS salaried, NHS associate, private and mixed practice. Exact monthly take-home after tax and NI for each career stage.",
+    excerpt: "An NHS salaried dentist earns £42,000–£83,000 in 2026. Private associate dentists can earn £70,000–£150,000+. Here's the full salary picture.",
+    category: "Career",
+    keywords: ["dentist salary uk 2026","nhs dentist salary take home","private dentist salary uk 2026","associate dentist earnings uk","dental foundation training salary 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-06-16",
+    updatedISO: "2026-06-16",
+    faq: [
+      { q: "How much does a dentist earn in the UK in 2026?", a: "It depends on the employment model. NHS salaried dentists earn £42,000–£83,000. NHS associate dentists earn £40,000–£70,000 depending on NHS Unit of Dental Activity (UDA) targets. Private associate dentists earn £70,000–£150,000+, and principal/partner dentists in well-established practices can earn significantly more." },
+      { q: "What is the take-home pay for a foundation dentist?", a: "Dental Foundation Trainees earn a salary of approximately £32,000–£35,000 in 2026. After income tax and National Insurance, monthly take-home is approximately £2,240–£2,440." },
+      { q: "Do dentists pay more tax as self-employed associates?", a: "NHS associate dentists are typically self-employed and must register for Self Assessment. They pay Income Tax and Class 4 NI on profits, but can deduct allowable business expenses (instruments, indemnity insurance, lab fees). Many structure their practice through a limited company once earnings are sufficient to make it tax-efficient." },
+    ],
+    body: () => (
+      <>
+        <p>Dentist earnings in the UK vary dramatically depending on whether you work for the NHS, privately, or in a mixed practice, and at what career stage you are.</p>
+        <h2 id="career-stages">Dentist salary by career stage (2026)</h2>
+        <table>
+          <thead><tr><th>Career Stage</th><th>Gross salary / earnings</th><th>Est. monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Dental Foundation Trainee</td><td>£32,000–£35,000</td><td>~£2,340/month</td></tr>
+            <tr><td>Dental Core Trainee (DCT 1–3)</td><td>£37,000–£48,000</td><td>~£2,640–£3,100/month</td></tr>
+            <tr><td>NHS Salaried Dentist</td><td>£42,000–£83,000</td><td>~£2,820–£4,630/month</td></tr>
+            <tr><td>NHS Associate Dentist</td><td>£40,000–£70,000</td><td>~£2,750–£4,100/month</td></tr>
+            <tr><td>Private Associate Dentist</td><td>£70,000–£150,000</td><td>~£4,100–£7,200/month</td></tr>
+            <tr><td>Principal / Partner Dentist</td><td>£80,000–£200,000+</td><td>~£4,600–£8,500+/month</td></tr>
+          </tbody>
+        </table>
+        <p><small>Take-home estimated assuming employed status (PAYE). Self-employed associates will differ based on business expenses and structure. Estimates before pension contributions.</small></p>
+        <h2 id="nhs-vs-private">NHS vs private: which pays more?</h2>
+        <p>Private dentistry almost always pays more gross — but comes with higher overhead risk for principals, and no NHS pension for self-employed associates. NHS salaried dentists benefit from the NHS Pension Scheme (a defined-benefit pension) and employment rights. Many dentists work a mixed model: NHS for stability, private for earnings growth.</p>
+        <h2 id="london">London premium</h2>
+        <p>London private dentists typically earn 20–40% above the national average, driven by patient spending power and higher patient fees. NHS salaried dentists in London receive a High-Cost Area Supplement (18–20% of salary), adding approximately £7,500–£16,000/year for central London roles.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/self-employed",label:"Self-Employed Tax Calculator"}]}
+          salaries={[{amount:35000},{amount:48000},{amount:70000},{amount:100000},{amount:150000}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "pharmacist-salary-uk-2026",
+    title: "Pharmacist Salary UK 2026: NHS, Community and Hospital Pay",
+    description: "UK pharmacist salaries in 2026 — NHS Bands 6–8, community pharmacy and hospital. Monthly take-home after tax and NI for every career level.",
+    excerpt: "A newly qualified NHS pharmacist earns £37,338–£44,962 on Band 6. Monthly take-home at the midpoint is approximately £2,810 after tax and NI.",
+    category: "Career",
+    keywords: ["pharmacist salary uk 2026","nhs pharmacist pay bands 2026","community pharmacist salary uk","hospital pharmacist salary 2026","band 6 pharmacist take home"],
+    readMinutes: 5,
+    publishedISO: "2026-06-16",
+    updatedISO: "2026-06-16",
+    faq: [
+      { q: "What band is a newly qualified pharmacist in the NHS?", a: "Most newly qualified pharmacists enter the NHS on Band 6, which pays £37,338–£44,962 per year in 2026. Monthly take-home at the starting point is approximately £2,610 after income tax and National Insurance." },
+      { q: "How much does a community pharmacist earn in 2026?", a: "Community pharmacists (working in high-street or supermarket pharmacies) typically earn £32,000–£55,000 depending on experience and responsibility. Superintendent Pharmacists overseeing multiple branches can earn £60,000–£90,000+." },
+      { q: "Can pharmacists increase their earnings?", a: "Yes — through Independent Prescriber qualifications, which allow pharmacists to prescribe medicines and command a Band 7 or higher salary in the NHS. Specialist and clinical pharmacists in areas like oncology or critical care earn Band 7–8a. Sector moves to industry (medical affairs, pharma) can reach £60,000–£100,000+." },
+    ],
+    body: () => (
+      <>
+        <p>Pharmacist salaries in the UK span a wide range depending on sector (NHS, community, hospital, industry) and level of responsibility. Here's the full picture for 2026.</p>
+        <h2 id="nhs-bands">NHS pharmacist salary by band (2026)</h2>
+        <table>
+          <thead><tr><th>Role / Band</th><th>Gross salary range</th><th>Monthly take-home (mid-point)</th></tr></thead>
+          <tbody>
+            <tr><td>Pre-registration Trainee (Band 5)</td><td>£29,970–£36,483</td><td>~£2,270/month</td></tr>
+            <tr><td>Pharmacist — newly qualified (Band 6)</td><td>£37,338–£44,962</td><td>~£2,810/month</td></tr>
+            <tr><td>Clinical / Specialist Pharmacist (Band 7)</td><td>£46,148–£52,809</td><td>~£3,140/month</td></tr>
+            <tr><td>Principal Pharmacist (Band 8a)</td><td>£53,755–£60,504</td><td>~£3,530/month</td></tr>
+            <tr><td>Deputy Chief Pharmacist (Band 8b)</td><td>£62,215–£72,293</td><td>~£3,940–£4,340/month</td></tr>
+            <tr><td>Chief Pharmacist (Band 8c–8d)</td><td>£74,290–£101,677</td><td>~£4,410–£5,580/month</td></tr>
+          </tbody>
+        </table>
+        <p><small>Take-home at mid-point, England, no student loan, before NHS pension contribution.</small></p>
+        <h2 id="community">Community pharmacy</h2>
+        <p>Community pharmacists working in Boots, Lloyds, Well, or independent pharmacies earn £32,000–£50,000 typically. Experienced Superintendent Pharmacists overseeing multiple stores earn £60,000–£90,000+. Community pay is often above NHS Band 6 at entry level but lacks the NHS Pension Scheme's defined benefit.</p>
+        <h2 id="industry">Pharmaceutical industry</h2>
+        <p>Pharmacists moving into medical affairs, regulatory, clinical research or medical science liaison (MSL) roles typically earn £50,000–£90,000 with strong bonus structures. Senior director-level industry roles can exceed £120,000.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/nurse-salary-uk-2026",label:"NHS Nurse Pay 2026"}]}
+          salaries={[{amount:37338},{amount:41000},{amount:46148},{amount:53755},{amount:75000}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "physiotherapist-salary-uk-2026",
+    title: "Physiotherapist Salary UK 2026: NHS Bands + Private Pay",
+    description: "UK physiotherapist salaries in 2026 — NHS AfC Bands 5–8, private clinic and MSK pay. Monthly take-home after tax and NI for every career stage.",
+    excerpt: "A newly qualified NHS physiotherapist earns £29,970–£36,483 on Band 5. Monthly take-home at the midpoint is approximately £2,270 after tax and NI.",
+    category: "Career",
+    keywords: ["physiotherapist salary uk 2026","nhs physiotherapist pay 2026","band 6 physiotherapist salary take home","private physiotherapist earnings uk","advanced physiotherapist salary 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-06-16",
+    updatedISO: "2026-06-16",
+    faq: [
+      { q: "How much does a newly qualified physiotherapist earn in the UK?", a: "A newly qualified NHS physiotherapist starts on Band 5, earning £29,970–£36,483 per year in 2026. Monthly take-home at the starting point is approximately £2,050 after income tax and National Insurance." },
+      { q: "How much can a senior physiotherapist earn?", a: "Senior (Band 7) physiotherapists earn £46,148–£52,809. At mid-point, monthly take-home is approximately £3,140 after tax and NI. Advanced and Consultant Physiotherapists on Band 8a earn £53,755–£60,504." },
+      { q: "Do private physiotherapists earn more than NHS?", a: "Self-employed private physiotherapists can earn more per hour — typically £40–£80/hour for MSK or sports physiotherapy — but bear clinic costs, indemnity insurance, and business risk. Net earnings for a busy private physiotherapist (20–25 clinical hours/week) are typically £45,000–£75,000, higher than NHS Band 5–6 but with less job security." },
+    ],
+    body: () => (
+      <>
+        <p>Physiotherapists in the NHS are employed on the Agenda for Change (AfC) pay framework. Here's every relevant band and monthly take-home for 2026, plus private sector comparisons.</p>
+        <h2 id="nhs-bands">NHS physiotherapist salary by band (2026)</h2>
+        <table>
+          <thead><tr><th>Role / Band</th><th>Gross salary range</th><th>Monthly take-home (mid-point)</th></tr></thead>
+          <tbody>
+            <tr><td>Physiotherapist — newly qualified (Band 5)</td><td>£29,970–£36,483</td><td>~£2,270/month</td></tr>
+            <tr><td>Specialist Physiotherapist (Band 6)</td><td>£37,338–£44,962</td><td>~£2,810/month</td></tr>
+            <tr><td>Advanced Physiotherapist (Band 7)</td><td>£46,148–£52,809</td><td>~£3,140/month</td></tr>
+            <tr><td>Consultant Physiotherapist (Band 8a)</td><td>£53,755–£60,504</td><td>~£3,530/month</td></tr>
+            <tr><td>Head of Physiotherapy (Band 8b)</td><td>£62,215–£72,293</td><td>~£3,940–£4,340/month</td></tr>
+          </tbody>
+        </table>
+        <p><small>Take-home at mid-point, England, no student loan, before NHS pension contribution.</small></p>
+        <h2 id="private">Private physiotherapy earnings</h2>
+        <p>Private physiotherapists charge £50–£100/hour for MSK, sports, and neuro rehab sessions. A busy sole trader seeing 20 clinical hours per week earns gross revenue of approximately £52,000–£104,000/year, before clinic costs of typically £15,000–£25,000. Net earnings for an established private practice typically reach £45,000–£75,000.</p>
+        <h2 id="specialisms">High-earning specialisms</h2>
+        <p>Sports physiotherapists at Premier League clubs earn £60,000–£90,000+. Occupational health physiotherapists employed by large employers typically earn £45,000–£65,000. Those moving into extended scope practice (e.g., first contact practitioners in GP surgeries) sit at Band 7–8a NHS equivalent.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/self-employed",label:"Self-Employed Tax Calculator"}]}
+          salaries={[{amount:29970},{amount:37338},{amount:46148},{amount:53755},{amount:65000}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "firefighter-salary-uk-2026",
+    title: "Firefighter Salary UK 2026: Take-Home Pay by Watch and Rank",
+    description: "UK firefighter salaries 2026 — from Trainee to Group Manager. See monthly take-home pay after tax and NI, plus retained and on-call rates.",
+    excerpt: "A competent UK firefighter earns £33,019–£37,937 in 2026. Monthly take-home at mid-range is approximately £2,350. Here's the full pay picture.",
+    category: "Career",
+    keywords: ["firefighter salary uk 2026","fire service pay 2026","crew manager salary uk","watch manager salary uk","firefighter take home pay 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-06-16",
+    updatedISO: "2026-06-16",
+    faq: [
+      { q: "How much does a firefighter earn in the UK in 2026?", a: "A competent (fully qualified) firefighter in England earns £33,019–£37,937 per year in 2026, depending on their fire service. Monthly take-home at the midpoint is approximately £2,350 after income tax and National Insurance." },
+      { q: "How much do retained (on-call) firefighters earn?", a: "Retained and on-call firefighters receive an annual retaining fee (typically £2,500–£5,000) plus a drill fee per training session and a fire call fee per incident. Active retained firefighters typically earn £8,000–£18,000 per year on top of their primary employment." },
+      { q: "Do firefighters get a good pension?", a: "Firefighters who joined before April 2015 are on the Firefighters' Pension Scheme 1992, one of the most generous public sector pensions. Those joining since 2015 are on the 2015 Career Average Revalued Earnings (CARE) scheme, which is still above most private sector provision. Employee contributions are 14.5%–15.5% of pensionable pay." },
+    ],
+    body: () => (
+      <>
+        <p>Firefighter pay is negotiated nationally between the National Joint Council (NJC) for Local Authority Fire and Rescue Services and the Fire Brigades Union (FBU). Here's every rank's salary and take-home for 2026.</p>
+        <h2 id="ranks">Firefighter salary by rank (2026)</h2>
+        <table>
+          <thead><tr><th>Rank</th><th>Salary range</th><th>Est. monthly take-home (mid-point)</th></tr></thead>
+          <tbody>
+            <tr><td>Trainee Firefighter (year 1)</td><td>£25,584</td><td>~£1,800/month</td></tr>
+            <tr><td>Competent Firefighter</td><td>£33,019–£37,937</td><td>~£2,350/month</td></tr>
+            <tr><td>Crew Manager</td><td>£39,427–£42,195</td><td>~£2,680/month</td></tr>
+            <tr><td>Watch Manager</td><td>£44,357–£47,396</td><td>~£2,960/month</td></tr>
+            <tr><td>Station Manager</td><td>£52,428–£56,141</td><td>~£3,280/month</td></tr>
+            <tr><td>Group Manager</td><td>£60,939–£65,393</td><td>~£3,730/month</td></tr>
+            <tr><td>Area Manager</td><td>£70,993–£78,001</td><td>~£4,200/month</td></tr>
+          </tbody>
+        </table>
+        <p><small>Take-home at mid-point, England, no student loan, before pension contributions. Salary ranges reflect national NJC rates; some metropolitan brigades pay above these figures.</small></p>
+        <h2 id="pension">Firefighter pension contributions</h2>
+        <p>Firefighters on the 2015 CARE Scheme contribute 14.5%–15.5% of pensionable pay. On a competent firefighter salary of £35,000, contributions are approximately £425–£455/month — substantial, but building a strong final salary-linked pension.</p>
+        <h2 id="london">London Fire Brigade</h2>
+        <p>London Fire Brigade firefighters earn approximately 10–15% above the national rate to reflect London's cost of living. A competent LFB firefighter earns approximately £39,000–£44,000, with monthly take-home around £2,610–£2,890 before pension.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/police-officer-salary-uk-2026",label:"Police Officer Salary 2026"}]}
+          salaries={[{amount:25584},{amount:35000},{amount:39427},{amount:44357},{amount:52428}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "social-worker-salary-uk-2026",
+    title: "Social Worker Salary UK 2026: Council and NHS Take-Home Pay",
+    description: "UK social worker salaries 2026 — from Newly Qualified (ASYE) to Team Manager. Monthly take-home after tax and NI, plus London and agency rates.",
+    excerpt: "A Newly Qualified Social Worker earns £28,000–£35,000 in 2026. Monthly take-home at midpoint is approximately £2,060. Team managers earn £48,000–£58,000.",
+    category: "Career",
+    keywords: ["social worker salary uk 2026","nqsw salary uk 2026","team manager social worker salary","social worker take home pay 2026","local authority social worker salary 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-06-16",
+    updatedISO: "2026-06-16",
+    faq: [
+      { q: "How much does a newly qualified social worker earn in 2026?", a: "A Newly Qualified Social Worker (NQSW) completing the Assessed and Supported Year in Employment (ASYE) earns £28,000–£35,000 depending on local authority and region. Monthly take-home at the midpoint is approximately £2,060 after income tax and National Insurance." },
+      { q: "Do London social workers earn significantly more?", a: "Yes. Local authorities in Inner London pay a London weighting allowance of £5,000–£8,000 on top of the base salary. Social workers employed in Inner London boroughs can earn £38,000–£45,000 as NQSWs, and £50,000–£65,000 as Team Managers." },
+      { q: "Can social workers earn more as agency workers?", a: "Agency social workers typically earn £30–£45 per hour, which can result in gross income of £60,000–£90,000+ per year for those working full-time. However, agency workers are self-employed (or via umbrella/limited company), meaning they pay all their own NI, receive no employer pension, and have no employment rights." },
+    ],
+    body: () => (
+      <>
+        <p>Social worker salaries are set by individual local authorities and NHS trusts, within nationally recommended pay grades from the Local Government Employers. Here's a clear picture for 2026.</p>
+        <h2 id="career">Social worker salary by career stage (2026)</h2>
+        <table>
+          <thead><tr><th>Role</th><th>Salary range</th><th>Est. monthly take-home (mid-point)</th></tr></thead>
+          <tbody>
+            <tr><td>Newly Qualified Social Worker (ASYE)</td><td>£28,000–£35,000</td><td>~£2,060/month</td></tr>
+            <tr><td>Qualified Social Worker</td><td>£35,000–£42,000</td><td>~£2,530/month</td></tr>
+            <tr><td>Senior / Experienced Social Worker</td><td>£42,000–£50,000</td><td>~£2,950/month</td></tr>
+            <tr><td>Advanced Practitioner</td><td>£48,000–£56,000</td><td>~£3,180/month</td></tr>
+            <tr><td>Team Manager / Practice Lead</td><td>£48,000–£58,000</td><td>~£3,210/month</td></tr>
+            <tr><td>Service Manager / Head of Service</td><td>£58,000–£75,000</td><td>~£3,590/month</td></tr>
+          </tbody>
+        </table>
+        <p><small>Take-home at mid-point, England (outside London), before pension contributions. Local government pension contributions (LGPS) are typically 5.5%–12.5% and will reduce take-home further.</small></p>
+        <h2 id="pension">Local Government Pension Scheme</h2>
+        <p>Most local authority social workers are enrolled in the Local Government Pension Scheme (LGPS). Employee contributions are 5.5%–12.5% depending on earnings. These contributions are taken before NI but after income tax, reducing take-home but building a defined-benefit pension.</p>
+        <h2 id="specialisms">Highest-paid specialisms</h2>
+        <p>Children's Services social workers — particularly in child protection and looked-after children — are in highest demand and attract the largest salaries and retention packages. Adult mental health and CAMHS social workers also attract premiums. Agency social workers in child protection earn the most in gross terms, though net income varies by tax structure.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/two-jobs",label:"Two Jobs Calculator"}]}
+          salaries={[{amount:31500},{amount:38500},{amount:46000},{amount:53000},{amount:65000}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "data-analyst-salary-uk-2026",
+    title: "Data Analyst Salary UK 2026: Take-Home Pay by Experience Level",
+    description: "UK data analyst salaries in 2026 — from junior to senior and lead. Monthly take-home after tax and NI, plus data scientist and engineer comparisons.",
+    excerpt: "A junior UK data analyst earns £26,000–£35,000 in 2026. Senior data analysts earn £50,000–£70,000. Here's take-home pay at every level.",
+    category: "Career",
+    keywords: ["data analyst salary uk 2026","junior data analyst salary uk","senior data analyst salary uk 2026","data scientist salary uk 2026","analytics salary uk take home"],
+    readMinutes: 5,
+    publishedISO: "2026-06-16",
+    updatedISO: "2026-06-16",
+    faq: [
+      { q: "What is the starting salary for a data analyst in the UK?", a: "A junior or graduate data analyst typically earns £26,000–£35,000 in the UK in 2026. Monthly take-home at the midpoint is approximately £2,100 after income tax and National Insurance." },
+      { q: "How much does a senior data analyst earn?", a: "Senior data analysts with 4–7 years of experience earn £50,000–£70,000 in 2026. Monthly take-home at the midpoint is approximately £3,400 after tax and NI. London-based senior analysts typically earn £55,000–£80,000." },
+      { q: "How does a data analyst salary compare to a data scientist?", a: "Data scientists with machine learning and modelling skills typically earn 15–25% more than equivalent-level data analysts. A mid-level data scientist earns £50,000–£70,000 vs £40,000–£55,000 for an equivalent data analyst. The gap narrows at senior level where domain expertise becomes paramount." },
+    ],
+    body: () => (
+      <>
+        <p>Data analytics is one of the UK's fastest-growing career fields. Salaries vary significantly by experience, specialism, and industry. Here's the full pay picture for 2026.</p>
+        <h2 id="levels">Data analyst salary by experience (2026)</h2>
+        <table>
+          <thead><tr><th>Level</th><th>Salary range</th><th>Est. monthly take-home (mid-point)</th></tr></thead>
+          <tbody>
+            <tr><td>Graduate / Junior (0–2 years)</td><td>£26,000–£35,000</td><td>~£2,100/month</td></tr>
+            <tr><td>Mid-Level (2–5 years)</td><td>£35,000–£50,000</td><td>~£2,720/month</td></tr>
+            <tr><td>Senior Data Analyst (5–8 years)</td><td>£50,000–£70,000</td><td>~£3,400/month</td></tr>
+            <tr><td>Principal / Lead Data Analyst</td><td>£65,000–£85,000</td><td>~£3,970/month</td></tr>
+            <tr><td>Head of Analytics / Data Director</td><td>£80,000–£130,000</td><td>~£4,600–£6,500/month</td></tr>
+          </tbody>
+        </table>
+        <p><small>Take-home at mid-point, England, no student loan. London salaries are typically 15–25% above these figures.</small></p>
+        <h2 id="industries">Highest-paying industries</h2>
+        <p>Finance and fintech pay the most — senior data analysts at banks and investment firms earn £65,000–£95,000. Tech and e-commerce follow, with salaries of £55,000–£80,000 at senior level. Public sector data analysts (NHS, government) typically earn 15–25% less than private sector equivalents, but with better pension provisions.</p>
+        <h2 id="comparison">Data analyst vs data scientist vs data engineer</h2>
+        <table>
+          <thead><tr><th>Role</th><th>Typical mid-level salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Data Analyst</td><td>£42,000</td><td>~£2,820/month</td></tr>
+            <tr><td>Data Scientist</td><td>£55,000</td><td>~£3,380/month</td></tr>
+            <tr><td>Data Engineer</td><td>£58,000</td><td>~£3,540/month</td></tr>
+            <tr><td>ML Engineer</td><td>£68,000</td><td>~£4,020/month</td></tr>
+          </tbody>
+        </table>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/software-engineer-salary-uk-2026",label:"Software Engineer Salary 2026"}]}
+          salaries={[{amount:30000},{amount:42000},{amount:60000},{amount:75000},{amount:100000}]}
+        />
+      </>
+    ),
+  },
+
+  // --- CITY SALARY ARTICLES ---
+
+  {
+    slug: "average-salary-newcastle-2026",
+    title: "Average Salary in Newcastle 2026 | UK Net Pay",
+    description: "Average salaries in Newcastle upon Tyne in 2026 by sector and experience. See take-home pay after tax and NI and how Newcastle compares to UK average.",
+    excerpt: "The average salary in Newcastle is approximately £32,500 in 2026, below the UK median of £37,430. After tax and NI, that's £2,270/month take-home.",
+    category: "Wages",
+    keywords: ["average salary newcastle 2026","newcastle upon tyne salary 2026","take home pay newcastle 2026","newcastle wages 2026","salary comparison newcastle uk"],
+    readMinutes: 4,
+    publishedISO: "2026-06-16",
+    updatedISO: "2026-06-16",
+    faq: [
+      { q: "What is the average salary in Newcastle in 2026?", a: "The median full-time salary in Newcastle upon Tyne is approximately £32,500 in 2026, based on ONS ASHE data. After income tax and National Insurance, this gives a monthly take-home of approximately £2,270." },
+      { q: "How does Newcastle compare to the UK average salary?", a: "The UK median full-time salary is £37,430 in 2026. Newcastle sits approximately £4,900 below that — making it notably cheaper to live in but also a lower-wage market than the South East and London." },
+      { q: "What are the best-paying industries in Newcastle?", a: "The highest-paying sectors in Newcastle are financial and professional services, technology and digital (with a growing cluster of fintech and software firms), energy (offshore and renewable energy), and healthcare. Offshore energy roles can pay particularly well given Newcastle's proximity to North Sea operations." },
+    ],
+    body: () => (
+      <>
+        <p>Newcastle upon Tyne is the economic hub of the North East, home to a growing technology sector, strong financial services, and one of the UK's largest universities. Here's the full salary picture for 2026.</p>
+        <h2 id="average">Average salary in Newcastle 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home (after tax &amp; NI)</th></tr></thead>
+          <tbody>
+            <tr><td>Median full-time (Newcastle)</td><td>£32,500</td><td>~£2,270/month</td></tr>
+            <tr><td>Mean full-time (Newcastle)</td><td>£36,200</td><td>~£2,500/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
+            <tr><td>London median (comparison)</td><td>£46,500</td><td>~£3,060/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="sectors">Average salary by sector in Newcastle (2026)</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
+          <tbody>
+            <tr><td>Technology / Software</td><td>£35,000–£75,000</td></tr>
+            <tr><td>Financial Services</td><td>£32,000–£65,000</td></tr>
+            <tr><td>Healthcare (NHS)</td><td>£29,000–£80,000+</td></tr>
+            <tr><td>Energy (Offshore / Renewables)</td><td>£40,000–£90,000+</td></tr>
+            <tr><td>Education</td><td>£28,000–£55,000</td></tr>
+            <tr><td>Retail / Hospitality</td><td>£21,000–£35,000</td></tr>
+            <tr><td>Public Sector / Local Government</td><td>£26,000–£65,000</td></tr>
+          </tbody>
+        </table>
+        <h2 id="cost">Salary vs cost of living in Newcastle</h2>
+        <p>Although salaries in Newcastle are below the UK average, so is the cost of living. Average monthly rent for a one-bedroom flat in Newcastle city centre is approximately £850–£1,100, compared to £1,600–£2,200 in London. On a £32,500 salary, you take home £2,270/month — leaving more disposable income than an equivalent salary in the South East.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"}]}
+          salaries={[{amount:32500},{amount:36200},{amount:45000},{amount:55000},{amount:70000}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "average-salary-oxford-2026",
+    title: "Average Salary in Oxford 2026 | UK Net Pay",
+    description: "Average salaries in Oxford in 2026 by sector. See monthly take-home after tax and NI, and how Oxford compares to the UK and London average.",
+    excerpt: "The average salary in Oxford is approximately £38,500 in 2026, above the UK median. Oxford's biotech, tech and university sectors drive salaries well above the regional average.",
+    category: "Wages",
+    keywords: ["average salary oxford 2026","oxford salary 2026","take home pay oxford","oxford wages 2026","salary comparison oxford uk"],
+    readMinutes: 4,
+    publishedISO: "2026-06-16",
+    updatedISO: "2026-06-16",
+    faq: [
+      { q: "What is the average salary in Oxford in 2026?", a: "The median full-time salary in Oxford is approximately £38,500 in 2026, slightly above the UK median of £37,430. Monthly take-home at this salary is approximately £2,650 after income tax and National Insurance." },
+      { q: "Does Oxford pay as well as London?", a: "Oxford salaries are notably above the UK average but below London. A tech or biotech professional in Oxford typically earns 15–20% less than an equivalent London role, but housing costs are also around 30% lower, often making Oxford a financially better choice on a net basis." },
+      { q: "What are the highest-paying jobs in Oxford?", a: "The highest-paying roles in Oxford are in pharmaceutical/biotech (senior researchers and directors earn £70,000–£150,000+), technology (software engineers and data scientists earn £55,000–£100,000+), and finance. The University of Oxford pays senior academics and administrators £60,000–£100,000+." },
+    ],
+    body: () => (
+      <>
+        <p>Oxford is one of the UK's most economically significant cities outside London, driven by the university, a world-class life sciences cluster, and a thriving technology sector. Salaries reflect this — Oxford is a premium market outside the capital.</p>
+        <h2 id="average">Average salary in Oxford 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home (after tax &amp; NI)</th></tr></thead>
+          <tbody>
+            <tr><td>Median full-time (Oxford)</td><td>£38,500</td><td>~£2,650/month</td></tr>
+            <tr><td>Mean full-time (Oxford)</td><td>£44,200</td><td>~£2,950/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
+            <tr><td>London median (comparison)</td><td>£46,500</td><td>~£3,060/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="sectors">Average salary by sector in Oxford (2026)</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
+          <tbody>
+            <tr><td>Pharmaceutical / Biotech</td><td>£45,000–£150,000+</td></tr>
+            <tr><td>Technology / Software</td><td>£45,000–£100,000</td></tr>
+            <tr><td>University / Academic Research</td><td>£35,000–£100,000+</td></tr>
+            <tr><td>Financial Services</td><td>£38,000–£85,000</td></tr>
+            <tr><td>Healthcare (NHS)</td><td>£29,000–£80,000+</td></tr>
+            <tr><td>Education (Schools)</td><td>£31,650–£50,500</td></tr>
+            <tr><td>Retail / Hospitality</td><td>£22,000–£35,000</td></tr>
+          </tbody>
+        </table>
+        <h2 id="cost">Oxford salary vs cost of living</h2>
+        <p>Oxford is one of the most expensive cities outside London for housing. Average rent for a one-bedroom flat is £1,400–£1,900/month. On a £38,500 salary, monthly take-home is ~£2,650 — leaving relatively modest disposable income. Many Oxford professionals commute from Didcot, Abingdon, or Banbury to reduce housing costs.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"}]}
+          salaries={[{amount:38500},{amount:44200},{amount:55000},{amount:70000},{amount:100000}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "average-salary-cambridge-2026",
+    title: "Average Salary in Cambridge 2026 | UK Net Pay",
+    description: "Average salaries in Cambridge in 2026 by sector. Take-home pay after tax and NI, and how Cambridge compares to the UK and London average.",
+    excerpt: "The average salary in Cambridge is approximately £40,000 in 2026, well above the UK median. Cambridge's tech and biotech cluster pays among the highest outside London.",
+    category: "Wages",
+    keywords: ["average salary cambridge 2026","cambridge salary 2026","take home pay cambridge","cambridge silicon fen salaries 2026","salary comparison cambridge uk"],
+    readMinutes: 4,
+    publishedISO: "2026-06-16",
+    updatedISO: "2026-06-16",
+    faq: [
+      { q: "What is the average salary in Cambridge in 2026?", a: "The median full-time salary in Cambridge is approximately £40,000 in 2026, significantly above the UK median of £37,430. Monthly take-home at this salary is approximately £2,750 after income tax and National Insurance." },
+      { q: "Why are Cambridge salaries so high?", a: "Cambridge is home to one of Europe's densest technology and biotech clusters — known as Silicon Fen. Companies including ARM, AstraZeneca, Microsoft Research, and hundreds of biotech startups compete for highly skilled graduates from the University of Cambridge, pushing salaries above UK norms. A software engineer at an ARM or deep tech firm earns £60,000–£120,000+." },
+      { q: "How does Cambridge compare to London for salaries?", a: "Cambridge salaries in tech and biotech are typically 10–20% below London equivalents, but housing is also 20–30% cheaper. For many professionals, Cambridge offers superior net financial outcomes versus London once commuting costs, rent, and quality of life are considered." },
+    ],
+    body: () => (
+      <>
+        <p>Cambridge is one of the UK's most dynamic salary markets outside London, driven by its world-renowned university and an extraordinary density of high-technology and life sciences employers.</p>
+        <h2 id="average">Average salary in Cambridge 2026</h2>
+        <table>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home (after tax &amp; NI)</th></tr></thead>
+          <tbody>
+            <tr><td>Median full-time (Cambridge)</td><td>£40,000</td><td>~£2,750/month</td></tr>
+            <tr><td>Mean full-time (Cambridge)</td><td>£46,800</td><td>~£3,080/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
+            <tr><td>London median (comparison)</td><td>£46,500</td><td>~£3,060/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="sectors">Average salary by sector in Cambridge (2026)</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
+          <tbody>
+            <tr><td>Semiconductor / Chip Design (ARM etc.)</td><td>£60,000–£150,000+</td></tr>
+            <tr><td>Biotech / Pharma (AstraZeneca etc.)</td><td>£50,000–£130,000</td></tr>
+            <tr><td>Technology / Software</td><td>£45,000–£110,000</td></tr>
+            <tr><td>University / Academic Research</td><td>£35,000–£100,000+</td></tr>
+            <tr><td>Financial Services</td><td>£38,000–£75,000</td></tr>
+            <tr><td>Healthcare (NHS)</td><td>£29,000–£80,000+</td></tr>
+            <tr><td>Retail / Hospitality</td><td>£22,000–£36,000</td></tr>
+          </tbody>
+        </table>
+        <h2 id="silicon-fen">Silicon Fen premium</h2>
+        <p>Professionals working in Cambridge's technology cluster typically earn 20–30% above equivalent roles in other UK cities outside London. The concentration of ARM, AstraZeneca, Illumina, Moderna, and hundreds of early-stage deep tech and biotech firms creates intense competition for engineering, research, and senior commercial talent. Equity and RSU packages are also more common in Cambridge than most UK cities, adding significantly to total compensation.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"}]}
+          salaries={[{amount:40000},{amount:46800},{amount:60000},{amount:80000},{amount:110000}]}
+        />
+      </>
+    ),
+  },
 ];

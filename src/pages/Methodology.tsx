@@ -10,14 +10,14 @@ const methodologyJsonLd = [
     "@type": "WebPage",
     "@id": `${SITE}/methodology`,
     url: `${SITE}/methodology`,
-    name: "Oxford Methodology: Standards for 2026/27 Tax Accuracy",
+    name: "UK Net Pay Verification Standard: Standards for 2026/27 Tax Accuracy",
     description:
       "The public trust standard behind UK Net Pay, covering source discipline, verification logic, privacy-by-design, and region-specific 2026/27 tax accuracy.",
   },
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Oxford Methodology: Standards for 2026/27 Tax Accuracy",
+    headline: "UK Net Pay Verification Standard: Standards for 2026/27 Tax Accuracy",
     description:
       "The public trust standard behind UK Net Pay, covering source discipline, verification logic, privacy-by-design, and region-specific 2026/27 tax accuracy.",
     author: {
@@ -63,8 +63,8 @@ const methodologyChecks = [
 const Methodology = () => (
   <Shell>
     <Seo
-      title="Oxford Methodology: Standards for 2026/27 Tax Accuracy"
-      description="Read the Oxford Methodology behind UK Net Pay: primary-source tax checks, verification logic, privacy-by-design, and region-specific 2026/27 salary accuracy."
+      title="UK Net Pay Verification Standard: Standards for 2026/27 Tax Accuracy"
+      description="Read the UK Net Pay Verification Standard behind UK Net Pay: primary-source tax checks, verification logic, privacy-by-design, and region-specific 2026/27 salary accuracy."
       path="/methodology"
       jsonLd={methodologyJsonLd}
     />
@@ -75,7 +75,7 @@ const Methodology = () => (
           Authority anchor
         </p>
         <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-          Oxford Methodology: Standards for 2026/27 Tax Accuracy
+          UK Net Pay Verification Standard: Standards for 2026/27 Tax Accuracy
         </h1>
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
           This is the public trust standard behind UK Net Pay. It explains how we turn
@@ -145,7 +145,7 @@ const Methodology = () => (
               Pillar 3: Privacy-by-design
             </h2>
             <p className="leading-7 text-muted-foreground">
-              Accuracy is not enough on a salary tool. The Oxford Methodology also requires
+              Accuracy is not enough on a salary tool. The UK Net Pay Verification Standard also requires
               a stateless, privacy-first architecture. The calculator works without user
               accounts, without persistent salary storage, and without writing figures to a
               backend database.
@@ -204,7 +204,7 @@ const Methodology = () => (
               What this methodology is, and what it is not
             </h2>
             <p className="leading-7 text-muted-foreground">
-              The Oxford Methodology is designed for estimation, planning, and public
+              The UK Net Pay Verification Standard is designed for estimation, planning, and public
               transparency. It is not a substitute for payroll software, formal tax advice,
               or a bespoke accountant-led review. It is the page that explains how UK Net
               Pay arrives at its public numbers, what assumptions sit behind them, and

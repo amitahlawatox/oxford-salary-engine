@@ -18,8 +18,8 @@ import {
 } from "@/lib/tax/engine";
 import { fmt, fmt2 } from "@/lib/format";
 import { downloadPayslipPdf } from "@/lib/pdf";
-import { BandBreakdown } from "@/components/charts/BandBreakdown";
-import { MarginalCurve } from "@/components/charts/MarginalCurve";
+import { LazyBandBreakdown as BandBreakdown } from "@/components/charts/LazyBandBreakdown";
+import { LazyMarginalCurve as MarginalCurve } from "@/components/charts/LazyMarginalCurve";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { YearToggle } from "@/components/tools/YearToggle";
 import { YoYDelta } from "@/components/tools/YoYDelta";

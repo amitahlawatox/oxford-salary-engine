@@ -8,7 +8,7 @@ import { fmt } from "@/lib/format";
 import { Download, MapPin } from "lucide-react";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
-import { BandBreakdown } from "@/components/charts/BandBreakdown";
+import { LazyBandBreakdown as BandBreakdown } from "@/components/charts/LazyBandBreakdown";
 import { downloadToolPdf } from "@/lib/toolPdf";
 import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 

@@ -5,7 +5,7 @@
  *
  * Coverage:
  *   - 12 tool pages         (/take-home, /hourly, ...)
- *   - 30 insight articles   (/insights/{slug})
+ *   - 67 insight articles   (/insights/{slug})
  *   -  9 static pages       (/about, /contact, /privacy, /terms,
  *                            /disclaimer, /methodology, /oxford-methodology,
  *                            /directory, /insights)

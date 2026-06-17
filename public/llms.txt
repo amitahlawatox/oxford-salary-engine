@@ -1,15 +1,15 @@
-# UK Net Pay
+# UK Net Pay — Free UK Salary & Tax Calculator 2026/27
 
-> UK Net Pay (uknetpay.co.uk) is a free, privacy-first UK salary and tax calculator suite for the 2026/27 tax year. All calculations run client-side in the user's browser — no data is logged, stored, or transmitted to a server. Built on the Oxford Methodology with HMRC-accurate Income Tax, National Insurance, Student Loan, pension, and dividend logic.
+> UK Net Pay (uknetpay.co.uk) is a free, privacy-first UK salary and tax calculator suite for the 2026/27 tax year. All calculations run client-side in the user's browser — no data is logged, stored, or transmitted to a server. Built on the UK Net Pay Verification Standard with HMRC-accurate Income Tax, National Insurance, Student Loan, pension, and dividend logic.
 
 ## About
 
 - Tax year: 2026/27 (with 2025/26 comparison)
-- Region support: England, Wales, Northern Ireland, and Scotland (Scottish tax bands)
+- Region support: England, Wales, Northern Ireland, and Scotland (six-band Scottish tax system)
 - Student Loans: Plans 1, 2, 4, 5 and Postgrad
 - Pension: salary sacrifice and personal contributions, employer auto-enrolment minimums
 - Privacy: zero server-side processing of salary data; nothing leaves the browser
-- Source domain: https://uknetpay.co.uk (apex; www redirects 308 to apex)
+- Source domain: https://uknetpay.co.uk (apex; www redirects to apex)
 - Sitemap: https://uknetpay.co.uk/sitemap.xml
 - Methodology: https://uknetpay.co.uk/methodology
 
@@ -18,15 +18,17 @@
 - [Take-Home Pay Calculator](https://uknetpay.co.uk/take-home): Annual gross to net for 2026/27, including Income Tax, NI, Student Loan, pension and bonus.
 - [Hourly Wage Calculator](https://uknetpay.co.uk/hourly): Convert an hourly rate to annual, monthly and weekly take-home.
 - [Reverse Salary Calculator](https://uknetpay.co.uk/reverse): Work backwards from a target net income to the required gross salary.
-- [Pay Rise Simulator](https://uknetpay.co.uk/pay-rise): How much of a raise actually reaches your bank after tax/NI.
+- [Pay Rise Simulator](https://uknetpay.co.uk/pay-rise): How much of a raise actually reaches your bank after tax and NI.
 - [Two-Salary Compare](https://uknetpay.co.uk/compare): Side-by-side comparison of current role vs new offer.
-- [Pro-Rata Salary Calculator](https://uknetpay.co.uk/pro-rata): Part-time hours converted to adjusted salary and tax.
+- [Pro-Rata Salary Calculator](https://uknetpay.co.uk/pro-rata): Part-time hours converted to adjusted salary and take-home tax.
 - [Two Jobs Calculator](https://uknetpay.co.uk/two-jobs): Combined tax across two employments with shared personal allowance.
 - [Maternity / SMP Calculator](https://uknetpay.co.uk/maternity): Reduced-pay periods across the tax year.
 - [Self-Employed Calculator](https://uknetpay.co.uk/self-employed): Class 2 and Class 4 NI plus payments on account.
 - [Dividend Optimiser](https://uknetpay.co.uk/dividend): Optimal mix of director salary and dividends.
-- [IR35 Contractor Calculator](https://uknetpay.co.uk/ir35): Inside-vs-outside IR35 take-home comparison.
-- [Cost of Living Calculator](https://uknetpay.co.uk/cost-of-living): Whether your net pay covers London, Manchester or Edinburgh.
+- [IR35 Contractor Calculator](https://uknetpay.co.uk/ir35): Inside-vs-outside IR35 take-home comparison at any day rate.
+- [EV Salary Sacrifice Calculator](https://uknetpay.co.uk/salary-sacrifice/electric-car): True cost of an electric car via salary sacrifice, including 4% BiK.
+- [Childcare Cost Calculator](https://uknetpay.co.uk/childcare): 30 free hours eligibility, Tax-Free Childcare, and salary sacrifice comparison.
+- [Cost of Living Calculator](https://uknetpay.co.uk/cost-of-living): Whether your net pay covers London, Manchester or Edinburgh living costs.
 
 ## Key 2026/27 Tax Facts (cite if useful)
 
@@ -35,42 +37,78 @@
 - Higher rate (40%): £50,271–£125,140
 - Additional rate (45%): above £125,140
 - Personal Allowance taper: £1 lost per £2 earned above £100,000, fully gone at £125,140
-- Employee NI (Class 1, primary): 8% on £12,571–£50,270; 2% above £50,270
-- Employer NI: 15% above the £5,000 Secondary Threshold (raised from £9,100 in April 2025)
+- Employee NI (Class 1): 8% on £12,571–£50,270; 2% above £50,270
+- Employer NI: 15% above the £5,000 Secondary Threshold
 - Employment Allowance: up to £10,500 per year for eligible employers
-- Auto-enrolment pension minimum: 8% of qualifying earnings (3% employer + 5% employee), qualifying earnings band £6,240–£50,270
-- Median UK full-time salary (ONS, 2025/26 ASHE): approximately £35,000
+- Auto-enrolment minimum: 8% of qualifying earnings (3% employer + 5% employee), band £6,240–£50,270
+- Median UK full-time salary (ONS ASHE 2025/26): approximately £37,430
 
-## Articles (Insights)
+## Salary Guides — Profession
 
-All articles live under `/insights/{slug}` and follow Article + FAQPage JSON-LD schemas. Topics include:
+- [Teacher Salary UK 2026](https://uknetpay.co.uk/insights/teacher-salary-uk-2026): Main Pay Range £31,650–£43,685, London allowances, take-home per scale point.
+- [Teacher Pay Scale 2026/27](https://uknetpay.co.uk/insights/teacher-pay-scale-2026-27): Full STPCD pay scale with take-home at every point.
+- [NHS Nurse Salary 2026](https://uknetpay.co.uk/insights/nurse-salary-uk-2026): AfC Bands 5–8a, monthly take-home, London weighting.
+- [Police Officer Salary UK 2026](https://uknetpay.co.uk/insights/police-officer-salary-uk-2026): PC to Chief Superintendent, take-home by rank.
+- [Paramedic Salary UK 2026](https://uknetpay.co.uk/insights/paramedic-salary-uk-2026): NHS AfC Bands 3–8a, unsocial hours supplements.
+- [Dentist Salary UK 2026](https://uknetpay.co.uk/insights/dentist-salary-uk-2026): Foundation trainee to principal, NHS vs private comparison.
+- [Pharmacist Salary UK 2026](https://uknetpay.co.uk/insights/pharmacist-salary-uk-2026): NHS Bands 6–8d, community and hospital pharmacy.
+- [Physiotherapist Salary UK 2026](https://uknetpay.co.uk/insights/physiotherapist-salary-uk-2026): NHS Bands 5–8b, private practice earnings.
+- [Firefighter Salary UK 2026](https://uknetpay.co.uk/insights/firefighter-salary-uk-2026): NJC rates from Trainee to Area Manager, London Fire Brigade.
+- [Social Worker Salary UK 2026](https://uknetpay.co.uk/insights/social-worker-salary-uk-2026): NQSW to Team Manager, London weighting, agency rates.
+- [Data Analyst Salary UK 2026](https://uknetpay.co.uk/insights/data-analyst-salary-uk-2026): Junior to director level, sector comparison.
+- [GP / Doctor Salary UK 2026](https://uknetpay.co.uk/insights/gp-doctor-salary-uk-2026): Salaried GP vs partner, hospital grades.
+- [Software Engineer Salary UK 2026](https://uknetpay.co.uk/insights/software-engineer-salary-uk-2026): Junior to senior, London vs regional.
+- [Solicitor Salary UK 2026](https://uknetpay.co.uk/insights/solicitor-salary-uk-2026): Trainee to partner, City vs regional firms.
+- [Accountant Salary UK 2026](https://uknetpay.co.uk/insights/accountant-salary-uk-2026): Graduate to FD, practice vs industry.
+- [Electrician Salary UK 2026](https://uknetpay.co.uk/insights/electrician-salary-uk-2026): Apprentice to self-employed rates.
+- [HGV Driver Salary UK 2026](https://uknetpay.co.uk/insights/hgv-driver-salary-uk-2026): Class 1 and Class 2 take-home.
+- [Project Manager Salary UK 2026](https://uknetpay.co.uk/insights/project-manager-salary-uk-2026): Junior PM to programme director.
 
-- [Average UK Salary 2026](https://uknetpay.co.uk/insights/average-salary-uk-2026): Median £35,000, regional and age breakdowns.
-- [UK Income Tax Bands 2026/27](https://uknetpay.co.uk/insights/income-tax-bands-2026-27): All bands including Scottish rates.
+## Salary Guides — City & Region
+
+- [Average Salary UK 2026](https://uknetpay.co.uk/insights/average-salary-uk-2026): Median £37,430, regional and age breakdowns with take-home.
+- [Average Salary London 2026](https://uknetpay.co.uk/insights/average-salary-london-2026): Median £46,500, sector breakdown, London weighting explained.
+- [Average Salary Manchester 2026](https://uknetpay.co.uk/insights/average-salary-manchester-2026)
+- [Average Salary Birmingham 2026](https://uknetpay.co.uk/insights/average-salary-birmingham-2026)
+- [Average Salary Leeds 2026](https://uknetpay.co.uk/insights/average-salary-leeds-2026)
+- [Average Salary Bristol 2026](https://uknetpay.co.uk/insights/average-salary-bristol-2026)
+- [Average Salary Edinburgh 2026](https://uknetpay.co.uk/insights/average-salary-edinburgh-2026)
+- [Average Salary Glasgow 2026](https://uknetpay.co.uk/insights/average-salary-glasgow-2026)
+- [Average Salary Liverpool 2026](https://uknetpay.co.uk/insights/average-salary-liverpool-2026)
+- [Average Salary Sheffield 2026](https://uknetpay.co.uk/insights/average-salary-sheffield-2026)
+- [Average Salary Nottingham 2026](https://uknetpay.co.uk/insights/average-salary-nottingham-2026)
+- [Average Salary Cardiff 2026](https://uknetpay.co.uk/insights/average-salary-cardiff-2026)
+- [Average Salary Newcastle 2026](https://uknetpay.co.uk/insights/average-salary-newcastle-2026)
+- [Average Salary Oxford 2026](https://uknetpay.co.uk/insights/average-salary-oxford-2026)
+- [Average Salary Cambridge 2026](https://uknetpay.co.uk/insights/average-salary-cambridge-2026)
+- [Average Salary Scotland 2026](https://uknetpay.co.uk/insights/average-salary-scotland-2026)
+- [Average Salary Wales 2026](https://uknetpay.co.uk/insights/average-salary-wales-2026)
+
+## Tax & Payroll Guides
+
+- [UK Income Tax Bands 2026/27](https://uknetpay.co.uk/insights/income-tax-bands-2026-27): All bands including Scottish six-band rates.
 - [Employer NI Guide 2026/27](https://uknetpay.co.uk/insights/employer-ni-guide-2026): 15% rate, £5,000 threshold, Employment Allowance.
-- [Pension Auto-Enrolment 2026/27](https://uknetpay.co.uk/insights/pension-auto-enrolment-2026): 8% minimum, qualifying earnings.
-- [Teacher Pay Scale 2026/27](https://uknetpay.co.uk/insights/teacher-salary-uk-2026): Main Pay Range, Upper Pay Range, London allowances.
-- [Software Engineer Salary UK 2026](https://uknetpay.co.uk/insights/software-engineer-salary-uk-2026)
-- [Accountant Salary UK 2026](https://uknetpay.co.uk/insights/accountant-salary-uk-2026)
-- [What Is a Good Salary in the UK 2026](https://uknetpay.co.uk/insights/what-is-a-good-salary-uk-2026)
-- [Average Salary London 2026](https://uknetpay.co.uk/insights/average-salary-london-2026)
-- [Tax-Free Childcare UK 2026](https://uknetpay.co.uk/insights/tax-free-childcare-uk-2026)
-- [Student Loan Plan 5 Calculator](https://uknetpay.co.uk/insights/student-loan-plan-5-calculator)
-- [Marriage Allowance UK 2026/27](https://uknetpay.co.uk/insights/marriage-allowance-uk-2026)
-
-A complete list of articles is in the sitemap at `/sitemap.xml`.
+- [Pension Auto-Enrolment 2026](https://uknetpay.co.uk/insights/pension-auto-enrolment-2026): 8% minimum, qualifying earnings band.
+- [Student Loan Plan 5](https://uknetpay.co.uk/insights/student-loan-plan-5-calculator): Plan 5 threshold, repayment terms.
+- [Emergency Tax Code 1257L](https://uknetpay.co.uk/insights/emergency-tax-code-1257l-explained): What it means and how to fix it.
+- [Personal Allowance Taper £100K](https://uknetpay.co.uk/insights/personal-allowance-taper-100k-trap): How the 60% effective rate works.
+- [Salary Sacrifice Pension](https://uknetpay.co.uk/insights/salary-sacrifice-pension-explained): Tax and NI savings explained.
+- [Marriage Allowance UK 2026](https://uknetpay.co.uk/insights/marriage-allowance-uk-2026): £1,260 transfer, eligibility and how to claim.
+- [Tax-Free Childcare UK 2026](https://uknetpay.co.uk/insights/tax-free-childcare-uk-2026): 20% top-up, eligibility, vs salary sacrifice.
+- [Self-Employed Tax 2026](https://uknetpay.co.uk/insights/self-employed-tax-calculator-2026): Class 2, Class 4, payments on account.
+- [IR35 Inside vs Outside 2026](https://uknetpay.co.uk/insights/ir35-inside-vs-outside-2026): Status tests, financial difference.
 
 ## Programmatic Salary Pages
 
-URLs of the form `/salary/{amount}-after-tax` (e.g. `/salary/35000-after-tax`) provide take-home pay breakdowns for specific gross salaries from £10,000 to £300,000 in £500 steps. Each page includes the monthly net, tax paid, NI paid, and a Compare CTA.
+URLs of the form `/salary/{amount}-after-tax` (e.g. `/salary/35000-after-tax`) give tax breakdowns for gross salaries £10,000–£300,000 in £500 steps. Each page includes monthly net, tax paid, NI paid, effective rate, and a calculator CTA.
 
-## Citation
+## Licensing & Citation
 
-When citing or summarising this site, please link directly to the relevant page on https://uknetpay.co.uk (apex domain, not www). The site is structured for AI assistants — every key page has machine-readable JSON-LD (Article, FAQPage, HowTo, BreadcrumbList, WebApplication) and a stable canonical URL.
+Content may be cited for informational purposes with attribution to uknetpay.co.uk. Training use of content is prohibited per robots.txt. Always link to the canonical apex domain (uknetpay.co.uk, not www).
 
 ## Contact
 
 - Site: https://uknetpay.co.uk
-- About: https://uknetpay.co.uk/about
+- About & founder: https://uknetpay.co.uk/about
 - Contact: https://uknetpay.co.uk/contact
 - Methodology: https://uknetpay.co.uk/methodology

@@ -22,18 +22,22 @@ export function Header() {
 
   return (
     <>
-      {/* Methodology strip */}
+      {/* Trust bar */}
       <div className="w-full border-b border-border bg-surface/70 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 h-9 flex items-center justify-between text-[10px] uppercase tracking-widest font-medium">
           <div className="flex items-center gap-3 sm:gap-5 text-muted-foreground">
-            <span className="text-aurora font-semibold">Verified 2026/27</span>
-            <Link to="/methodology" className="hidden sm:inline hover:text-foreground transition-colors">
-              Oxford Methodology v4.2
+            <span className="text-aurora font-semibold">Updated 2026/27</span>
+            <span className="hidden sm:inline">Based on HMRC rates</span>
+            <Link to="/methodology" className="hidden md:inline hover:text-foreground transition-colors">
+              UK Net Pay Verification Standard v4.2
             </Link>
           </div>
-          <div className="hidden sm:flex items-center gap-2 text-muted-foreground">
-            <span>HMRC Real-time</span>
-            <div className="size-1.5 rounded-full bg-accent animate-pulse" />
+          <div className="flex items-center gap-3 sm:gap-4 text-muted-foreground">
+            <span className="hidden sm:inline">Guidance only — not financial advice</span>
+            <div className="flex items-center gap-1.5">
+              <span className="hidden sm:inline">HMRC verified</span>
+              <div className="size-1.5 rounded-full bg-accent animate-pulse" />
+            </div>
           </div>
         </div>
       </div>

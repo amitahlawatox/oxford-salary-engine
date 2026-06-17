@@ -10,8 +10,8 @@ import { fmt } from "@/lib/format";
 import { ToolSeo } from "@/components/seo/ToolSeo";
 import { ShareSummary } from "@/components/tools/ShareSummary";
 import { Download } from "lucide-react";
-import { BandBreakdown } from "@/components/charts/BandBreakdown";
-import { MarginalCurve } from "@/components/charts/MarginalCurve";
+import { LazyBandBreakdown as BandBreakdown } from "@/components/charts/LazyBandBreakdown";
+import { LazyMarginalCurve as MarginalCurve } from "@/components/charts/LazyMarginalCurve";
 import { downloadToolPdf } from "@/lib/toolPdf";
 import { ResultDisclaimer } from "@/components/legal/ResultDisclaimer";
 

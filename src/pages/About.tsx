@@ -42,7 +42,7 @@ const About = () => (
         <div>
           <p className="font-semibold text-foreground">Amit Ahlawat — Founder</p>
           <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
-            I built UK Net Pay because I was frustrated with salary calculators that either required sign-up, collected financial data, or produced inaccurate results. Every calculation on this site is verified against HMRC published rates and ONS earnings data. The code is open — you can inspect every formula on GitHub.
+            I built UK Net Pay because I was frustrated with salary calculators that either required sign-up, collected financial data, or produced inaccurate results. Every calculation on this site is verified against HMRC published rates and ONS earnings data. The code is open — you can <a href="https://github.com/amitahlawatox/oxford-salary-engine" target="_blank" rel="noopener noreferrer" className="text-accent underline underline-offset-2">inspect every formula on GitHub</a>.
           </p>
           <p className="text-xs text-muted-foreground mt-2">
             Questions or corrections: <a href="mailto:contact@uknetpay.co.uk" className="text-accent underline underline-offset-2">contact@uknetpay.co.uk</a>
@@ -61,7 +61,7 @@ const About = () => (
           { icon: Calculator, title: "14 calculators", desc: "Salary, hourly, reverse, IR35, dividend, self-employed, contractor, EV salary sacrifice, childcare, and more" },
           { icon: Lock, title: "Zero data collection", desc: "No sign-up, no cookies without consent, no server-side storage of your financial inputs" },
           { icon: Shield, title: "HMRC verified", desc: "All rates cross-referenced with HMRC published thresholds for 2026/27 including Scotland's six-band system" },
-          { icon: BookOpen, title: "56 guides", desc: "In-depth articles on UK tax, salary benchmarks, NHS pay bands, teacher pay scales, and more" },
+          { icon: BookOpen, title: "67 guides", desc: "In-depth articles on UK tax, salary benchmarks, NHS pay bands, teacher pay scales, and more" },
         ].map(({ icon: Icon, title, desc }) => (
           <div key={title} className="rounded-xl border border-border p-4">
             <Icon className="h-5 w-5 text-muted-foreground mb-2" aria-hidden="true" />
