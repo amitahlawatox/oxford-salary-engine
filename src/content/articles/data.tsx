@@ -245,24 +245,21 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <p><strong>1257L</strong> is the most common UK tax code. The <strong>1257</strong> is your Personal Allowance (£12,570) divided by 10. The <strong>L</strong> means you're entitled to the standard allowance.</p>
-
-        <h2>When does it become an "emergency" code?</h2>
-        <p>HMRC issues it as <strong>1257L W1/M1</strong> (Week 1 / Month 1) when they don't yet have your full earnings history — typical scenarios:</p>
-        <ul>
-          <li>Starting a new job without a P45.</li>
-          <li>Returning to work after self-employment.</li>
-          <li>A first job after university.</li>
-        </ul>
-        <p>On the W1/M1 basis, each pay period is taxed in isolation, ignoring the cumulative allowance you may not have used yet — so you usually overpay.</p>
-
-        <h2>How to fix it</h2>
-        <ol>
-          <li>Sign in to your HMRC personal tax account.</li>
-          <li>Submit your starter checklist information (your employer should give you this on day one).</li>
-          <li>HMRC reissues the cumulative 1257L code. Refunds appear in your next payslip — automatically.</li>
-        </ol>
-        <p>Use the <ToolLink to="/take-home">Take-Home calculator</ToolLink> with code <code>1257L</code> to see the expected net once the correct code is applied.</p>
+        <p>An emergency tax code is a temporary tax code HMRC assigns when your employer doesn't have enough information to use your correct code. The most common emergency code in 2026/27 is <strong>1257L W1</strong> (or 1257L M1, or simply 1257L X). The number 1257 reflects the £12,570 Personal Allowance, but the W1/M1/X suffix changes how it's applied — and this difference costs you money.</p>
+        <h2 id="what-it-means">What the suffixes mean</h2>
+        <p><strong>1257L W1</strong> — "Week 1 basis." Your employer treats every pay period as if it's the first week of the tax year. You get 1/52 of your annual Personal Allowance each week (£242) and nothing is carried forward. If you've already used some allowance earlier in the year, you don't get credit for it — meaning you may overpay tax.</p>
+        <p><strong>1257L M1</strong> — "Month 1 basis." Same as W1 but for monthly payroll. You receive 1/12 of the allowance per month (£1,048) with no cumulative adjustment.</p>
+        <p><strong>1257L X</strong> — Non-cumulative basis for irregular pay periods.</p>
+        <p>The standard <strong>1257L</strong> without a suffix is cumulative — your employer calculates tax based on total earnings and total allowance used since April 6, meaning any overpayment earlier in the year gets corrected automatically. Emergency codes remove this safety net.</p>
+        <h2 id="when">When do you get an emergency tax code?</h2>
+        <p>Emergency codes are most commonly applied when you start a new job without providing a P45 from your previous employer, when you return to work after a gap, when HMRC has not yet sent your employer an updated code, or when you receive a one-off payment like a company car or benefit in kind that your employer hasn't coded for. They're also applied to second jobs before HMRC assigns a BR or D0 code.</p>
+        <h2 id="fix">How to fix it</h2>
+        <p>The fastest resolution is to contact HMRC directly: call 0300 200 3300 (Monday–Friday, 8am–6pm) with your National Insurance number, your employer's PAYE reference, and your approximate annual salary. HMRC will issue a corrected code to your employer, usually within 5–10 working days. Any overpaid tax from the emergency period will be automatically refunded through your payroll once the correct cumulative code is applied — you don't need to claim it back separately. Alternatively, if you have a Personal Tax Account at gov.uk/personal-tax-account, you can see and update your tax codes online without calling.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/national-insurance-2026-explained",label:"National Insurance Guide"}]}
+          salaries={[{amount:25000},{amount:35000},{amount:45000},{amount:55000}]}
+        />
       </>
     ),
   },
@@ -327,21 +324,28 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <p>The two ways to fund a workplace pension look almost identical on paper. They're not.</p>
-        <h2>Personal contribution</h2>
-        <p>You receive your full salary, then pay into the pension from net pay. The pension provider claims 20% basic-rate relief from HMRC. Higher-rate taxpayers must claim the extra 20% via Self Assessment.</p>
-        <h2>Salary sacrifice</h2>
-        <p>You agree to a lower salary; your employer pays the difference into your pension. Because the contribution leaves before PAYE, you save income tax <strong>and</strong> Class 1 NI (8% main, 2% upper) — and your employer also saves 13.8% Employer NI, which they may pass back to you.</p>
-        <h2>£5,000 contribution at £60,000 salary (England)</h2>
+        <p>Salary sacrifice pension is an arrangement where you formally reduce your gross salary by the amount of your pension contribution, and your employer pays that amount directly into your pension instead. The result: you pay Income Tax and National Insurance on a lower salary, and your employer saves on the National Insurance they'd otherwise pay on that portion of your earnings. Most employers pass some or all of their NI saving back to you, making salary sacrifice the most tax-efficient way to save into a pension.</p>
+        <h2 id="how-much">How much you save</h2>
         <table>
-          <thead><tr><th>Method</th><th>Cost to you</th><th>Into pension</th></tr></thead>
+          <thead><tr><th>Tax band</th><th>Tax saved per £1 contributed</th><th>NI saved per £1</th><th>Total saving per £1</th></tr></thead>
           <tbody>
-            <tr><td>Personal pension</td><td>£3,000 (after higher-rate refund)</td><td>£5,000</td></tr>
-            <tr><td>Salary sacrifice</td><td>£2,600</td><td>£5,000+</td></tr>
+            <tr><td>Basic rate (20%)</td><td>20p</td><td>8p</td><td>28p</td></tr>
+            <tr><td>Higher rate (40%)</td><td>40p</td><td>2p</td><td>42p</td></tr>
+            <tr><td>£100K taper zone (60% effective)</td><td>60p</td><td>2p</td><td>62p</td></tr>
           </tbody>
         </table>
-        <p>That's an extra £400 every £5,000 — and your employer often tops up some of their NI saving too.</p>
-        <p>Model both modes by switching the toggle in the <ToolLink to="/take-home">calculator</ToolLink>.</p>
+        <p>On a basic rate salary, a £200/month salary sacrifice pension contribution costs you just £144/month in reduced take-home. £200 goes into your pension for a net cost of £144 — an immediate 39% uplift on your money before any investment growth.</p>
+        <h2 id="employer-ni">Employer NI saving — often shared with you</h2>
+        <p>Your employer saves 15% NI on every pound you sacrifice. On a £5,000 annual sacrifice, that's £750 saved by your employer. Many employers add some or all of this saving to your pension contribution — effectively giving you free money. Ask your HR team whether your employer has an "NI sharing" arrangement. Even without sharing, salary sacrifice beats a personal pension contribution because it saves NI that a personal contribution cannot recover.</p>
+        <h2 id="personal-vs-sacrifice">Salary sacrifice vs personal pension contribution</h2>
+        <p>A personal pension contribution still gets basic rate tax relief added at source (the "relief at source" method), and higher/additional rate taxpayers can claim further relief through Self Assessment. But personal contributions do not save National Insurance. Salary sacrifice saves both tax and NI — making it worth up to 8 percentage points more per pound for basic rate taxpayers and 2 percentage points more for higher rate taxpayers.</p>
+        <h2 id="watch-out">Things to watch out for</h2>
+        <p>Salary sacrifice reduces your contractual salary, which can affect mortgage affordability assessments, life insurance and income protection cover based on salary multiples, and statutory payments like Statutory Maternity Pay (which is based on average weekly earnings from your actual salary). Ensure your sacrificed salary doesn't fall below the National Minimum Wage. Most employees find these impacts manageable, especially for modest contribution levels.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/salary-sacrifice/electric-car",label:"EV Salary Sacrifice Calculator"},{path:"/insights/pension-auto-enrolment-2026",label:"Pension Auto-Enrolment Guide"}]}
+          salaries={[{amount:30000},{amount:45000},{amount:60000},{amount:80000},{amount:100000}]}
+        />
       </>
     ),
   },
@@ -882,32 +886,28 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p><strong>Marriage Allowance</strong> lets one partner transfer £1,260 of their Personal Allowance to the other, reducing the couple's combined tax bill by up to <strong>£252 per year</strong>. HMRC estimates over 2 million eligible couples still haven't claimed.</p>
-
-        <h2 id="eligibility">Who can claim</h2>
-        <ul>
-          <li>You're married or in a civil partnership.</li>
-          <li>The <strong>lower earner</strong> has income below £12,570 (the Personal Allowance).</li>
-          <li>The <strong>higher earner</strong> pays basic-rate tax only — income between £12,571 and £50,270.</li>
-        </ul>
-        <p>It does <em>not</em> apply if the higher earner pays 40% or 45% tax.</p>
-
-        <h2 id="how-it-works">How it works</h2>
-        <ol>
-          <li>The lower earner transfers £1,260 of their Personal Allowance to their partner.</li>
-          <li>The lower earner's Personal Allowance drops from £12,570 to £11,310.</li>
-          <li>The higher earner's tax-free amount increases by £1,260.</li>
-          <li>At 20% basic rate, that saves <strong>£252 in tax</strong>.</li>
-        </ol>
-
-        <h2 id="backdate">Backdating your claim</h2>
-        <p>You can backdate Marriage Allowance claims by up to 4 tax years. If you were eligible since 2022/23 and never claimed, you could receive a lump sum of up to <strong>£1,260</strong>.</p>
-
-        <h2 id="apply">How to apply</h2>
-        <p>Apply online at <strong>gov.uk/apply-marriage-allowance</strong> — you need both partners' National Insurance numbers. The change is then applied automatically via PAYE each month.</p>
-
-        <h2 id="calculator">Check your saving</h2>
-        <p>Use the <ToolLink to="/take-home">Take-Home Calculator</ToolLink> to see the difference with and without Marriage Allowance applied to your partner's salary.</p>
+        <p>Marriage Allowance lets one partner in a marriage or civil partnership transfer up to £1,260 of their unused Personal Allowance to the other. It's free to claim, takes about 10 minutes online, and saves the couple up to £252 per year in income tax. You can also backdate claims for up to four previous tax years, potentially reclaiming over £1,000 in one go.</p>
+        <h2 id="eligibility">Who qualifies</h2>
+        <p>To claim Marriage Allowance in 2026/27, both of the following must apply: the lower-earning partner must earn below £12,570 (the Personal Allowance — either because they don't work, work part-time, or are in education), and the higher-earning partner must be a basic rate taxpayer earning between £12,570 and £50,270. Marriage Allowance is not available if either partner pays the higher rate (40%) or additional rate (45%) Income Tax. It's also not available to unmarried couples living together — you must be legally married or in a civil partnership.</p>
+        <h2 id="how-much">How much it saves</h2>
+        <table>
+          <thead><tr><th>Scenario</th><th>Annual saving</th></tr></thead>
+          <tbody>
+            <tr><td>Full £1,260 transfer, basic rate taxpayer</td><td>£252/year</td></tr>
+            <tr><td>Backdated 4 years (2022/23–2025/26)</td><td>Up to £1,008 lump sum</td></tr>
+            <tr><td>Total over 5 years if claimed now</td><td>Up to £1,260</td></tr>
+          </tbody>
+        </table>
+        <p>The transfer reduces the higher earner's tax bill by making 20% of the additional £1,260 allowance tax-free — saving £252. The lower earner's tax code changes from 1257L to 1131L (£12,570 minus £1,260 = £11,310), while the higher earner receives a code of 1383L (£12,570 plus £1,260 = £13,830).</p>
+        <h2 id="how-to-claim">How to claim</h2>
+        <p>The lower-earning partner makes the application at gov.uk/apply-marriage-allowance. You'll need both National Insurance numbers and to verify your identity. Once approved, HMRC updates both partners' tax codes and the higher earner will see reduced tax deductions from their next payroll run. For backdated claims, the refund comes as a cheque or bank transfer, not through payroll. Claims can be made by the lower earner only — the higher earner cannot initiate the transfer.</p>
+        <h2 id="cancel">When to cancel</h2>
+        <p>If circumstances change — the lower earner finds work and exceeds £12,570, or the higher earner moves into the 40% band — Marriage Allowance should be cancelled via HMRC to avoid incorrect coding. HMRC reviews eligibility annually through Self Assessment or PAYE records, but it's your responsibility to report changes promptly.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/personal-allowance-taper-100k-trap",label:"Personal Allowance Guide"}]}
+          salaries={[{amount:15000},{amount:25000},{amount:35000},{amount:45000}]}
+        />
       </>
     ),
   },
@@ -978,32 +978,30 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p><strong>PAYE</strong> (Pay As You Earn) is the system HMRC uses to collect Income Tax and National Insurance directly from your wages. If you're employed, you don't file a tax return — your employer does the calculation on every payslip.</p>
-
-        <h2 id="step-by-step">How PAYE calculates your deductions</h2>
-        <ol>
-          <li><strong>HMRC issues your tax code</strong> (usually 1257L) — this tells your employer how much tax-free income you get.</li>
-          <li><strong>Gross pay is calculated</strong> — salary plus any bonus, overtime, or benefits in kind.</li>
-          <li><strong>Tax-free amount is subtracted</strong> — for 1257L, that's £12,570/year or £1,047.50/month.</li>
-          <li><strong>Income Tax is applied</strong> to the taxable portion using the correct bands (20%, 40%, 45%).</li>
-          <li><strong>National Insurance is deducted</strong> — 8% on earnings between £12,570 and £50,270, then 2% above.</li>
-          <li><strong>Student Loan repayments</strong> are taken if applicable (9% above your plan threshold).</li>
-          <li><strong>Pension contributions</strong> are deducted (before or after tax, depending on the scheme type).</li>
-        </ol>
-
-        <h2 id="cumulative">Cumulative vs Week 1/Month 1</h2>
-        <p>Normal PAYE is <strong>cumulative</strong> — HMRC tracks your year-to-date earnings and adjusts each month so you pay the right amount over the full year. This means if you start mid-year, early payslips may show less tax (using up your unused allowance).</p>
-        <p><strong>Week 1/Month 1</strong> (emergency) basis taxes each pay period in isolation — this usually means overpaying. See our guide on <ToolLink to="/insights/emergency-tax-code-1257l-explained">emergency tax codes</ToolLink>.</p>
-
-        <h2 id="common-issues">Common PAYE issues</h2>
-        <ul>
-          <li><strong>Wrong tax code:</strong> check your payslip — if it's not 1257L (or the expected code), call HMRC on 0300 200 3300.</li>
-          <li><strong>Two jobs:</strong> your second job often uses a BR code (basic rate on all earnings). See our <ToolLink to="/insights/two-jobs-tax-uk-2026">two jobs guide</ToolLink>.</li>
-          <li><strong>Underpayment:</strong> if HMRC discovers you underpaid, they spread the recovery over the following year via a reduced tax code.</li>
-        </ul>
-
-        <h2 id="check">Check your PAYE deductions</h2>
-        <p>Use the <ToolLink to="/take-home">Take-Home Calculator</ToolLink> to verify that your payslip deductions match what they should be for your salary and tax code.</p>
+        <p>Pay As You Earn (PAYE) is the system HMRC uses to collect Income Tax and National Insurance from employees before they receive their salary. Your employer deducts the correct amounts each pay period and sends them directly to HMRC — meaning most employees never need to calculate their own tax. Here's exactly how it works in 2026/27.</p>
+        <h2 id="tax-code">Step 1 — Your tax code</h2>
+        <p>Your tax code tells your employer how much of your income is tax-free. The standard code for 2026/27 is <strong>1257L</strong> — the "1257" means your tax-free allowance is £12,570 (drop the last digit, add a zero). The "L" means you're entitled to the standard Personal Allowance. Codes change if you have unpaid tax from previous years (e.g. 1000L meaning a reduced allowance), untaxed benefits like a company car, or multiple jobs.</p>
+        <h2 id="calculation">Step 2 — How your employer calculates each month's deduction</h2>
+        <p>PAYE uses a <strong>cumulative basis</strong> — your employer calculates tax based on all your earnings since April 6, then deducts what's already been paid. This means if you earn a bonus in month 8, your employer recalculates your full year's expected tax and adjusts the deduction automatically. It also means tax errors from earlier in the year get corrected without you doing anything.</p>
+        <h2 id="rates">Step 3 — Income Tax and NI rates applied (2026/27)</h2>
+        <table>
+          <thead><tr><th>Deduction</th><th>Rate</th><th>On earnings between</th></tr></thead>
+          <tbody>
+            <tr><td>Income Tax — basic rate</td><td>20%</td><td>£12,571–£50,270</td></tr>
+            <tr><td>Income Tax — higher rate</td><td>40%</td><td>£50,271–£125,140</td></tr>
+            <tr><td>Employee NI — primary</td><td>8%</td><td>£12,571–£50,270</td></tr>
+            <tr><td>Employee NI — upper</td><td>2%</td><td>Over £50,270</td></tr>
+          </tbody>
+        </table>
+        <h2 id="payslip">What appears on your payslip</h2>
+        <p>Your payslip must show: gross pay, itemised deductions (Income Tax, NI, pension, student loan if applicable), net pay, and your tax code. If your tax code changes mid-year, your employer will show the new code from the first pay period it applies. Employer NI (15% above £5,000) does not appear on your payslip — it's paid separately by your employer on top of your gross salary and is not deducted from your take-home.</p>
+        <h2 id="end-of-year">P60 and year-end reconciliation</h2>
+        <p>At the end of each tax year (April 5), your employer issues a <strong>P60</strong> showing your total earnings and tax paid. If HMRC's records show you've overpaid tax — perhaps because you changed jobs, had multiple periods of employment, or had an incorrect tax code — HMRC will send a P800 tax calculation and either refund the overpayment automatically to your bank account or collect an underpayment through next year's PAYE code.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/emergency-tax-code-1257l-explained",label:"Emergency Tax Code Explained"},{path:"/insights/national-insurance-2026-explained",label:"National Insurance Guide"}]}
+          salaries={[{amount:25000},{amount:35000},{amount:50000},{amount:65000}]}
+        />
       </>
     ),
   },
@@ -1026,39 +1024,23 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>If you've been on the wrong tax code, worked part of the year, or had emergency tax applied, HMRC may owe you money. Over <strong>£1 billion</strong> in overpaid tax goes unclaimed each year.</p>
-
-        <h2 id="reasons">Common reasons for overpaying tax</h2>
-        <ul>
-          <li><strong>Emergency tax code</strong> — taxed on Week 1/Month 1 basis after starting a new job.</li>
-          <li><strong>Working part-year</strong> — your tax-free allowance is annual, so leaving a job mid-year means you may have been over-deducted.</li>
-          <li><strong>Wrong tax code</strong> — if a benefit in kind was added incorrectly or an old Student Loan deduction persists.</li>
-          <li><strong>Expenses not claimed</strong> — working from home, professional subscriptions, or uniform costs.</li>
-        </ul>
-
-        <h2 id="how-to-check">How to check</h2>
-        <ol>
-          <li>Sign in to your <strong>HMRC personal tax account</strong> at gov.uk/personal-tax-account.</li>
-          <li>Check your tax code and PAYE summary for the current and previous years.</li>
-          <li>If it shows "You are owed a refund" — click through to claim.</li>
-        </ol>
-
-        <h2 id="claim-methods">Ways to claim</h2>
-        <table>
-          <thead><tr><th>Method</th><th>Best for</th><th>Timeframe</th></tr></thead>
-          <tbody>
-            <tr><td>HMRC online account</td><td>Current tax year adjustments</td><td>5–6 weeks</td></tr>
-            <tr><td>Form P50</td><td>Left a job and not started a new one</td><td>6–8 weeks</td></tr>
-            <tr><td>Phone HMRC (0300 200 3300)</td><td>Complex situations</td><td>Varies</td></tr>
-            <tr><td>Self Assessment</td><td>Self-employed or high earners</td><td>After filing</td></tr>
-          </tbody>
-        </table>
-
-        <h2 id="avoid-scams">Avoid tax refund scams</h2>
-        <p>HMRC will <strong>never</strong> email, text, or call you to say you're owed a refund. If you receive such a message, it's a scam. Always go directly to gov.uk.</p>
-
-        <h2 id="calculator">See the calculated tax liability</h2>
-        <p>Use the <ToolLink to="/take-home">Take-Home Calculator</ToolLink> to compare what you <em>should</em> be deducted against what your payslip shows. A persistent gap means a refund may be due.</p>
+        <p>Millions of UK workers overpay income tax every year — and most don't realise they're owed a refund. The most common causes are an incorrect tax code, starting or leaving a job mid-year, claiming work-related expenses, or making charitable donations through Gift Aid. HMRC repays overpaid tax automatically in many cases, but for some situations you need to claim actively.</p>
+        <h2 id="automatic">When HMRC refunds automatically</h2>
+        <p>After each tax year ends on April 5, HMRC runs a reconciliation of PAYE records. If you've overpaid — typically because you changed jobs, had multiple employments, or had a wrong tax code — HMRC issues a <strong>P800 tax calculation</strong> in the summer (June–October). If it shows an overpayment, you can claim online at gov.uk and receive the refund directly into your bank account within 5 days. If you don't claim online, HMRC sends a cheque automatically after 45 days.</p>
+        <h2 id="claim">When you need to claim yourself</h2>
+        <p><strong>Work expenses:</strong> Employees can claim tax relief on expenses incurred wholly in performing their job — professional subscriptions, tools, uniforms, and mileage above 45p/mile. Claims go back four tax years. A £1,000 expense claim saves a basic rate taxpayer £200 in tax.</p>
+        <p><strong>Working from home:</strong> HMRC allows a flat rate of £6/week (£312/year) for home working without receipts, or higher amounts with evidence. A basic rate taxpayer claiming the flat rate saves £62/year. Claims for the COVID-19 period (2020/21 and 2021/22) must be made by April 5, 2025.</p>
+        <p><strong>Marriage Allowance:</strong> Backdated claims for up to four previous years can produce a lump sum refund of over £1,000 if you've been eligible but not claimed.</p>
+        <p><strong>Leaving work mid-year:</strong> If you stop working and don't take another job before April 5, you may have overpaid tax because PAYE assumed you'd earn the same for the rest of the year. Claim using form P50 or wait for a P800.</p>
+        <h2 id="how-to-claim">How to claim a tax refund</h2>
+        <p>The fastest route is the HMRC Personal Tax Account at gov.uk/personal-tax-account. You can check your tax code, see estimated refunds, and claim online with payment to your bank within 5 working days. For employment expenses, use form P87 online or by post. For self-employed income or multiple income sources, you'll need a Self Assessment return.</p>
+        <h2 id="scams">Tax refund scams</h2>
+        <p>HMRC will never contact you by text, WhatsApp, or email asking for your bank details to process a refund — these are always scams. HMRC communicates refunds via post (P800) or through your Personal Tax Account. If you receive an unexpected "tax refund" text or email, report it to HMRC at phishing@hmrc.gov.uk and delete it.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/emergency-tax-code-1257l-explained",label:"Emergency Tax Code Guide"}]}
+          salaries={[{amount:25000},{amount:35000},{amount:45000},{amount:60000}]}
+        />
       </>
     ),
   },
@@ -1131,37 +1113,27 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>If your employer <strong>requires</strong> you to work from home — even part of the week — you may be able to claim tax relief on household costs. The flat-rate allowance is <strong>£6 per week</strong> (£312 per year).</p>
-
-        <h2 id="eligibility">Who qualifies</h2>
-        <ul>
-          <li>Your employer <strong>requires</strong> you to work from home (having a hybrid policy counts).</li>
-          <li>You have additional household costs as a result (heating, electricity, broadband).</li>
-          <li>You do <strong>not</strong> qualify if you simply choose to WFH when office space is available.</li>
-        </ul>
-
-        <h2 id="how-much">How much you save</h2>
+        <p>If you work from home, you may be able to claim tax relief on the extra household costs — heating, electricity, and broadband — that arise from working at home. HMRC offers either a flat-rate claim with no receipts required, or a higher claim if you can evidence actual costs. The relief applies to employees who are required to work from home, not those who choose to.</p>
+        <h2 id="flat-rate">Flat-rate relief — no receipts needed</h2>
+        <p>HMRC allows <strong>£6 per week</strong> (£312 per year) without any receipts or calculation. For a basic rate (20%) taxpayer, this saves <strong>£62.40 per year</strong>. For a higher rate (40%) taxpayer, the saving is <strong>£124.80 per year</strong>. Small amounts individually, but the claims can be backdated four tax years — meaning a new claim in 2026/27 could recover relief back to 2022/23, worth £250–£500 in total for most employees.</p>
         <table>
-          <thead><tr><th>Tax rate</th><th>Annual relief (£312)</th><th>Saving</th></tr></thead>
+          <thead><tr><th>Tax rate</th><th>Annual saving (flat rate)</th><th>4-year backdated claim</th></tr></thead>
           <tbody>
-            <tr><td>20% basic</td><td>£312</td><td>£62.40/year</td></tr>
-            <tr><td>40% higher</td><td>£312</td><td>£124.80/year</td></tr>
-            <tr><td>45% additional</td><td>£312</td><td>£140.40/year</td></tr>
+            <tr><td>Basic rate (20%)</td><td>£62.40/year</td><td>~£250</td></tr>
+            <tr><td>Higher rate (40%)</td><td>£124.80/year</td><td>~£499</td></tr>
           </tbody>
         </table>
-
-        <h2 id="claim-more">Claiming actual costs instead</h2>
-        <p>If your additional costs exceed £6/week, you can claim the actual amount — but you need receipts and evidence. For most people, the flat rate is simpler and sufficient.</p>
-
+        <h2 id="actual-costs">Claiming actual costs — higher amounts</h2>
+        <p>If your additional household costs exceed £6/week, you can claim the higher amount with evidence. You'll need to calculate the proportion of your home used for work and the additional cost incurred. HMRC accepts a reasonable calculation method — for example, total annual heating bill divided by number of rooms, multiplied by the fraction of the day the room is used for work. This is more complex but can yield significantly higher relief for people with high energy bills or dedicated home offices.</p>
+        <h2 id="eligibility">Who can claim</h2>
+        <p>You can claim if your employer requires you to work from home — either full-time or on designated home-working days — and you're not simply choosing to work from home occasionally. A formal homeworking agreement or contract clause helps evidence the requirement. During the pandemic years (2020/21 and 2021/22), HMRC allowed all home workers to claim regardless of whether they were required to — those claims must be made by April 5, 2025.</p>
         <h2 id="how-to-claim">How to claim</h2>
-        <ol>
-          <li>Go to <strong>gov.uk/tax-relief-for-employees/working-at-home</strong>.</li>
-          <li>Answer the eligibility questions.</li>
-          <li>HMRC adjusts your tax code — the relief appears in your payslip automatically.</li>
-        </ol>
-
-        <h2 id="calculator">See the impact on your pay</h2>
-        <p>The difference is small but real. Use the <ToolLink to="/take-home">Take-Home Calculator</ToolLink> to see your overall monthly take-home, then consider whether the WFH relief is worth claiming.</p>
+        <p>Employees claim via their HMRC Personal Tax Account at gov.uk/personal-tax-account, or by submitting form P87. HMRC adjusts your PAYE tax code to give you the relief through your salary going forward, rather than as a cash payment. Self-employed workers claim home-working costs as a business expense on their Self Assessment tax return — typically using the simplified expenses flat rate of £10–£26/month depending on hours worked from home.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/tax-refund-uk-guide",label:"How to Claim a Tax Refund"}]}
+          salaries={[{amount:25000},{amount:35000},{amount:50000},{amount:65000}]}
+        />
       </>
     ),
   },
@@ -1868,24 +1840,31 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>NHS nursing salaries are set by the Agenda for Change (AfC) pay framework. Here's every band's gross salary and exact monthly take-home for 2026.</p>
-        <h2 id="bands">NHS nurse salary by band (2026)</h2>
+        <p>NHS nurses are employed under the Agenda for Change (AfC) pay framework and progress through bands based on role, responsibility, and years of service. Following the 2023/24 pay award — a one-off 5% payment plus a consolidated increase — AfC pay has been partially restored after years of real-terms cuts, though the BMA and Royal College of Nursing continue to press for further increases in 2026/27.</p>
+        <h2 id="bands">NHS nurse salary by band (2026/27)</h2>
         <table>
-          <thead><tr><th>Band</th><th>Gross salary range</th><th>Monthly take-home (mid-point)</th></tr></thead>
+          <thead><tr><th>Band / Role</th><th>Salary range</th><th>Monthly take-home (mid)</th></tr></thead>
           <tbody>
-            <tr><td>Band 5 (Staff Nurse)</td><td>£29,970–£36,483</td><td>~£2,270/month</td></tr>
-            <tr><td>Band 6 (Senior Nurse)</td><td>£37,338–£44,962</td><td>~£2,810/month</td></tr>
-            <tr><td>Band 7 (Advanced Nurse)</td><td>£46,148–£52,809</td><td>~£3,140/month</td></tr>
-            <tr><td>Band 8a (Consultant Nurse)</td><td>£53,755–£60,504</td><td>~£3,530/month</td></tr>
+            <tr><td>Band 3 — Healthcare Assistant</td><td>£24,625–£26,259</td><td>~£1,810/month</td></tr>
+            <tr><td>Band 5 — Newly qualified Staff Nurse</td><td>£29,970–£36,483</td><td>~£2,270/month</td></tr>
+            <tr><td>Band 6 — Senior Staff Nurse / Specialist</td><td>£37,338–£44,962</td><td>~£2,810/month</td></tr>
+            <tr><td>Band 7 — Advanced Nurse Practitioner</td><td>£46,148–£52,809</td><td>~£3,140/month</td></tr>
+            <tr><td>Band 8a — Consultant Nurse / Lead</td><td>£53,755–£60,504</td><td>~£3,530/month</td></tr>
+            <tr><td>Band 8b — Deputy Director of Nursing</td><td>£62,215–£72,293</td><td>~£3,940–£4,340/month</td></tr>
           </tbody>
         </table>
-        <p><small>Take-home estimated at mid-point of each band, England, no student loan, before NHS pension contribution.</small></p>
-        <h2 id="pension">NHS pension impact</h2>
-        <p>NHS pension contributions reduce your take-home. At Band 5 mid-point (~£33,000), you contribute approximately 5.2% — about £143/month. This comes from your net pay (not salary sacrifice), so it doesn't reduce your tax bill.</p>
+        <p><small>Monthly take-home at mid-point, England (outside London), before NHS pension contributions. NHS pension employee contributions range from 5.2% to 12.5% depending on pay band.</small></p>
         <h2 id="london">London weighting</h2>
-        <p>NHS staff in London receive a High-Cost Area Supplement of 20% of basic salary (min £5,132, max £7,746). This significantly increases take-home for London-based nurses.</p>
-        <h2 id="calculate">Calculate your exact nurse take-home</h2>
-        <p>Enter your exact band salary into our <ToolLink to="/take-home">take-home calculator</ToolLink> to see your precise monthly net after tax, NI, and pension.</p>
+        <p>Nurses in London receive a High Cost Area Supplement (HCAS). Inner London nurses receive a supplement of 20% of basic salary (minimum £4,629, maximum £8,461). Outer London nurses receive 15% (minimum £4,072, maximum £5,765). A Band 5 nurse in Inner London earns approximately £35,964–£43,780 with HCAS, compared to £29,970–£36,483 outside London.</p>
+        <h2 id="unsocial">Unsocial hours supplements</h2>
+        <p>Nurses regularly work evenings, nights, weekends, and bank holidays. AfC unsocial hours supplements add 30% for Saturday and Sunday work, and 60% for nights and bank holidays. A Band 5 nurse working a standard mixed shift pattern typically earns an additional £3,000–£5,500 per year from unsocial hours supplements, which are included in pensionable pay.</p>
+        <h2 id="pension">NHS pension — the hidden value</h2>
+        <p>NHS nurses contribute 5.2%–12.5% to the NHS Pension Scheme depending on earnings. At Band 5 mid-point (~£33,000), that's approximately £1,440–£4,125/year. These contributions are significant but build one of the UK's most secure defined-benefit pensions. The 2015 Career Average scheme provides a pension based on career average earnings — its actuarial value is typically 30–40% more per pound contributed than an equivalent private sector defined-contribution pension.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/paramedic-salary-uk-2026",label:"Paramedic Salary 2026"},{path:"/insights/pharmacist-salary-uk-2026",label:"Pharmacist Salary 2026"}]}
+          salaries={[{amount:29970},{amount:33000},{amount:37338},{amount:46148},{amount:53755}]}
+        />
       </>
     ),
   },

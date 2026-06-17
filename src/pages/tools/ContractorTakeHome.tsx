@@ -147,8 +147,33 @@ const ContractorTakeHome = () => {
         </div>
         <ResultDisclaimer />
       </div>
+
+      {/* SEO content */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>Contractor Take-Home Pay: Limited Company vs Umbrella (2026/27)</h2>
+          <p>UK contractors have two main operating structures: their own <strong>limited company</strong> (Personal Service Company / PSC) or an <strong>umbrella company</strong>. Both are legal and widely used — but they produce very different take-home pay, particularly outside IR35.</p>
+          <h2>Limited company (outside IR35) vs umbrella — worked example</h2>
+          <table>
+            <thead><tr><th>Component</th><th>Limited Company (outside IR35)</th><th>Umbrella</th></tr></thead>
+            <tbody>
+              <tr><td>Day rate</td><td>£500/day</td><td>£500/day</td></tr>
+              <tr><td>Annual contract (220 days)</td><td>£110,000</td><td>£110,000</td></tr>
+              <tr><td>Employer NI + Apprenticeship Levy</td><td>N/A (paid as dividends)</td><td>−£13,200</td></tr>
+              <tr><td>Umbrella margin</td><td>N/A</td><td>−£1,560</td></tr>
+              <tr><td>Corporation Tax (25%)</td><td>−£5,415</td><td>N/A</td></tr>
+              <tr><td>Income Tax + NI (salary/dividend)</td><td>−£11,800</td><td>−£28,500</td></tr>
+              <tr><td><strong>Annual take-home</strong></td><td><strong>~£92,800</strong></td><td><strong>~£66,700</strong></td></tr>
+            </tbody>
+          </table>
+          <p><small>Estimates based on optimal £12,570 salary + dividend split for limited company, PAYE for umbrella. Actual figures depend on accountant fees, expenses, pension contributions, and specific contract terms.</small></p>
+          <h2>When umbrella makes sense</h2>
+          <p>Umbrella companies deduct employer NI (15% above £5,000) and their own margin before paying you, which significantly reduces take-home versus a limited company outside IR35. However, umbrella is the right choice when you're inside IR35 (a limited company inside IR35 produces similar net pay to umbrella, with more admin overhead), when a contract is short-term and setting up a limited company isn't cost-effective, or when an agency mandates it. Umbrella workers are employed and receive employment rights, holiday pay, and statutory sick pay — which have real value.</p>
+          <h2>IR35 and your structure</h2>
+          <p>The tax advantage of a limited company exists only outside IR35. Inside IR35, your client deducts PAYE income tax and NI from payments to your company before they reach you — eliminating the dividend tax advantage. The calculator above models both scenarios so you can see exactly what each IR35 determination means for your net income at any day rate.</p>
+          <p><strong>Accountancy costs:</strong> A limited company typically requires a specialist contractor accountant (£80–£150/month), Companies House filing, and annual accounts. Factor these costs into your net comparison — they reduce the limited company advantage by £1,000–£2,000/year but are themselves tax-deductible business expenses.</p>
+        </div>
+      </section>
     </Shell>
   );
 };
-
-export default ContractorTakeHome;

@@ -106,6 +106,32 @@ const EVSalary = () => {
         </div>
         <ResultDisclaimer />
       </div>
+
+      {/* SEO content */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>Electric Car Salary Sacrifice — How It Works and Why It Saves So Much (2026/27)</h2>
+          <p>Electric vehicle (EV) salary sacrifice is one of the most tax-efficient benefits available to UK employees in 2026/27. By sacrificing salary in exchange for an electric car, you pay Income Tax and National Insurance on a lower gross salary, and the company car Benefit in Kind (BiK) rate for pure electric vehicles is just 4% — dramatically lower than petrol and hybrid alternatives. The combined effect means many employees can drive a brand-new electric car for less than the cost of leasing one personally, often significantly less.</p>
+          <h2>How the tax saving works</h2>
+          <table>
+            <thead><tr><th>Component</th><th>Personal lease</th><th>EV salary sacrifice</th></tr></thead>
+            <tbody>
+              <tr><td>Monthly lease cost</td><td>£450 (from net pay)</td><td>£450 (salary sacrifice)</td></tr>
+              <tr><td>Tax and NI relief</td><td>None</td><td>~£126/month (basic rate)</td></tr>
+              <tr><td>BiK tax on car (4%)</td><td>N/A</td><td>~£30/month (est. £30k car)</td></tr>
+              <tr><td><strong>Net monthly cost</strong></td><td><strong>£450</strong></td><td><strong>~£354</strong></td></tr>
+              <tr><td>Annual saving</td><td>—</td><td>~£1,152/year</td></tr>
+            </tbody>
+          </table>
+          <p><small>Basic rate taxpayer, £30,000 list price EV. Higher rate taxpayers save more (42% combined IT+NI relief vs 28%). Employer NI saving of 15% is often passed back to the employee.</small></p>
+          <h2>The 4% BiK rate — why EVs are different</h2>
+          <p>Benefit in Kind tax is charged on company cars as a percentage of the car's list price. For a pure battery electric vehicle in 2026/27, the BiK rate is <strong>4%</strong>. A petrol car with 130g/km CO₂ emissions has a BiK rate of 30–33%. On a £35,000 list price, the annual BiK tax difference is enormous: £35,000 × 4% × 20% = £280/year for the EV versus £35,000 × 31% × 20% = £2,170/year for the petrol equivalent. The government has committed to keeping EV BiK rates low through to 2029/30, rising to 9% by that point — still far below petrol and hybrid rates.</p>
+          <h2>Who qualifies</h2>
+          <p>Any employee can access EV salary sacrifice if their employer offers a scheme. Your sacrificed salary must not drop below the National Minimum Wage. You must be employed (not self-employed or inside IR35 via umbrella). The car is leased by your employer and made available to you — you return it at the end of the sacrifice period (typically 2–4 years). Insurance, servicing, breakdown cover, and often home charging installation are typically included in the monthly cost.</p>
+          <h2>Does salary sacrifice affect my pension or mortgage?</h2>
+          <p>Salary sacrifice reduces your contractual gross salary. This can affect mortgage affordability assessments (lenders use gross salary), employer pension contributions calculated as a percentage of salary, and life insurance cover based on salary multiples. Most employees find these impacts manageable for typical sacrifice amounts (£200–£500/month), but it's worth checking with your lender before committing to a large sacrifice if you're planning to remortgage soon.</p>
+        </div>
+      </section>
     </Shell>
   );
 };
