@@ -119,6 +119,31 @@ const Compare = () => {
           </button>
         </div>
       </section>
+
+
+      {/* SEO content */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>How to Compare Two Salary Offers on a Like-for-Like Basis</h2>
+          <p>Two salary offers with different gross figures, locations, pension arrangements, and benefits are almost impossible to compare fairly without calculating the net take-home for each. A £55,000 offer in London and a £45,000 offer in Manchester may produce similar net monthly income once London's higher tax, commuting costs, and pension differences are factored in.</p>
+          <h2>What to Compare Beyond Gross Salary</h2>
+          <p><strong>Employer pension contribution:</strong> A 10% employer pension match on a £45,000 salary is worth £4,500/year in additional pension wealth — equivalent to a £6,000–£7,000 gross pay rise (because pension contributions are made from pre-tax company profit, they're worth more than the headline cash). Always factor in the employer contribution when comparing total compensation.</p>
+          <p><strong>Location and commuting:</strong> A £55,000 London role requiring a £5,000/year season ticket and a £1,800/month flat produces less disposable income than a £45,000 Manchester role with a £1,200/month flat and no commute costs. Model the after-rent, after-commute figure, not just the gross.</p>
+          <p><strong>Benefits in kind:</strong> Private medical insurance (typically £500–£1,500/year employee cost if bought independently), life insurance, income protection, and company car all have real monetary value. They're taxable as benefits in kind, but often still add net value.</p>
+          <h2>Real Take-Home Comparison: London vs Manchester</h2>
+          <table>
+            <thead><tr><th>Component</th><th>Job A — London £55,000</th><th>Job B — Manchester £45,000</th></tr></thead>
+            <tbody>
+              <tr><td>Monthly gross</td><td>£4,583</td><td>£3,750</td></tr>
+              <tr><td>Monthly take-home</td><td>~£3,380</td><td>~£2,940</td></tr>
+              <tr><td>Rent (1-bed city centre)</td><td>−£1,900</td><td>−£1,200</td></tr>
+              <tr><td>Commute</td><td>−£400</td><td>−£80</td></tr>
+              <tr><td><strong>Disposable</strong></td><td><strong>~£1,080</strong></td><td><strong>~£1,660</strong></td></tr>
+            </tbody>
+          </table>
+          <p>In this example, Job B in Manchester produces £580/month more disposable income despite a £10,000 lower gross salary — because London's housing and commuting costs consume the apparent advantage. Use the comparison calculator above to model any two scenarios with your actual numbers.</p>
+        </div>
+      </section>
     </Shell>
   );
 };

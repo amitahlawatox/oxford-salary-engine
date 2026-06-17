@@ -117,6 +117,29 @@ const Maternity = () => {
           </div>
         </div>
       </section>
+
+
+      {/* SEO content */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>Statutory Maternity Pay (SMP) — 2026/27 Rates and Rules</h2>
+          <p>Statutory Maternity Pay is the minimum your employer must pay during maternity leave. It runs for up to 39 weeks and is split into two phases: a higher earnings-related phase and a flat-rate phase. Many employers pay enhanced maternity pay above the statutory minimum — check your contract before planning your finances.</p>
+          <h2>SMP Rates 2026/27</h2>
+          <table>
+            <thead><tr><th>Period</th><th>Rate</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Weeks 1–6</td><td>90% of average weekly earnings</td><td>No upper cap — earnings-linked</td></tr>
+              <tr><td>Weeks 7–39</td><td>£187.18/week flat rate</td><td>Or 90% of earnings if lower</td></tr>
+              <tr><td>Weeks 40–52</td><td>£0 (unpaid)</td><td>Remaining maternity leave is unpaid</td></tr>
+            </tbody>
+          </table>
+          <h2>SMP Eligibility</h2>
+          <p>To qualify for SMP, you must have worked for your employer continuously for at least 26 weeks into the 15th week before your baby's due date, and earned at least £125/week (the Lower Earnings Limit) on average in the eight weeks before the qualifying week. If you don't qualify for SMP, you may be eligible for Maternity Allowance (£187.18/week or 90% of earnings, whichever is lower) paid directly by HMRC.</p>
+          <h2>Tax on Maternity Pay</h2>
+          <p>SMP is treated as employment income and subject to Income Tax and National Insurance in the same way as your regular salary. In the weeks 1–6 higher-rate phase, your higher gross SMP may push you into a higher tax bracket. In the flat-rate phase, £187.18/week (£9,733 annually) is below the Personal Allowance if it's your only income for that period, meaning no Income Tax is due on the SMP itself — though HMRC adjusts your code to reflect your full-year position.</p>
+          <p><strong>Pension during maternity leave:</strong> Your employer must continue making pension contributions during paid maternity leave. Contributions are based on your normal salary, not your reduced SMP — so your pension doesn't fall during paid leave. During unpaid leave (weeks 40–52), employer contributions can stop unless your scheme rules say otherwise.</p>
+        </div>
+      </section>
     </Shell>
   );
 };

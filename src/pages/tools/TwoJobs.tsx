@@ -105,6 +105,30 @@ const TwoJobs = () => {
           </div>
         </div>
       </section>
+
+
+      {/* SEO content */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>Tax on a Second Job in the UK — 2026/27</h2>
+          <p>When you work two jobs, your Personal Allowance (£12,570) is allocated to one employer through your primary tax code (usually 1257L). Your second employer uses a BR (Basic Rate) code and deducts 20% Income Tax from every pound you earn — with no tax-free allowance. This isn't a penalty; it simply reflects that your allowance is already being used elsewhere.</p>
+          <h2>How the BR Tax Code Works</h2>
+          <table>
+            <thead><tr><th>Job</th><th>Annual pay</th><th>Tax code</th><th>Income Tax paid</th></tr></thead>
+            <tbody>
+              <tr><td>Primary job</td><td>£28,000</td><td>1257L</td><td>£3,086 (on £15,430 taxable)</td></tr>
+              <tr><td>Second job</td><td>£8,000</td><td>BR</td><td>£1,600 (flat 20%)</td></tr>
+              <tr><td>Single employer at £36,000</td><td>£36,000</td><td>1257L</td><td>£4,686</td></tr>
+            </tbody>
+          </table>
+          <p>The total tax is identical either way — £4,686. The BR code on Job 2 is not collecting more tax, just ensuring the correct amount is collected at source from each employer.</p>
+          <h2>When Two Jobs Push You Into the Higher Rate</h2>
+          <p>If your combined income from both jobs exceeds £50,270, part of your earnings moves into the 40% higher rate band. HMRC's Real Time Information (RTI) system usually detects this and issues an updated D0 (40% flat rate) code for the second job. If it doesn't happen automatically, you may owe a balancing payment through Self Assessment at year end.</p>
+          <h2>National Insurance: Where Two Jobs Can Cost More</h2>
+          <p>Unlike Income Tax, National Insurance is calculated per employment — not on your combined income. If Job 1 pays exactly £50,270 and Job 2 pays £10,000, you pay NI on both separately. Job 2 effectively has its own lower earnings limit — meaning you pay 8% NI on £10,000 from Job 2, costing £800 extra versus a single employer. You can reclaim this overpaid NI from HMRC after the tax year ends.</p>
+          <p><strong>Do I need to complete Self Assessment with two jobs?</strong> Only if your total income exceeds £100,000, or if HMRC cannot collect the correct tax through your codes — for example if the combined income crosses into higher rate and your codes haven't been updated.</p>
+        </div>
+      </section>
     </Shell>
   );
 };

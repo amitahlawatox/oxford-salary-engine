@@ -124,6 +124,32 @@ const CostOfLiving = () => {
           </button>
         </div>
       </section>
+
+      {/* SEO content */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>UK Salary vs Cost of Living — Does Your Take-Home Actually Go Far?</h2>
+          <p>A salary that sounds generous in one city can feel tight in another. The UK has significant regional variation in housing costs, council tax, transport, and general living expenses. The only meaningful metric is what you have left after your fixed costs — not what you earn before tax.</p>
+          <h2>Monthly Take-Home and Typical Rent by UK City (2026)</h2>
+          <table>
+            <thead><tr><th>City</th><th>Typical professional salary</th><th>Monthly take-home</th><th>1-bed city centre rent</th><th>Post-rent disposable</th></tr></thead>
+            <tbody>
+              <tr><td>London</td><td>£55,000</td><td>£3,380</td><td>£2,000</td><td>~£1,380</td></tr>
+              <tr><td>Bristol</td><td>£43,000</td><td>£2,870</td><td>£1,500</td><td>~£1,370</td></tr>
+              <tr><td>Edinburgh</td><td>£42,000</td><td>£2,790</td><td>£1,350</td><td>~£1,440</td></tr>
+              <tr><td>Manchester</td><td>£42,000</td><td>£2,820</td><td>£1,200</td><td>~£1,620</td></tr>
+              <tr><td>Birmingham</td><td>£40,000</td><td>£2,690</td><td>£1,150</td><td>~£1,540</td></tr>
+              <tr><td>Leeds</td><td>£40,000</td><td>£2,690</td><td>£1,100</td><td>~£1,590</td></tr>
+              <tr><td>Sheffield</td><td>£36,000</td><td>£2,520</td><td>£900</td><td>~£1,620</td></tr>
+              <tr><td>Liverpool</td><td>£36,000</td><td>£2,520</td><td>£950</td><td>~£1,570</td></tr>
+            </tbody>
+          </table>
+          <p>London's salary premium is largely absorbed by housing. Sheffield and Liverpool, despite lower salaries, often produce equal or higher post-rent disposable income than Bristol or Edinburgh.</p>
+          <h2>The Remote Work Opportunity</h2>
+          <p>Professionals working remotely for London or South East employers while living in lower-cost cities retain £500–£1,500/month more disposable income than London-based colleagues on the same gross salary. Over five years, this compounds to £30,000–£90,000 in additional retained earnings — enough for a house deposit or significant investment.</p>
+          <p>Use this calculator to enter your salary, your city, and typical local costs to see your real spending power — not just your headline pay.</p>
+        </div>
+      </section>
     </Shell>
   );
 };

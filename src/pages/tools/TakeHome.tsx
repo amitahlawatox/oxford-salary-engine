@@ -262,6 +262,50 @@ const TakeHome = () => {
           </div>
         </div>
       </section>
+
+      {/* SEO content */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>How UK Take-Home Pay Is Calculated (2026/27)</h2>
+          <p>Your take-home pay — or net pay — is what remains after your employer deducts Income Tax, National Insurance, pension contributions, and any Student Loan repayments from your gross salary. For most employees in England, Wales and Northern Ireland on the standard 1257L tax code, the calculation follows four steps.</p>
+          <p><strong>Step 1 — Personal Allowance:</strong> The first £12,570 of earnings is tax-free. This is your Personal Allowance for 2026/27. It is gradually withdrawn for incomes over £100,000, disappearing entirely at £125,140.</p>
+          <p><strong>Step 2 — Income Tax:</strong> The taxable portion of your salary (gross minus Personal Allowance) is taxed at 20% up to £37,700 above the allowance (the basic rate band ending at £50,270 total), then 40% on earnings from £50,271 to £125,140, then 45% above that.</p>
+          <p><strong>Step 3 — National Insurance:</strong> Class 1 employee NI is charged at 8% on earnings between £12,570 and £50,270, and 2% on everything above £50,270.</p>
+          <p><strong>Step 4 — Student Loan and pension:</strong> If applicable, student loan repayments are deducted at 9% above your plan's threshold. Pension contributions reduce your gross pay before income tax is calculated, delivering tax relief on every pound contributed.</p>
+          <h2>2026/27 Income Tax and NI Quick Reference</h2>
+          <table>
+            <thead><tr><th>Component</th><th>Rate</th><th>Income band</th></tr></thead>
+            <tbody>
+              <tr><td>Personal Allowance</td><td>0%</td><td>£0–£12,570</td></tr>
+              <tr><td>Basic rate Income Tax</td><td>20%</td><td>£12,571–£50,270</td></tr>
+              <tr><td>Higher rate Income Tax</td><td>40%</td><td>£50,271–£125,140</td></tr>
+              <tr><td>Additional rate Income Tax</td><td>45%</td><td>Over £125,140</td></tr>
+              <tr><td>Employee NI (primary)</td><td>8%</td><td>£12,571–£50,270</td></tr>
+              <tr><td>Employee NI (upper)</td><td>2%</td><td>Over £50,270</td></tr>
+            </tbody>
+          </table>
+          <h2>Take-Home Pay at Common Salary Levels (2026/27, England)</h2>
+          <table>
+            <thead><tr><th>Gross salary</th><th>Monthly take-home</th><th>Effective rate</th><th>Marginal rate</th></tr></thead>
+            <tbody>
+              <tr><td>£20,000</td><td>~£1,568/month</td><td>6.0%</td><td>28%</td></tr>
+              <tr><td>£30,000</td><td>~£2,106/month</td><td>15.8%</td><td>28%</td></tr>
+              <tr><td>£40,000</td><td>~£2,636/month</td><td>20.9%</td><td>28%</td></tr>
+              <tr><td>£50,000</td><td>~£3,129/month</td><td>24.9%</td><td>28%</td></tr>
+              <tr><td>£60,000</td><td>~£3,583/month</td><td>28.3%</td><td>42%</td></tr>
+              <tr><td>£75,000</td><td>~£4,200/month</td><td>32.8%</td><td>42%</td></tr>
+              <tr><td>£100,000</td><td>~£5,246/month</td><td>37.1%</td><td>42%</td></tr>
+            </tbody>
+          </table>
+          <p><small>No student loan, no pension, standard 1257L tax code. Scottish taxpayers pay different rates — select Scotland in the calculator above.</small></p>
+          <h2>Scotland: Different Tax Rates</h2>
+          <p>Scottish taxpayers pay income tax at six rates rather than three. The Scottish Intermediate Rate of 21% applies on earnings of £25,297–£43,662, and the Higher Rate is 42% (vs 40% in England). On a £50,000 salary, a Scottish worker takes home approximately £1,300 less per year than an English colleague. Select "Scotland" in the region setting above to calculate your exact Scottish take-home.</p>
+          <h2>Frequently Asked Questions</h2>
+          <p><strong>Does pension salary sacrifice affect my take-home?</strong> Yes — a salary sacrifice pension contribution reduces your gross pay before both Income Tax and National Insurance are calculated. A basic rate taxpayer saves 28p of every £1 contributed (20% IT + 8% NI). A higher rate taxpayer saves 42p per £1.</p>
+          <p><strong>What is the 1257L tax code?</strong> 1257L is the standard tax code for 2026/27, indicating a Personal Allowance of £12,570. An emergency code (W1, M1, or X) taxes you at a flat rate with no allowance. If you see an emergency code on your payslip, contact HMRC to have it corrected.</p>
+          <p><strong>Why is my take-home lower than the calculator shows?</strong> The calculator models standard deductions. You may have a different tax code (e.g. if you have underpaid tax from a previous year), a different NI category (e.g. category C for over-state-pension-age workers), or your employer may deduct other items such as employer benefits or season ticket loans.</p>
+        </div>
+      </section>
     </Shell>
   );
 };

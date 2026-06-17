@@ -88,6 +88,40 @@ const SelfEmployed = () => {
           </div>
         </div>
       </section>
+
+
+      {/* SEO content */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>Self-Employed Tax in the UK — 2026/27</h2>
+          <p>As a sole trader, you pay Income Tax on your profit (revenue minus allowable expenses) and Class 4 National Insurance. Unlike employees, there's no PAYE — you calculate and pay your tax annually through Self Assessment, with payments due on 31 January and 31 July.</p>
+          <h2>2026/27 Self-Employed Tax Rates</h2>
+          <table>
+            <thead><tr><th>Tax</th><th>Rate</th><th>On profits between</th></tr></thead>
+            <tbody>
+              <tr><td>Income Tax (Personal Allowance)</td><td>0%</td><td>£0–£12,570</td></tr>
+              <tr><td>Income Tax (basic rate)</td><td>20%</td><td>£12,571–£50,270</td></tr>
+              <tr><td>Income Tax (higher rate)</td><td>40%</td><td>£50,271–£125,140</td></tr>
+              <tr><td>Class 4 NI</td><td>6%</td><td>£12,571–£50,270</td></tr>
+              <tr><td>Class 4 NI (upper)</td><td>2%</td><td>Over £50,270</td></tr>
+            </tbody>
+          </table>
+          <h2>Take-Home at Common Profit Levels</h2>
+          <table>
+            <thead><tr><th>Annual profit</th><th>Income Tax</th><th>Class 4 NI</th><th>Net take-home</th></tr></thead>
+            <tbody>
+              <tr><td>£20,000</td><td>£1,486</td><td>£449</td><td>£18,065</td></tr>
+              <tr><td>£35,000</td><td>£4,486</td><td>£1,349</td><td>£29,165</td></tr>
+              <tr><td>£50,000</td><td>£7,486</td><td>£2,246</td><td>£40,268</td></tr>
+              <tr><td>£70,000</td><td>£15,432</td><td>£2,646</td><td>£51,922</td></tr>
+            </tbody>
+          </table>
+          <p><small>England, 2026/27, no student loan. Class 2 NI (voluntary State Pension protection) not included.</small></p>
+          <h2>Payments on Account — Set Aside 25–30%</h2>
+          <p>Once your tax bill exceeds £1,000, HMRC requires advance payments on account — 50% of last year's bill in January and another 50% in July. This means in your first Self Assessment January you may owe both the current year's tax and 50% on account for next year. Setting aside 25–30% of every invoice from day one avoids a painful cash surprise.</p>
+          <p><strong>What counts as an allowable expense?</strong> Equipment, tools, vehicle mileage (45p/mile first 10,000 miles), professional subscriptions, insurance, accountancy fees, home office costs (proportion of bills), and training directly relevant to your existing trade are all deductible against profit before tax.</p>
+        </div>
+      </section>
     </Shell>
   );
 };

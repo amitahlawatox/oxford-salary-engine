@@ -103,6 +103,29 @@ const Dividend = () => {
           </div>
         </div>
       </section>
+
+
+      {/* SEO content */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>Dividend Tax in the UK — 2026/27</h2>
+          <p>Dividends are payments made by a company to its shareholders from after-tax profits. For director-shareholders of their own limited company, dividends are typically combined with a low salary to minimise Income Tax and National Insurance. Dividends are taxed at lower rates than employment income — but they don't attract National Insurance at any rate, which is their core tax advantage.</p>
+          <h2>2026/27 Dividend Tax Rates</h2>
+          <table>
+            <thead><tr><th>Dividend income band</th><th>Rate</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>First £500 (Dividend Allowance)</td><td>0%</td><td>Tax-free regardless of other income</td></tr>
+              <tr><td>Basic rate band (total income up to £50,270)</td><td>8.75%</td><td>After allowance used</td></tr>
+              <tr><td>Higher rate band (total income £50,271–£125,140)</td><td>33.75%</td><td>After allowance used</td></tr>
+              <tr><td>Additional rate band (above £125,140)</td><td>39.35%</td><td>After allowance used</td></tr>
+            </tbody>
+          </table>
+          <p>The Dividend Allowance has been reduced significantly in recent years — from £5,000 in 2017/18 down to just £500 in 2024/25 onwards. For director-shareholders taking substantial dividends, most income above the allowance is now taxed.</p>
+          <h2>Optimal Salary and Dividend Split for a Director (2026/27)</h2>
+          <p>For most limited company directors, the most tax-efficient approach is a salary of £12,570 (the Personal Allowance) with remaining income taken as dividends. At £12,570 salary, there is no Income Tax, no employer NI (salary is above the £5,000 Secondary Threshold, so employer NI applies at 15% on the excess — many directors take salary at exactly £5,000 to avoid this, sacrificing £7,570 × 20% basic rate tax = £1,514 to save employer NI of £7,570 × 15% = £1,136 — typically not worthwhile).</p>
+          <p>On £12,570 salary plus £37,700 dividends (total £50,270), after the £500 dividend allowance, tax is: £37,200 × 8.75% = £3,255. Total Income Tax = £3,255. Effective rate on £50,270 total income: 6.5%. Compare this to employment income of £50,270 which would attract £7,486 Income Tax + £2,994 NI = £10,480 total. The limited company structure saves approximately £7,225 at this income level.</p>
+        </div>
+      </section>
     </Shell>
   );
 };

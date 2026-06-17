@@ -145,6 +145,28 @@ const PayRise = () => {
           <Download className="h-3.5 w-3.5" /> Download PDF
         </button>
       </section>
+
+      {/* SEO content */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>What a Pay Rise Is Actually Worth After Tax (2026/27)</h2>
+          <p>The amount you keep from a pay rise depends entirely on which tax band it falls in. In the basic rate band (up to £50,270), you keep 72p of every extra pound earned. In the higher rate band (£50,271–£100,000), you keep 58p. In the Personal Allowance taper zone (£100,001–£125,140), you keep just 38p — an effective 62% marginal rate.</p>
+          <h2>What You Keep Per £1 Rise — By Band</h2>
+          <table>
+            <thead><tr><th>Your current salary</th><th>Rise falls in</th><th>You keep per £1</th><th>Monthly gain on £5,000 rise</th></tr></thead>
+            <tbody>
+              <tr><td>£25,000</td><td>Basic rate (28%)</td><td>72p</td><td>+£300/month</td></tr>
+              <tr><td>£45,000</td><td>Basic rate (28%)</td><td>72p</td><td>+£300/month</td></tr>
+              <tr><td>£52,000</td><td>Higher rate (42%)</td><td>58p</td><td>+£242/month</td></tr>
+              <tr><td>£95,000</td><td>Higher rate (42%)</td><td>58p</td><td>+£242/month</td></tr>
+              <tr><td>£105,000</td><td>Taper zone (62%)</td><td>38p</td><td>+£158/month</td></tr>
+            </tbody>
+          </table>
+          <h2>Crossing the £50,270 Threshold</h2>
+          <p>If a pay rise takes you from £47,000 to £55,000, the first £3,270 of the rise is in the basic rate band (you keep 72p/£1) and the remaining £4,730 is in the higher rate band (you keep 58p/£1). Your blended effective gain is approximately £5,600 net — not the £8,000 your employer is paying extra. Use the calculator above to model any scenario exactly.</p>
+          <p><strong>Better than a cash rise in some cases:</strong> If you're in or near the higher rate band, an employer pension contribution or salary sacrifice arrangement can be more valuable than the same gross pay rise. A £5,000 employer pension contribution costs your employer the same as a £5,000 pay rise, but you receive the full £5,000 into your pension tax-free, versus keeping only £2,900–£3,600 of a cash rise after tax and NI.</p>
+        </div>
+      </section>
     </Shell>
   );
 };

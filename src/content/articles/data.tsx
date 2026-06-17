@@ -84,39 +84,41 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Scotland and the rest of the UK have shared a Personal Allowance since devolution but diverged sharply on band design. In 2026/27 the gap is wider than ever in the middle and upper-middle salary range.</p>
-
-        <h2 id="bands-2026">Scottish income tax bands 2026/27</h2>
+        <p>Scotland and England have different income tax rates and bands. Since the Scottish Parliament gained full income tax-varying powers in 2017, Scottish taxpayers have paid increasingly different rates — and from 2023/24 onwards, the divergence for higher earners has become substantial. If you're comparing a job offer in Scotland versus England, or considering relocating, the tax difference is a material factor in the net financial outcome.</p>
+        <h2 id="rates">Scotland vs England — income tax rates 2026/27</h2>
         <table>
-          <thead><tr><th>Band</th><th>Range</th><th>Rate</th></tr></thead>
+          <thead><tr><th>Band</th><th>Scotland rate</th><th>England rate</th><th>Income range</th></tr></thead>
           <tbody>
-            <tr><td>Starter</td><td>£12,571–£16,537</td><td>19%</td></tr>
-            <tr><td>Basic</td><td>£16,538–£29,526</td><td>20%</td></tr>
-            <tr><td>Intermediate</td><td>£29,527–£43,662</td><td>21%</td></tr>
-            <tr><td>Higher</td><td>£43,663–£75,000</td><td>42%</td></tr>
-            <tr><td>Advanced</td><td>£75,001–£125,140</td><td>45%</td></tr>
-            <tr><td>Top</td><td>Over £125,140</td><td>48%</td></tr>
+            <tr><td>Starter rate</td><td>19%</td><td>20%</td><td>£12,571–£14,667</td></tr>
+            <tr><td>Basic rate</td><td>20%</td><td>20%</td><td>£14,668–£25,296</td></tr>
+            <tr><td>Intermediate rate</td><td>21%</td><td>20%</td><td>£25,297–£43,662</td></tr>
+            <tr><td>Higher rate</td><td>42%</td><td>40%</td><td>£43,663–£75,000 (Scot) / £50,271 (Eng)</td></tr>
+            <tr><td>Advanced rate</td><td>45%</td><td>40%</td><td>£75,001–£125,140 (Scot only)</td></tr>
+            <tr><td>Top / Additional rate</td><td>48%</td><td>45%</td><td>Over £125,140</td></tr>
           </tbody>
         </table>
-
-        <h2 id="comparison">Side-by-side take-home comparison</h2>
+        <h2 id="real-difference">Real take-home difference in pounds per month</h2>
         <table>
-          <thead><tr><th>Gross</th><th>Scotland net</th><th>England net</th><th>Difference</th></tr></thead>
+          <thead><tr><th>Gross salary</th><th>England take-home</th><th>Scotland take-home</th><th>Scotland pays more by</th></tr></thead>
           <tbody>
-            <tr><td>£30,000</td><td>£25,098</td><td>£25,119</td><td>−£21</td></tr>
-            <tr><td>£50,000</td><td>£38,024</td><td>£39,520</td><td>−£1,496</td></tr>
-            <tr><td>£75,000</td><td>£52,099</td><td>£54,520</td><td>−£2,421</td></tr>
-            <tr><td>£125,000</td><td>£77,824</td><td>£81,920</td><td>−£4,096</td></tr>
+            <tr><td>£25,000</td><td>£1,775/month</td><td>£1,770/month</td><td>~£5/month</td></tr>
+            <tr><td>£35,000</td><td>£2,460/month</td><td>£2,432/month</td><td>~£28/month</td></tr>
+            <tr><td>£50,000</td><td>£3,129/month</td><td>£2,978/month</td><td>~£151/month</td></tr>
+            <tr><td>£60,000</td><td>£3,583/month</td><td>£3,365/month</td><td>~£218/month</td></tr>
+            <tr><td>£80,000</td><td>£4,437/month</td><td>£4,082/month</td><td>~£355/month</td></tr>
+            <tr><td>£100,000</td><td>£5,246/month</td><td>£4,773/month</td><td>~£473/month</td></tr>
           </tbody>
         </table>
-        <p>Two practical takeaways:</p>
-        <ul>
-          <li>If you earn under <strong>£28,867</strong>, you actually pay slightly <em>less</em> tax in Scotland thanks to the 19% Starter band.</li>
-          <li>Above £43,663, the gap grows quickly because Scotland's Higher rate is 42% versus 40% — and starts £6,607 lower.</li>
-        </ul>
-
-        <h2 id="calculator">Run your own number</h2>
-        <p>Toggle "Scotland" in the <ToolLink to="/take-home">Take-Home Pay Calculator</ToolLink> to see your exact figure with pension and Student Loan factored in.</p>
+        <p><small>No student loan, no pension, standard tax code. NI rates are the same in both countries — NI is reserved to Westminster.</small></p>
+        <h2 id="offsets">What offsets the Scottish tax premium?</h2>
+        <p>Scotland's higher income tax is partially offset by policy differences: there are no prescription charges in Scotland (worth up to £34.65 per item in England), university tuition is free for Scottish-domiciled students (versus £9,535/year in England for 2025 entry), and personal care for older people is free. Council tax rates vary by local authority and are not systematically higher or lower in Scotland. For most working-age professionals without prescription needs, the net effect is that Scotland is more expensive in income tax terms — particularly above £43,662.</p>
+        <h2 id="pension">Pension relief: Scotland's one advantage for higher earners</h2>
+        <p>Scottish higher rate taxpayers receive 42% pension tax relief (vs 40% in England) on salary sacrifice contributions. A £10,000 pension contribution saves a Scottish 42% taxpayer £4,200 in income tax — £200 more than an English higher-rate taxpayer saves. For those earning £43,663–£75,000 in Scotland, maximising pension contributions is especially valuable.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Scottish Take-Home Calculator"},{path:"/insights/scottish-income-tax-bands-2026-27",label:"Scottish Tax Bands Full Guide"}]}
+          salaries={[{amount:35000},{amount:50000},{amount:60000},{amount:80000},{amount:100000}]}
+        />
       </>
     ),
   },
@@ -2097,66 +2099,37 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Here are average gross salaries and monthly take-home pay for over 40 UK professions in 2026, from entry level to experienced.</p>
-        <h2 id="healthcare">Healthcare</h2>
+        <p>UK salaries vary enormously by profession — a newly qualified nurse earns £29,970 while a senior barrister earns £200,000+. Understanding how your profession's pay compares to the national median (£37,430 in 2026) and what you actually take home after tax is essential for career planning, salary negotiation, and financial decisions.</p>
+        <h2 id="professions">Average UK salary by profession (2026)</h2>
         <table>
-          <thead><tr><th>Role</th><th>Average salary</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Profession</th><th>Typical salary range</th><th>Mid-point take-home</th></tr></thead>
           <tbody>
-            <tr><td>GP (salaried)</td><td>£70,000</td><td>£4,010</td></tr>
-            <tr><td>Hospital consultant</td><td>£105,000</td><td>£5,580</td></tr>
-            <tr><td>Pharmacist</td><td>£46,000</td><td>£3,080</td></tr>
-            <tr><td>Physiotherapist</td><td>£36,000</td><td>£2,555</td></tr>
-            <tr><td>Nurse (Band 5–6)</td><td>£33,000</td><td>£2,380</td></tr>
-            <tr><td>Paramedic</td><td>£36,000</td><td>£2,555</td></tr>
+            <tr><td>Software Engineer</td><td>£40,000–£85,000</td><td>~£3,100–£4,680/month</td></tr>
+            <tr><td>GP / Doctor</td><td>£70,000–£135,000</td><td>~£3,990–£6,400/month</td></tr>
+            <tr><td>Solicitor (NQ–5PQE)</td><td>£38,000–£90,000</td><td>~£2,640–£4,950/month</td></tr>
+            <tr><td>Accountant (qualified)</td><td>£42,000–£90,000</td><td>~£2,820–£4,950/month</td></tr>
+            <tr><td>Teacher (Main Pay Range)</td><td>£31,650–£43,685</td><td>~£2,212–£2,987/month</td></tr>
+            <tr><td>NHS Nurse (Band 5–7)</td><td>£29,970–£52,809</td><td>~£2,050–£3,140/month</td></tr>
+            <tr><td>Police Constable</td><td>£26,682–£46,044</td><td>~£1,870–£2,940/month</td></tr>
+            <tr><td>Electrician (employed)</td><td>£30,000–£45,000</td><td>~£2,115–£2,940/month</td></tr>
+            <tr><td>HGV Driver (Class 1)</td><td>£36,000–£48,000</td><td>~£2,530–£3,060/month</td></tr>
+            <tr><td>Project Manager</td><td>£42,000–£75,000</td><td>~£2,820–£4,340/month</td></tr>
+            <tr><td>Data Analyst</td><td>£35,000–£70,000</td><td>~£2,460–£4,040/month</td></tr>
+            <tr><td>Pharmacist (NHS Band 6–7)</td><td>£37,338–£52,809</td><td>~£2,610–£3,140/month</td></tr>
+            <tr><td>Social Worker</td><td>£28,000–£50,000</td><td>~£2,060–£3,190/month</td></tr>
+            <tr><td>Firefighter</td><td>£33,019–£47,396</td><td>~£2,350–£2,960/month</td></tr>
           </tbody>
         </table>
-        <h2 id="tech">Technology</h2>
-        <table>
-          <thead><tr><th>Role</th><th>Average salary</th><th>Monthly take-home</th></tr></thead>
-          <tbody>
-            <tr><td>Senior software engineer</td><td>£72,000</td><td>£4,090</td></tr>
-            <tr><td>Data scientist</td><td>£62,000</td><td>£3,723</td></tr>
-            <tr><td>Product manager</td><td>£68,000</td><td>£3,934</td></tr>
-            <tr><td>DevOps engineer</td><td>£65,000</td><td>£3,856</td></tr>
-            <tr><td>UX designer</td><td>£52,000</td><td>£3,217</td></tr>
-            <tr><td>IT support</td><td>£28,000</td><td>£2,040</td></tr>
-          </tbody>
-        </table>
-        <h2 id="legal-finance">Legal and finance</h2>
-        <table>
-          <thead><tr><th>Role</th><th>Average salary</th><th>Monthly take-home</th></tr></thead>
-          <tbody>
-            <tr><td>Solicitor (5 yrs PQE)</td><td>£65,000</td><td>£3,856</td></tr>
-            <tr><td>Chartered accountant</td><td>£52,000</td><td>£3,217</td></tr>
-            <tr><td>Financial adviser</td><td>£55,000</td><td>£3,392</td></tr>
-            <tr><td>Investment analyst</td><td>£62,000</td><td>£3,723</td></tr>
-            <tr><td>Mortgage broker</td><td>£48,000</td><td>£3,139</td></tr>
-          </tbody>
-        </table>
-        <h2 id="education">Education</h2>
-        <table>
-          <thead><tr><th>Role</th><th>Average salary</th><th>Monthly take-home</th></tr></thead>
-          <tbody>
-            <tr><td>Headteacher</td><td>£75,000</td><td>£4,224</td></tr>
-            <tr><td>Secondary teacher</td><td>£40,000</td><td>£2,776</td></tr>
-            <tr><td>Primary teacher</td><td>£36,000</td><td>£2,555</td></tr>
-            <tr><td>Teaching assistant</td><td>£22,000</td><td>£1,717</td></tr>
-            <tr><td>University lecturer</td><td>£48,000</td><td>£3,139</td></tr>
-          </tbody>
-        </table>
-        <h2 id="trades">Skilled trades</h2>
-        <table>
-          <thead><tr><th>Role</th><th>Average salary</th><th>Monthly take-home</th></tr></thead>
-          <tbody>
-            <tr><td>Electrician</td><td>£40,000</td><td>£2,776</td></tr>
-            <tr><td>Plumber</td><td>£38,000</td><td>£2,646</td></tr>
-            <tr><td>Carpenter</td><td>£34,000</td><td>£2,437</td></tr>
-            <tr><td>HGV driver</td><td>£36,000</td><td>£2,555</td></tr>
-            <tr><td>Bricklayer</td><td>£36,500</td><td>£2,583</td></tr>
-          </tbody>
-        </table>
-        <h2 id="calculate">Calculate your exact take-home</h2>
-        <p>Every figure above is before pension and student loan deductions. Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact monthly net.</p>
+        <p><small>Take-home estimated at mid-point, England, no student loan, no pension, standard tax code 2026/27. NHS roles exclude pension contributions which typically reduce take-home by 5–14%.</small></p>
+        <h2 id="public-vs-private">Public sector vs private sector</h2>
+        <p>Public sector salaries are generally lower than private sector equivalents at mid-level and above, but public sector workers typically receive more generous pension provision (defined-benefit schemes versus defined-contribution), more job security, and structured pay progression. The NHS Pension, Teachers' Pension Scheme, and Police Pension Scheme are substantially more valuable than typical private sector auto-enrolment pensions — adding 20–40% of employer contribution value on top of the headline salary.</p>
+        <h2 id="london">London premium by profession</h2>
+        <p>The London pay premium varies significantly by profession. Solicitors and finance professionals in London earn 40–100% more than regional counterparts. Teachers in Inner London earn a weighting allowance adding £5,000–£10,000. NHS nurses receive a London weighting of 20% (High Cost Area Supplement). Firefighters and police officers receive a specific London supplement. Software engineers and data professionals in London earn approximately 20–30% more than regional equivalents — a gap that has narrowed since widespread remote work adoption.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Calculate Your Take-Home"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"}]}
+          salaries={[{amount:30000},{amount:40000},{amount:55000},{amount:70000},{amount:90000}]}
+        />
       </>
     ),
   },
@@ -2309,47 +2282,47 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Teacher salaries in England are set by the School Teachers' Pay and Conditions Document (STPCD). Here is every scale point for 2026-27 with exact monthly take-home pay.</p>
-
-        <h2 id="mps">Main Pay Scale (MPS) 2026-27</h2>
+        <p>The teacher pay scale in England is set by the School Teachers' Pay and Conditions Document (STPCD), updated annually following recommendations from the School Teachers' Review Body (STRB). This page shows every scale point, the gross salary, and what teachers actually take home after Income Tax, National Insurance, and Teachers' Pension contributions in 2026/27.</p>
+        <h2 id="main">Main Pay Range — classroom teachers</h2>
         <table>
-          <thead><tr><th>Point</th><th>Outer London</th><th>Inner London</th><th>Outside London</th><th>Take-home (outside London)</th></tr></thead>
+          <thead><tr><th>Point</th><th>Outer London</th><th>Fringe</th><th>Rest of England</th><th>Take-home (rest of England)</th></tr></thead>
           <tbody>
-            <tr><td>M1 (NQT)</td><td>£36,413</td><td>£42,637</td><td>£31,650</td><td>£2,212/month</td></tr>
-            <tr><td>M2</td><td>£37,902</td><td>£44,305</td><td>£33,483</td><td>£2,330/month</td></tr>
-            <tr><td>M3</td><td>£39,650</td><td>£46,235</td><td>£35,674</td><td>£2,473/month</td></tr>
-            <tr><td>M4</td><td>£41,719</td><td>£48,235</td><td>£37,935</td><td>£2,630/month</td></tr>
-            <tr><td>M5</td><td>£44,270</td><td>£50,471</td><td>£40,625</td><td>£2,804/month</td></tr>
-            <tr><td>M6</td><td>£47,185</td><td>£53,482</td><td>£43,685</td><td>£2,987/month</td></tr>
+            <tr><td>M1 (NQT)</td><td>£38,765</td><td>£33,075</td><td>£31,650</td><td>~£2,212/month</td></tr>
+            <tr><td>M2</td><td>£40,568</td><td>£34,502</td><td>£33,483</td><td>~£2,330/month</td></tr>
+            <tr><td>M3</td><td>£42,842</td><td>£36,360</td><td>£35,674</td><td>~£2,473/month</td></tr>
+            <tr><td>M4</td><td>£45,201</td><td>£38,513</td><td>£37,935</td><td>~£2,630/month</td></tr>
+            <tr><td>M5</td><td>£48,062</td><td>£41,065</td><td>£40,625</td><td>~£2,804/month</td></tr>
+            <tr><td>M6</td><td>£51,179</td><td>£44,103</td><td>£43,685</td><td>~£2,987/month</td></tr>
           </tbody>
         </table>
-
-        <h2 id="ups">Upper Pay Scale (UPS) 2026-27</h2>
+        <h2 id="upper">Upper Pay Range</h2>
         <table>
-          <thead><tr><th>Point</th><th>Outer London</th><th>Inner London</th><th>Outside London</th><th>Take-home (outside London)</th></tr></thead>
+          <thead><tr><th>Point</th><th>Outer London</th><th>Fringe</th><th>Rest of England</th><th>Take-home (rest of England)</th></tr></thead>
           <tbody>
-            <tr><td>U1</td><td>£50,151</td><td>£56,660</td><td>£46,525</td><td>£3,130/month</td></tr>
-            <tr><td>U2</td><td>£51,482</td><td>£57,958</td><td>£48,389</td><td>£3,238/month</td></tr>
-            <tr><td>U3</td><td>£53,482</td><td>£60,321</td><td>£50,500</td><td>£3,339/month</td></tr>
+            <tr><td>U1</td><td>£54,455</td><td>£47,153</td><td>£46,525</td><td>~£3,130/month</td></tr>
+            <tr><td>U2</td><td>£56,561</td><td>£48,981</td><td>£48,389</td><td>~£3,238/month</td></tr>
+            <tr><td>U3</td><td>£58,833</td><td>£51,004</td><td>£50,500</td><td>~£3,339/month</td></tr>
           </tbody>
         </table>
-
-        <h2 id="leadership">Leadership Group pay range 2026-27</h2>
+        <p><small>Inner London scale is higher again — Inner London M1 is £42,637, U3 is £62,138. Take-home estimates are before Teachers' Pension Scheme contributions (8.3–11.7% of salary). Pension reduces monthly take-home by approximately £220–£490 depending on scale point.</small></p>
+        <h2 id="inner-london">Inner London scale</h2>
         <table>
-          <thead><tr><th>Group</th><th>Outside London</th><th>Inner London</th><th>Take-home (outside London)</th></tr></thead>
+          <thead><tr><th>Point</th><th>Inner London gross</th><th>Take-home (before pension)</th></tr></thead>
           <tbody>
-            <tr><td>L1</td><td>£51,179</td><td>£61,342</td><td>£3,244/month</td></tr>
-            <tr><td>L6 (Deputy HT, small school)</td><td>£62,570</td><td>£73,698</td><td>£3,755/month</td></tr>
-            <tr><td>L18 (Headteacher, mid school)</td><td>£84,483</td><td>£99,018</td><td>£4,782/month</td></tr>
-            <tr><td>L43 (Headteacher, large school)</td><td>£135,000+</td><td>£150,000+</td><td>£7,100+/month</td></tr>
+            <tr><td>M1 Inner London</td><td>£42,637</td><td>~£2,864/month</td></tr>
+            <tr><td>M6 Inner London</td><td>£53,482</td><td>~£3,354/month</td></tr>
+            <tr><td>U3 Inner London</td><td>£62,138</td><td>~£3,764/month</td></tr>
           </tbody>
         </table>
-
-        <h2 id="pension">Teachers' Pension Scheme deductions</h2>
-        <p>Teachers contribute between <strong>7.4% and 11.7%</strong> of salary to the Teachers' Pension Scheme depending on earnings. At M1 (£31,650), this is approximately £195/month — reducing take-home figures above by that amount.</p>
-
-        <h2 id="calculate">Calculate your exact teacher take-home</h2>
-        <p>Enter your exact scale point salary into our <ToolLink to="/take-home">take-home calculator</ToolLink> for your precise monthly net after tax, NI, and pension.</p>
+        <h2 id="pension">Teachers' Pension Scheme contributions</h2>
+        <p>All teachers in state schools are automatically enrolled in the Teachers' Pension Scheme (TPS), which provides a defined-benefit (career average) pension. Employee contribution rates for 2026/27 are tiered: 8.3% on salaries up to £32,135; 9.7% on £32,136–£43,259; 10.2% on £43,260–£51,292; 11.7% above £51,292. At M1 (£31,650), monthly pension contributions are approximately £219, reducing take-home to approximately £1,993/month. At M6 (£43,685), contributions are approximately £445/month, reducing take-home to approximately £2,542/month.</p>
+        <h2 id="scotland">Teacher pay in Scotland (2026/27)</h2>
+        <p>Scottish teacher pay is set separately by the Scottish Negotiating Committee for Teachers (SNCT). The probationer rate is £32,217, rising through the scale to £48,765 at the top of the Main Grade. Scottish teachers progress through the scale automatically without a formal application — unlike England where UPR requires a specific application. Scottish teachers also pay Scottish income tax rates, which are higher than England above £43,662, reducing take-home by approximately £650–£1,300/year at senior scale points.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Calculate Your Teacher Take-Home"},{path:"/insights/teacher-salary-uk-2026",label:"Full Teacher Salary Guide"}]}
+          salaries={[{amount:31650},{amount:37935},{amount:43685},{amount:50500},{amount:62138}]}
+        />
       </>
     ),
   },

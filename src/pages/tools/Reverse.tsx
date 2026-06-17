@@ -126,6 +126,33 @@ const Reverse = () => {
           </button>
         </div>
       </section>
+
+      {/* SEO content */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <h2>How to Work Out the Gross Salary You Need for a Target Net Income</h2>
+          <p>Most salary negotiations and job offers are quoted in gross (pre-tax) terms — but it's your net (take-home) income that determines what you can actually spend. The reverse salary calculator works backwards: you enter the monthly or annual net income you need, and it calculates the gross salary required to achieve that, accounting for Income Tax, National Insurance, and any Student Loan repayments.</p>
+          <h2>When You Need a Reverse Salary Calculator</h2>
+          <p><strong>Negotiating a salary offer:</strong> If you need £3,000/month to cover your outgoings, you need to know what gross salary that requires — not just hope a round-number gross will cover it. On a basic rate salary, £3,000/month net requires approximately £43,400 gross.</p>
+          <p><strong>Comparing job offers:</strong> Two jobs offering £45,000 gross in England and £45,000 gross in Scotland produce different take-home pay due to different income tax rates. The reverse calculator lets you compare net-equivalent gross figures across regions.</p>
+          <p><strong>Freelance day rate to salary equivalent:</strong> A contractor earning £400/day over 220 days earns £88,000 gross — but the reverse of that net income shows what employed gross salary would produce the same take-home, making the comparison clear.</p>
+          <h2>Common Gross Salaries Required for Target Net Income (England, 2026/27)</h2>
+          <table>
+            <thead><tr><th>Target monthly net</th><th>Required gross salary</th><th>Tax + NI per year</th></tr></thead>
+            <tbody>
+              <tr><td>£1,500/month</td><td>~£19,400/year</td><td>~£1,600</td></tr>
+              <tr><td>£2,000/month</td><td>~£27,100/year</td><td>~£3,100</td></tr>
+              <tr><td>£2,500/month</td><td>~£34,900/year</td><td>~£4,900</td></tr>
+              <tr><td>£3,000/month</td><td>~£43,400/year</td><td>~£7,000</td></tr>
+              <tr><td>£3,500/month</td><td>~£51,600/year</td><td>~£9,600</td></tr>
+              <tr><td>£4,000/month</td><td>~£60,400/year</td><td>~£12,400</td></tr>
+              <tr><td>£5,000/month</td><td>~£78,400/year</td><td>~£18,400</td></tr>
+            </tbody>
+          </table>
+          <p><small>No student loan, standard tax code, England. The jump from £3,000 to £3,500/month requires a disproportionately large gross increase because earnings above £50,270 are taxed at 42% (40% IT + 2% NI).</small></p>
+          <p><strong>Why does the higher-rate band require more gross per net pound?</strong> In the basic rate band, you keep 72p of every extra £1 earned (28% IT + NI combined). In the higher rate band, you only keep 58p. This is why a £10,000 gross pay rise from £45,000 to £55,000 produces a much smaller net improvement than the same rise from £35,000 to £45,000.</p>
+        </div>
+      </section>
     </Shell>
   );
 };
