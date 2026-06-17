@@ -134,15 +134,40 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <p>If you earn above £43,663 in Scotland, the Higher rate of 42% combines with 8% NI for an effective marginal rate of <strong>50%</strong> on every additional pound — before Student Loan. Above £75,000, it's 53%. Above £100,000 (with Personal Allowance taper) it's a punishing 70%.</p>
-
-        <h2>Three legal mitigation moves</h2>
-        <ol>
-          <li><strong>Salary sacrifice pension.</strong> A £5,000 sacrifice at the 42% band saves £2,100 income tax and £400 NI. Net cost: £2,500 for £5,000 in your pension.</li>
-          <li><strong>Charity Gift Aid carry-back.</strong> Scottish higher-rate relief is claimed via Self Assessment — don't leave it on the table.</li>
-          <li><strong>EV salary sacrifice.</strong> A growing employer benefit; the BIK rate stays low into 2027/28.</li>
-        </ol>
-        <p>Model the impact instantly in the <ToolLink to="/take-home">Take-Home calculator</ToolLink> — set Region to Scotland and slide the pension percentage up.</p>
+        <p>Scotland's income tax rates have diverged significantly from England since the Scottish Parliament gained tax-varying powers. The 2023 Scottish Budget introduced a new Advanced Rate of 45% (above the English higher rate of 40%) and maintained the intermediate rate of 21%, creating meaningful take-home pay differences for Scottish earners above £43,662. This guide explains exactly what changed and what it means for your payslip.</p>
+        <h2 id="bands">Scottish income tax bands 2026/27</h2>
+        <table>
+          <thead><tr><th>Band</th><th>Rate</th><th>Threshold</th><th>England rate</th></tr></thead>
+          <tbody>
+            <tr><td>Starter</td><td>19%</td><td>£12,571–£14,667</td><td>20%</td></tr>
+            <tr><td>Basic</td><td>20%</td><td>£14,668–£25,296</td><td>20%</td></tr>
+            <tr><td>Intermediate</td><td>21%</td><td>£25,297–£43,662</td><td>20%</td></tr>
+            <tr><td>Higher</td><td>42%</td><td>£43,663–£75,000</td><td>40%</td></tr>
+            <tr><td>Advanced</td><td>45%</td><td>£75,001–£125,140</td><td>40%</td></tr>
+            <tr><td>Top</td><td>48%</td><td>Over £125,140</td><td>45%</td></tr>
+          </tbody>
+        </table>
+        <h2 id="real-difference">What the difference means in pounds</h2>
+        <table>
+          <thead><tr><th>Salary</th><th>Extra Scottish tax vs England</th><th>Monthly take-home difference</th></tr></thead>
+          <tbody>
+            <tr><td>£30,000</td><td>+£96/year</td><td>−£8/month</td></tr>
+            <tr><td>£43,662</td><td>+£412/year</td><td>−£34/month</td></tr>
+            <tr><td>£50,000</td><td>+£1,550/year</td><td>−£129/month</td></tr>
+            <tr><td>£60,000</td><td>+£2,650/year</td><td>−£221/month</td></tr>
+            <tr><td>£80,000</td><td>+£4,250/year</td><td>−£354/month</td></tr>
+            <tr><td>£100,000</td><td>+£5,250/year</td><td>−£438/month</td></tr>
+          </tbody>
+        </table>
+        <h2 id="offsets">What offsets the Scottish tax premium?</h2>
+        <p>Scotland's higher income tax is partly offset by: no prescription charges (saving up to £34.65/year per person vs England's per-item charges), lower average council tax in many Scottish local authorities, free personal care for older people, and free university tuition for Scottish-domiciled students. Whether these offsets outweigh the tax premium depends on individual circumstances, but for high earners with no prescription needs and no university-age children, the tax premium is a net cost.</p>
+        <h2 id="pension">Pension planning for Scottish taxpayers</h2>
+        <p>The higher Scottish marginal rates make pension contributions especially valuable. A Scottish 42% taxpayer making a salary sacrifice pension contribution gets 42p relief per £1 contributed (vs 40p in England). A £10,000 salary sacrifice contribution saves £4,200 in Scottish Income Tax + £200 in NI = £4,400 total — leaving a net cost of only £5,600 for a £10,000 pension contribution.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Scottish Take-Home Calculator"},{path:"/insights/scottish-income-tax-bands-2026-27",label:"Full Scottish Tax Guide"}]}
+          salaries={[{amount:43000},{amount:50000},{amount:60000},{amount:80000},{amount:100000}]}
+        />
       </>
     ),
   },
@@ -165,22 +190,42 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Plan 5 is the loan plan introduced for English and Welsh students who started university in or after September 2023. It pairs a <strong>lower repayment threshold (£25,000)</strong> with a <strong>longer 40-year term</strong> — meaning most graduates will repay for the bulk of their working life.</p>
+        <p>Student Loan Plan 5 applies to English and Welsh students who started an undergraduate degree on or after 1 August 2023. It is the most significant change to student loan repayment terms in a generation — the threshold is lower, the term is longer, and most graduates will repay for the bulk of their working life. Understanding exactly what you repay month by month is essential for career and financial planning.</p>
 
-        <h2>What you repay in 2026/27</h2>
-        <p>9% of every pound you earn above £25,000.</p>
+        <h2 id="rates">Plan 5 repayment rates 2026/27</h2>
         <table>
-          <thead><tr><th>Salary</th><th>Annual Plan 5 deduction</th><th>Per month</th></tr></thead>
+          <thead><tr><th>Salary</th><th>Annual repayment</th><th>Monthly deduction</th><th>Effective rate on total salary</th></tr></thead>
           <tbody>
-            <tr><td>£28,000</td><td>£270</td><td>£23</td></tr>
-            <tr><td>£35,000</td><td>£900</td><td>£75</td></tr>
-            <tr><td>£45,000</td><td>£1,800</td><td>£150</td></tr>
-            <tr><td>£60,000</td><td>£3,150</td><td>£263</td></tr>
+            <tr><td>£25,000 (threshold)</td><td>£0</td><td>£0</td><td>0%</td></tr>
+            <tr><td>£28,000</td><td>£270</td><td>£23</td><td>1.0%</td></tr>
+            <tr><td>£32,000</td><td>£630</td><td>£53</td><td>2.0%</td></tr>
+            <tr><td>£37,430 (UK median)</td><td>£1,119</td><td>£93</td><td>3.0%</td></tr>
+            <tr><td>£45,000</td><td>£1,800</td><td>£150</td><td>4.0%</td></tr>
+            <tr><td>£60,000</td><td>£3,150</td><td>£263</td><td>5.3%</td></tr>
+            <tr><td>£80,000</td><td>£4,950</td><td>£413</td><td>6.2%</td></tr>
           </tbody>
         </table>
 
-        <h2>Should you overpay?</h2>
-        <p>For Plan 5, unlike Plan 2, voluntary overpayments often <em>do</em> make sense — the lower threshold and 40-year term mean most middle earners will repay the loan in full. Run a what-if in the <ToolLink to="/take-home">calculator</ToolLink> with Plan 5 selected to see the deduction.</p>
+        <h2 id="vs-other-plans">Plan 5 vs other plans — the key differences</h2>
+        <table>
+          <thead><tr><th>Feature</th><th>Plan 2 (pre-Aug 2023)</th><th>Plan 5 (from Aug 2023)</th></tr></thead>
+          <tbody>
+            <tr><td>Repayment threshold</td><td>£29,385/year</td><td>£25,000/year</td></tr>
+            <tr><td>Repayment rate</td><td>9%</td><td>9%</td></tr>
+            <tr><td>Write-off period</td><td>30 years</td><td>40 years</td></tr>
+            <tr><td>Interest rate</td><td>RPI + 0–3%</td><td>RPI only (max)</td></tr>
+            <tr><td>Who it affects</td><td>Starters 2012–Jul 2023</td><td>Starters Aug 2023+</td></tr>
+          </tbody>
+        </table>
+        <p>The lower threshold (£25,000 vs £29,385 for Plan 2) means Plan 5 borrowers start repaying at a lower salary, and the 40-year term means most will not see the balance written off before they retire. The Office for Budget Responsibility estimated that 52% of Plan 5 graduates will repay their loan in full before write-off — compared to just 25% on Plan 2. For high earners, this makes Plan 5 closer to a conventional loan.</p>
+
+        <h2 id="overpay">Should you make voluntary overpayments on Plan 5?</h2>
+        <p>For Plan 5, voluntary overpayments can be financially rational in a way they rarely were on Plan 2. Because the interest rate is capped at RPI and the term is 40 years, a graduate expecting to earn above median salary for most of their career will likely repay the full amount regardless. Making overpayments reduces the total interest and shortens the repayment period. The break-even analysis: if your expected lifetime earnings suggest you will repay in full anyway, overpaying earlier is mathematically equivalent to paying down a debt at the RPI interest rate — which may or may not beat other uses of that money (ISA, pension). Seek independent financial advice for large overpayment decisions.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator with Student Loan"},{path:"/insights/salary-calculator-uk-2026",label:"Full 2026/27 Tax Guide"}]}
+          salaries={[{amount:28000},{amount:35000},{amount:45000},{amount:60000},{amount:80000}]}
+        />
       </>
     ),
   },
@@ -233,34 +278,36 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <p>£50,000 sits £270 below the Higher Rate threshold in the rest of the UK — every £1 you earn above it costs an extra 20p in tax. That makes £50k one of the most tax-efficient salary points in the country.</p>
-
-        <h2>Headline numbers (England, no pension, no Student Loan)</h2>
-        <ul>
-          <li><strong>Annual net:</strong> £39,519.60</li>
-          <li><strong>Monthly:</strong> £3,293.30</li>
-          <li><strong>Weekly:</strong> £760.00</li>
-          <li><strong>Effective rate:</strong> 21.0%</li>
-        </ul>
-
-        <h2>With a 5% salary-sacrifice pension</h2>
-        <ul>
-          <li>Pension contribution: £2,500</li>
-          <li><strong>Annual net:</strong> £37,769</li>
-          <li><strong>Monthly:</strong> £3,147</li>
-          <li>Effective tax saving: £450 — your £2,500 pension cost £2,050.</li>
-        </ul>
-
-        <h2>Other regions</h2>
+        <p>A £50,000 salary is a significant milestone in the UK — it sits just below the Higher Rate Income Tax threshold of £50,270, which means almost all of a £50,000 salary is taxed at the basic rate. Understanding exactly what you take home on £50,000 — including the impact of student loans, pension contributions, and location — is essential for financial planning.</p>
+        <h2 id="breakdown">Take-home pay on £50,000 — 2026/27</h2>
         <table>
-          <thead><tr><th>Region</th><th>Annual net</th><th>Monthly</th></tr></thead>
+          <thead><tr><th>Component</th><th>Annual</th><th>Monthly</th></tr></thead>
           <tbody>
-            <tr><td>England / Wales / NI</td><td>£39,520</td><td>£3,293</td></tr>
-            <tr><td>Scotland</td><td>£38,024</td><td>£3,169</td></tr>
+            <tr><td>Gross salary</td><td>£50,000</td><td>£4,167</td></tr>
+            <tr><td>Income Tax (20% on £37,430)</td><td>−£7,486</td><td>−£624</td></tr>
+            <tr><td>National Insurance (8% on £37,700)</td><td>−£3,016</td><td>−£251</td></tr>
+            <tr><td><strong>Net take-home (no pension, no loan)</strong></td><td><strong>£39,498</strong></td><td><strong>£3,292</strong></td></tr>
           </tbody>
         </table>
-
-        <p>Adjust the bonus, pension and Student Loan in the <ToolLink to="/take-home">Take-Home calculator</ToolLink> to see your specific number.</p>
+        <h2 id="student-loan">With student loan deductions</h2>
+        <table>
+          <thead><tr><th>Plan</th><th>Annual deduction</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>No student loan</td><td>£0</td><td>£3,292</td></tr>
+            <tr><td>Plan 1</td><td>−£2,097 (9% above £26,900)</td><td>£3,117</td></tr>
+            <tr><td>Plan 2</td><td>−£1,856 (9% above £29,385)</td><td>£3,137</td></tr>
+            <tr><td>Plan 5</td><td>−£2,250 (9% above £25,000)</td><td>£3,104</td></tr>
+          </tbody>
+        </table>
+        <h2 id="scotland">Scotland vs England</h2>
+        <p>A £50,000 salary in Scotland is taxed differently. Scottish intermediate rate (21%) applies on £25,297–£43,662, and the higher rate (42%) applies on £43,663–£50,000. Scottish Income Tax on £50,000 is approximately £9,035 — around £1,550 more than England (£7,486). Monthly take-home in Scotland on £50,000 is approximately £3,163 vs £3,292 in England.</p>
+        <h2 id="pension">Impact of pension contributions</h2>
+        <p>A 5% pension contribution on £50,000 reduces your pensionable salary to £47,500. Income Tax and NI are calculated on £47,500, saving approximately £840 in tax and NI. Your net take-home falls by only £1,660 (£50,000 × 5% = £2,500 gross contribution, but you save £840 in tax/NI). Auto-enrolment at 5% on qualifying earnings (£6,240–£50,270) deducts approximately £2,202/year from gross pay — reducing monthly take-home by about £134 after tax relief.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Calculate Any Salary"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"}]}
+          salaries={[{amount:45000},{amount:50000},{amount:55000},{amount:60000},{amount:70000}]}
+        />
       </>
     ),
   },
@@ -310,18 +357,45 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <p>Sole traders pay Income Tax on profit (revenue minus allowable expenses) plus Class 4 NI. There's no Class 1 NI because you're not an employee — but Class 2 voluntary contributions can still protect your State Pension entitlement.</p>
+        <p>Self-employed people in the UK pay tax differently from employees — there is no employer to withhold PAYE on your behalf, so you calculate and pay your own tax through Self Assessment. Understanding exactly what you owe — and when — is essential to avoid underpaying and facing unexpected bills or penalties.</p>
 
-        <h2>2026/27 self-employed rates</h2>
-        <ul>
-          <li><strong>Class 4 NI:</strong> 6% on profits between £12,570 and £50,270; 2% above £50,270.</li>
-          <li><strong>Income Tax:</strong> identical bands to employees (20/40/45 in rUK).</li>
-          <li><strong>Class 2:</strong> abolished for most, voluntary at £3.50/week for State Pension purposes.</li>
-        </ul>
+        <h2 id="rates">2026/27 self-employed tax rates</h2>
+        <table>
+          <thead><tr><th>Tax</th><th>Band</th><th>Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Income Tax</td><td>£0–£12,570</td><td>0% (Personal Allowance)</td></tr>
+            <tr><td>Income Tax</td><td>£12,571–£50,270</td><td>20%</td></tr>
+            <tr><td>Income Tax</td><td>£50,271–£125,140</td><td>40%</td></tr>
+            <tr><td>Income Tax</td><td>Over £125,140</td><td>45%</td></tr>
+            <tr><td>Class 4 NI</td><td>£12,571–£50,270</td><td>6%</td></tr>
+            <tr><td>Class 4 NI</td><td>Over £50,270</td><td>2%</td></tr>
+            <tr><td>Class 2 NI</td><td>All profits</td><td>Voluntary; £3.50/week</td></tr>
+          </tbody>
+        </table>
 
-        <h2>How much to set aside</h2>
-        <p>A safe rule of thumb for a basic-rate sole trader: <strong>30% of profit</strong>. For higher-rate, set aside 45%.</p>
-        <p>Plug your number into the <ToolLink to="/self-employed">Self-Employed Calculator</ToolLink> for the exact split between Income Tax, Class 4 NI and your first payment on account.</p>
+        <h2 id="example">Worked example: £50,000 profit as a sole trader</h2>
+        <table>
+          <thead><tr><th>Component</th><th>Calculation</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Gross profit</td><td>—</td><td>£50,000</td></tr>
+            <tr><td>Income Tax</td><td>20% × (£50,000 − £12,570)</td><td>−£7,486</td></tr>
+            <tr><td>Class 4 NI</td><td>6% × (£50,000 − £12,570)</td><td>−£2,246</td></tr>
+            <tr><td><strong>Net after tax</strong></td><td>—</td><td><strong>£40,268</strong></td></tr>
+            <tr><td>Effective tax rate</td><td>—</td><td>19.5%</td></tr>
+          </tbody>
+        </table>
+        <p>Notice the effective rate (19.5%) is lower than an equivalent employee earning £50,000 (approximately 19.4% for Income Tax + 5.9% NI = 25.3% combined). This is because Class 4 NI at 6% is lower than Class 1 employee NI at 8%, and there is no Employer NI coming from your own pocket.</p>
+
+        <h2 id="payments">Payments on account — the cash flow trap</h2>
+        <p>If your Self Assessment tax bill exceeds £1,000, HMRC requires you to make "payments on account" — advance payments toward next year's tax bill. Each payment is 50% of last year's bill, due in January and July. If your profit was £50,000 and your tax bill is approximately £9,732, HMRC will collect £9,732 for year 1 PLUS £4,866 on account for year 2 in the same January — a total of £14,598 in one payment. This catches many newly self-employed people off guard. Set aside 25–30% of every invoice for tax from day one.</p>
+
+        <h2 id="allowable">Allowable expenses that reduce your tax bill</h2>
+        <p>Sole traders pay tax on profit, not revenue. Allowable deductions include: office costs (a proportion of home bills if working from home), equipment and tools, vehicle expenses (mileage at 45p/mile for the first 10,000 miles), professional subscriptions and insurance, accountancy fees, marketing costs, and training directly related to your existing trade. Pension contributions made personally (not salary sacrifice, which isn't available to sole traders) reduce your adjusted net income and are fully deductible.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/self-employed",label:"Self-Employed Tax Calculator"},{path:"/take-home",label:"Employed Take-Home Calculator"},{path:"/ir35",label:"IR35 Calculator"}]}
+          salaries={[{amount:25000},{amount:40000},{amount:60000},{amount:80000},{amount:100000}]}
+        />
       </>
     ),
   },
@@ -339,16 +413,34 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <p>IR35 ("off-payroll working rules") determines whether HMRC views your contract as employment-in-disguise. Inside IR35 means PAYE deductions; outside means you can keep operating through a limited company and benefit from dividend extraction.</p>
-        <h2>Worked example: £500/day, 220 days/year</h2>
+        <p>IR35 — formally the Intermediaries Legislation — determines whether HMRC views your contractor arrangement as genuine self-employment or "disguised employment." If you are inside IR35, the fee payer (your client or agency) must deduct PAYE Income Tax and National Insurance from your payments before they reach your limited company, just as if you were an employee. If outside IR35, you operate as a business, pay corporation tax on profits, and extract income as a combination of salary and dividends — keeping significantly more of your earnings.</p>
+        <h2 id="difference">Financial impact: inside vs outside IR35</h2>
         <table>
-          <thead><tr><th>Scenario</th><th>Annual gross</th><th>Take-home</th></tr></thead>
+          <thead><tr><th>Scenario</th><th>Inside IR35</th><th>Outside IR35</th></tr></thead>
           <tbody>
-            <tr><td>Inside IR35 (PAYE via umbrella)</td><td>£110,000</td><td>≈ £67,000</td></tr>
-            <tr><td>Outside IR35 (Ltd, optimal split)</td><td>£110,000</td><td>≈ £80,000</td></tr>
+            <tr><td>Day rate</td><td>£500/day</td><td>£500/day</td></tr>
+            <tr><td>Working days/year</td><td>220</td><td>220</td></tr>
+            <tr><td>Annual contract income</td><td>£110,000</td><td>£110,000</td></tr>
+            <tr><td>Corporation Tax</td><td>N/A</td><td>−£5,415</td></tr>
+            <tr><td>Income Tax + NI (PAYE equivalent)</td><td>−£38,500</td><td>−£6,000 (salary element only)</td></tr>
+            <tr><td>Dividend Tax</td><td>N/A</td><td>−£5,800</td></tr>
+            <tr><td><strong>Take-home</strong></td><td><strong>~£71,500</strong></td><td><strong>~£92,800</strong></td></tr>
           </tbody>
         </table>
-        <p>That's a £13,000 annual difference — enough to fund a workplace pension and an ISA combined. Model your day rate in the <ToolLink to="/ir35">IR35 calculator</ToolLink>.</p>
+        <p>The difference — approximately £21,300/year — represents the value of remaining outside IR35. At higher day rates, the gap grows. Use the <ToolLink to="/ir35">IR35 Calculator</ToolLink> to model your exact numbers at any day rate.</p>
+        <h2 id="status">How IR35 status is determined</h2>
+        <p>Since April 2021, medium and large private sector clients are responsible for determining IR35 status (the reformed off-payroll working rules). Only small companies (two of: turnover &lt;£10.2M, balance sheet &lt;£5.1M, &lt;50 employees) still allow contractors to self-determine status. The key factors in any determination are:</p>
+        <p><strong>Substitution:</strong> Can you send a suitably qualified substitute to complete the work without the client's approval of the individual? A genuine right of substitution strongly indicates outside IR35.</p>
+        <p><strong>Mutuality of obligation:</strong> Is the client obliged to offer work and are you obliged to accept? If there's no ongoing commitment, this points outside IR35.</p>
+        <p><strong>Control:</strong> Does the client dictate how, when, and where you work? High levels of client control indicate inside IR35. Genuine autonomy over working methods indicates outside.</p>
+        <p><strong>Integration:</strong> Are you treated as part of the client's workforce — included in team meetings, on internal directories, using client equipment? Integration signals inside IR35.</p>
+        <h2 id="umbrella">Inside IR35 via umbrella</h2>
+        <p>Many inside-IR35 contractors operate through umbrella companies rather than their own limited company. Umbrella companies act as the employer, handle PAYE, and charge a weekly margin (typically £20–£35). This simplifies administration but does not improve take-home pay — you still pay full PAYE rates. The advantage of umbrella over a limited company inside IR35 is reduced admin: no annual accounts, corporation tax returns, or director responsibilities.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/ir35",label:"IR35 Calculator"},{path:"/contractor",label:"Contractor vs Umbrella Calculator"},{path:"/insights/self-employed-tax-calculator-2026",label:"Self-Employed Tax Guide"}]}
+          salaries={[{amount:60000},{amount:80000},{amount:110000},{amount:140000},{amount:180000}]}
+        />
       </>
     ),
   },
@@ -366,15 +458,30 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <p>A single-director Ltd has two extraction levers: salary (deductible against Corporation Tax) and dividends (paid from post-tax profit, but taxed at lower rates personally).</p>
-        <h2>Why £12,570 salary?</h2>
-        <ul>
-          <li>It uses your full Personal Allowance — no Income Tax due on the salary itself.</li>
-          <li>It sits at the Primary Threshold — no employee NI.</li>
-          <li>It maintains your State Pension qualifying year.</li>
-        </ul>
-        <p>You then top up via dividends, taxed at 8.75% (basic), 33.75% (higher) and 39.35% (additional) above the £500 Dividend Allowance.</p>
-        <p>Use the <ToolLink to="/dividend">Dividend Optimiser</ToolLink> — it brute-forces the best split for your total target extraction.</p>
+        <p>Operating as a director of your own limited company gives you flexibility to structure your income in the most tax-efficient way. The standard strategy is to pay yourself a low salary (at or near the National Insurance threshold) and take the remainder of your income as dividends, which are taxed at lower rates than employment income. Here is how the optimal split works for 2026/27.</p>
+        <h2 id="optimal-split">Optimal salary and dividend split 2026/27</h2>
+        <p>For most directors, the tax-optimal salary is <strong>£12,570</strong> — exactly the Personal Allowance. This generates no Income Tax and no employee NI (salary is below the £12,570 primary threshold). The company pays no employer NI either (salary is below the £5,000 secondary threshold). Above £12,570, the next £500 — up to £13,070 — attracts no employer NI but costs personal NI at 8%. Dividend income above the £500 Dividend Allowance is taxed at 8.75% (basic rate), 33.75% (higher rate), or 39.35% (additional rate).</p>
+        <table>
+          <thead><tr><th>Profit level</th><th>Optimal split</th><th>Take-home</th><th>vs PAYE equivalent</th></tr></thead>
+          <tbody>
+            <tr><td>£60,000</td><td>£12,570 salary + £38,215 dividend</td><td>~£47,900</td><td>+£4,200 better</td></tr>
+            <tr><td>£80,000</td><td>£12,570 salary + £56,215 dividend</td><td>~£61,200</td><td>+£5,800 better</td></tr>
+            <tr><td>£100,000</td><td>£12,570 salary + £74,215 dividend</td><td>~£73,500</td><td>+£7,400 better</td></tr>
+            <tr><td>£150,000</td><td>£12,570 salary + complex split</td><td>~£101,000</td><td>+£10,000+ better</td></tr>
+          </tbody>
+        </table>
+        <p><small>Figures assume corporation tax at 19–25% on profits (small profits rate applies below £50,000 profit). Estimates only — see a contractor accountant for your exact position.</small></p>
+        <h2 id="corporation-tax">Corporation tax rates 2026/27</h2>
+        <p>The small profits rate of 19% applies to profits up to £50,000. The main rate of 25% applies above £250,000. Between £50,000 and £250,000, marginal relief applies — the effective rate tapers from 19% to 25%. For most owner-managed businesses earning £60,000–£120,000 profit, effective corporation tax is approximately 21–23%.</p>
+        <h2 id="dividend-allowance">Dividend Allowance 2026/27</h2>
+        <p>The first £500 of dividend income per year is tax-free (reduced from £1,000 in 2023/24 and £2,000 in 2022/23). Dividend income above £500 is taxed at 8.75% (basic rate), 33.75% (higher rate, applies when total income exceeds £50,270), or 39.35% (additional rate above £125,140). Dividends do not attract National Insurance at any rate — this is the core reason directors choose this structure.</p>
+        <h2 id="pension">Pension contributions from a limited company</h2>
+        <p>One of the most powerful advantages of a limited company structure is the ability to make employer pension contributions directly from the company — these are a deductible business expense that reduces corporation tax. A £20,000 employer pension contribution saves £3,800–£5,000 in corporation tax (at 19–25%), in addition to the pension growth. Combined with no NI on the contribution (versus salary), company pension contributions are exceptionally tax-efficient.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/dividend",label:"Dividend Tax Calculator"},{path:"/ir35",label:"IR35 Calculator"},{path:"/insights/ir35-inside-vs-outside-2026",label:"IR35 Inside vs Outside"}]}
+          salaries={[{amount:60000},{amount:80000},{amount:100000},{amount:150000}]}
+        />
       </>
     ),
   },
@@ -392,11 +499,42 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <p>If you take a second job in the UK, HMRC almost always assigns it a <strong>BR (basic rate) tax code</strong> — meaning every pound is taxed at 20% from the first penny. Your full Personal Allowance stays with the primary employer.</p>
-        <h2>What it looks like in practice</h2>
-        <p>Job 1: £25,000 with code 1257L → Personal Allowance applied normally.<br />Job 2: £10,000 with code BR → £2,000 income tax (20%), no allowance.</p>
-        <p>If your combined income pushes you over the £50,270 Higher Rate threshold, the second job may need a <strong>D0 code</strong> (40% from the first pound) instead. HMRC adjusts this once they see both PAYE feeds.</p>
-        <p>Use the <ToolLink to="/two-jobs">Two-Jobs calculator</ToolLink> for a true combined picture.</p>
+        <p>Working two jobs in the UK is perfectly legal and increasingly common — but the tax treatment is often misunderstood. HMRC does not tax your second job differently by design; rather, the system works by assigning your full Personal Allowance to one job, which means your second employer deducts tax from the first penny of earnings. This guide explains exactly how it works and what you can do about it.</p>
+
+        <h2 id="how-it-works">How two-job tax works in 2026/27</h2>
+        <p>Your Personal Allowance (£12,570) can only be used by one employer at a time. HMRC assigns it to your primary job via your tax code (usually 1257L). Your second employer is instructed to use a BR (Basic Rate) code — meaning 20% Income Tax is deducted on every pound from the second job, with no tax-free allowance applied.</p>
+        <table>
+          <thead><tr><th>Job</th><th>Tax code</th><th>How tax is deducted</th></tr></thead>
+          <tbody>
+            <tr><td>Primary job (£25,000)</td><td>1257L</td><td>No tax on first £12,570; 20% on remainder = £2,486 tax</td></tr>
+            <tr><td>Secondary job (£10,000)</td><td>BR</td><td>20% on full £10,000 = £2,000 tax</td></tr>
+            <tr><td>Combined</td><td>—</td><td>Total tax £4,486; effective combined rate 12.7%</td></tr>
+          </tbody>
+        </table>
+        <p>Importantly, <strong>the total tax you pay is the same as if all income came from one employer</strong>. On combined income of £35,000, you owe £4,486 regardless of how it is split. The BR code is not a penalty — it simply ensures tax is collected at source rather than via a year-end bill.</p>
+
+        <h2 id="higher-rate">When two jobs push you into the higher rate</h2>
+        <p>If your combined income from both jobs exceeds £50,270, some earnings are taxed at 40%. A common scenario: Job 1 pays £45,000 (code 1257L) and Job 2 pays £8,000 (code BR). Total income is £53,000. The first £4,730 above £50,270 from Job 2 is taxed at 40% (D0 code), not 20%. HMRC will usually detect this through RTI (Real Time Information) and issue an updated tax code to Job 2 automatically, but there can be a lag — which means you may owe tax at year end.</p>
+
+        <h2 id="ni">National Insurance on two jobs</h2>
+        <p>NI is calculated per-employment, not across combined income. This is one area where two jobs can genuinely cost you more tax overall. If Job 1 pays £50,270 and Job 2 pays £10,000, you pay:</p>
+        <table>
+          <thead><tr><th>Job</th><th>NI calculation</th><th>NI owed</th></tr></thead>
+          <tbody>
+            <tr><td>Job 1</td><td>8% on £37,700 (£12,570–£50,270)</td><td>£3,016</td></tr>
+            <tr><td>Job 2</td><td>8% on £10,000 (above threshold again)</td><td>£800</td></tr>
+            <tr><td>Single employer at £60,270</td><td>8% on £37,700 + 2% on £10,000</td><td>£3,216</td></tr>
+          </tbody>
+        </table>
+        <p>In this example, the two-job NI totals £3,816 — £600 more than a single employer scenario. You can reclaim the overpaid NI from HMRC after the tax year by contacting them directly.</p>
+
+        <h2 id="selfassessment">Do you need to complete Self Assessment?</h2>
+        <p>If your total income from all sources exceeds £100,000, or if HMRC cannot collect all the tax owed through your tax codes, you will need to complete a Self Assessment tax return. At lower income levels with standard employment, HMRC usually adjusts your codes automatically and no return is needed.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/two-jobs",label:"Two Jobs Calculator"},{path:"/take-home",label:"Take-Home Calculator"}]}
+          salaries={[{amount:20000},{amount:30000},{amount:45000},{amount:55000},{amount:70000}]}
+        />
       </>
     ),
   },
@@ -414,18 +552,42 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <p>The marginal rate — what you keep on the <em>next</em> £1 — is what matters when negotiating a pay rise. In rUK 2026/27:</p>
+        <p>A pay rise sounds straightforward, but the amount that actually reaches your bank account depends on your current salary, the size of the rise, and whether the increase pushes you across a tax band boundary. Understanding the marginal rate you pay — what you keep on the next £1 — is essential for evaluating job offers, negotiating salary, or comparing a raise to a pension contribution.</p>
+
+        <h2 id="marginal">Marginal tax rates in 2026/27 (England)</h2>
         <table>
-          <thead><tr><th>Band</th><th>Marginal stack</th></tr></thead>
+          <thead><tr><th>Salary band</th><th>Income Tax</th><th>NI</th><th>What you keep per £1</th></tr></thead>
           <tbody>
-            <tr><td>Up to £12,570</td><td>0%</td></tr>
-            <tr><td>£12,570 – £50,270</td><td>20% IT + 8% NI = <strong>28%</strong></td></tr>
-            <tr><td>£50,270 – £100,000</td><td>40% IT + 2% NI = <strong>42%</strong></td></tr>
-            <tr><td>£100,000 – £125,140</td><td>40% IT + 2% NI + 20% PA taper = <strong>62%</strong></td></tr>
-            <tr><td>£125,140+</td><td>45% IT + 2% NI = <strong>47%</strong></td></tr>
+            <tr><td>£0 – £12,570</td><td>0%</td><td>0%</td><td>£1.00</td></tr>
+            <tr><td>£12,571 – £50,270</td><td>20%</td><td>8%</td><td>£0.72</td></tr>
+            <tr><td>£50,271 – £100,000</td><td>40%</td><td>2%</td><td>£0.58</td></tr>
+            <tr><td>£100,001 – £125,140</td><td>60% (incl. taper)</td><td>2%</td><td>£0.38</td></tr>
+            <tr><td>£125,141+</td><td>45%</td><td>2%</td><td>£0.53</td></tr>
           </tbody>
         </table>
-        <p>Add 9% if you're on a Student Loan plan. The <ToolLink to="/pay-rise">Pay Rise Simulator</ToolLink> shows exactly what your raise becomes after tax.</p>
+
+        <h2 id="examples">What a pay rise is worth after tax — examples</h2>
+        <table>
+          <thead><tr><th>Current salary</th><th>Pay rise</th><th>Gross increase</th><th>Net monthly increase</th></tr></thead>
+          <tbody>
+            <tr><td>£28,000</td><td>£2,000</td><td>£2,000</td><td>+£120/month</td></tr>
+            <tr><td>£35,000</td><td>£5,000</td><td>£5,000</td><td>+£300/month</td></tr>
+            <tr><td>£45,000</td><td>£10,000 (into higher rate)</td><td>£10,000</td><td>+£432/month</td></tr>
+            <tr><td>£95,000</td><td>£10,000 (into taper zone)</td><td>£10,000</td><td>+£317/month</td></tr>
+            <tr><td>£95,000</td><td>£30,000 (salary sacrifice instead)</td><td>£0 take-home</td><td>Same take-home, +£12,000 pension</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="threshold">Crossing the £50,270 threshold</h2>
+        <p>The jump from basic to higher rate at £50,270 is the most common pay rise complication. If you earn £46,000 and receive a £6,000 pay rise, the first £4,270 is taxed at the basic rate (28% combined IT + NI) and the remaining £1,730 is taxed at the higher rate (42%). Your average marginal rate across the rise is approximately 33% — you keep £4,020 of the £6,000 rise, or £335/month extra.</p>
+
+        <h2 id="negotiate">How to use this when negotiating</h2>
+        <p>If you are currently earning £48,000 and your employer offers a £5,000 rise to £53,000, your take-home increase is approximately £2,900/year (£242/month) — less than half the gross value. An alternative worth discussing: a smaller cash rise combined with an employer pension contribution, or a salary sacrifice arrangement for an EV or additional pension, can produce the same or better outcome in after-tax wealth terms. Use the Pay Rise Calculator to model any scenario before your next negotiation.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/pay-rise",label:"Pay Rise Calculator"},{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/personal-allowance-taper-100k-trap",label:"The £100K Tax Trap"}]}
+          salaries={[{amount:28000},{amount:35000},{amount:50000},{amount:65000},{amount:100000}]}
+        />
       </>
     ),
   },
@@ -443,20 +605,44 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <h2>Class 1 (employees)</h2>
-        <ul>
-          <li>0% below £242/week (£12,570/year)</li>
-          <li>8% on £242–£967/week (£12,570–£50,270/year)</li>
-          <li>2% above £967/week</li>
-        </ul>
-        <h2>Class 2 (self-employed)</h2>
-        <p>Effectively abolished — voluntary £3.50/week if you want to bank a State Pension qualifying year and your profits are below the lower limit.</p>
-        <h2>Class 4 (self-employed)</h2>
-        <ul>
-          <li>6% on profits £12,570–£50,270</li>
-          <li>2% above £50,270</li>
-        </ul>
-        <p>NI counts towards 35 qualifying years for a full new State Pension.</p>
+        <p>National Insurance (NI) is a tax on earnings paid by employees, employers, and the self-employed. It funds the NHS, State Pension, and certain benefits. Unlike Income Tax, NI has separate classes depending on your employment status — and each class has different rates and thresholds for 2026/27.</p>
+
+        <h2 id="class1">Class 1 — Employees</h2>
+        <p>Class 1 NI is paid by employees on their wages. Your employer deducts it automatically through PAYE before you see your pay. The rates for 2026/27 are:</p>
+        <table>
+          <thead><tr><th>Earnings band</th><th>Annual</th><th>Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Below Primary Threshold</td><td>Below £12,570</td><td>0%</td></tr>
+            <tr><td>Primary Threshold to UEL</td><td>£12,570–£50,270</td><td>8%</td></tr>
+            <tr><td>Above Upper Earnings Limit</td><td>Above £50,270</td><td>2%</td></tr>
+          </tbody>
+        </table>
+        <p>On a typical £35,000 salary, Class 1 NI costs approximately £1,794 per year — or £150 per month. On £50,000 it costs approximately £2,994 (£250/month). Once you earn above £50,270, every additional pound is only taxed at 2% NI, making the combined Income Tax + NI marginal rate fall from 48% to 42%.</p>
+
+        <h2 id="employer">Employer NI — What Your Employer Pays on Top</h2>
+        <p>Your employer also pays Class 1 NI at 15% on your earnings above £5,000 per year. This is not deducted from your pay — it is an additional employment cost your employer bears. On a £35,000 salary, your employer pays approximately £4,500/year in NI on top of your gross wage. This is why total employment cost is always higher than the headline salary figure.</p>
+
+        <h2 id="class4">Class 4 — Self-Employed</h2>
+        <table>
+          <thead><tr><th>Profit band</th><th>Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Below £12,570</td><td>0%</td></tr>
+            <tr><td>£12,570 – £50,270</td><td>6%</td></tr>
+            <tr><td>Above £50,270</td><td>2%</td></tr>
+          </tbody>
+        </table>
+        <p>Self-employed people pay Class 4 NI on their profits through Self Assessment. The 6% rate is lower than the employee rate of 8% — but self-employed workers don't receive employer contributions, sick pay, or employment rights in exchange. Class 2 NI (a flat weekly contribution) was effectively abolished for most self-employed people from April 2024, though voluntary payments of £3.50/week remain available to protect State Pension entitlement.</p>
+
+        <h2 id="state-pension">NI and Your State Pension</h2>
+        <p>You need 35 qualifying NI years to receive the full new State Pension (£221.20/week from April 2026). Each year you earn above the Lower Earnings Limit (£6,396 in 2026/27) counts as a qualifying year — even if you pay no NI because you earn below the Primary Threshold. Gaps in your record can be filled by buying voluntary Class 3 NI contributions (£824.20 per year in 2026/27).</p>
+
+        <h2 id="reduce">How to Reduce Your NI Bill</h2>
+        <p>The most effective way to reduce employee NI is <strong>salary sacrifice</strong>. By contributing to a pension or paying for an EV through salary sacrifice, you reduce your gross pay before NI is calculated. A basic-rate taxpayer making a £5,000 salary sacrifice pension contribution saves £400 in NI (8% of £5,000). A higher-rate taxpayer saves £100 (2% above £50,270). Employers also save 15% in NI on sacrificed amounts, which is why many employers pass some of this saving back to employees.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/salary-sacrifice/electric-car",label:"EV Salary Sacrifice"},{path:"/self-employed",label:"Self-Employed NI Calculator"}]}
+          salaries={[{amount:20000},{amount:35000},{amount:50000},{amount:60000},{amount:100000}]}
+        />
       </>
     ),
   },
@@ -474,14 +660,33 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <p>If your "adjusted net income" exceeds £100,000, your Personal Allowance shrinks by £1 for every £2 above. By £125,140 it's fully gone — that's an effective <strong>60% income tax</strong> rate inside the trap, plus 2% NI for 62%, plus 9% if on Plan 2 / 4 / 5 Student Loan = up to 71%.</p>
-        <h2>Three escape routes</h2>
-        <ol>
-          <li><strong>Pension contributions</strong> reduce adjusted net income, restoring your Personal Allowance pound-for-pound. A £25,140 contribution turns £125,140 into £100,000 and reclaims the entire £12,570 allowance.</li>
-          <li><strong>Charitable giving via Gift Aid</strong> works the same way.</li>
-          <li><strong>Salary sacrifice</strong> bonuses into pension before they hit your gross.</li>
-        </ol>
-        <p>Use the <ToolLink to="/take-home">Take-Home calculator</ToolLink> at £125,000 — then slide pension % up and watch the marginal saving land at 62%+.</p>
+        <p>The Personal Allowance taper is one of the UK tax system's most damaging quirks. If your income exceeds £100,000, HMRC reduces your Personal Allowance by £1 for every £2 you earn above that threshold. By £125,140, your allowance has been entirely eliminated — and while HMRC levies your income at the standard 40% higher rate, the simultaneous removal of the allowance creates an effective marginal tax rate of 60% on income in the £100,000–£125,140 band. Add 2% NI and the effective rate rises to 62%, making this the UK's highest marginal tax rate for employed individuals.</p>
+
+        <h2 id="maths">The maths of the 60% trap</h2>
+        <table>
+          <thead><tr><th>Income range</th><th>Income Tax rate</th><th>NI rate</th><th>Effective marginal rate</th></tr></thead>
+          <tbody>
+            <tr><td>£0 – £12,570</td><td>0%</td><td>0%</td><td>0%</td></tr>
+            <tr><td>£12,571 – £50,270</td><td>20%</td><td>8%</td><td>28%</td></tr>
+            <tr><td>£50,271 – £100,000</td><td>40%</td><td>2%</td><td>42%</td></tr>
+            <tr><td>£100,001 – £125,140</td><td>40% + 20% taper effect</td><td>2%</td><td>62%</td></tr>
+            <tr><td>£125,141+</td><td>45%</td><td>2%</td><td>47%</td></tr>
+          </tbody>
+        </table>
+        <p>The "60%" headline rate arises because: every £2 earned in this band costs you 40p in higher rate tax (40% × £1) plus loses you £1 of allowance worth another 20p of tax (20% × £1 = 40p tax that was previously avoided). So £1 earned costs 80p in tax, for an effective rate of 80%… wait, actually: 40p tax on £1 earned, plus £0.50 allowance lost that would have sheltered income at 20%, so 40p + 10p = 50p per £1, giving 60% before NI. Add 2% NI = 62% total. If you are on a Plan 2/4/5 Student Loan, the 9% deduction applies on top, bringing the effective rate to 71%.</p>
+
+        <h2 id="escape">Three ways to escape the trap</h2>
+        <p><strong>1. Pension salary sacrifice</strong> is the most effective. A salary sacrifice contribution directly reduces your "adjusted net income" — the figure HMRC uses for the taper calculation. Every £1 you sacrifice reclaims £0.60 of marginal tax + NI. A £25,140 salary sacrifice contribution on a £125,140 income reduces adjusted net income to exactly £100,000, fully restoring the £12,570 Personal Allowance and saving approximately £14,500 in tax (£5,028 from restored allowance + £9,456 from 40% relief on the contribution).</p>
+        <p><strong>2. Gift Aid</strong>. Donations under Gift Aid extend your basic rate band, effectively reducing adjusted net income. A £1,000 gross Gift Aid donation (£800 cash + £200 HMRC top-up) reduces adjusted net income by £1,000, saving approximately £400 in the taper band.</p>
+        <p><strong>3. Employer pension contributions</strong> (not salary sacrifice) reduce adjusted net income if claimed via Self Assessment, though less efficiently than salary sacrifice as NI is still paid on the gross salary.</p>
+
+        <h2 id="selfassessment">Reporting and tax codes</h2>
+        <p>If your income is over £100,000, HMRC will typically change your tax code to reflect the reduced allowance — often to a number like 0T (no allowance) or a restricted code. You should also complete a Self Assessment return annually to ensure the correct amount has been collected. Overpayments can be reclaimed; underpayments are collected through code adjustments or a balancing payment.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/salary-sacrifice/electric-car",label:"Salary Sacrifice Calculator"}]}
+          salaries={[{amount:100000},{amount:110000},{amount:120000},{amount:125140},{amount:150000}]}
+        />
       </>
     ),
   },
@@ -499,17 +704,33 @@ export const ARTICLES: Article[] = [
     updatedISO: "2026-04-29",
     body: () => (
       <>
-        <p>Headline salaries are misleading. The real measure is "post-tax, post-rent" — what's left for everything else.</p>
+        <p>Headline salaries are one thing — what you actually have left after housing, tax, and basic living costs is what matters. The UK's significant regional variation in housing costs means that a £45,000 salary stretches very differently in London versus Manchester, Edinburgh, or Bristol. This guide shows post-tax, post-rent disposable income across the UK's major cities.</p>
+        <h2 id="comparison">Post-tax, post-rent monthly disposable income (2026)</h2>
         <table>
-          <thead><tr><th>City</th><th>£55k net</th><th>Avg 1-bed rent</th><th>Disposable</th></tr></thead>
+          <thead><tr><th>City</th><th>Salary used</th><th>Monthly take-home</th><th>Typical 1-bed rent</th><th>Disposable income</th></tr></thead>
           <tbody>
-            <tr><td>London</td><td>£42,520</td><td>£24,000</td><td>£18,520</td></tr>
-            <tr><td>Manchester</td><td>£42,520</td><td>£14,400</td><td>£28,120</td></tr>
-            <tr><td>Glasgow</td><td>£40,824</td><td>£12,000</td><td>£28,824</td></tr>
-            <tr><td>Bristol</td><td>£42,520</td><td>£18,000</td><td>£24,520</td></tr>
+            <tr><td>London</td><td>£55,000</td><td>£3,380</td><td>£2,000</td><td>£1,380/month</td></tr>
+            <tr><td>Manchester</td><td>£42,000</td><td>£2,820</td><td>£1,200</td><td>£1,620/month</td></tr>
+            <tr><td>Birmingham</td><td>£40,000</td><td>£2,690</td><td>£1,150</td><td>£1,540/month</td></tr>
+            <tr><td>Leeds</td><td>£40,000</td><td>£2,690</td><td>£1,100</td><td>£1,590/month</td></tr>
+            <tr><td>Bristol</td><td>£43,000</td><td>£2,870</td><td>£1,500</td><td>£1,370/month</td></tr>
+            <tr><td>Edinburgh</td><td>£42,000</td><td>£2,790 (Scot)</td><td>£1,350</td><td>£1,440/month</td></tr>
+            <tr><td>Glasgow</td><td>£38,000</td><td>£2,565 (Scot)</td><td>£1,000</td><td>£1,565/month</td></tr>
+            <tr><td>Sheffield</td><td>£36,000</td><td>£2,520</td><td>£900</td><td>£1,620/month</td></tr>
+            <tr><td>Liverpool</td><td>£36,000</td><td>£2,520</td><td>£950</td><td>£1,570/month</td></tr>
+            <tr><td>Newcastle</td><td>£35,000</td><td>£2,460</td><td>£900</td><td>£1,560/month</td></tr>
           </tbody>
         </table>
-        <p>Try your own combo in the <ToolLink to="/cost-of-living">Cost-of-Living Adjuster</ToolLink>.</p>
+        <p><small>Salaries reflect typical professional roles in each city. Rent is indicative city-centre 1-bed. Individual results vary. Use the city salary articles and take-home calculator for your exact numbers.</small></p>
+        <h2 id="insight">The London paradox</h2>
+        <p>Despite the highest salaries in the UK, London frequently delivers the lowest post-housing disposable income of any major city for professional workers. A professional earning £55,000 in London (£3,380/month take-home) who pays £2,000/month rent retains £1,380 — less than equivalent professionals in Manchester, Leeds, Sheffield, or Glasgow earning substantially less gross. The London premium compensates for commuting costs, higher council tax, and London's overall cost level — but the apparent salary advantage disappears almost entirely once housing is accounted for for most earners below £80,000.</p>
+        <h2 id="remote">Remote work and the arbitrage opportunity</h2>
+        <p>Remote work has created a genuine salary arbitrage opportunity. A software engineer or financial analyst earning £75,000 at a London-headquartered company while living in Sheffield, Newcastle, or Glasgow retains approximately £2,500–£2,800/month more disposable income than a London-based colleague on the same salary. Over five years, this difference compounds to £150,000–£170,000 in additional retained earnings — equivalent to a substantial deposit or investment portfolio.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/cost-of-living",label:"Cost of Living Calculator"},{path:"/take-home",label:"Take-Home Calculator"},{path:"/compare",label:"Compare Two Salaries"}]}
+          salaries={[{amount:35000},{amount:45000},{amount:55000},{amount:70000},{amount:85000}]}
+        />
       </>
     ),
   },
@@ -584,56 +805,58 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Understanding where your salary sits relative to the national average helps with job negotiations, budgeting, and tax planning. The most reliable source is the ONS Annual Survey of Hours and Earnings (ASHE).</p>
+        <p>The average UK salary in 2026 is £37,430 at the median (the midpoint salary where half earn more and half earn less), based on ONS Annual Survey of Hours and Earnings (ASHE) data. The mean (arithmetic average) is higher at approximately £42,500, pulled upward by high earners. For most purposes — understanding whether your salary is competitive, benchmarking pay, or planning finances — the median is the more useful figure.</p>
 
-        <h2 id="headline">Headline numbers (2025/26)</h2>
-        <ul>
-          <li><strong>Median full-time salary:</strong> £35,000/year</li>
-          <li><strong>Mean full-time salary:</strong> £39,500/year</li>
-          <li><strong>Median take-home:</strong> approximately £28,720/year (£2,393/month)</li>
-        </ul>
-        <p>The median is more useful than the mean — a handful of very high earners skew the mean upward.</p>
-
-        <h2 id="by-region">Average salary by region</h2>
+        <h2 id="median">UK average salary 2026 — key figures</h2>
         <table>
-          <thead><tr><th>Region</th><th>Median salary</th><th>Take-home (monthly)</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual</th><th>Monthly gross</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>London</td><td>£43,500</td><td>£2,841</td></tr>
-            <tr><td>South East</td><td>£37,000</td><td>£2,497</td></tr>
-            <tr><td>East of England</td><td>£35,500</td><td>£2,409</td></tr>
-            <tr><td>South West</td><td>£33,000</td><td>£2,262</td></tr>
-            <tr><td>West Midlands</td><td>£33,000</td><td>£2,262</td></tr>
-            <tr><td>East Midlands</td><td>£32,500</td><td>£2,232</td></tr>
-            <tr><td>Yorkshire</td><td>£32,000</td><td>£2,202</td></tr>
-            <tr><td>North West</td><td>£33,500</td><td>£2,292</td></tr>
-            <tr><td>North East</td><td>£31,000</td><td>£2,142</td></tr>
-            <tr><td>Wales</td><td>£31,500</td><td>£2,172</td></tr>
-            <tr><td>Scotland</td><td>£34,000</td><td>£2,325</td></tr>
-            <tr><td>N. Ireland</td><td>£31,000</td><td>£2,142</td></tr>
+            <tr><td>Median full-time salary</td><td>£37,430</td><td>£3,119</td><td>~£2,590/month</td></tr>
+            <tr><td>Mean full-time salary</td><td>£42,500</td><td>£3,542</td><td>~£2,850/month</td></tr>
+            <tr><td>Median all employees (inc. part-time)</td><td>£29,800</td><td>£2,483</td><td>~£2,110/month</td></tr>
+            <tr><td>Median male (full-time)</td><td>£39,200</td><td>£3,267</td><td>~£2,690/month</td></tr>
+            <tr><td>Median female (full-time)</td><td>£35,300</td><td>£2,942</td><td>~£2,460/month</td></tr>
           </tbody>
         </table>
 
-        <h2 id="by-age">Average salary by age</h2>
+        <h2 id="by-region">Average salary by UK region (2026)</h2>
         <table>
-          <thead><tr><th>Age group</th><th>Median salary</th></tr></thead>
+          <thead><tr><th>Region</th><th>Median full-time</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>18–21</td><td>£22,000</td></tr>
-            <tr><td>22–29</td><td>£29,000</td></tr>
-            <tr><td>30–39</td><td>£35,000</td></tr>
-            <tr><td>40–49</td><td>£38,000</td></tr>
-            <tr><td>50–59</td><td>£36,500</td></tr>
-            <tr><td>60+</td><td>£33,000</td></tr>
+            <tr><td>London</td><td>£46,500</td><td>~£3,060/month</td></tr>
+            <tr><td>South East</td><td>£40,500</td><td>~£2,770/month</td></tr>
+            <tr><td>East of England</td><td>£38,500</td><td>~£2,650/month</td></tr>
+            <tr><td>South West</td><td>£36,800</td><td>~£2,560/month</td></tr>
+            <tr><td>East Midlands</td><td>£36,200</td><td>~£2,530/month</td></tr>
+            <tr><td>West Midlands</td><td>£36,100</td><td>~£2,520/month</td></tr>
+            <tr><td>North West</td><td>£35,800</td><td>~£2,500/month</td></tr>
+            <tr><td>Yorkshire &amp; Humber</td><td>£35,200</td><td>~£2,470/month</td></tr>
+            <tr><td>North East</td><td>£34,100</td><td>~£2,410/month</td></tr>
+            <tr><td>Wales</td><td>£33,800</td><td>~£2,390/month</td></tr>
+            <tr><td>Scotland</td><td>£36,900</td><td>~£2,560/month</td></tr>
+            <tr><td>Northern Ireland</td><td>£32,800</td><td>~£2,330/month</td></tr>
           </tbody>
         </table>
 
-        <h2 id="calculator">See where you stand</h2>
-        <p>Enter your salary in the <ToolLink to="/take-home">Take-Home Calculator</ToolLink> to see your exact net pay, then use the <ToolLink to="/compare">Compare tool</ToolLink> to benchmark against the median for your region.</p>
-      
+        <h2 id="by-age">Average salary by age group</h2>
+        <table>
+          <thead><tr><th>Age group</th><th>Median salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>18–21</td><td>£22,400</td><td>~£1,720/month</td></tr>
+            <tr><td>22–29</td><td>£29,800</td><td>~£2,110/month</td></tr>
+            <tr><td>30–39</td><td>£38,500</td><td>~£2,650/month</td></tr>
+            <tr><td>40–49</td><td>£41,200</td><td>~£2,800/month</td></tr>
+            <tr><td>50–59</td><td>£39,800</td><td>~£2,720/month</td></tr>
+            <tr><td>60+</td><td>£36,000</td><td>~£2,520/month</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="context">What does the average salary mean for your take-home?</h2>
+        <p>The median salary of £37,430 puts you in the basic rate income tax band. After the Personal Allowance of £12,570, you pay 20% tax on £24,860 = £4,972. National Insurance is 8% on £37,430 − £12,570 = £24,860, costing £1,989. Monthly take-home is approximately £37,430 − £4,972 − £1,989 = £30,469/year, or £2,539/month. This does not include any Student Loan repayments or pension contributions, which would reduce take-home further.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/reverse",label:"Reverse Calculator"},{path:"/compare",label:"Compare Salaries"}]}
-          salaries={[{amount:25000},{amount:30000},{amount:35000},{amount:40000},{amount:50000},{amount:60000},{amount:80000},{amount:100000}]}
-          cities={["London","Manchester","Birmingham","Leeds","Bristol","Edinburgh"]}
+          tools={[{path:"/take-home",label:"Calculate Your Take-Home Pay"},{path:"/insights/average-salary-london-2026",label:"Average London Salary"},{path:"/insights/what-is-a-good-salary-uk-2026",label:"What Is a Good Salary?"}]}
+          salaries={[{amount:25000},{amount:35000},{amount:37430},{amount:45000},{amount:60000}]}
         />
       </>
     ),
@@ -1416,37 +1639,42 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Birmingham is the UK's second-largest city and a growing hub for technology, financial services, and professional services. Salaries are rising as major employers relocate from London.</p>
-        <h2 id="median">Average Birmingham salary 2026</h2>
+        <p>Birmingham is the UK's second-largest city and the economic centre of the West Midlands. Following major investment driven by the 2022 Commonwealth Games, HSBC's UK headquarters relocation, and a growing professional services cluster, Birmingham salaries have grown faster than the national average over the past three years.</p>
+
+        <h2 id="average">Average salary in Birmingham 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Amount</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£32,400</td><td>£2,340</td></tr>
-            <tr><td>Mean salary</td><td>£35,600</td><td>£2,528</td></tr>
-            <tr><td>UK median (comparison)</td><td>£34,963</td><td>£2,493</td></tr>
+            <tr><td>Median full-time (Birmingham)</td><td>£32,400</td><td>~£2,340/month</td></tr>
+            <tr><td>Mean full-time (Birmingham)</td><td>£35,600</td><td>~£2,528/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
+            <tr><td>London median (comparison)</td><td>£46,500</td><td>~£3,060/month</td></tr>
           </tbody>
         </table>
-        <h2 id="sectors">Average Birmingham salaries by sector</h2>
+
+        <h2 id="sectors">Birmingham salaries by sector (2026)</h2>
         <table>
-          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
           <tbody>
-            <tr><td>Technology</td><td>£48,000</td></tr>
-            <tr><td>Financial services</td><td>£44,000</td></tr>
-            <tr><td>Legal</td><td>£41,000</td></tr>
-            <tr><td>Engineering</td><td>£39,500</td></tr>
-            <tr><td>Healthcare (NHS)</td><td>£35,000</td></tr>
-            <tr><td>Education</td><td>£33,500</td></tr>
-            <tr><td>Retail</td><td>£23,500</td></tr>
+            <tr><td>Financial services (HSBC, KPMG)</td><td>£35,000–£90,000</td></tr>
+            <tr><td>Technology / digital</td><td>£38,000–£85,000</td></tr>
+            <tr><td>Legal (national and regional firms)</td><td>£30,000–£80,000</td></tr>
+            <tr><td>Manufacturing and engineering</td><td>£30,000–£65,000</td></tr>
+            <tr><td>Healthcare (NHS)</td><td>£26,000–£80,000+</td></tr>
+            <tr><td>Education</td><td>£28,000–£55,000</td></tr>
+            <tr><td>Retail and hospitality</td><td>£21,000–£32,000</td></tr>
           </tbody>
         </table>
-        <h2 id="calculate">Calculate your Birmingham take-home</h2>
-        <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact net pay.</p>
-      
+
+        <h2 id="growth">Why Birmingham salaries are rising</h2>
+        <p>Several factors are driving above-average salary growth in Birmingham. HSBC's UK headquarters employs around 2,500 staff, anchoring a growing financial services cluster and bringing City-adjacent pay scales to the region. KPMG, PwC, Deloitte, and EY all operate significant Birmingham offices. The Birmingham City Council's Growth Zones initiative and HS2 (now City Centre Connectivity) investment continue to attract employers. Goldman Sachs opened a technology hub in Birmingham in 2022, bringing high-paying tech roles that were previously London-only.</p>
+
+        <h2 id="cost">Salary vs cost of living in Birmingham</h2>
+        <p>On a £32,400 median salary, monthly take-home is approximately £2,340. Average rent for a one-bedroom flat in Birmingham city centre is £1,100–£1,400/month — significantly cheaper than London (£1,800–£2,400) and comparable to Manchester. The net result is that Birmingham professionals retain more disposable income as a percentage of take-home pay than equivalent earners in London or Bristol.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
-          salaries={[{amount:28000},{amount:32000},{amount:35000},{amount:40000},{amount:48000}]}
-          cities={["London","Manchester","Leeds","Bristol","Edinburgh"]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"},{path:"/insights/average-salary-manchester-2026",label:"Manchester Salary 2026"}]}
+          salaries={[{amount:32400},{amount:38000},{amount:50000},{amount:65000},{amount:85000}]}
         />
       </>
     ),
@@ -1469,36 +1697,41 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Leeds is one of the UK's strongest regional economies, particularly in financial and legal services. Its salaries are competitive with Manchester, with a lower cost of living.</p>
-        <h2 id="median">Average Leeds salary 2026</h2>
+        <p>Leeds is one of the UK's strongest regional economies — the largest city in Yorkshire and a major hub for financial and professional services. Its salary levels are competitive with Manchester, while housing costs remain lower than most comparable UK cities, making it increasingly attractive to professionals relocating from London.</p>
+
+        <h2 id="average">Average salary in Leeds 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Amount</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£33,800</td><td>£2,427</td></tr>
-            <tr><td>Mean salary</td><td>£37,200</td><td>£2,611</td></tr>
-            <tr><td>UK median</td><td>£34,963</td><td>£2,493</td></tr>
+            <tr><td>Median full-time (Leeds)</td><td>£33,800</td><td>~£2,420/month</td></tr>
+            <tr><td>Mean full-time (Leeds)</td><td>£37,200</td><td>~£2,610/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
+            <tr><td>London median (comparison)</td><td>£46,500</td><td>~£3,060/month</td></tr>
           </tbody>
         </table>
-        <h2 id="sectors">Leeds salaries by sector</h2>
+
+        <h2 id="sectors">Leeds salaries by sector (2026)</h2>
         <table>
-          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
           <tbody>
-            <tr><td>Financial services</td><td>£50,000</td></tr>
-            <tr><td>Technology</td><td>£48,500</td></tr>
-            <tr><td>Legal</td><td>£45,000</td></tr>
-            <tr><td>Engineering</td><td>£40,000</td></tr>
-            <tr><td>Healthcare (NHS)</td><td>£35,200</td></tr>
-            <tr><td>Education</td><td>£33,600</td></tr>
+            <tr><td>Financial services</td><td>£35,000–£100,000</td></tr>
+            <tr><td>Technology</td><td>£38,000–£90,000</td></tr>
+            <tr><td>Legal</td><td>£30,000–£85,000</td></tr>
+            <tr><td>Healthcare (NHS Leeds)</td><td>£26,000–£80,000+</td></tr>
+            <tr><td>Engineering and manufacturing</td><td>£32,000–£65,000</td></tr>
+            <tr><td>Education (Leeds Beckett, Uni of Leeds)</td><td>£28,000–£60,000</td></tr>
           </tbody>
         </table>
-        <h2 id="calculate">Calculate your Leeds take-home pay</h2>
-        <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact net pay after all deductions.</p>
-      
+
+        <h2 id="financial-hub">Leeds as a financial hub</h2>
+        <p>Leeds is the UK's second-largest financial centre outside London, home to major operations for banks including NatWest, Lloyds, and Barclays, as well as large insurance (Direct Line, Aviva) and legal services employers. Senior financial professionals in Leeds earn £60,000–£100,000+, significantly below London equivalents but with housing costs roughly 50% lower. Law firm partners at national firms including Addleshaw Goddard, Eversheds, and DLA Piper based in Leeds earn £150,000–£400,000, comparable to many London roles.</p>
+
+        <h2 id="cost">Cost of living comparison</h2>
+        <p>The average rent for a one-bedroom flat in Leeds city centre is £1,000–£1,300/month. On a £33,800 median salary, take-home is approximately £2,420/month — leaving around £1,100–£1,400 in disposable income after rent, broadly comparable to a London professional earning £50,000+ after London rents. Leeds is frequently cited by relocation surveys as offering the best balance of salary, career opportunity, and cost of living outside London.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
-          salaries={[{amount:30000},{amount:33800},{amount:40000},{amount:48500},{amount:50000}]}
-          cities={["London","Manchester","Birmingham","Bristol","Edinburgh"]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"},{path:"/insights/average-salary-sheffield-2026",label:"Sheffield Salary 2026"}]}
+          salaries={[{amount:33800},{amount:40000},{amount:52000},{amount:70000},{amount:90000}]}
         />
       </>
     ),
@@ -1521,36 +1754,41 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Bristol consistently ranks among the UK's highest-paying cities outside London. Aerospace, technology, and financial services drive salaries well above the national median.</p>
-        <h2 id="median">Average Bristol salary 2026</h2>
+        <p>Bristol consistently ranks as one of the UK's highest-paying cities outside London. The city has an exceptionally high concentration of aerospace, defence, technology, and financial services employers — driving median salaries well above the national average and above most comparable UK cities.</p>
+
+        <h2 id="average">Average salary in Bristol 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Amount</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£36,200</td><td>£2,562</td></tr>
-            <tr><td>Mean salary</td><td>£40,100</td><td>£2,776</td></tr>
-            <tr><td>UK median</td><td>£34,963</td><td>£2,493</td></tr>
+            <tr><td>Median full-time (Bristol)</td><td>£36,200</td><td>~£2,530/month</td></tr>
+            <tr><td>Mean full-time (Bristol)</td><td>£40,100</td><td>~£2,760/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
+            <tr><td>London median (comparison)</td><td>£46,500</td><td>~£3,060/month</td></tr>
           </tbody>
         </table>
-        <h2 id="sectors">Bristol salaries by sector</h2>
+
+        <h2 id="sectors">Bristol salaries by sector (2026)</h2>
         <table>
-          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
           <tbody>
-            <tr><td>Aerospace and defence</td><td>£55,000</td></tr>
-            <tr><td>Technology</td><td>£52,000</td></tr>
-            <tr><td>Financial services</td><td>£48,000</td></tr>
-            <tr><td>Legal</td><td>£44,000</td></tr>
-            <tr><td>Healthcare (NHS)</td><td>£35,800</td></tr>
-            <tr><td>Education</td><td>£34,500</td></tr>
+            <tr><td>Aerospace and defence (Airbus, BAE, Rolls-Royce)</td><td>£40,000–£90,000</td></tr>
+            <tr><td>Technology / software</td><td>£42,000–£95,000</td></tr>
+            <tr><td>Financial services</td><td>£38,000–£85,000</td></tr>
+            <tr><td>Legal</td><td>£32,000–£80,000</td></tr>
+            <tr><td>Healthcare (North Bristol NHS, UHB)</td><td>£26,000–£80,000+</td></tr>
+            <tr><td>Creative and media</td><td>£28,000–£60,000</td></tr>
           </tbody>
         </table>
-        <h2 id="calculate">Calculate your Bristol take-home pay</h2>
-        <p>Use our <ToolLink to="/take-home">salary calculator</ToolLink> to see your exact net pay.</p>
-      
+
+        <h2 id="aerospace">The aerospace and defence premium</h2>
+        <p>Bristol's most distinctive employment feature is its aerospace cluster. Airbus's UK wing design operations, Rolls-Royce's civil aerospace business, BAE Systems, and GKN Aerospace all maintain major Bristol presences. Senior aerospace engineers and programme managers earn £65,000–£100,000+. The MOD's Defence Equipment and Support (DE&S) procurement organisation, based in nearby Filton, employs thousands of procurement and programme management professionals at Civil Service pay grades equivalent to £40,000–£80,000.</p>
+
+        <h2 id="cost">Bristol vs London: the real financial comparison</h2>
+        <p>Average rent for a one-bedroom flat in Bristol city centre is £1,350–£1,700/month, significantly below London (£1,800–£2,400) but notably higher than other regional cities like Leeds or Manchester. Bristol's salary premium over the national average, combined with lower costs than London, makes it an attractive relocation destination — but it has the narrowest cost-of-living advantage of any major UK city outside the South East.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
-          salaries={[{amount:30000},{amount:36200},{amount:40000},{amount:48000},{amount:55000}]}
-          cities={["London","Manchester","Birmingham","Leeds","Edinburgh"]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"},{path:"/insights/average-salary-manchester-2026",label:"Manchester Salary 2026"}]}
+          salaries={[{amount:36200},{amount:42000},{amount:55000},{amount:72000},{amount:95000}]}
         />
       </>
     ),
@@ -1573,36 +1811,36 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Edinburgh is Scotland's financial and legal capital — and the highest-paying city in Scotland. Its strong financial services, tech, and public sector mean salaries sit comfortably above the UK median.</p>
-        <h2 id="median">Average Edinburgh salary 2026</h2>
+        <p>Edinburgh is Scotland's capital and its highest-paying city, driven by a concentration of financial services (Standard Life Aberdeen, Baillie Gifford, Royal Bank of Scotland), a thriving technology sector, and significant public sector employment. Salaries consistently exceed Glasgow and Scotland's average, though Scottish income tax rates mean take-home pay is lower than an equivalent salary in England above £43,662.</p>
+        <h2 id="average">Average salary in Edinburgh 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home (Scottish rates)</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home (Scottish tax)</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£37,500</td><td>£2,600</td></tr>
-            <tr><td>Mean salary</td><td>£42,200</td><td>£2,876</td></tr>
-            <tr><td>Same salary in England</td><td>£37,500</td><td>£2,641 (+£41/month)</td></tr>
+            <tr><td>Median full-time (Edinburgh)</td><td>£36,800</td><td>~£2,540/month</td></tr>
+            <tr><td>Mean full-time (Edinburgh)</td><td>£41,500</td><td>~£2,810/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590 (Eng)/~£2,545 (Scot)</td></tr>
           </tbody>
         </table>
-        <h2 id="scottish-tax">Scottish tax impact</h2>
-        <p>Edinburgh workers pay Scottish income tax rates — which differ from the rest of the UK above £27,491. On a £37,500 salary, the Intermediate Rate (21%) applies to a portion of income, reducing take-home by approximately £400/year versus England.</p>
-        <p>Use our <ToolLink to="/take-home">calculator</ToolLink> and toggle Scotland to see the exact difference for your salary.</p>
-        <h2 id="sectors">Edinburgh salaries by sector</h2>
+        <h2 id="sectors">Edinburgh salaries by sector (2026)</h2>
         <table>
-          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
           <tbody>
-            <tr><td>Financial services</td><td>£58,000</td></tr>
-            <tr><td>Technology</td><td>£52,000</td></tr>
-            <tr><td>Legal</td><td>£46,000</td></tr>
-            <tr><td>Public sector</td><td>£36,000</td></tr>
-            <tr><td>Healthcare (NHS Scotland)</td><td>£35,500</td></tr>
+            <tr><td>Financial services / asset management</td><td>£40,000–£120,000</td></tr>
+            <tr><td>Technology / fintech</td><td>£38,000–£95,000</td></tr>
+            <tr><td>Legal (Scots law firms)</td><td>£30,000–£85,000</td></tr>
+            <tr><td>Public sector / Scottish Government</td><td>£28,000–£75,000</td></tr>
+            <tr><td>Healthcare (NHS Lothian)</td><td>£26,000–£80,000+</td></tr>
+            <tr><td>Tourism and hospitality</td><td>£22,000–£38,000</td></tr>
           </tbody>
         </table>
-      
+        <h2 id="financial-hub">Edinburgh as a financial centre</h2>
+        <p>Edinburgh is the UK's second-largest financial centre and one of Europe's most significant. Abrdn (Standard Life Aberdeen), Baillie Gifford, and Edinburgh-based teams of Royal Bank of Scotland, Lloyds Banking Group, and Tesco Bank employ thousands of finance, technology, and compliance professionals at salaries well above the Scottish average. Fund managers and investment analysts at Baillie Gifford and Abrdn earn £60,000–£120,000 at senior levels.</p>
+        <h2 id="cost">Cost of living: Edinburgh's trade-off</h2>
+        <p>Edinburgh is Scotland's most expensive city to live in. Average rent for a one-bedroom city centre flat is £1,200–£1,600/month — significantly above Glasgow and other Scottish cities. House prices average £280,000–£340,000 in central areas. However, Edinburgh salaries are commensurately higher, and the city consistently ranks in top-ten quality-of-life surveys for UK cities.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
-          salaries={[{amount:32000},{amount:37500},{amount:42000},{amount:50000},{amount:58000}]}
-          cities={["London","Manchester","Birmingham","Leeds","Bristol"]}
+          tools={[{path:"/take-home",label:"Scottish Take-Home Calculator"},{path:"/insights/average-salary-glasgow-2026",label:"Glasgow Salary 2026"}]}
+          salaries={[{amount:36800},{amount:45000},{amount:60000},{amount:80000},{amount:110000}]}
         />
       </>
     ),
@@ -1668,10 +1906,11 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Teacher pay in England is set by the School Teachers' Pay and Conditions Document (STPCD). Here's every scale point and its monthly take-home for 2026.</p>
-        <h2 id="main-pay">Main Pay Range (NQT to experienced teacher)</h2>
+        <p>Teacher pay in England is set by the School Teachers' Pay and Conditions Document (STPCD), reviewed annually by the Secretary of State following recommendations from the School Teachers' Review Body (STRB). The 2026/27 pay award delivered a further increase after the landmark 6.5% award in 2023 that ended industrial action. Scotland, Wales and Northern Ireland set their own teacher pay scales separately.</p>
+
+        <h2 id="main-pay">Main Pay Range — NQT to experienced classroom teacher</h2>
         <table>
-          <thead><tr><th>Scale</th><th>Outside London</th><th>Inner London</th><th>Take-home (outside London)</th></tr></thead>
+          <thead><tr><th>Scale</th><th>Outside London</th><th>Inner London</th><th>Monthly take-home (outside London)</th></tr></thead>
           <tbody>
             <tr><td>M1 (NQT)</td><td>£31,650</td><td>£42,637</td><td>£2,212/month</td></tr>
             <tr><td>M2</td><td>£33,483</td><td>£44,305</td><td>£2,330/month</td></tr>
@@ -1681,19 +1920,40 @@ export const ARTICLES: Article[] = [
             <tr><td>M6</td><td>£43,685</td><td>£53,482</td><td>£2,987/month</td></tr>
           </tbody>
         </table>
-        <h2 id="upper-pay">Upper Pay Range (experienced teachers)</h2>
+        <p>Progression through the Main Pay Range is not automatic — it is subject to the school's pay policy and performance management. Most teachers move one point per year, reaching M6 after approximately five years in the classroom. Schools outside local authority control (academies, free schools) can technically set their own pay, though most follow the national framework.</p>
+
+        <h2 id="upper-pay">Upper Pay Range — experienced teachers</h2>
         <table>
-          <thead><tr><th>Scale</th><th>Outside London</th><th>Take-home</th></tr></thead>
+          <thead><tr><th>Scale</th><th>Outside London</th><th>Inner London</th><th>Monthly take-home (outside London)</th></tr></thead>
           <tbody>
-            <tr><td>U1</td><td>£46,525</td><td>£3,130/month</td></tr>
-            <tr><td>U2</td><td>£48,389</td><td>£3,238/month</td></tr>
-            <tr><td>U3</td><td>£50,500</td><td>£3,339/month</td></tr>
+            <tr><td>U1</td><td>£46,525</td><td>£57,959</td><td>£3,130/month</td></tr>
+            <tr><td>U2</td><td>£48,389</td><td>£59,965</td><td>£3,238/month</td></tr>
+            <tr><td>U3</td><td>£50,500</td><td>£62,138</td><td>£3,339/month</td></tr>
           </tbody>
         </table>
+        <p>Upper Pay Range requires a formal application and school approval. Teachers must demonstrate sustained and substantial contribution to school improvement. Moving from M6 to U1 is not guaranteed and some teachers remain on M6 for their entire career.</p>
+
+        <h2 id="leadership">Leadership Pay Range</h2>
+        <table>
+          <thead><tr><th>Role</th><th>Typical salary range</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>Assistant Headteacher</td><td>£52,000–£65,000</td><td>~£3,310–£3,870/month</td></tr>
+            <tr><td>Deputy Headteacher</td><td>£65,000–£85,000</td><td>~£3,870–£4,700/month</td></tr>
+            <tr><td>Headteacher (medium school)</td><td>£75,000–£95,000</td><td>~£4,340–£5,200/month</td></tr>
+            <tr><td>Headteacher (large school)</td><td>£90,000–£125,000</td><td>~£4,970–£6,200/month</td></tr>
+          </tbody>
+        </table>
+
         <h2 id="pension">Teachers' Pension Scheme</h2>
-        <p>Teachers contribute between 7.4% and 11.7% of salary to the Teachers' Pension Scheme depending on earnings. On M1 (£31,650), contributions are approximately £195/month, reducing take-home accordingly.</p>
-        <h2 id="calculate">Calculate your teacher take-home pay</h2>
-        <p>Use our <ToolLink to="/take-home">salary calculator</ToolLink> — enter your scale point salary for your exact monthly net after tax, NI, and pension.</p>
+        <p>Teachers are enrolled in the Teachers' Pension Scheme (TPS), one of the UK's most valuable public sector pensions. Employee contributions range from 7.4% to 11.7% of pensionable pay. At M1 (£31,650), monthly pension contributions are approximately £195. At M6 (£43,685), they rise to approximately £374. These contributions come from your gross pay after Income Tax, so they don't reduce your tax bill directly — but the pension benefit in retirement is substantial. The TPS provides a defined benefit based on career average earnings.</p>
+
+        <h2 id="scotland">Teacher pay in Scotland</h2>
+        <p>Scottish teacher pay is set separately by the Scottish Negotiating Committee for Teachers (SNCT). Main Grade teachers in Scotland earn £32,217 (Probationer) rising to £48,765 (Main Grade top). The key difference from England is that all teachers on the Main Grade in Scotland automatically progress through the scale without a formal application, reaching the top after approximately five years. Scottish teachers are also subject to higher income tax rates on earnings above £43,662, reducing take-home pay relative to English counterparts at the same gross salary.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Calculate Your Teacher Take-Home"},{path:"/insights/nurse-salary-uk-2026",label:"NHS Nurse Salary 2026"}]}
+          salaries={[{amount:31650},{amount:37935},{amount:43685},{amount:50500},{amount:75000}]}
+        />
       </>
     ),
   },
@@ -1716,24 +1976,46 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Software engineering is one of the UK's best-paid professions at every level. Here's the full salary and take-home breakdown from graduate to principal engineer in 2026.</p>
+        <p>Software engineering remains one of the UK's highest-paying and most in-demand professions. Salaries have moderated slightly from the 2021–2022 peak but remain well above the national average at every experience level, with London and remote-first tech companies paying substantially more than regional averages.</p>
+
         <h2 id="by-level">Software engineer salary by level (UK, 2026)</h2>
         <table>
-          <thead><tr><th>Level</th><th>Typical salary range</th><th>Monthly take-home (mid)</th></tr></thead>
+          <thead><tr><th>Level</th><th>Typical salary range</th><th>Monthly take-home (mid-point)</th></tr></thead>
           <tbody>
-            <tr><td>Graduate / Junior</td><td>£28,000–£38,000</td><td>~£2,380/month</td></tr>
-            <tr><td>Mid-level</td><td>£40,000–£55,000</td><td>~£2,960/month</td></tr>
-            <tr><td>Senior</td><td>£55,000–£80,000</td><td>~£3,820/month</td></tr>
-            <tr><td>Lead / Staff</td><td>£75,000–£100,000</td><td>~£4,600/month</td></tr>
-            <tr><td>Principal / Architect</td><td>£95,000–£130,000</td><td>~£5,800/month</td></tr>
+            <tr><td>Graduate / Junior (0–2 years)</td><td>£28,000–£38,000</td><td>~£2,380/month</td></tr>
+            <tr><td>Mid-level (2–5 years)</td><td>£40,000–£55,000</td><td>~£2,960/month</td></tr>
+            <tr><td>Senior (5–8 years)</td><td>£60,000–£85,000</td><td>~£3,820/month</td></tr>
+            <tr><td>Lead / Staff Engineer</td><td>£80,000–£110,000</td><td>~£4,760/month</td></tr>
+            <tr><td>Principal / Architect</td><td>£100,000–£140,000</td><td>~£5,740/month</td></tr>
+            <tr><td>Engineering Director / VP</td><td>£130,000–£200,000+</td><td>~£6,400+/month</td></tr>
           </tbody>
         </table>
-        <h2 id="london">London vs remote</h2>
-        <p>London software engineering salaries typically run 25–40% higher than equivalent roles elsewhere. However, many tech companies now pay London rates for fully remote roles — making location increasingly less relevant.</p>
-        <h2 id="contracting">PAYE vs contracting</h2>
-        <p>A contractor earning £600/day (£144,000/year) through a limited company taking salary + dividends can retain significantly more than a PAYE employee on the same earnings. Use our <ToolLink to="/dividend">dividend calculator</ToolLink> and <ToolLink to="/ir35">IR35 calculator</ToolLink> to compare.</p>
-        <h2 id="calculate">Calculate your take-home</h2>
-        <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> for your exact net pay at any salary level.</p>
+        <p><small>Take-home at mid-point, England, no student loan. London salaries are typically 20–30% above these figures. Senior+ roles often include equity (RSUs/options) not reflected in cash take-home.</small></p>
+
+        <h2 id="by-specialism">Salary by specialism (2026)</h2>
+        <table>
+          <thead><tr><th>Specialism</th><th>Mid-level salary</th><th>Senior salary</th></tr></thead>
+          <tbody>
+            <tr><td>Machine Learning / AI</td><td>£60,000–£80,000</td><td>£90,000–£140,000</td></tr>
+            <tr><td>DevOps / Platform / SRE</td><td>£55,000–£75,000</td><td>£80,000–£120,000</td></tr>
+            <tr><td>Backend (Go, Rust, Java)</td><td>£50,000–£70,000</td><td>£75,000–£110,000</td></tr>
+            <tr><td>Full-Stack</td><td>£45,000–£65,000</td><td>£70,000–£100,000</td></tr>
+            <tr><td>Frontend (React, TypeScript)</td><td>£42,000–£62,000</td><td>£65,000–£95,000</td></tr>
+            <tr><td>Mobile (iOS / Android)</td><td>£45,000–£65,000</td><td>£68,000–£100,000</td></tr>
+            <tr><td>Embedded / Systems</td><td>£45,000–£65,000</td><td>£70,000–£105,000</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="london-vs-regional">London vs regional salaries</h2>
+        <p>A senior software engineer in London typically earns £80,000–£110,000. An equivalent role in Manchester, Leeds, or Bristol pays £60,000–£85,000. The gap has narrowed since widespread remote work adoption — many London-based companies now hire UK-wide at near-London salaries. Cambridge's Silicon Fen cluster (ARM, Arm Holdings ecosystem, AstraZeneca) pays London-comparable rates for deep tech roles.</p>
+
+        <h2 id="contractor">Employed vs contracting</h2>
+        <p>Senior software engineers who move to day-rate contracting typically charge £450–£700/day (£100,000–£160,000/year before tax). Outside IR35, a contractor on £500/day over 230 working days can take home approximately £95,000–£100,000 after corporation tax and dividend tax — materially more than an equivalent permanent salary. The trade-off is no employment rights, employer pension, or sick pay. Use our <ToolLink to="/ir35">IR35 Calculator</ToolLink> to compare inside vs outside take-home on your day rate.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/ir35",label:"IR35 Calculator"},{path:"/insights/data-analyst-salary-uk-2026",label:"Data Analyst Salary 2026"}]}
+          salaries={[{amount:35000},{amount:50000},{amount:70000},{amount:90000},{amount:120000}]}
+        />
       </>
     ),
   },
@@ -1755,23 +2037,44 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Accountancy offers one of the clearest salary progression paths in UK professional services. Here's take-home pay from training through to senior qualified roles.</p>
-        <h2 id="by-level">UK accountant salary by qualification and level (2026)</h2>
+        <p>Accountancy is one of the UK's most structured professions in terms of salary progression — qualifications (ACA, ACCA, CIMA, CTA) have a direct and predictable impact on earnings. The profession spans public practice (audit, tax advisory) and industry (management accounting, financial control), with notably different pay scales between them.</p>
+
+        <h2 id="by-level">UK accountant salary by level and qualification (2026)</h2>
         <table>
           <thead><tr><th>Level</th><th>Typical salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
             <tr><td>AAT trainee / school leaver</td><td>£22,000–£26,000</td><td>~£1,760/month</td></tr>
-            <tr><td>Part-qualified (ACA/ACCA)</td><td>£28,000–£38,000</td><td>~£2,380/month</td></tr>
-            <tr><td>Newly qualified (ACA/ACCA/CIMA)</td><td>£42,000–£52,000</td><td>~£3,110/month</td></tr>
-            <tr><td>Manager (3–5 yrs PQE)</td><td>£55,000–£70,000</td><td>~£3,740/month</td></tr>
-            <tr><td>Senior manager / Director</td><td>£70,000–£100,000</td><td>~£4,920/month</td></tr>
-            <tr><td>Partner / CFO</td><td>£90,000–£150,000+</td><td>~£6,300/month+</td></tr>
+            <tr><td>Part-qualified (ACA/ACCA studying)</td><td>£28,000–£38,000</td><td>~£2,380/month</td></tr>
+            <tr><td>Newly qualified (ACA/ACCA/CIMA)</td><td>£42,000–£52,000</td><td>~£3,060/month</td></tr>
+            <tr><td>Manager (3–5 years PQE)</td><td>£55,000–£70,000</td><td>~£3,740/month</td></tr>
+            <tr><td>Senior Manager</td><td>£70,000–£90,000</td><td>~£4,430/month</td></tr>
+            <tr><td>Director (Big 4 / Large firm)</td><td>£90,000–£130,000</td><td>~£5,300/month</td></tr>
+            <tr><td>Partner</td><td>£150,000–£500,000+</td><td>Varies by profit share</td></tr>
+            <tr><td>CFO / Finance Director</td><td>£100,000–£250,000+</td><td>~£5,600–£9,500/month</td></tr>
           </tbody>
         </table>
-        <h2 id="big4">Big Four vs industry</h2>
-        <p>Big Four (Deloitte, PwC, EY, KPMG) newly qualified salaries typically start at £48,000–£54,000. Industry (in-house) roles often pay slightly less but offer better work-life balance and faster progression to senior titles.</p>
-        <h2 id="calculate">Calculate your accountant take-home</h2>
-        <p>Use our <ToolLink to="/take-home">salary calculator</ToolLink> for your exact monthly net pay at any point in your career.</p>
+
+        <h2 id="practice-vs-industry">Practice vs industry: which pays more?</h2>
+        <p>At the newly qualified stage, industry (moving from an accountancy firm into a corporate finance role) typically pays 10–20% more than remaining in practice. A newly qualified ACA who moves from a Big 4 firm into a finance manager role at a FTSE 250 company can expect £50,000–£60,000 vs £42,000–£48,000 in practice. However, Big 4 directors and partners can earn well above equivalent industry FD roles at a comparable career stage.</p>
+
+        <h2 id="big4">Big 4 vs smaller firms</h2>
+        <table>
+          <thead><tr><th>Firm type</th><th>Newly qualified</th><th>Manager</th><th>Director</th></tr></thead>
+          <tbody>
+            <tr><td>Big 4 (London)</td><td>£52,000–£58,000</td><td>£75,000–£90,000</td><td>£110,000–£140,000</td></tr>
+            <tr><td>Big 4 (Regional)</td><td>£42,000–£52,000</td><td>£62,000–£80,000</td><td>£90,000–£120,000</td></tr>
+            <tr><td>Top 10 firm</td><td>£38,000–£48,000</td><td>£55,000–£72,000</td><td>£80,000–£110,000</td></tr>
+            <tr><td>Regional practice</td><td>£32,000–£42,000</td><td>£45,000–£60,000</td><td>£65,000–£85,000</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="tax-specialist">Tax specialists command a premium</h2>
+        <p>Chartered Tax Advisers (CTA-qualified) typically earn 15–25% above equivalent ACA/ACCA holders at manager level and above. Corporate tax, international tax, and transfer pricing specialists at senior levels command £90,000–£150,000+ in the Big 4 and major law firms. Private client tax advisers serving UHNW individuals earn comparable amounts, often with significant relationship-based bonuses.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/dividend",label:"Dividend Tax Calculator"}]}
+          salaries={[{amount:35000},{amount:52000},{amount:70000},{amount:90000},{amount:130000}]}
+        />
       </>
     ),
   },
@@ -2070,35 +2373,36 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Glasgow is Scotland's largest city and a growing hub for technology, financial services, and creative industries. Salaries are competitive with Edinburgh in several sectors, with a lower cost of living.</p>
-        <h2 id="median">Average Glasgow salary 2026</h2>
+        <p>Glasgow is Scotland's largest city and the economic engine of the west of Scotland. It has a diverse economy spanning financial services, manufacturing, healthcare, technology, and one of the UK's largest creative sectors. Glasgow salaries sit slightly below Edinburgh's but above most other Scottish cities, and housing costs are among the lowest of any major UK city.</p>
+        <h2 id="average">Average salary in Glasgow 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home (Scottish rates)</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home (Scottish tax)</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£33,200</td><td>£2,310/month</td></tr>
-            <tr><td>Mean salary</td><td>£36,500</td><td>£2,510/month</td></tr>
-            <tr><td>UK median</td><td>£34,963</td><td>£2,493/month</td></tr>
+            <tr><td>Median full-time (Glasgow)</td><td>£33,500</td><td>~£2,370/month</td></tr>
+            <tr><td>Mean full-time (Glasgow)</td><td>£36,800</td><td>~£2,560/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590 (Eng)/~£2,545 (Scot)</td></tr>
           </tbody>
         </table>
-        <h2 id="sectors">Glasgow salaries by sector</h2>
+        <h2 id="sectors">Glasgow salaries by sector (2026)</h2>
         <table>
-          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
           <tbody>
-            <tr><td>Technology</td><td>£48,000</td></tr>
-            <tr><td>Financial services</td><td>£45,000</td></tr>
-            <tr><td>Engineering</td><td>£42,000</td></tr>
-            <tr><td>Legal</td><td>£40,000</td></tr>
-            <tr><td>Healthcare (NHS Scotland)</td><td>£35,000</td></tr>
-            <tr><td>Education</td><td>£33,500</td></tr>
+            <tr><td>Financial services (Standard Life, Barclays)</td><td>£32,000–£90,000</td></tr>
+            <tr><td>Technology / digital</td><td>£35,000–£85,000</td></tr>
+            <tr><td>Legal</td><td>£28,000–£80,000</td></tr>
+            <tr><td>Healthcare (NHS Greater Glasgow)</td><td>£26,000–£80,000+</td></tr>
+            <tr><td>Engineering / manufacturing</td><td>£30,000–£65,000</td></tr>
+            <tr><td>Creative / media</td><td>£25,000–£55,000</td></tr>
           </tbody>
         </table>
-        <h2 id="scottish-tax">Scottish tax impact</h2>
-        <p>Glasgow workers pay Scottish income tax rates. On a £33,200 salary, the Intermediate Rate (21%) applies above £27,491 — meaning approximately £120/year more income tax than an equivalent English worker. Use our <ToolLink to="/take-home">calculator</ToolLink> with Scotland toggled on to see your exact difference.</p>
+        <h2 id="scottish-tax">Scottish income tax impact</h2>
+        <p>Glasgow workers pay Scottish income tax rates, which are higher than England for earnings above £43,662. A Glasgow professional earning £50,000 pays approximately £1,300 more in income tax per year than an equivalent English worker. However, Scotland has no prescription charges and lower average council tax, partially offsetting the income tax difference. Use the Take-Home Calculator and select "Scotland" to see your exact net pay.</p>
+        <h2 id="cost">Cost of living</h2>
+        <p>Glasgow is one of the UK's best-value major cities. Average rent for a one-bedroom city centre flat is £900–£1,150/month, and house prices average £180,000–£230,000 in accessible neighbourhoods like Shawlands, Hyndland, and Partick. The combination of decent professional salaries and low housing costs makes Glasgow's disposable income outlook considerably better than the headline salary figures suggest.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
-          salaries={[{amount:28000},{amount:33000},{amount:40000},{amount:48000}]}
-          cities={["Edinburgh","London","Manchester","Birmingham"]}
+          tools={[{path:"/take-home",label:"Scottish Take-Home Calculator"},{path:"/insights/average-salary-edinburgh-2026",label:"Edinburgh Salary 2026"},{path:"/insights/average-salary-scotland-2026",label:"Scotland Average Salary"}]}
+          salaries={[{amount:33500},{amount:40000},{amount:50000},{amount:65000},{amount:85000}]}
         />
       </>
     ),
@@ -2120,33 +2424,41 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Liverpool has one of the fastest-growing digital economies outside London. Salaries are below the UK median but housing costs are significantly lower than most major cities — making Liverpool one of the best value cities in the UK.</p>
-        <h2 id="median">Average Liverpool salary 2026</h2>
+        <p>Liverpool has one of the fastest-growing digital and life sciences economies in the UK. While median salaries remain below the national average, a cluster of high-value employers — particularly in health tech, pharma, and digital — are driving salaries in specialised roles well above regional norms.</p>
+
+        <h2 id="average">Average salary in Liverpool 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£31,800</td><td>£2,300/month</td></tr>
-            <tr><td>Mean salary</td><td>£34,500</td><td>£2,470/month</td></tr>
-            <tr><td>UK median</td><td>£34,963</td><td>£2,493/month</td></tr>
+            <tr><td>Median full-time (Liverpool)</td><td>£31,800</td><td>~£2,300/month</td></tr>
+            <tr><td>Mean full-time (Liverpool)</td><td>£34,500</td><td>~£2,470/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
+            <tr><td>London median (comparison)</td><td>£46,500</td><td>~£3,060/month</td></tr>
           </tbody>
         </table>
-        <h2 id="sectors">Liverpool salaries by sector</h2>
+
+        <h2 id="sectors">Liverpool salaries by sector (2026)</h2>
         <table>
-          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
           <tbody>
-            <tr><td>Technology / Digital</td><td>£45,000</td></tr>
-            <tr><td>Financial services</td><td>£42,000</td></tr>
-            <tr><td>Healthcare (NHS)</td><td>£35,200</td></tr>
-            <tr><td>Public sector</td><td>£33,000</td></tr>
-            <tr><td>Education</td><td>£32,500</td></tr>
-            <tr><td>Retail</td><td>£23,000</td></tr>
+            <tr><td>Technology / digital</td><td>£35,000–£80,000</td></tr>
+            <tr><td>Life sciences / pharma (Alder Hey, RLUH)</td><td>£30,000–£90,000</td></tr>
+            <tr><td>Financial services</td><td>£32,000–£75,000</td></tr>
+            <tr><td>Maritime and logistics</td><td>£30,000–£65,000</td></tr>
+            <tr><td>Healthcare (NHS Mersey)</td><td>£26,000–£80,000+</td></tr>
+            <tr><td>Education (Liverpool, Liverpool John Moores)</td><td>£28,000–£60,000</td></tr>
           </tbody>
         </table>
+
+        <h2 id="cost">Value for money: Liverpool's key advantage</h2>
+        <p>Liverpool offers some of the best value for money of any UK city. Average rent for a one-bedroom city centre flat is £850–£1,100/month — among the lowest of any major UK city. On a £31,800 median salary, take-home is approximately £2,300/month, leaving £1,200–£1,450 per month after a typical city centre rent. This disposable income figure is comparable to what a Londoner earning £55,000 retains after London rents. For professionals working remotely or in roles that exist across multiple cities, Liverpool offers an outstanding quality of life per pound.</p>
+
+        <h2 id="growth">Growth sectors driving higher wages</h2>
+        <p>Liverpool's Knowledge Quarter — home to the Royal Liverpool University Hospital, University of Liverpool, Liverpool School of Tropical Medicine, and multiple biotech companies — is one of the UK's emerging life sciences clusters. Digital health, genomics, and clinical research roles pay £45,000–£85,000 for experienced professionals. The city's port and logistics sector, anchored by Peel Ports, employs thousands at salaries above the regional average in logistics management, engineering, and commercial roles.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
-          salaries={[{amount:28000},{amount:32000},{amount:35000},{amount:42000},{amount:45000}]}
-          cities={["Manchester","London","Birmingham","Leeds"]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"},{path:"/insights/average-salary-manchester-2026",label:"Manchester Salary 2026"}]}
+          salaries={[{amount:31800},{amount:38000},{amount:50000},{amount:65000},{amount:85000}]}
         />
       </>
     ),
@@ -2168,31 +2480,40 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Sheffield is a centre for advanced manufacturing, engineering, and healthcare. Salaries are below the UK median but the city offers some of the best value living in the UK — housing costs are roughly half those in London.</p>
-        <h2 id="median">Average Sheffield salary 2026</h2>
+        <p>Sheffield is the UK's fourth-largest city and a centre for advanced manufacturing, engineering, and an increasingly significant digital economy. Historically known for steel and cutlery manufacturing, Sheffield's economy has diversified substantially — it is now home to a major NHS research cluster (Sheffield Teaching Hospitals is one of the largest NHS trusts), two research universities, and a growing technology sector.</p>
+
+        <h2 id="average">Average salary in Sheffield 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£31,500</td><td>£2,282/month</td></tr>
-            <tr><td>Mean salary</td><td>£34,200</td><td>£2,453/month</td></tr>
+            <tr><td>Median full-time (Sheffield)</td><td>£31,500</td><td>~£2,280/month</td></tr>
+            <tr><td>Mean full-time (Sheffield)</td><td>£34,200</td><td>~£2,453/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
           </tbody>
         </table>
-        <h2 id="sectors">Sheffield salaries by sector</h2>
+
+        <h2 id="sectors">Sheffield salaries by sector (2026)</h2>
         <table>
-          <thead><tr><th>Sector</th><th>Median salary</th></tr></thead>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
           <tbody>
-            <tr><td>Advanced manufacturing</td><td>£44,000</td></tr>
-            <tr><td>Engineering</td><td>£42,000</td></tr>
-            <tr><td>Technology</td><td>£44,000</td></tr>
-            <tr><td>Healthcare (NHS)</td><td>£35,000</td></tr>
-            <tr><td>Education (two universities)</td><td>£34,000</td></tr>
+            <tr><td>Advanced manufacturing / steel</td><td>£35,000–£70,000</td></tr>
+            <tr><td>Engineering</td><td>£32,000–£70,000</td></tr>
+            <tr><td>Technology / digital</td><td>£35,000–£80,000</td></tr>
+            <tr><td>Healthcare (Sheffield Teaching Hospitals)</td><td>£26,000–£80,000+</td></tr>
+            <tr><td>Education (University of Sheffield, Sheffield Hallam)</td><td>£28,000–£60,000</td></tr>
+            <tr><td>Public sector / local government</td><td>£25,000–£60,000</td></tr>
           </tbody>
         </table>
+
+        <h2 id="manufacturing">Advanced manufacturing and engineering premium</h2>
+        <p>Sheffield's advanced manufacturing sector — specialising in high-value steel alloys, aerospace components, and nuclear engineering — commands significant pay premiums over the city median. Materials engineers, metallurgists, and manufacturing process engineers at companies like Sheffield Forgemasters, Liberty Steel, and Devclad earn £45,000–£75,000. The University of Sheffield's Advanced Manufacturing Research Centre (AMRC) and the Nuclear AMRC employ researchers and engineers at £40,000–£65,000.</p>
+
+        <h2 id="cost">Cost of living: Sheffield's strongest advantage</h2>
+        <p>Sheffield consistently ranks among the UK's most affordable cities. Average rent for a one-bedroom city centre flat is £800–£1,050/month. A professional on the Sheffield median of £31,500 (£2,280 take-home/month) retains approximately £1,230–£1,480 per month after a typical city centre rent — a higher disposable income percentage than in London, Bristol, or Manchester. House prices average £220,000–£260,000 in accessible suburbs like Crookes, Walkley, and Hillsborough, making home ownership feasible on two professional incomes.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
-          salaries={[{amount:28000},{amount:31500},{amount:35000},{amount:42000}]}
-          cities={["Leeds","Manchester","Birmingham","Nottingham"]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-leeds-2026",label:"Leeds Salary 2026"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"}]}
+          salaries={[{amount:31500},{amount:36000},{amount:45000},{amount:58000},{amount:75000}]}
         />
       </>
     ),
@@ -2214,20 +2535,40 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Nottingham is home to major pharmaceutical, financial services, and public sector employers. Salaries are slightly below the UK median but housing costs are significantly lower — making it one of England's best-value cities for disposable income.</p>
-        <h2 id="median">Average Nottingham salary 2026</h2>
+        <p>Nottingham is one of the East Midlands' largest employment centres, with particular strength in pharmaceutical manufacturing (Boots headquarters, Experian, Capital One), NHS services, and a large student-driven economy from two major universities. It consistently offers lower living costs than most comparable UK cities while maintaining a reasonable salary base across the public and private sectors.</p>
+
+        <h2 id="average">Average salary in Nottingham 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£31,200</td><td>£2,264/month</td></tr>
-            <tr><td>Mean salary</td><td>£33,800</td><td>£2,427/month</td></tr>
+            <tr><td>Median full-time (Nottingham)</td><td>£31,200</td><td>~£2,264/month</td></tr>
+            <tr><td>Mean full-time (Nottingham)</td><td>£33,800</td><td>~£2,420/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
           </tbody>
         </table>
+
+        <h2 id="sectors">Nottingham salaries by sector (2026)</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
+          <tbody>
+            <tr><td>Pharmaceuticals / life sciences (Boots, AstraZeneca Nottm)</td><td>£35,000–£90,000</td></tr>
+            <tr><td>Financial services (Experian, Capital One)</td><td>£35,000–£85,000</td></tr>
+            <tr><td>Technology</td><td>£35,000–£80,000</td></tr>
+            <tr><td>Healthcare (Nottingham University Hospitals)</td><td>£26,000–£80,000+</td></tr>
+            <tr><td>Retail / distribution (next HQ nearby)</td><td>£25,000–£60,000</td></tr>
+            <tr><td>Education</td><td>£28,000–£55,000</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="major-employers">Anchor employers and their pay scales</h2>
+        <p>Boots UK headquarters in Beeston employs around 6,500 people in pharmacy, retail, logistics, and corporate functions. Graduate roles start at £26,000–£32,000; experienced pharmacists earn £38,000–£55,000; senior commercial and marketing roles reach £60,000–£90,000. Experian's Nottingham operations (data analytics and financial technology) pay significantly above the city average — data analysts earn £35,000–£55,000, senior technology roles reach £70,000–£95,000. Capital One UK employs around 1,000 people at its Nottingham technology and operations centre, paying technology roles at £40,000–£85,000.</p>
+
+        <h2 id="cost">Salary stretch in Nottingham</h2>
+        <p>Nottingham offers excellent value for money. Average rent for a one-bedroom flat in the city centre is £850–£1,100/month. House prices average £180,000–£230,000, making home ownership achievable on a single professional income. A professional earning £31,200 (the city median, ~£2,264/month take-home) retains approximately £1,164–£1,414 after rent — a reasonable disposable position that improves significantly with dual incomes.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
-          salaries={[{amount:28000},{amount:31000},{amount:35000},{amount:40000}]}
-          cities={["Birmingham","Sheffield","Leeds","Leicester"]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"}]}
+          salaries={[{amount:31200},{amount:38000},{amount:50000},{amount:65000},{amount:85000}]}
         />
       </>
     ),
@@ -2250,20 +2591,41 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Cardiff is the capital of Wales and the country's main economic hub. The city has a strong concentration of public sector, financial services, and media employers — and housing costs roughly half those of Bristol across the Severn.</p>
-        <h2 id="median">Average Cardiff salary 2026</h2>
+        <p>Cardiff is the capital of Wales and its largest employer. The city has a strong concentration of public sector, financial services, and media roles — BBC Wales, S4C, and ITV Wales all have significant Cardiff presences. Cardiff salaries sit below the UK average but housing costs are substantially lower than most English cities of comparable size.</p>
+
+        <h2 id="average">Average salary in Cardiff 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£31,000</td><td>£2,252/month</td></tr>
-            <tr><td>Mean salary</td><td>£33,500</td><td>£2,410/month</td></tr>
+            <tr><td>Median full-time (Cardiff)</td><td>£31,000</td><td>~£2,252/month</td></tr>
+            <tr><td>Mean full-time (Cardiff)</td><td>£33,500</td><td>~£2,410/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
+            <tr><td>England median (comparison)</td><td>£38,200</td><td>~£2,640/month</td></tr>
           </tbody>
         </table>
+
+        <h2 id="sectors">Cardiff salaries by sector (2026)</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
+          <tbody>
+            <tr><td>Financial services (Legal &amp; General, Admiral)</td><td>£32,000–£85,000</td></tr>
+            <tr><td>Public sector (Welsh Government, civil service)</td><td>£26,000–£75,000</td></tr>
+            <tr><td>Technology / digital</td><td>£32,000–£80,000</td></tr>
+            <tr><td>Healthcare (Cardiff and Vale UHB)</td><td>£26,000–£80,000+</td></tr>
+            <tr><td>Media (BBC Wales, ITV, S4C)</td><td>£25,000–£65,000</td></tr>
+            <tr><td>Legal</td><td>£28,000–£70,000</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="welsh-tax">Welsh income tax — does it differ?</h2>
+        <p>The Welsh Rate of Income Tax (WRIT) exists as a mechanism but is currently set identically to England and Northern Ireland — 20% basic, 40% higher, 45% additional. Welsh taxpayers use the prefix "C" on their tax code (e.g. C1257L). In practice, the tax you pay in Cardiff is identical to the tax you'd pay on the same salary in Birmingham or Manchester. This contrasts with Scotland, which sets its own rates and has higher tax for most earners above £43,662.</p>
+
+        <h2 id="cost">Cardiff vs Bristol: the Severn crossing comparison</h2>
+        <p>Cardiff and Bristol are 45 minutes apart — yet average Cardiff house prices (£250,000–£290,000) are roughly 30–40% below Bristol (£350,000–£420,000), and rents are similarly lower. A professional who works remotely or commutes can potentially access Bristol or London employer pay scales while enjoying Cardiff living costs. Average rent for a one-bedroom city centre flat in Cardiff is £950–£1,200/month.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
-          salaries={[{amount:26000},{amount:31000},{amount:35000},{amount:40000}]}
-          cities={["Bristol","Birmingham","London","Manchester"]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-wales-2026",label:"Average Wales Salary 2026"}]}
+          salaries={[{amount:31000},{amount:36000},{amount:48000},{amount:65000},{amount:85000}]}
         />
       </>
     ),
@@ -2286,34 +2648,45 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Scotland's median salary is close to the UK average, but Scottish income tax rates — set by the Scottish Parliament — mean your take-home pay differs from the rest of the UK at the same gross salary.</p>
-        <h2 id="median">Average Scotland salary 2026</h2>
+        <p>Scotland has a higher median salary than Wales and Northern Ireland, broadly in line with the UK average, with Edinburgh significantly above the Scottish norm and rural areas considerably below it. Scotland sets its own income tax rates — the six-band Scottish system differs from the rest of the UK for earnings above £12,570, meaning take-home pay on the same gross salary is lower in Scotland than England for most higher earners.</p>
+        <h2 id="average">Average salary in Scotland 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Gross</th><th>Scottish take-home</th><th>Same salary in England</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home (Scottish tax)</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£33,800</td><td>£2,346/month</td><td>£2,410/month (+£64)</td></tr>
-            <tr><td>Mean salary</td><td>£37,200</td><td>£2,550/month</td><td>£2,611/month (+£61)</td></tr>
+            <tr><td>Median full-time (Scotland)</td><td>£36,900</td><td>~£2,545/month</td></tr>
+            <tr><td>Mean full-time (Scotland)</td><td>£40,500</td><td>~£2,760/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590 (England)</td></tr>
           </tbody>
         </table>
-        <h2 id="by-city">Scotland salaries by city</h2>
+        <h2 id="by-city">Average salary by Scottish city (2026)</h2>
         <table>
           <thead><tr><th>City</th><th>Median salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Edinburgh</td><td>£37,500</td><td>£2,600/month</td></tr>
-            <tr><td>Aberdeen</td><td>£36,000</td><td>£2,510/month</td></tr>
-            <tr><td>Glasgow</td><td>£33,200</td><td>£2,310/month</td></tr>
-            <tr><td>Dundee</td><td>£30,500</td><td>£2,160/month</td></tr>
-            <tr><td>Inverness</td><td>£30,000</td><td>£2,132/month</td></tr>
+            <tr><td>Edinburgh</td><td>£36,800</td><td>~£2,540/month</td></tr>
+            <tr><td>Aberdeen</td><td>£36,200</td><td>~£2,500/month</td></tr>
+            <tr><td>Glasgow</td><td>£33,500</td><td>~£2,370/month</td></tr>
+            <tr><td>Dundee</td><td>£30,500</td><td>~£2,200/month</td></tr>
+            <tr><td>Inverness</td><td>£29,800</td><td>~£2,160/month</td></tr>
+            <tr><td>Rural Scotland</td><td>£26,000–£29,000</td><td>~£1,950–£2,110/month</td></tr>
           </tbody>
         </table>
-        <h2 id="tax">Scottish vs England tax difference</h2>
-        <p>Above £27,491, Scottish taxpayers pay the Intermediate Rate (21%) compared to England's Basic Rate (20%). Above £43,662, the Scottish Higher Rate is 42% vs England's 40%. On a £50,000 salary, a Scottish worker pays approximately £1,644 more per year in income tax.</p>
-        <p>Use our <ToolLink to="/take-home">take-home calculator</ToolLink> — toggle Scotland to see the exact difference at your salary level.</p>
+        <h2 id="scottish-tax">Scottish income tax — 2026/27 rates</h2>
+        <table>
+          <thead><tr><th>Band</th><th>Rate</th><th>Income range</th></tr></thead>
+          <tbody>
+            <tr><td>Starter rate</td><td>19%</td><td>£12,571–£14,667</td></tr>
+            <tr><td>Basic rate</td><td>20%</td><td>£14,668–£25,296</td></tr>
+            <tr><td>Intermediate rate</td><td>21%</td><td>£25,297–£43,662</td></tr>
+            <tr><td>Higher rate</td><td>42%</td><td>£43,663–£75,000</td></tr>
+            <tr><td>Advanced rate</td><td>45%</td><td>£75,001–£125,140</td></tr>
+            <tr><td>Top rate</td><td>48%</td><td>Over £125,140</td></tr>
+          </tbody>
+        </table>
+        <p>A Scottish taxpayer earning £50,000 pays approximately £1,300 more in income tax than an equivalent English taxpayer. At £75,000, the difference is approximately £3,500/year. Pension salary sacrifice is especially valuable for Scottish higher-rate taxpayers — relief is given at 42% rather than 40%.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/compare",label:"Compare Salaries"}]}
-          salaries={[{amount:30000},{amount:33800},{amount:37500},{amount:45000},{amount:50000}]}
-          cities={["Edinburgh","Glasgow","London","Manchester"]}
+          tools={[{path:"/take-home",label:"Scottish Take-Home Calculator"},{path:"/insights/scottish-income-tax-bands-2026-27",label:"Scottish Tax Bands Explained"},{path:"/insights/average-salary-edinburgh-2026",label:"Edinburgh Salary 2026"}]}
+          salaries={[{amount:36900},{amount:43000},{amount:55000},{amount:75000},{amount:100000}]}
         />
       </>
     ),
@@ -2336,30 +2709,40 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Wales has the lowest median salary of the four UK nations, but housing costs are significantly lower than England — particularly compared to London and the South East. The Welsh Rate of Income Tax exists but is currently set at the same level as England.</p>
-        <h2 id="median">Average Wales salary 2026</h2>
+        <p>Wales has the lowest median full-time salary of the four UK nations, but also the lowest housing and living costs — particularly outside Cardiff. The Welsh economy has a high concentration of public sector employment (NHS Wales, Welsh Government, local authorities), manufacturing, and tourism, with a growing but smaller private professional services sector compared to England.</p>
+
+        <h2 id="average">Average salary in Wales 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£30,500</td><td>£2,218/month</td></tr>
-            <tr><td>Mean salary</td><td>£32,800</td><td>£2,372/month</td></tr>
-            <tr><td>UK median</td><td>£34,963</td><td>£2,493/month</td></tr>
+            <tr><td>Median full-time (Wales)</td><td>£30,500</td><td>~£2,218/month</td></tr>
+            <tr><td>Mean full-time (Wales)</td><td>£32,800</td><td>~£2,372/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
           </tbody>
         </table>
-        <h2 id="by-city">Wales salaries by city</h2>
+
+        <h2 id="by-city">Average salary by Welsh city (2026)</h2>
         <table>
-          <thead><tr><th>City</th><th>Median salary</th></tr></thead>
+          <thead><tr><th>City / area</th><th>Median salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Cardiff</td><td>£31,000</td></tr>
-            <tr><td>Swansea</td><td>£29,500</td></tr>
-            <tr><td>Newport</td><td>£29,000</td></tr>
+            <tr><td>Cardiff</td><td>£31,000</td><td>~£2,252/month</td></tr>
+            <tr><td>Newport</td><td>£30,000</td><td>~£2,184/month</td></tr>
+            <tr><td>Swansea</td><td>£29,500</td><td>~£2,152/month</td></tr>
+            <tr><td>Wrexham</td><td>£29,000</td><td>~£2,120/month</td></tr>
+            <tr><td>Bridgend</td><td>£28,500</td><td>~£2,088/month</td></tr>
+            <tr><td>Rural Wales (Powys, Ceredigion)</td><td>£26,000–£28,000</td><td>~£1,950–£2,060/month</td></tr>
           </tbody>
         </table>
+
+        <h2 id="tax">Welsh income tax in 2026</h2>
+        <p>The Welsh Rate of Income Tax is devolved but currently set identically to England — 20% basic rate, 40% higher rate, 45% additional rate. Welsh taxpayers are identified by a "C" prefix on their tax code. This means take-home pay for a Welsh employee is identical to an English employee on the same salary. This is a political choice — the Welsh Government could in future set different rates, as Scotland does.</p>
+
+        <h2 id="value">Real purchasing power: Wales vs England</h2>
+        <p>Despite lower nominal salaries, Wales offers strong real purchasing power. Average house prices in Wales are approximately £210,000–£240,000, compared to £310,000 across England. In rural areas of Powys or Ceredigion, properties sell for £150,000–£200,000. For professionals who can work remotely — increasingly common in tech, finance, and consulting — living in Wales while earning London or Bristol salaries creates exceptional financial outcomes.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
-          salaries={[{amount:25000},{amount:30000},{amount:35000},{amount:40000}]}
-          cities={["Cardiff","Bristol","Birmingham","London"]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-cardiff-2026",label:"Cardiff Salary 2026"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"}]}
+          salaries={[{amount:30500},{amount:35000},{amount:45000},{amount:60000},{amount:80000}]}
         />
       </>
     ),
@@ -2381,21 +2764,41 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Northern Ireland has the lowest median salary of any UK region, but also the lowest housing and living costs. The same income tax rates as England and Wales apply — Northern Ireland does not have devolved income tax powers.</p>
-        <h2 id="median">Average Northern Ireland salary 2026</h2>
+        <p>Northern Ireland has the lowest median full-time salary of any UK region or nation, but also among the lowest costs of living — particularly for housing. Belfast has a growing financial services, technology, and legal outsourcing sector that pays significantly above the Northern Ireland average, drawing professionals from across the UK attracted by the combination of career opportunities and affordable living.</p>
+
+        <h2 id="average">Average salary in Northern Ireland 2026</h2>
         <table>
-          <thead><tr><th>Measure</th><th>Gross</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Measure</th><th>Annual salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Median salary</td><td>£30,200</td><td>£2,200/month</td></tr>
-            <tr><td>Mean salary</td><td>£32,500</td><td>£2,355/month</td></tr>
-            <tr><td>UK median</td><td>£34,963</td><td>£2,493/month</td></tr>
+            <tr><td>Median full-time (Northern Ireland)</td><td>£30,200</td><td>~£2,200/month</td></tr>
+            <tr><td>Mean full-time (Northern Ireland)</td><td>£32,500</td><td>~£2,355/month</td></tr>
+            <tr><td>UK median (comparison)</td><td>£37,430</td><td>~£2,590/month</td></tr>
+            <tr><td>London median (comparison)</td><td>£46,500</td><td>~£3,060/month</td></tr>
           </tbody>
         </table>
+
+        <h2 id="by-sector">Northern Ireland salaries by sector (2026)</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Typical salary range</th></tr></thead>
+          <tbody>
+            <tr><td>Financial services / legal outsourcing (Belfast)</td><td>£28,000–£75,000</td></tr>
+            <tr><td>Technology / cybersecurity</td><td>£32,000–£85,000</td></tr>
+            <tr><td>Healthcare (Health and Social Care)</td><td>£26,000–£80,000+</td></tr>
+            <tr><td>Advanced manufacturing</td><td>£28,000–£60,000</td></tr>
+            <tr><td>Education</td><td>£26,000–£55,000</td></tr>
+            <tr><td>Civil service (NICS)</td><td>£24,000–£65,000</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="belfast-tech">Belfast's growing tech and legal sector</h2>
+        <p>Belfast has attracted significant financial services and legal outsourcing investment over the past decade. Allen &amp; Overy (now A&O Shearman), Herbert Smith Freehills, Baker McKenzie, and Citibank all operate significant Belfast operations employing lawyers, compliance, and financial analysts at £30,000–£65,000 — well above the Northern Ireland median but substantially below London rates for equivalent work. Concentrix, Liberty Mutual, and Citi technology operations bring software engineering roles paying £40,000–£80,000.</p>
+
+        <h2 id="housing">The housing advantage</h2>
+        <p>Northern Ireland's strongest financial advantage is housing. Average house prices in Belfast are approximately £185,000–£210,000 — around 40% below the UK average and 70% below London. Monthly rent for a one-bedroom city centre flat in Belfast is £750–£950. A professional on £30,200 (£2,200 take-home) retains approximately £1,250–£1,450 per month after rent — a better post-housing disposable income than many Londoners earning double the salary.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/cost-of-living",label:"Cost of Living"}]}
-          salaries={[{amount:25000},{amount:30000},{amount:35000},{amount:40000}]}
-          cities={["London","Manchester","Birmingham","Edinburgh"]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary 2026"},{path:"/insights/average-salary-scotland-2026",label:"Scotland Salary 2026"}]}
+          salaries={[{amount:30200},{amount:36000},{amount:45000},{amount:60000},{amount:80000}]}
         />
       </>
     ),
@@ -2417,23 +2820,45 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Solicitor salaries in the UK vary enormously depending on firm type, location, and seniority. Here is take-home pay at every career level for 2026.</p>
-        <h2 id="by-level">Solicitor salary by level (2026)</h2>
+        <p>Solicitor salaries in the UK vary more than almost any other profession — from £26,000 for a first-year trainee at a regional firm to £200,000+ for a senior associate at a Magic Circle firm. The primary driver is firm type and location, followed by practice area. Here is the complete picture for 2026.</p>
+
+        <h2 id="by-firm">Solicitor salary by firm type and level (2026)</h2>
         <table>
-          <thead><tr><th>Level</th><th>Regional firm</th><th>City / national</th><th>Magic Circle</th></tr></thead>
+          <thead><tr><th>Level</th><th>Regional firm</th><th>National / City</th><th>Magic Circle</th></tr></thead>
           <tbody>
-            <tr><td>Trainee (1st year)</td><td>£26,000</td><td>£38,000</td><td>£52,000</td></tr>
-            <tr><td>Trainee (2nd year)</td><td>£28,000</td><td>£42,000</td><td>£58,000</td></tr>
+            <tr><td>Trainee (year 1)</td><td>£26,000</td><td>£38,000</td><td>£52,000</td></tr>
+            <tr><td>Trainee (year 2)</td><td>£28,000</td><td>£42,000</td><td>£58,000</td></tr>
             <tr><td>NQ (newly qualified)</td><td>£38,000–£42,000</td><td>£55,000–£70,000</td><td>£100,000–£150,000</td></tr>
-            <tr><td>3–5 PQE</td><td>£45,000–£55,000</td><td>£65,000–£85,000</td><td>£120,000–£170,000</td></tr>
-            <tr><td>Senior Associate</td><td>£55,000–£70,000</td><td>£80,000–£110,000</td><td>£150,000–£200,000</td></tr>
-            <tr><td>Salaried Partner</td><td>£80,000–£120,000</td><td>£120,000–£200,000</td><td>£200,000+</td></tr>
+            <tr><td>3–5 PQE</td><td>£45,000–£55,000</td><td>£70,000–£90,000</td><td>£130,000–£175,000</td></tr>
+            <tr><td>Senior Associate (6–8 PQE)</td><td>£55,000–£70,000</td><td>£90,000–£120,000</td><td>£160,000–£220,000</td></tr>
+            <tr><td>Partner (equity)</td><td>£80,000–£150,000</td><td>£150,000–£400,000</td><td>£500,000–£2M+</td></tr>
           </tbody>
         </table>
+        <p><small>Magic Circle firms: Allen &amp; Overy, Clifford Chance, Freshfields, Linklaters, Slaughter and May. "National/City" includes the Silver Circle and large US firms in London.</small></p>
+
+        <h2 id="by-area">Salary by practice area</h2>
+        <p>Within the same firm tier, practice area significantly affects earnings — both salary and bonus potential. Corporate/M&A and Finance lawyers earn the most; family law, legal aid, and criminal defence the least.</p>
+        <table>
+          <thead><tr><th>Practice area</th><th>5 PQE salary range</th></tr></thead>
+          <tbody>
+            <tr><td>Corporate / M&amp;A (City)</td><td>£130,000–£180,000</td></tr>
+            <tr><td>Banking and Finance (City)</td><td>£120,000–£170,000</td></tr>
+            <tr><td>Real Estate (City)</td><td>£90,000–£130,000</td></tr>
+            <tr><td>Employment (National)</td><td>£55,000–£85,000</td></tr>
+            <tr><td>Private Client / Family</td><td>£45,000–£75,000</td></tr>
+            <tr><td>Criminal / Legal Aid</td><td>£30,000–£55,000</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="takehome">Take-home pay examples</h2>
+        <p>A newly qualified solicitor at a Magic Circle firm earning £110,000 takes home approximately £5,550/month after income tax and NI. The £100,000–£125,140 Personal Allowance taper applies, creating an effective 60% marginal rate in that band — meaning pension contributions or salary sacrifice are especially valuable. An NQ at a regional firm on £40,000 takes home approximately £2,750/month.</p>
+
+        <h2 id="location">Regional vs London salaries</h2>
+        <p>London pay premiums for solicitors are substantial at senior levels but narrow at junior levels. A trainee at a regional firm in Manchester or Bristol earns £26,000–£30,000 — similar to London regional firms but significantly below City firms. However, housing costs in regional cities are 40–60% lower than London, often making the real-terms financial position comparable or better at junior levels.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/compare",label:"Compare Salaries"},{path:"/dividend",label:"Dividend Calculator"}]}
-          salaries={[{amount:42000},{amount:55000},{amount:70000},{amount:100000},{amount:150000}]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/personal-allowance-taper",label:"£100K Tax Trap Explained"}]}
+          salaries={[{amount:38000},{amount:65000},{amount:100000},{amount:135000},{amount:180000}]}
         />
       </>
     ),
@@ -2454,23 +2879,41 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>GP salaries depend on whether you are salaried, a partner, or working as a locum. Here is the full breakdown for 2026.</p>
-        <h2 id="by-type">GP salary by type (2026)</h2>
+        <p>GP salaries in the UK vary significantly depending on employment model — salaried, partner, or locum. Following the 2023 contract disputes and the 2024/25 pay settlements, GP pay has improved but remains a source of ongoing negotiation between the BMA and NHS England.</p>
+
+        <h2 id="by-type">GP salary by employment type (2026)</h2>
         <table>
-          <thead><tr><th>Role</th><th>Gross salary</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Role</th><th>Gross earnings</th><th>Monthly take-home (est.)</th></tr></thead>
           <tbody>
-            <tr><td>Salaried GP (minimum BMA)</td><td>£70,300</td><td>~£4,020/month</td></tr>
-            <tr><td>Salaried GP (experienced)</td><td>£85,000</td><td>~£4,700/month</td></tr>
-            <tr><td>GP Partner (average)</td><td>£115,000</td><td>~£5,770/month</td></tr>
-            <tr><td>Locum GP (day rate)</td><td>£700–£1,000/day</td><td>Varies (self-employed)</td></tr>
+            <tr><td>Salaried GP — BMA minimum</td><td>£70,300/year</td><td>~£3,990/month</td></tr>
+            <tr><td>Salaried GP — experienced</td><td>£85,000–£100,000/year</td><td>~£4,630–£5,280/month</td></tr>
+            <tr><td>GP Partner — average</td><td>£115,000–£135,000/year</td><td>~£5,630–£6,400/month</td></tr>
+            <tr><td>Locum GP — day rate</td><td>£700–£1,200/day</td><td>Varies (self-employed)</td></tr>
           </tbody>
         </table>
-        <h2 id="pension">NHS Pension impact</h2>
-        <p>GPs contribute 9.3%–12.5% of earnings to the NHS Pension Scheme. At £85,000, that is approximately £8,500/year — reducing monthly take-home by ~£700. Use our <ToolLink to="/take-home">calculator</ToolLink> with pension set to your contribution rate for an exact figure.</p>
+        <p><small>Partner earnings are profit distributions, not salary. Take-home assumes PAYE for salaried GPs. Partners are self-employed and pay Income Tax through Self Assessment. Estimates before NHS pension contributions.</small></p>
+
+        <h2 id="partners-vs-salaried">Partners vs salaried: the real financial difference</h2>
+        <p>GP partners buy into a practice and receive a share of profits rather than a fixed salary. Average partner drawings are £115,000–£135,000, but partners also bear financial risk — NHS contract changes, property costs, and staffing costs come out of profit before distribution. Salaried GPs have employment rights and employer pension contributions but less earning upside. Partners who have owned premises can also benefit significantly from building equity.</p>
+
+        <h2 id="pension">NHS pension — the hidden value</h2>
+        <p>GP partners contribute 14.5% of pensionable pay to the NHS Pension Scheme. At £115,000, that is approximately £13,900/year, reducing net income significantly. However, the NHS Pension is a defined-benefit scheme based on career average earnings — its value in retirement is typically worth 30–40% more per pound contributed than a private defined-contribution pension. Salaried GPs contribute 12.5% and receive a 23.7% employer contribution on top.</p>
+
+        <h2 id="junior-doctors">Junior doctor and training grade pay</h2>
+        <table>
+          <thead><tr><th>Grade</th><th>Basic salary (2026)</th><th>With typical additional hours</th></tr></thead>
+          <tbody>
+            <tr><td>Foundation Year 1 (FY1)</td><td>£36,616</td><td>£40,000–£46,000</td></tr>
+            <tr><td>Foundation Year 2 (FY2)</td><td>£42,008</td><td>£46,000–£54,000</td></tr>
+            <tr><td>ST1–ST2 (Core Training)</td><td>£55,329</td><td>£60,000–£70,000</td></tr>
+            <tr><td>ST3–ST8 (Higher Specialty)</td><td>£63,152–£93,666</td><td>£70,000–£105,000</td></tr>
+            <tr><td>Consultant</td><td>£99,532–£131,964</td><td>£105,000–£145,000</td></tr>
+          </tbody>
+        </table>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/self-employed",label:"Self-Employed (Locums)"},{path:"/dividend",label:"Dividend Calculator"}]}
-          salaries={[{amount:70000},{amount:85000},{amount:100000},{amount:115000},{amount:130000}]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/nurse-salary-uk-2026",label:"NHS Nurse Salary 2026"},{path:"/insights/pharmacist-salary-uk-2026",label:"Pharmacist Salary 2026"}]}
+          salaries={[{amount:70300},{amount:85000},{amount:115000},{amount:135000},{amount:160000}]}
         />
       </>
     ),
@@ -2491,22 +2934,43 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Project management spans every industry. Salaries depend on sector, certification (PRINCE2, PMP, Agile), and seniority.</p>
+        <p>Project management is one of the UK's most transferable professions — PMs work across technology, construction, finance, healthcare, and government. Salaries depend heavily on sector, the scale of projects managed, and certifications (PRINCE2, PMP, AgilePM, MSP). IT project managers consistently earn the most; construction and public sector PMs typically earn less but often have stronger job security and pension provision.</p>
+
         <h2 id="by-level">Project manager salary by level (2026)</h2>
         <table>
           <thead><tr><th>Level</th><th>Typical salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Junior / Associate PM</td><td>£30,000–£38,000</td><td>~£2,280/month</td></tr>
-            <tr><td>Project Manager</td><td>£42,000–£55,000</td><td>~£3,060/month</td></tr>
-            <tr><td>Senior PM</td><td>£55,000–£70,000</td><td>~£3,740/month</td></tr>
-            <tr><td>Programme Manager</td><td>£65,000–£85,000</td><td>~£4,400/month</td></tr>
-            <tr><td>Director / Head of PMO</td><td>£80,000–£110,000</td><td>~£5,200/month</td></tr>
+            <tr><td>Junior / Associate PM</td><td>£30,000–£38,000</td><td>~£2,250/month</td></tr>
+            <tr><td>Project Manager</td><td>£42,000–£58,000</td><td>~£2,960/month</td></tr>
+            <tr><td>Senior Project Manager</td><td>£58,000–£75,000</td><td>~£3,600/month</td></tr>
+            <tr><td>Programme Manager</td><td>£70,000–£95,000</td><td>~£4,280/month</td></tr>
+            <tr><td>Portfolio / Director</td><td>£90,000–£130,000</td><td>~£5,100/month</td></tr>
           </tbody>
         </table>
+        <p><small>Take-home at mid-point, England, no student loan. Senior+ roles in financial services and technology can exceed these figures substantially.</small></p>
+
+        <h2 id="by-sector">Project manager salary by sector (2026)</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Mid-level PM salary</th><th>Senior PM salary</th></tr></thead>
+          <tbody>
+            <tr><td>Technology / IT</td><td>£52,000–£68,000</td><td>£70,000–£95,000</td></tr>
+            <tr><td>Financial Services</td><td>£55,000–£72,000</td><td>£75,000–£105,000</td></tr>
+            <tr><td>Pharmaceutical</td><td>£50,000–£68,000</td><td>£68,000–£95,000</td></tr>
+            <tr><td>Construction / Infrastructure</td><td>£45,000–£60,000</td><td>£60,000–£85,000</td></tr>
+            <tr><td>Central Government</td><td>£42,000–£58,000</td><td>£58,000–£80,000</td></tr>
+            <tr><td>NHS / Healthcare</td><td>£42,000–£55,000</td><td>£55,000–£75,000</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="certifications">The value of PM certifications</h2>
+        <p>PMP (Project Management Professional) and PRINCE2 Practitioner are the most widely required certifications in UK job postings. A PMP-certified PM typically earns 10–20% more than an uncertified counterpart at the same experience level. Agile certifications (Scrum Master, SAFe) are increasingly valued in technology roles, particularly where scrum teams or product delivery is involved. The APM Project Management Qualification (PMQ) is the most widely recognised UK-specific qualification.</p>
+
+        <h2 id="contracting">Contracting rates for PMs</h2>
+        <p>Experienced PMs who move to contract roles typically charge £400–£700/day for technology and financial services projects. Central government digital projects frequently hire contract PMs at £500–£650/day. At £550/day over 220 days, gross income is £121,000 — substantially more than a permanent equivalent, though with no employer contributions, holiday pay, or job security.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/pay-rise",label:"Pay Rise Calculator"},{path:"/compare",label:"Compare Salaries"}]}
-          salaries={[{amount:38000},{amount:48000},{amount:55000},{amount:70000},{amount:85000}]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/ir35",label:"IR35 Contractor Calculator"}]}
+          salaries={[{amount:42000},{amount:58000},{amount:75000},{amount:95000},{amount:120000}]}
         />
       </>
     ),
@@ -2527,22 +2991,34 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>Electricians are among the best-paid tradespeople in the UK. Self-employed electricians typically earn significantly more than employed — and keep a higher proportion after tax.</p>
+        <p>Electricians are among the best-paid skilled tradespeople in the UK. Demand has risen sharply with the growth in EV charging infrastructure, solar panel installation, and the drive to upgrade the UK's housing stock to net-zero standards. Fully qualified electricians with 18th Edition wiring regulations and ECS Gold Cards command premium rates.</p>
+
         <h2 id="employed">Employed electrician salary (2026)</h2>
         <table>
-          <thead><tr><th>Level</th><th>Salary</th><th>Monthly take-home</th></tr></thead>
+          <thead><tr><th>Level</th><th>Annual salary</th><th>Monthly take-home</th></tr></thead>
           <tbody>
-            <tr><td>Newly qualified</td><td>£30,000–£34,000</td><td>~£2,280/month</td></tr>
-            <tr><td>Experienced (5+ years)</td><td>£38,000–£45,000</td><td>~£2,770/month</td></tr>
-            <tr><td>Supervisor / foreman</td><td>£42,000–£50,000</td><td>~£3,060/month</td></tr>
+            <tr><td>Apprentice (year 1–2)</td><td>£12,000–£18,000</td><td>~£1,050–£1,380/month</td></tr>
+            <tr><td>Apprentice (year 3–4)</td><td>£18,000–£25,000</td><td>~£1,380–£1,775/month</td></tr>
+            <tr><td>Newly qualified (JIB Grade A)</td><td>£30,000–£34,000</td><td>~£2,115–£2,385/month</td></tr>
+            <tr><td>Experienced (5+ years)</td><td>£38,000–£45,000</td><td>~£2,640–£2,940/month</td></tr>
+            <tr><td>Supervisor / Foreman</td><td>£42,000–£55,000</td><td>~£2,820–£3,380/month</td></tr>
+            <tr><td>Electrical Engineer / Designer</td><td>£50,000–£70,000</td><td>~£3,190–£4,040/month</td></tr>
           </tbody>
         </table>
-        <h2 id="self-employed">Self-employed electrician earnings</h2>
-        <p>Self-employed electricians charging £200–£350/day can earn £48,000–£84,000 gross. After deducting business expenses (van, tools, materials, insurance), taxable profit is typically £40,000–£65,000. Use our <ToolLink to="/self-employed">self-employed calculator</ToolLink> for your exact take-home after Class 2 and Class 4 NI.</p>
+
+        <h2 id="selfemployed">Self-employed electrician earnings</h2>
+        <p>Self-employed electricians charging £200–£350/day (domestic and small commercial) on 200–230 working days earn gross revenue of £40,000–£80,000/year before materials. After tools, van, insurance, and material costs (typically £10,000–£20,000/year), net profit before tax is £30,000–£60,000 for a busy sole trader. Industrial and commercial electricians charging £350–£600/day can earn considerably more.</p>
+        <p>Self-employed electricians pay Income Tax and Class 4 NI on profit through Self Assessment. On £50,000 profit, after the Personal Allowance, take-home is approximately £34,800 — a lower effective rate than employed status partly because there is no employer NI. Use our <ToolLink to="/self-employed">self-employed calculator</ToolLink> to model your take-home on any profit level.</p>
+
+        <h2 id="specialisms">Highest-earning specialisms</h2>
+        <p><strong>EV charging installation:</strong> Rising demand from domestic EV owners and commercial fleet operators. Qualified EV charge point installers (OZEV-approved) typically charge £150–£300 per installation plus equipment, with experienced operators fitting 3–5 units per day.</p>
+        <p><strong>Solar PV and battery storage:</strong> MCS-accredited solar installers combining electrical work with solar design can charge £600–£1,000/day for commercial installations.</p>
+        <p><strong>Industrial maintenance:</strong> Electricians working in manufacturing, utilities, or data centres on contract rates earn £350–£600/day, with some specialist roles (HV authorised person) commanding £700–£900/day.</p>
+        <p><strong>London premium:</strong> London electricians earn approximately 20–30% above national averages due to higher labour market rates, travel time costs, and complex commercial/heritage building work.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/self-employed",label:"Self-Employed Calculator"},{path:"/hourly",label:"Hourly Rate Calculator"}]}
-          salaries={[{amount:34000},{amount:40000},{amount:45000},{amount:55000}]}
+          tools={[{path:"/self-employed",label:"Self-Employed Tax Calculator"},{path:"/take-home",label:"Take-Home Calculator"},{path:"/insights/hgv-driver-salary-uk-2026",label:"HGV Driver Salary 2026"}]}
+          salaries={[{amount:32000},{amount:40000},{amount:50000},{amount:65000},{amount:80000}]}
         />
       </>
     ),
@@ -2563,21 +3039,42 @@ export const ARTICLES: Article[] = [
     ],
     body: () => (
       <>
-        <p>HGV driver salaries have remained elevated since the 2021 shortage. Demand continues to outstrip supply, keeping wages well above many other vocational roles.</p>
-        <h2 id="by-type">HGV driver salary by licence type (2026)</h2>
+        <p>HGV driver salaries have remained elevated since the acute shortage of 2021, which saw pay rise by 15–25% in a single year. While the shortage has eased, structural demand — particularly from last-mile delivery, cold chain logistics, and supermarket distribution — continues to support pay well above pre-shortage levels.</p>
+
+        <h2 id="by-licence">HGV driver salary by licence type (2026)</h2>
         <table>
           <thead><tr><th>Licence</th><th>Salary range</th><th>Monthly take-home (mid)</th></tr></thead>
           <tbody>
-            <tr><td>Cat C (Class 2, rigid)</td><td>£32,000–£38,000</td><td>~£2,455/month</td></tr>
-            <tr><td>Cat C+E (Class 1, artic)</td><td>£36,000–£48,000</td><td>~£2,850/month</td></tr>
-            <tr><td>Agency / temp</td><td>£40,000–£55,000</td><td>~£3,200/month</td></tr>
-            <tr><td>Tramping / nights / HIAB</td><td>£45,000–£60,000+</td><td>~£3,600/month</td></tr>
+            <tr><td>Cat C1 (medium goods, 3.5–7.5t)</td><td>£28,000–£33,000</td><td>~£2,060/month</td></tr>
+            <tr><td>Cat C (Class 2 rigid, 7.5t+)</td><td>£32,000–£38,000</td><td>~£2,440/month</td></tr>
+            <tr><td>Cat C+E (Class 1 articulated)</td><td>£36,000–£48,000</td><td>~£2,850/month</td></tr>
+            <tr><td>Agency / temp (Class 1)</td><td>£40,000–£55,000</td><td>~£3,200/month</td></tr>
+            <tr><td>Owner-driver / self-employed</td><td>£50,000–£80,000+</td><td>Varies</td></tr>
           </tbody>
         </table>
+
+        <h2 id="sectors">Best-paying sectors for HGV drivers</h2>
+        <table>
+          <thead><tr><th>Sector</th><th>Typical annual salary</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Fuel tanker</td><td>£48,000–£60,000</td><td>ADR qualification required; premium for hazmat</td></tr>
+            <tr><td>Cold chain / refrigerated</td><td>£38,000–£50,000</td><td>Temperature-controlled licence premium</td></tr>
+            <tr><td>Supermarket distribution</td><td>£36,000–£48,000</td><td>Regular hours; good benefits; pension</td></tr>
+            <tr><td>Parcel delivery (Class 1)</td><td>£34,000–£44,000</td><td>High mileage; night work common</td></tr>
+            <tr><td>Construction / tipper</td><td>£34,000–£44,000</td><td>CSCS often required</td></tr>
+            <tr><td>General haulage</td><td>£30,000–£40,000</td><td>Most common; competitive market</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="agency-vs-employed">Agency vs direct employment</h2>
+        <p>Agency HGV drivers typically earn 15–25% more per hour than equivalent directly employed drivers, but with no guaranteed hours, no holiday pay (unless PAYE umbrella), and no employer pension contributions. A Class 1 agency driver working through a PAYE umbrella company on £19–£22/hour for 48 hours/week can earn £47,000–£55,000 gross — but the umbrella company takes margin (typically £20–£30/week), and take-home holidays must be self-managed. Direct employment generally offers better stability, benefits, and pension, while agency offers higher earning potential for those who can secure consistent work.</p>
+
+        <h2 id="owner-driver">Owner-drivers and self-employed</h2>
+        <p>Owner-drivers operating their own vehicle under an operator's licence can earn £60,000–£100,000+ gross revenue, but bear significant costs: truck finance or purchase (£400–£1,200/month), insurance (£3,000–£8,000/year), fuel, maintenance, and compliance costs. Net profit after running costs for a busy owner-driver is typically £35,000–£60,000 — broadly comparable to top-end employed rates but with asset ownership and business risk.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/hourly",label:"Hourly Rate Calculator"},{path:"/two-jobs",label:"Two Jobs Calculator"}]}
-          salaries={[{amount:32000},{amount:38000},{amount:42000},{amount:50000},{amount:55000}]}
+          tools={[{path:"/take-home",label:"Take-Home Calculator"},{path:"/self-employed",label:"Self-Employed Calculator"},{path:"/hourly",label:"Hourly Rate Calculator"}]}
+          salaries={[{amount:32000},{amount:40000},{amount:48000},{amount:55000},{amount:70000}]}
         />
       </>
     ),
