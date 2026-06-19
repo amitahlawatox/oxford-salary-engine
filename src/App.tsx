@@ -32,6 +32,9 @@ const SalaryPage = lazy(() => import("./pages/programmatic/SalaryPage.tsx"));
 const Childcare = lazy(() => import("./pages/tools/Childcare.tsx"));
 const EVSalary = lazy(() => import("./pages/tools/EVSalary.tsx"));
 const ContractorTakeHome = lazy(() => import("./pages/tools/ContractorTakeHome.tsx"));
+const NhsPay = lazy(() => import("./pages/tools/NhsPay.tsx"));
+const Umbrella = lazy(() => import("./pages/tools/Umbrella.tsx"));
+const DayRate = lazy(() => import("./pages/tools/DayRate.tsx"));
 const About = lazy(() => import("./pages/About.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
 
@@ -75,6 +78,9 @@ const App = () => {
                           <Route path="/childcare" element={<Childcare />} />
               <Route path="/salary-sacrifice/electric-car" element={<EVSalary />} />
               <Route path="/contractor/take-home" element={<ContractorTakeHome />} />
+              <Route path="/nhs" element={<NhsPay />} />
+              <Route path="/umbrella" element={<Umbrella />} />
+              <Route path="/day-rate" element={<DayRate />} />
               <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/insights" element={<Insights />} />

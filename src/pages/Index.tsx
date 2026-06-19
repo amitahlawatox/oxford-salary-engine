@@ -9,12 +9,14 @@ import {
   Clock,
   FileSignature,
   Hammer,
+  Heart,
   Lock,
   MapPin,
   RotateCcw,
   ShieldCheck,
   Sparkles,
   TrendingUp,
+  Umbrella,
   Users,
   Zap,
 } from "lucide-react";
@@ -49,6 +51,9 @@ const TOOLS: Tool[] = [
   { to: "/childcare", title: "Childcare Calculator", desc: "Monthly costs after funded hours. Eligibility for 30 hours free and Tax-Free Childcare.", icon: Baby, unique: true },
   { to: "/salary-sacrifice/electric-car", title: "EV Salary Sacrifice", desc: "Electric car via salary sacrifice — true net cost after tax and BiK.", icon: Zap, unique: true },
   { to: "/contractor/take-home", title: "Contractor Take-Home", desc: "Umbrella vs limited company take-home from your day rate.", icon: Briefcase, unique: true },
+  { to: "/nhs", title: "NHS Pay Calculator", desc: "Take-home pay by Agenda for Change band with NHS Pension tiers.", icon: Heart, unique: true },
+  { to: "/umbrella", title: "Umbrella Company", desc: "Assignment rate to take-home after employer NI and umbrella margin.", icon: Umbrella, unique: true },
+  { to: "/day-rate", title: "Day Rate Calculator", desc: "Convert day rate to annual salary. Umbrella vs Ltd vs PAYE.", icon: Clock, unique: true },
 ];
 
 const FAQ = [

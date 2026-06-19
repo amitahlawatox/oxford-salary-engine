@@ -99,15 +99,25 @@ export const TOOL_META: Record<string, ToolMeta> = {
   },
   "/pro-rata": {
     path: "/pro-rata",
-    title: "Pro-Rata Salary Calculator UK 2026/27 - Part-Time Pay",
+    title: "Pro Rata Salary Calculator UK 2026/27 — Part-Time Take-Home Pay",
     description:
-      "Adjust a full-time salary for part-time hours and calculate the pro-rata UK take-home pay for the 2026/27 tax year.",
-    h1: "Pro-Rata Calculator",
+      "Free pro rata salary calculator for 2026/27. Enter full-time salary and your hours to see exact pro-rata take-home pay after UK income tax and NI. Instant results — no sign-up.",
+    h1: "Pro Rata Salary Calculator",
     faq: [
       { q: "What does pro-rata salary mean?", a: "A pro-rata salary is a full-time salary adjusted proportionally for part-time hours. If a full-time salary is £40,000 for 37.5 hours/week, someone working 25 hours would earn a pro-rata salary of £26,667." },
       { q: "How is a pro-rata salary calculated?", a: "Pro-rata salary = (part-time hours ÷ full-time hours) × full-time annual salary. Then apply normal income tax and NI to calculate take-home pay." },
       { q: "Does working part-time affect my tax code?", a: "No — your Personal Allowance (£12,570) is the same regardless of hours. However, if you hold multiple part-time jobs, your employer may split your allowance between them, affecting how much tax each employer deducts." },
+      { q: "How do I calculate pro rata pay for maternity return?", a: "If you return from maternity leave on reduced hours, multiply your full-time equivalent salary by (your new hours ÷ full-time hours). For example, returning to 3 days/week from 5: £35,000 × (3 ÷ 5) = £21,000 pro-rata." },
     ],
+    howTo: {
+      name: "How to calculate pro rata salary",
+      steps: [
+        "Enter your full-time equivalent salary",
+        "Set the standard full-time hours per week",
+        "Adjust the slider to your actual working hours",
+        "Read your pro-rata salary and take-home pay",
+      ],
+    },
   },
   "/two-jobs": {
     path: "/two-jobs",
@@ -161,15 +171,25 @@ export const TOOL_META: Record<string, ToolMeta> = {
   },
   "/ir35": {
     path: "/ir35",
-    title: "IR35 Calculator UK 2026/27 - Inside vs Outside Take-Home",
+    title: "Inside IR35 Calculator UK 2026/27 — Contractor Take-Home Inside vs Outside",
     description:
-      "Compare contractor net pay inside vs outside IR35 for 2026/27. Turn a day rate into take-home with NI and contractor tax logic.",
-    h1: "IR35 Contractor Calculator",
+      "Free inside IR35 calculator for 2026/27. Compare contractor take-home pay inside vs outside IR35 from your day rate. See the exact difference in net income with NI and dividend tax.",
+    h1: "Inside IR35 Calculator",
     faq: [
       { q: "What is IR35?", a: "IR35 is HMRC legislation designed to prevent 'disguised employment' — where contractors work like employees but are paid through a limited company to reduce NI and income tax. If you are 'inside IR35', you pay the same tax and NI as an employee on that income." },
       { q: "How much more tax do you pay inside IR35?", a: "A contractor earning £600/day inside IR35 pays approximately £25,000–£35,000 more per year in tax and NI compared to being outside IR35, depending on their salary/dividend split. Use the calculator to see your specific difference." },
       { q: "Who determines IR35 status?", a: "Since April 2021, medium and large companies determine IR35 status for their contractors. Small companies (meeting 2 of 3: turnover under £10.2m, balance sheet under £5.1m, fewer than 50 employees) leave the determination to the contractor." },
+      { q: "What happens if you are caught inside IR35?", a: "If HMRC determines your contract is inside IR35, the client (or agency) must deduct income tax and employee NI from your fees. You lose the ability to take dividends from a limited company on that income, and the client pays employer NI on top. Back-tax plus interest and penalties can apply to previous years." },
     ],
+    howTo: {
+      name: "How to calculate IR35 take-home pay",
+      steps: [
+        "Enter your contractor day rate",
+        "Set the number of billable days per year",
+        "Add your annual business expenses",
+        "Compare inside IR35 vs outside IR35 net pay",
+      ],
+    },
   },
   "/cost-of-living": {
     path: "/cost-of-living",
@@ -204,6 +224,72 @@ export const TOOL_META: Record<string, ToolMeta> = {
       { q: "What is the BiK rate for electric cars in 2026/27?", a: "The Benefit in Kind rate for fully electric cars is 4% of the car's P11D list price in 2026/27 — the lowest BiK rate of any car type." },
       { q: "How much can I save with EV salary sacrifice?", a: "On a £45,000 salary with a £35,000 EV at £450/month sacrifice, you save approximately £1,800/year in income tax and NI, reduced by the BiK tax cost — giving a true net monthly cost significantly below the gross sacrifice amount." },
     ],
+  },
+  "/nhs": {
+    path: "/nhs",
+    title: "NHS Salary Calculator 2026/27 — Take-Home Pay by Band",
+    description:
+      "Free NHS take-home pay calculator for 2026/27. Select your Agenda for Change band, see exact net pay after income tax, NI, and NHS Pension. All bands from Band 1 to Band 9.",
+    h1: "NHS Take-Home Pay Calculator",
+    faq: [
+      { q: "How much do NHS nurses take home after tax?", a: "A newly qualified Band 5 nurse earning £30,820 takes home approximately £1,956/month after tax, NI, and 10% NHS Pension. At the top of Band 5 (£38,352), monthly take-home rises to approximately £2,350." },
+      { q: "Is the NHS Pension worth it?", a: "Yes — the NHS Pension is a defined benefit scheme with a 23.7% employer contribution. Even accounting for employee contributions of 5.2%–12.5%, it provides significantly more retirement income than typical workplace pensions. Opting out means losing the employer contribution entirely." },
+      { q: "What are the NHS pension contribution tiers in 2026/27?", a: "NHS pension tiers range from 5.2% (earnings up to £13,246) to 12.5% (earnings above £43,693). Contributions are deducted before tax via salary sacrifice, reducing your tax bill." },
+      { q: "Do NHS unsocial hours affect take-home pay?", a: "Yes — enhancements for nights, weekends, and bank holidays are taxable income. Enter your total annual salary including enhancements for an accurate take-home figure." },
+    ],
+    howTo: {
+      name: "How to calculate NHS take-home pay",
+      steps: [
+        "Select your Agenda for Change pay band",
+        "Adjust the salary to your point on the pay spine",
+        "Choose your NHS Pension contribution tier",
+        "Read your monthly and annual take-home pay",
+      ],
+    },
+  },
+  "/umbrella": {
+    path: "/umbrella",
+    title: "Umbrella Company Calculator UK 2026/27 — Take-Home Pay from Assignment Rate",
+    description:
+      "Free umbrella company take-home pay calculator for 2026/27. Enter your assignment rate to see net pay after employer NI, umbrella margin, and PAYE. Compare with limited company.",
+    h1: "Umbrella Company Calculator",
+    faq: [
+      { q: "What is a good umbrella company margin?", a: "Typical umbrella margins range from £20 to £30 per week. Be wary of very low margins — they may recoup costs through hidden fees or deducting employer NI after quoting your 'gross salary'." },
+      { q: "Can I claim expenses through an umbrella company?", a: "Since April 2016, umbrella company workers under the supervision, direction, or control of the client generally cannot claim tax relief on travel and subsistence expenses." },
+      { q: "Is umbrella or limited company better?", a: "For day rates above £400/day outside IR35, a limited company typically saves £5,000–£15,000/year vs umbrella. Inside IR35, the difference is minimal. Use the calculator to see your specific numbers." },
+      { q: "Why is my umbrella take-home so low?", a: "Employer NI (15% above £5,000) is the main culprit. Unlike permanent employment where the employer absorbs this cost, in an umbrella setup it is deducted from your assignment rate before calculating your gross pay." },
+    ],
+    howTo: {
+      name: "How to calculate umbrella company take-home pay",
+      steps: [
+        "Enter your annual assignment rate",
+        "Set the umbrella company margin per week",
+        "Optionally add a pension contribution percentage",
+        "Read your monthly take-home after all deductions",
+      ],
+    },
+  },
+  "/day-rate": {
+    path: "/day-rate",
+    title: "Day Rate Calculator UK 2026/27 — Contractor Salary & Take-Home",
+    description:
+      "Free day rate calculator for UK contractors 2026/27. Convert your day rate to annual salary and take-home pay. Compare umbrella, limited company, and permanent PAYE equivalents.",
+    h1: "Day Rate Calculator",
+    faq: [
+      { q: "How do I convert a day rate to annual salary?", a: "Multiply your day rate by billable days per year. Most UK contractors use 220 days (52 weeks × 5 days minus 30 days for holidays and bank holidays). So £500/day × 220 = £110,000 annual equivalent." },
+      { q: "What is a good day rate in the UK?", a: "Day rates vary by industry: junior developer £250–£350, senior developer £400–£600, IT architect £600–£900, management consultant £500–£1,200. Use the calculator to see what each rate means for take-home." },
+      { q: "How many billable days should I use?", a: "220 days is standard (52 weeks × 5 days minus 25 holiday days and 8 bank holidays). IT contractors often use 230 days, while those with more time off use 200." },
+      { q: "Should I go umbrella or limited company?", a: "For day rates above £400 outside IR35, limited company typically saves £5,000–£15,000/year. Inside IR35, umbrella is simpler with similar net pay. The calculator shows both side by side." },
+    ],
+    howTo: {
+      name: "How to calculate take-home from a day rate",
+      steps: [
+        "Enter your day rate",
+        "Set billable days per year (220 typical)",
+        "Add annual expenses for limited company",
+        "Compare umbrella, Ltd, and PAYE take-home",
+      ],
+    },
   },
   "/contractor/take-home": {
     path: "/contractor/take-home",
