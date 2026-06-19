@@ -185,3 +185,128 @@ All SEMrush CSV exports saved to: `data/semrush-2026-06-09/`
 ---
 
 *Next entry: After backlink campaign begins. Re-pull SEMrush data if trial still active.*
+
+---
+
+## Entry: 2026-06-19 — Keyword Intelligence Analysis (780 Keywords)
+
+**Source:** 9 SEMrush keyword export files (keywords, suggestions, ideas, very-easy)
+**Total keywords analyzed:** 1,900 raw → 780 unique (after dedup) → 737 with volume data
+
+---
+
+### EXECUTIVE SUMMARY
+
+| Bucket | Keywords | Total Volume/mo | Description |
+|--------|----------|-----------------|-------------|
+| QUICK WIN | 79 | 148,680 | KD ≤ 20, Vol ≥ 500 — attack immediately |
+| EASY PICKUP | 203 | 39,760 | KD ≤ 20, Vol ≥ 100 — low-hanging fruit |
+| MEDIUM TERM | 45 | 75,400 | KD 21-40, Vol ≥ 1,000 — 3-6 month targets |
+| MEDIUM EASY | 94 | 30,010 | KD 21-40, Vol ≥ 100 — secondary targets |
+| LONG TERM HIGH VOL | 48 | 235,200 | KD 40+, Vol ≥ 1,000 — need authority first |
+| LOW PRIORITY | 268 | 60,180 | Everything else |
+| **TOTAL** | **737** | **589,230** | |
+
+**Key finding:** 282 keywords (QUICK WIN + EASY PICKUP) have KD ≤ 20 and represent 188,440/month of search volume. These are winnable with content improvements alone — no backlinks required.
+
+---
+
+### TOP 20 QUICK WINS (Highest Priority Score)
+
+Priority Score = `(Volume × Click_Potential%) / (KD + 1)`
+
+| Score | Keyword | Volume/mo | KD | Target Page |
+|-------|---------|-----------|----|-------------|
+| 729 | pro rata salary calculator | 8,100 | 9 | /pro-rata |
+| 524 | pro rata calculator | 9,900 | 16 | /pro-rata |
+| 349 | 40000 after tax | 6,600 | 16 | /salary/40000-after-tax |
+| 349 | 40k after tax | 6,600 | 16 | /salary/40000-after-tax |
+| 313 | 50k after tax uk | 6,600 | 18 | /salary/50000-after-tax |
+| 304 | 40k after tax uk | 5,400 | 15 | /salary/40000-after-tax |
+| 286 | 30k after tax uk | 5,400 | 16 | /salary/30000-after-tax |
+| 264 | nhs salary calculator | 4,400 | 14 | /nhs (NEW PAGE) |
+| 249 | 50k after tax | 3,600 | 12 | /salary/50000-after-tax |
+| 238 | nhs take home pay calculator | 6,600 | 24 | /nhs (NEW PAGE) |
+| 233 | 30000 after tax | 4,400 | 16 | /salary/30000-after-tax |
+| 233 | 30000 after tax uk | 4,400 | 16 | /salary/30000-after-tax |
+| 222 | salary take home calculator | 12,100 | 48 | /take-home |
+| 211 | 60000 after tax uk | 2,900 | 14 | /salary/60000-after-tax |
+| 211 | 40000 after tax uk | 2,900 | 15 | /salary/40000-after-tax |
+| 194 | inside ir35 calculator | 5,400 | 13 | /ir35 |
+| 176 | 50000 after tax | 2,400 | 11 | /salary/50000-after-tax |
+| 170 | 25000 after tax uk | 2,900 | 14 | /salary/25000-after-tax |
+| 168 | ir35 calculator | 4,400 | 16 | /ir35 |
+| 165 | 45000 after tax uk | 2,400 | 12 | /salary/45000-after-tax |
+
+---
+
+### NEW PAGE OPPORTUNITIES
+
+Pages that don't exist yet but have significant keyword volume:
+
+| New Page | Keywords | Total Volume/mo | Avg KD | Status |
+|----------|----------|-----------------|--------|--------|
+| **/bonus** — Bonus Tax Calculator | 93 | 48,600 | 41 | **HIGH PRIORITY** — biggest new page opportunity |
+| **/salary-sacrifice** — Generic Calculator | 9 | 13,750 | 21 | Expand existing /salary-sacrifice/electric-car |
+| **/nhs** — NHS Pay Calculator | 4 | 11,200 | 13 | **EASY WIN** — low KD, high volume |
+| **/umbrella** — Umbrella Company Calculator | 16 | 5,340 | 11 | **EASIEST WIN** — very low KD |
+| **/day-rate** — Day Rate Calculator | 4 | 2,060 | 18 | Quick build |
+
+**Combined new page volume: 80,950/month** — that's 20x our current total traffic from just 5 new pages.
+
+---
+
+### EXISTING PAGE KEYWORD VOLUME
+
+How much search volume each existing tool page can capture:
+
+| Page | Keywords | Volume/mo | Top Keyword |
+|------|----------|-----------|-------------|
+| /take-home | 263 | 243,330 | "uk salary calculator" (40,500) |
+| /salary/X-after-tax | 77 | 93,110 | "40000 after tax" (6,600) |
+| /hourly | 49 | 53,830 | "figure salary to hourly" (2,400) |
+| /bonus (NEW) | 82 | 43,310 | "bonus tax calculator" (2,400) |
+| /pro-rata | 14 | 27,870 | "pro rata calculator" (9,900) |
+| /ir35 | 17 | 15,730 | "inside ir35 calculator" (5,400) |
+| /salary-sacrifice | 9 | 13,750 | "salary sacrifice calculator" (8,100) |
+| /nhs (NEW) | 4 | 11,200 | "nhs take home pay calculator" (6,600) |
+| /contractor/take-home | 22 | 7,490 | "contractor calculator" (2,400) |
+| /umbrella (NEW) | 13 | 4,800 | "umbrella company calculator" (1,300) |
+| /dividend | 12 | 3,780 | "tax and dividend calculator" (1,000) |
+| /day-rate (NEW) | 3 | 1,800 | "day rate calculator" (1,300) |
+| /two-jobs | 7 | 1,570 | "do you get taxed more on second job" (480) |
+
+---
+
+### PRIORITY ACTION PLAN (Updated)
+
+#### PHASE 1 — Quick Wins (This Week)
+1. Build `/nhs` page — NHS Pay Calculator (11,200/mo volume, KD 13)
+2. Build `/umbrella` page — Umbrella Company Calculator (5,340/mo, KD 11)
+3. Build `/day-rate` page — Day Rate Calculator (2,060/mo, KD 18)
+4. Optimize `/pro-rata` page title + H1 for "pro rata salary calculator" (8,100/mo, KD 9)
+5. Optimize `/ir35` page for "inside ir35 calculator" (5,400/mo, KD 13)
+6. Add FAQ schema to all tool pages
+
+#### PHASE 2 — Medium Priority (Next 2 Weeks)
+7. Build `/bonus` page — Bonus Tax Calculator (48,600/mo, KD 41 — harder but massive volume)
+8. Expand `/salary-sacrifice/electric-car` to generic `/salary-sacrifice` (13,750/mo, KD 21)
+9. Optimize all salary landing pages for "[X]k after tax" keywords
+10. Internal linking overhaul between all tool pages
+
+#### PHASE 3 — Authority Building (Ongoing)
+11. Backlink campaign for /take-home and /pro-rata (highest volume pages)
+12. Content depth improvements on homepage
+13. Target "salary calculator" head terms (40,500/mo, KD 61 — needs authority)
+
+---
+
+### RAW DATA
+
+- `data/semrush-2026-06-09/keywords_deduped_780.csv` — all 780 unique keywords with volume, KD, CPC, intent
+- `data/semrush-2026-06-09/quick_wins_kd_under_30.csv` — 447 keywords with KD < 30
+- `data/semrush-2026-06-09/keyword_mapping.csv` — keyword-to-page mapping with match types
+
+---
+
+*Next entry: After Phase 1 new pages are built.*
