@@ -49,16 +49,59 @@
     </noscript>
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "UK Net Pay",
-        "url": "https://uknetpay.co.uk",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "UK salary and tax calculator suite for the 2026/27 tax year.",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
-      }
+      [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "UK Net Pay",
+          "url": "https://uknetpay.co.uk",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web",
+          "inLanguage": "en-GB",
+          "isAccessibleForFree": true,
+          "browserRequirements": "Requires JavaScript",
+          "description": "Free UK salary and tax calculator suite for 2026/27. Income Tax, National Insurance, Student Loans, pension contributions — all calculated in your browser.",
+          "dateModified": "2026-06-19",
+          "featureList": ["Income Tax calculation", "National Insurance calculation", "Student Loan repayment (Plans 1, 2, 4, 5)", "Pension contribution modelling", "Scottish income tax rates", "Dividend tax calculation", "IR35 inside vs outside comparison", "Salary sacrifice modelling"],
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+          "author": {
+            "@type": "Person",
+            "name": "Amit Ahlawat",
+            "url": "https://uknetpay.co.uk/about",
+            "jobTitle": "Founder"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "UK Net Pay",
+          "url": "https://uknetpay.co.uk",
+          "logo": "https://uknetpay.co.uk/logo.svg",
+          "description": "Free, privacy-first UK salary and tax calculator. All calculations run in your browser — no data is stored or transmitted.",
+          "founder": {
+            "@type": "Person",
+            "name": "Amit Ahlawat"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "contact@uknetpay.co.uk",
+            "availableLanguage": "English"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "UK Net Pay",
+          "url": "https://uknetpay.co.uk",
+          "inLanguage": "en-GB",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://uknetpay.co.uk/insights?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
     </script>
 
     <!-- Google tag (gtag.js) -->
