@@ -25,8 +25,8 @@ const ProRata = () => {
       
       <ToolSeo path="/pro-rata" />
       <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
-        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Pro-Rata Calculator</h1>
-        <p className="mt-2 text-muted-foreground">Part-time hours scaled from a full-time salary.</p>
+        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Pro Rata Salary Calculator 2026/27</h1>
+        <p className="mt-2 text-muted-foreground">Part-time hours scaled from a full-time salary — see your exact pro rata take-home pay after tax and NI.</p>
         <div className="mt-4">
           <ShareSummary summary={`Pro-Rata Calculator — see my UK calculation for the 2026/27 tax year`} title="Pro-Rata Calculator | UK Net Pay" compact />
               <ResultDisclaimer />

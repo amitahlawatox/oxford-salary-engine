@@ -45,8 +45,8 @@ const IR35 = () => {
       
       <ToolSeo path="/ir35" />
       <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
-        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">IR35 Contractor</h1>
-        <p className="mt-2 text-muted-foreground">Inside vs outside IR35 take-home at your day rate.</p>
+        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Inside IR35 Calculator 2026/27</h1>
+        <p className="mt-2 text-muted-foreground">Compare contractor take-home pay inside vs outside IR35 from your day rate.</p>
         <div className="mt-4">
           <ShareSummary summary={`IR35 Contractor Calculator — see my UK calculation for the 2026/27 tax year`} title="IR35 Contractor Calculator | UK Net Pay" compact />
               <ResultDisclaimer />

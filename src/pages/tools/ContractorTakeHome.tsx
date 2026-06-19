@@ -172,6 +172,8 @@ const ContractorTakeHome = () => {
           <h2>IR35 and your structure</h2>
           <p>The tax advantage of a limited company exists only outside IR35. Inside IR35, your client deducts PAYE income tax and NI from payments to your company before they reach you — eliminating the dividend tax advantage. The calculator above models both scenarios so you can see exactly what each IR35 determination means for your net income at any day rate.</p>
           <p><strong>Accountancy costs:</strong> A limited company typically requires a specialist contractor accountant (£80–£150/month), Companies House filing, and annual accounts. Factor these costs into your net comparison — they reduce the limited company advantage by £1,000–£2,000/year but are themselves tax-deductible business expenses.</p>
+          <h2>Related contractor calculators</h2>
+          <p>See also: <a href="/ir35">IR35 Calculator</a> (inside vs outside), <a href="/umbrella">Umbrella Company Calculator</a> (detailed umbrella pay breakdown), <a href="/day-rate">Day Rate Calculator</a> (convert day rate to annual salary), <a href="/dividend">Dividend Optimiser</a> (salary/dividend mix for directors).</p>
         </div>
       </section>
     </Shell>
