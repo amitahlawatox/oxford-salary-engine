@@ -3553,4 +3553,200 @@ export const ARTICLES: Article[] = [
       </>
     ),
   },
+
+  // ─── SEMRUSH ZERO-COMPETITION ARTICLES ────────────────────────────────────
+
+  {
+    slug: "nhs-pay-bands-2026-27",
+    title: "NHS Pay Bands 2026/27: Agenda for Change Salary Scales (Bands 2–9)",
+    description: "Full NHS Agenda for Change pay bands 2026/27 — every band and spine point from Band 2 to Band 9. Monthly take-home after tax, NI, and NHS pension for every AfC grade.",
+    excerpt: "NHS Band 5 pays £29,970–£36,483 in 2026/27. After NHS pension contributions, monthly take-home at the Band 5 minimum is approximately £1,805. Here are all bands, all spine points.",
+    category: "Guides",
+    keywords: ["nhs pay bands 2026","agenda for change pay scales 2026","nhs band 5 salary 2026","nhs band 6 salary 2026","nhs band 7 pay 2026","nhs salary bands","afc pay scales 2026"],
+    readMinutes: 5,
+    publishedISO: "2026-06-19",
+    updatedISO: "2026-06-19",
+    faq: [
+      { q: "What is NHS Band 5 salary in 2026/27?", a: "NHS Band 5 pays £29,970–£36,483 in 2026/27 under the Agenda for Change framework. This covers newly qualified nurses, paramedics, radiographers, and other healthcare professionals. At the Band 5 minimum, monthly take-home (before NHS pension) is approximately £2,050. After 8.3% TPS pension contributions, take-home is approximately £1,805." },
+      { q: "What is the Agenda for Change (AfC) framework?", a: "Agenda for Change is the national pay framework for most NHS staff in England, Scotland, Wales and Northern Ireland. It replaced dozens of separate pay scales with a single unified structure of 9 bands, each with a series of spine points. Progression through spine points is based on years of service and performance." },
+      { q: "Do all NHS staff use AfC pay bands?", a: "Most NHS staff use AfC bands. The main exceptions are doctors and dentists (who use separate pay scales set by the Review Body on Doctors' and Dentists' Remuneration) and some very senior managers on executive pay scales." },
+    ],
+    body: () => (
+      <>
+        <p>The NHS Agenda for Change (AfC) pay framework covers the vast majority of NHS employees — approximately 1.2 million staff in England alone. Every band from 2 to 9 has a defined salary range with spine points. Here are all 2026/27 rates with monthly take-home figures.</p>
+
+        <h2 id="all-bands">All NHS AfC Pay Bands 2026/27 (England)</h2>
+        <table>
+          <thead><tr><th>Band</th><th>Typical roles</th><th>Salary range</th><th>Min take-home (before pension)</th></tr></thead>
+          <tbody>
+            <tr><td>Band 2</td><td>Healthcare assistant, porter, admin</td><td>£23,615–£25,674</td><td>~£1,745/month</td></tr>
+            <tr><td>Band 3</td><td>Senior HCA, receptionist, admin lead</td><td>£24,625–£26,259</td><td>~£1,810/month</td></tr>
+            <tr><td>Band 4</td><td>Technician, clinical support specialist</td><td>£26,530–£29,114</td><td>~£1,930/month</td></tr>
+            <tr><td>Band 5</td><td>Staff nurse, paramedic, radiographer, physio (NQ)</td><td>£29,970–£36,483</td><td>~£2,050/month</td></tr>
+            <tr><td>Band 6</td><td>Senior nurse, specialist practitioner, ODP</td><td>£37,338–£44,962</td><td>~£2,610/month</td></tr>
+            <tr><td>Band 7</td><td>Advanced nurse practitioner, ward sister, team manager</td><td>£46,148–£52,809</td><td>~£3,050/month</td></tr>
+            <tr><td>Band 8a</td><td>Consultant nurse, lead AHP, department manager</td><td>£53,755–£60,504</td><td>~£3,420/month</td></tr>
+            <tr><td>Band 8b</td><td>Deputy director, senior consultant</td><td>£62,215–£72,293</td><td>~£3,820/month</td></tr>
+            <tr><td>Band 8c</td><td>Director of service, divisional nurse</td><td>£74,290–£85,601</td><td>~£4,380/month</td></tr>
+            <tr><td>Band 8d</td><td>Deputy chief executive, executive director</td><td>£88,168–£101,677</td><td>~£4,930/month</td></tr>
+            <tr><td>Band 9</td><td>Chief executive (smaller trusts)</td><td>£105,385–£121,271</td><td>~£5,580/month</td></tr>
+          </tbody>
+        </table>
+        <p><small>Take-home before NHS pension contribution. NHS pension employee contributions range from 5.2% to 12.5% depending on earnings. London HCAS supplement applies to London staff on top of these figures.</small></p>
+
+        <h2 id="band5-detail">Band 5 — All Spine Points (England, 2026/27)</h2>
+        <table>
+          <thead><tr><th>Spine point</th><th>Annual gross</th><th>Monthly take-home (before pension)</th><th>After 8.3% NHS pension</th></tr></thead>
+          <tbody>
+            <tr><td>Band 5 Min</td><td>£29,970</td><td>£2,050/month</td><td>~£1,843/month</td></tr>
+            <tr><td>Band 5 Year 2</td><td>£31,534</td><td>£2,159/month</td><td>~£1,929/month</td></tr>
+            <tr><td>Band 5 Year 3</td><td>£33,310</td><td>£2,282/month</td><td>~£2,028/month</td></tr>
+            <tr><td>Band 5 Year 4</td><td>£35,177</td><td>£2,411/month</td><td>~£2,120/month</td></tr>
+            <tr><td>Band 5 Max</td><td>£36,483</td><td>£2,531/month</td><td>~£2,223/month</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="band6-detail">Band 6 — All Spine Points (England, 2026/27)</h2>
+        <table>
+          <thead><tr><th>Spine point</th><th>Annual gross</th><th>Monthly take-home (before pension)</th></tr></thead>
+          <tbody>
+            <tr><td>Band 6 Min</td><td>£37,338</td><td>£2,610/month</td></tr>
+            <tr><td>Band 6 Year 2</td><td>£39,339</td><td>£2,752/month</td></tr>
+            <tr><td>Band 6 Year 3</td><td>£41,659</td><td>£2,879/month</td></tr>
+            <tr><td>Band 6 Year 4</td><td>£43,150</td><td>£2,961/month</td></tr>
+            <tr><td>Band 6 Max</td><td>£44,962</td><td>~£3,021/month</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="pension">NHS Pension Contribution Tiers 2026/27</h2>
+        <table>
+          <thead><tr><th>Gross earnings</th><th>Employee contribution</th><th>Monthly cost at band min</th></tr></thead>
+          <tbody>
+            <tr><td>Up to £13,259</td><td>5.2%</td><td>~£57/month</td></tr>
+            <tr><td>£13,260–£26,831</td><td>6.5%</td><td>~£128/month</td></tr>
+            <tr><td>£26,832–£34,189</td><td>8.3%</td><td>~£207/month</td></tr>
+            <tr><td>£34,190–£43,805</td><td>9.8%</td><td>~£306/month</td></tr>
+            <tr><td>£43,806–£111,376</td><td>11.5%</td><td>~£419/month</td></tr>
+            <tr><td>Over £111,376</td><td>12.5%</td><td>~£1,160/month</td></tr>
+          </tbody>
+        </table>
+        <p>Employer contributions are 23.7% — among the most generous in the UK. The combined defined-benefit pension these contributions buy is substantially more valuable than an equivalent defined-contribution auto-enrolment scheme. Use our <ToolLink to="/nhs">NHS Pay Calculator</ToolLink> to model your exact take-home at any band and spine point.</p>
+
+        <h2 id="london">London Weighting (HCAS)</h2>
+        <p>NHS staff working in London receive a High Cost Area Supplement on top of their AfC band salary. Inner London: 20% of salary (minimum £4,629, maximum £8,461 per year). Outer London: 15% (minimum £4,072, maximum £5,765 per year). A Band 5 nurse at the minimum in Inner London earns approximately £29,970 + £4,629 = £34,599/year.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/nhs",label:"NHS Pay Calculator"},{path:"/insights/nurse-salary-uk-2026",label:"NHS Nurse Salary Guide"},{path:"/insights/paramedic-salary-uk-2026",label:"Paramedic Salary Guide"}]}
+          salaries={[{amount:29970},{amount:37338},{amount:46148},{amount:53755},{amount:74290}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "what-does-pro-rata-mean-uk",
+    title: "What Does Pro Rata Mean? UK Salary Guide 2026",
+    description: "What does pro rata mean for UK salaries? How to calculate pro rata pay, what it means on a job offer, and what take-home pay looks like for part-time hours in 2026/27.",
+    excerpt: "Pro rata means 'in proportion'. A pro rata salary is a full-time salary reduced proportionally for part-time hours. If a full-time role pays £40,000 and you work 3 days a week, your pro rata salary is £24,000.",
+    category: "Guides",
+    keywords: ["what does pro rata mean","pro rata meaning","pro rata salary meaning","what does pro rata salary mean","pro rata definition uk","how to calculate pro rata","pro rata meaning salary"],
+    readMinutes: 4,
+    publishedISO: "2026-06-19",
+    updatedISO: "2026-06-19",
+    faq: [
+      { q: "What does pro rata mean?", a: "Pro rata is Latin for 'in proportion'. In employment, a pro rata salary means your pay is scaled proportionally to the hours or days you work compared to a full-time employee. If a full-time role pays £40,000 per year for 5 days a week, a 3-day-a-week employee earns £40,000 × (3÷5) = £24,000 pro rata." },
+      { q: "How do I calculate my pro rata salary?", a: "Pro rata salary = (your working hours or days) ÷ (full-time hours or days) × full-time annual salary. For example: full-time is 37.5 hours/week at £45,000. You work 22.5 hours/week. Pro rata salary = 22.5 ÷ 37.5 × £45,000 = £27,000." },
+      { q: "Does pro rata affect my tax or National Insurance?", a: "No — your tax and NI are calculated on your actual pro rata salary, not the full-time equivalent. Your Personal Allowance (£12,570) applies in full regardless of how many hours you work." },
+    ],
+    body: () => (
+      <>
+        <p>Pro rata is one of the most commonly searched salary terms in the UK — with over 14,000 searches per month. Here's exactly what it means, how to calculate it, and what it looks like on your payslip.</p>
+
+        <h2 id="what-it-means">What does pro rata mean in salary terms?</h2>
+        <p>Pro rata (Latin: "in proportion") means your salary is a proportional share of a full-time equivalent (FTE) salary. If a job is advertised at "£40,000 pro rata" and it's a 3-day-per-week role at a company where full-time is 5 days, your actual annual salary is £40,000 × (3÷5) = £24,000.</p>
+        <p>The full-time equivalent salary (sometimes written FTE salary) is always the reference point. Your pro rata salary is always lower than the FTE figure, scaled by the proportion of full-time hours you work.</p>
+
+        <h2 id="formula">The pro rata calculation formula</h2>
+        <p><strong>Pro rata salary = (your hours or days ÷ full-time hours or days) × full-time annual salary</strong></p>
+        <table>
+          <thead><tr><th>FTE salary</th><th>FTE hours</th><th>Your hours</th><th>Pro rata salary</th><th>Monthly take-home</th></tr></thead>
+          <tbody>
+            <tr><td>£30,000</td><td>37.5h</td><td>22.5h (3 days)</td><td>£18,000</td><td>~£1,396/month</td></tr>
+            <tr><td>£40,000</td><td>37.5h</td><td>30h (4 days)</td><td>£32,000</td><td>~£2,272/month</td></tr>
+            <tr><td>£50,000</td><td>37.5h</td><td>18.75h (2.5 days)</td><td>£25,000</td><td>~£1,786/month</td></tr>
+            <tr><td>£60,000</td><td>37.5h</td><td>22.5h (3 days)</td><td>£36,000</td><td>~£2,520/month</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="job-offer">Pro rata on a job offer — what to check</h2>
+        <p>When a job advert says "£45,000 pro rata", it always refers to the full-time equivalent. To work out what you'd actually earn, you need to know two things: what hours per week the role involves, and what the company defines as full-time. Most companies use 37.5 or 40 hours/week as full-time. If the advert doesn't specify, ask before accepting.</p>
+        <p><strong>Common trap:</strong> "£45,000 pro rata (3 days)" sounds generous — but if full-time is 5 days, your actual salary is £27,000. Always work out the actual salary, not the FTE figure, before comparing job offers.</p>
+
+        <h2 id="tax">Does working pro rata change how I'm taxed?</h2>
+        <p>No — your Personal Allowance (£12,570 in 2026/27) is the same whether you work 5 days or 1 day per week. Tax and NI are calculated on your actual pro rata annual salary, not the full-time equivalent. If your pro rata salary is £18,000, you pay tax only on £18,000 − £12,570 = £5,430 at 20% = £1,086/year. Use our <ToolLink to="/pro-rata">Pro Rata Calculator</ToolLink> to see your exact take-home.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/pro-rata",label:"Pro Rata Calculator"},{path:"/hourly",label:"Hourly Rate Calculator"},{path:"/two-jobs",label:"Two Jobs Calculator"}]}
+          salaries={[{amount:18000},{amount:24000},{amount:30000},{amount:36000}]}
+        />
+      </>
+    ),
+  },
+
+  {
+    slug: "uk-salary-percentiles-2026",
+    title: "UK Salary Percentiles 2026: Are You in the Top 10%?",
+    description: "UK salary percentile data for 2026 — the top 1%, 5%, 10%, 25% and 50% salary thresholds. Find out where your earnings rank and what take-home pay looks like at each percentile.",
+    excerpt: "To be in the top 10% of UK earners in 2026, you need a salary of approximately £60,000+. The top 1% starts at approximately £180,000. The median (50th percentile) is £37,430.",
+    category: "Wages",
+    keywords: ["uk salary percentiles 2026","what percentile is my salary uk","top 10 percent income uk","top 1 percent income uk","top 5 percent salary uk","median salary uk 2026","average uk salary percentile"],
+    readMinutes: 4,
+    publishedISO: "2026-06-19",
+    updatedISO: "2026-06-19",
+    faq: [
+      { q: "What salary puts you in the top 10% in the UK in 2026?", a: "To be in the top 10% of UK full-time earners in 2026, you need a gross salary of approximately £60,000 or above. Monthly take-home at £60,000 is approximately £3,583 in England after income tax and NI." },
+      { q: "What is the top 1% income threshold in the UK?", a: "The top 1% of UK taxpayers earn approximately £180,000 or more per year. At this level, the additional rate of income tax (45%) applies above £125,140, and the Personal Allowance has been fully withdrawn above £125,140." },
+      { q: "What is the median UK salary in 2026?", a: "The median full-time salary in the UK is approximately £37,430 in 2026, based on ONS Annual Survey of Hours and Earnings data. Monthly take-home at the median is approximately £2,590 in England after income tax and NI." },
+    ],
+    body: () => (
+      <>
+        <p>Understanding where your salary sits in the UK earnings distribution helps you benchmark your pay, negotiate raises, and plan finances. Here are the key UK salary percentile thresholds for 2026, based on ONS ASHE data.</p>
+
+        <h2 id="percentile-table">UK Salary Percentile Table (Full-Time, 2026)</h2>
+        <table>
+          <thead><tr><th>Percentile</th><th>Annual salary (gross)</th><th>Monthly take-home (England)</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td>10th (bottom 10%)</td><td>~£18,500</td><td>~£1,430/month</td><td>You earn more than 10% of full-time workers</td></tr>
+            <tr><td>25th</td><td>~£26,500</td><td>~£1,870/month</td><td>Lower quartile — earn more than 25%</td></tr>
+            <tr><td>50th (median)</td><td>~£37,430</td><td>~£2,590/month</td><td>Median — earn more than half of UK workers</td></tr>
+            <tr><td>75th</td><td>~£52,000</td><td>~£3,270/month</td><td>Upper quartile — earn more than 75%</td></tr>
+            <tr><td>90th (top 10%)</td><td>~£60,000</td><td>~£3,583/month</td><td>Top 10% of full-time earners</td></tr>
+            <tr><td>95th (top 5%)</td><td>~£82,000</td><td>~£4,580/month</td><td>Top 5% of full-time earners</td></tr>
+            <tr><td>99th (top 1%)</td><td>~£180,000</td><td>~£7,800/month</td><td>Top 1% — additional rate taxpayer</td></tr>
+          </tbody>
+        </table>
+        <p><small>Based on ONS ASHE 2025/26 data extrapolated for 2026. Take-home estimated at each threshold, England, no student loan, no pension. "Full-time" = working 30+ hours per week.</small></p>
+
+        <h2 id="london-vs-uk">London vs the rest of the UK</h2>
+        <p>London salaries are substantially higher at every percentile. The London median is approximately £46,500 vs the UK median of £37,430. This means a Londoner needs to earn approximately £72,000 to be in the top 10% of London earners — versus around £60,000 nationally. However, London's cost of living — particularly housing — offsets much of this premium. On a disposable-income basis, many London workers in the 70th–85th percentile are no better off than equivalent earners in Manchester or Leeds.</p>
+
+        <h2 id="by-age">Salary percentiles by age group</h2>
+        <table>
+          <thead><tr><th>Age group</th><th>Median salary</th><th>Top 25% threshold</th><th>Top 10% threshold</th></tr></thead>
+          <tbody>
+            <tr><td>22–29</td><td>~£27,000</td><td>~£35,000</td><td>~£48,000</td></tr>
+            <tr><td>30–39</td><td>~£38,000</td><td>~£52,000</td><td>~£72,000</td></tr>
+            <tr><td>40–49</td><td>~£42,000</td><td>~£60,000</td><td>~£85,000</td></tr>
+            <tr><td>50–59</td><td>~£40,000</td><td>~£57,000</td><td>~£80,000</td></tr>
+          </tbody>
+        </table>
+        <p>Earnings peak in the 40–49 age band for most professions, reflecting years of experience and seniority. The top 10% threshold is substantially higher for those in their 40s than for new graduates, reflecting the compound effect of career progression and specialisation.</p>
+        <MiniCalculator />
+        <RelatedTools
+          tools={[{path:"/take-home",label:"Calculate Your Take-Home"},{path:"/insights/average-salary-uk-2026",label:"UK Average Salary Guide"},{path:"/compare",label:"Compare Two Salaries"}]}
+          salaries={[{amount:26500},{amount:37430},{amount:52000},{amount:60000},{amount:82000}]}
+        />
+      </>
+    ),
+  },
 ];

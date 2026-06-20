@@ -97,8 +97,8 @@ const SalaryPage = () => {
   const monthlyRounded = Math.round(englandResult.net / 12);
   const weeklyRounded = Math.round(englandResult.net / 52);
   const effectiveRate = englandResult.effectiveRate.toFixed(1);
-  const title = `${salaryLabel(gross)} After Tax UK 2026/27 — Take Home ${fmt(netRounded)}/yr`;
-  const description = `On a ${salaryLabel(gross)} salary in 2026/27, you take home ${fmt(netRounded)} per year (${fmt(monthlyRounded)}/mo). Full breakdown: Income Tax ${fmt(Math.round(englandResult.incomeTax))}, NI ${fmt(Math.round(englandResult.ni))}. Compare England vs Scotland instantly.`;
+  const title = `${salaryLabel(gross)} After Tax UK 2026/27 — Take-Home Pay Calculator`;
+  const description = `${salaryLabel(gross)} after tax in the UK 2026/27: take home ${fmt(netRounded)} per year (${fmt(monthlyRounded)}/month). Income Tax: ${fmt(Math.round(englandResult.incomeTax))} · NI: ${fmt(Math.round(englandResult.ni))} · Effective rate: ${englandResult.effectiveRate.toFixed(1)}%. England and Scotland compared.`;
   const url = `${SITE}${canonicalPath}`;
   const totalDeductions = Math.round(
     englandResult.incomeTax + englandResult.ni + englandResult.studentLoan,

@@ -35,6 +35,9 @@ const ContractorTakeHome = lazy(() => import("./pages/tools/ContractorTakeHome.t
 const NhsPay = lazy(() => import("./pages/tools/NhsPay.tsx"));
 const Umbrella = lazy(() => import("./pages/tools/Umbrella.tsx"));
 const DayRate = lazy(() => import("./pages/tools/DayRate.tsx"));
+const BonusTax = lazy(() => import("./pages/tools/BonusTax.tsx"));
+const Overtime = lazy(() => import("./pages/tools/Overtime.tsx"));
+const TeacherPay = lazy(() => import("./pages/tools/TeacherPay.tsx"));
 const About = lazy(() => import("./pages/About.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
 
@@ -81,6 +84,9 @@ const App = () => {
               <Route path="/nhs" element={<NhsPay />} />
               <Route path="/umbrella" element={<Umbrella />} />
               <Route path="/day-rate" element={<DayRate />} />
+              <Route path="/bonus" element={<BonusTax />} />
+              <Route path="/overtime" element={<Overtime />} />
+              <Route path="/teacher" element={<TeacherPay />} />
               <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/insights" element={<Insights />} />

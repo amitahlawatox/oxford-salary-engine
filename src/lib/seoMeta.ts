@@ -14,9 +14,9 @@ export type ToolMeta = {
 export const TOOL_META: Record<string, ToolMeta> = {
   "/take-home": {
     path: "/take-home",
-    title: "UK Take-Home Pay Calculator 2026/27 - After Tax & NI",
+    title: "UK Salary Calculator 2026/27 — Take-Home Pay, PAYE & Tax Checker",
     description:
-      "Free UK salary calculator for 2026/27. See your exact take-home pay after income tax, National Insurance, pension, and student loan. Results in seconds — no sign-up needed.",
+      "Free UK salary calculator and PAYE tax checker for 2026/27. Figure out your net pay after income tax, National Insurance, pension and student loan. Works for England, Scotland, Wales and NI. Instant results.",
     h1: "Take-Home Pay Calculator",
     faq: [
       {
@@ -99,9 +99,9 @@ export const TOOL_META: Record<string, ToolMeta> = {
   },
   "/pro-rata": {
     path: "/pro-rata",
-    title: "Pro Rata Salary Calculator UK 2026/27 — Part-Time Take-Home Pay",
+    title: "Pro Rata Calculator UK 2026/27 — What Does Pro Rata Mean + Take-Home",
     description:
-      "Free pro rata salary calculator for 2026/27. Enter full-time salary and your hours to see exact pro-rata take-home pay after UK income tax and NI. Instant results — no sign-up.",
+      "Calculate pro rata salary for part-time hours and see monthly take-home after UK tax and NI. What does pro rata mean? FTE calculator, term-time and any working pattern. 2026/27 rates.",
     h1: "Pro Rata Salary Calculator",
     faq: [
       { q: "What does pro-rata salary mean?", a: "A pro-rata salary is a full-time salary adjusted proportionally for part-time hours. If a full-time salary is £40,000 for 37.5 hours/week, someone working 25 hours would earn a pro-rata salary of £26,667." },
@@ -291,6 +291,43 @@ export const TOOL_META: Record<string, ToolMeta> = {
       ],
     },
   },
+  "/teacher": {
+    path: "/teacher",
+    title: "Teacher Pay Calculator 2026/27 — STPCD Scale Points M1–U3 Take-Home",
+    description:
+      "Free teacher salary calculator covering the full STPCD 2026/27 pay scale. Select M1–U3 or Leadership point, region, FTE and TPS pension. See exact monthly take-home for every teacher pay scale point.",
+    h1: "Teacher Pay Calculator 2026/27",
+    faq: [
+      { q: "How much does an NQT teacher take home per month in 2026/27?", a: "An NQT on M1 (£31,650 outside London) takes home approximately £2,212/month before TPS pension contributions. After 8.3% pension, monthly take-home is approximately £1,993. In Inner London on M1 (£42,637), take-home before pension is approximately £2,864/month." },
+      { q: "How does the Teachers' Pension Scheme affect take-home pay?", a: "TPS contributions are tiered from 8.3% to 11.7% of pensionable pay. On M3 (£35,674), the 8.3% contribution is approximately £247/month, reducing take-home from ~£2,473 to ~£2,226/month. In return, teachers build a defined-benefit career average pension — one of the most valuable workplace pensions in the UK." },
+      { q: "How is part-time teacher pay calculated?", a: "Part-time teachers are paid on a pro-rata basis. A 0.6 FTE teacher on M1 earns £31,650 × 0.6 = £18,990 gross annually. Use the FTE slider to model any working pattern." },
+    ],
+  },
+
+  "/bonus": {
+    path: "/bonus",
+    title: "Bonus Tax Calculator UK 2026/27 — How Much of Your Bonus Do You Keep?",
+    description:
+      "Calculate exactly how much of your UK bonus you keep after income tax and NI. Enter your salary and bonus to see tax deducted, net bonus, and effective rate. 2026/27.",
+    h1: "Bonus Tax Calculator",
+    faq: [
+      { q: "How is a bonus taxed in the UK?", a: "Your bonus is added to your salary and taxed at your marginal rate. In the basic rate band, 28% combined (20% tax + 8% NI) is deducted. In the higher rate band, 42% (40% + 2%). If your bonus pushes total income above £100,000, you lose £1 of Personal Allowance per £2 earned, creating a 62% effective rate." },
+      { q: "Can I reduce tax on my bonus?", a: "Yes — the most effective method is salary sacrifice into your pension. Ask your employer to pay the bonus directly as an employer pension contribution. This avoids both Income Tax and NI entirely, meaning the full gross amount goes into your pension." },
+    ],
+  },
+
+  "/overtime": {
+    path: "/overtime",
+    title: "Overtime Calculator UK 2026/27 — Net Pay After Tax on Overtime",
+    description:
+      "Calculate UK overtime take-home pay after income tax and NI. Supports 1×, 1.25×, 1.5× and 2× rates. See annual and monthly net overtime pay for 2026/27.",
+    h1: "Overtime Pay Calculator",
+    faq: [
+      { q: "How is overtime taxed in the UK?", a: "Overtime is taxed exactly like regular salary — HMRC does not have a separate rate. Your employer adds overtime to your gross pay for the period and applies PAYE income tax and NI to the total. If overtime pushes your earnings into a higher band, the excess is taxed at 40%." },
+      { q: "What is the minimum overtime rate in the UK?", a: "There is no statutory minimum for overtime rates — your employer can pay basic rate (1×) for overtime as long as average pay across all hours meets National Living Wage (£12.21/hour for 21+). Many contracts specify time-and-a-quarter (1.25×) or time-and-a-half (1.5×)." },
+    ],
+  },
+
   "/contractor/take-home": {
     path: "/contractor/take-home",
     title: "Contractor Take-Home Calculator UK 2026 — Umbrella vs Limited Company",
