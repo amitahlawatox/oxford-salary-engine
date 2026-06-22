@@ -98,24 +98,6 @@
   ],
   "redirects": [
     {
-      "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "www.uknetpay.co.uk" }],
-      "destination": "https://uknetpay.co.uk/:path",
-      "permanent": true
-    },
-    {
-      "source": "/take-home",
-      "has": [
-        {
-          "type": "query",
-          "key": "salary",
-          "value": "(?<amount>.+)"
-        }
-      ],
-      "destination": "/salary/:amount-after-tax",
-      "permanent": true
-    },
-    {
       "source": "/blog",
       "destination": "/insights",
       "permanent": true
