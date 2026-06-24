@@ -174,16 +174,16 @@ export const TeacherPay = () => {
         <div className="rounded-[24px] border border-neutral-100/60 dark:border-neutral-800/60 backdrop-blur-md bg-surface/60 p-6 space-y-3">
           <div className="text-center pb-4 border-b border-border">
             <p className="text-sm text-muted-foreground mb-1">Monthly take-home</p>
-            <p className="text-5xl font-bold tracking-tight text-aurora">{fmt(result.monthly.net)}</p>
+            <p className="text-5xl font-bold tracking-tight text-aurora">{fmt(Math.round(result.net / 12))}</p>
             <p className="text-sm text-muted-foreground mt-1">{fmt(result.net)}/year</p>
           </div>
 
           {[
             { label: "Gross salary" + (tlr > 0 ? " (inc. TLR)" : ""), value: fmt(grossWithTlr), bold: true },
             { label: "Income Tax", value: `−${fmt(result.incomeTax)}` },
-            { label: "National Insurance", value: `−${fmt(result.employeeNI)}` },
+            { label: "National Insurance", value: `−${fmt(result.ni)}` },
             includePension && { label: `TPS pension (${(pensionRate * 100).toFixed(1)}%)`, value: `−${fmt(grossWithTlr * pensionRate)}` },
-            result.studentLoanRepayment > 0 && { label: "Student Loan", value: `−${fmt(result.studentLoanRepayment)}` },
+            result.studentLoan > 0 && { label: "Student Loan", value: `−${fmt(result.studentLoan)}` },
             { label: "Effective tax rate", value: `${result.effectiveRate.toFixed(1)}%` },
             { label: "Monthly pension saving", value: fmt(pensionMonthly) },
           ].filter(Boolean).map((row: { label: string; value: string; bold?: boolean }, i) => (

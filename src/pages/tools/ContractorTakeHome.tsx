@@ -179,3 +179,5 @@ const ContractorTakeHome = () => {
     </Shell>
   );
 };
+
+export default ContractorTakeHome;
