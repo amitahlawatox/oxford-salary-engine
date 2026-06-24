@@ -1,20 +1,48 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
-type Theme = "light" | "dark";
+type ThemeChoice = "system" | "light" | "dark";
+type ResolvedTheme = "light" | "dark";
+
+const STORAGE_KEY = "theme";
+const mql = typeof window !== "undefined" ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+
+function getSystemTheme(): ResolvedTheme {
+  return mql?.matches ? "dark" : "light";
+}
+
+function getSavedChoice(): ThemeChoice {
+  if (typeof window === "undefined") return "system";
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved === "light" || saved === "dark" || saved === "system") return saved;
+  return "system";
+}
+
+function applyTheme(resolved: ResolvedTheme) {
+  document.documentElement.classList.toggle("dark", resolved === "dark");
+}
+
+function subscribeToSystem(cb: () => void) {
+  mql?.addEventListener("change", cb);
+  return () => mql?.removeEventListener("change", cb);
+}
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "light";
-    const saved = localStorage.getItem("theme") as Theme | null;
-    if (saved) return saved;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  });
+  const [choice, setChoice] = useState<ThemeChoice>(getSavedChoice);
+
+  const systemTheme = useSyncExternalStore(subscribeToSystem, getSystemTheme, () => "light" as ResolvedTheme);
+
+  const resolved: ResolvedTheme = choice === "system" ? systemTheme : choice;
 
   useEffect(() => {
-    const root = document.documentElement;
-    root.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    applyTheme(resolved);
+  }, [resolved]);
 
-  return { theme, toggle: () => setTheme((t) => (t === "light" ? "dark" : "light")) };
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, choice);
+  }, [choice]);
+
+  const cycle = () =>
+    setChoice((c) => (c === "system" ? "light" : c === "light" ? "dark" : "system"));
+
+  return { choice, resolved, setChoice, cycle };
 }
