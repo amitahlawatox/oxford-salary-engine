@@ -189,10 +189,6 @@ const Childcare = () => {
   const UC_MAX_1_CHILD  = 1014.63 * 12; // annual
   const UC_MAX_2_PLUS   = 1739.37 * 12;
   const ucMaxAnnual     = numChildren >= 2 ? UC_MAX_2_PLUS : UC_MAX_1_CHILD;
-  const ucSupportAnnual = ucChildcareEligible
-    ? Math.min(annualTotal * 0.85, ucMaxAnnual) : 0;
-  const monthlyAfterUC  = Math.max(0, (annualTotal - ucSupportAnnual) / 12);
-
   const fundedHoursPerWeek = useMemo(()=>{
     if(careType==="nanny") return 0; // nannies usually don't accept funded hours
     // Since Sep 2025: 30 hours for all eligible working parents, 9 months to school age
@@ -225,6 +221,11 @@ const Childcare = () => {
   // Total costs
   const monthlyTotal = monthlyGrossPerChild * numChildren;
   const annualTotal  = annualGrossPerChild  * numChildren;
+
+  // UC childcare support (must be after annualTotal is computed)
+  const ucSupportAnnual = ucChildcareEligible
+    ? Math.min(annualTotal * 0.85, ucMaxAnnual) : 0;
+  const monthlyAfterUC  = Math.max(0, (annualTotal - ucSupportAnnual) / 12);
 
   // Funded hours saving = what you WOULD have paid during term vs what you pay
   const fundedSavingAnnual =
