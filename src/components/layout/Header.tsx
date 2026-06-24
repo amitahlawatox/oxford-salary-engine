@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Monitor, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "@/hooks/useTheme";
 
@@ -16,7 +16,7 @@ const NAV = [
 ];
 
 export function Header() {
-  const { theme, toggle } = useTheme();
+  const { choice, resolved, cycle } = useTheme();
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
 
@@ -75,11 +75,12 @@ export function Header() {
 
           <div className="flex items-center gap-2">
             <button
-              onClick={toggle}
-              aria-label="Toggle theme"
+              onClick={cycle}
+              aria-label={`Theme: ${choice}`}
+              title={`Theme: ${choice} (click to change)`}
               className="h-9 w-9 rounded-lg border border-border flex items-center justify-center hover:bg-secondary transition-colors"
             >
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {choice === "system" ? <Monitor className="h-4 w-4" /> : resolved === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
             <Link
               to="/take-home"
