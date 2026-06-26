@@ -47,6 +47,9 @@ interface RouteMeta {
   jsonLd?: JsonLd[];
   /** Override og:type (default "website"). Articles use "article". */
   ogType?: string;
+  /** Server-rendered HTML injected into #root so crawlers see an H1 + content
+   *  before JavaScript runs. React hydrates over this on the client. */
+  injectContent?: string;
 }
 
 function applyMeta(html: string, meta: RouteMeta): string {
@@ -97,6 +100,15 @@ function applyMeta(html: string, meta: RouteMeta): string {
       .map((obj) => `<script type="application/ld+json">${JSON.stringify(obj)}</script>`)
       .join("\n    ");
     out = out.replace("</head>", `    ${block}\n  </head>`);
+  }
+
+  // Inject server-rendered content into #root so crawlers get an H1 + readable
+  // content without executing JS. React replaces this on hydration.
+  if (meta.injectContent) {
+    out = out.replace(
+      '<div id="root"></div>',
+      `<div id="root">${meta.injectContent}</div>`,
+    );
   }
 
   return out;
@@ -160,6 +172,21 @@ for (const meta of Object.values(TOOL_META)) {
     title: fullTitle,
     description: meta.description,
     jsonLd: buildToolJsonLd(meta) as JsonLd[],
+    injectContent:
+      `<main>` +
+      `<h1>${escapeHtml(meta.h1 || meta.title)}</h1>` +
+      `<p>${escapeHtml(meta.description)}</p>` +
+      (meta.faq?.length
+        ? `<section><h2>Frequently asked questions</h2>` +
+          meta.faq
+            .map(
+              (f) =>
+                `<h3>${escapeHtml(f.q)}</h3><p>${escapeHtml(f.a)}</p>`,
+            )
+            .join("") +
+          `</section>`
+        : "") +
+      `</main>`,
   });
   writeRoute(meta.path, html);
   toolCount++;
@@ -223,6 +250,20 @@ for (const article of ARTICLES) {
     description: article.description,
     jsonLd,
     ogType: "article",
+    injectContent:
+      `<main>` +
+      `<article>` +
+      `<h1>${escapeHtml(article.title)}</h1>` +
+      `<p>${escapeHtml(article.excerpt || article.description)}</p>` +
+      (article.faq?.length
+        ? `<section><h2>Frequently asked questions</h2>` +
+          article.faq
+            .map((f) => `<h3>${escapeHtml(f.q)}</h3><p>${escapeHtml(f.a)}</p>`)
+            .join("") +
+          `</section>`
+        : "") +
+      `</article>` +
+      `</main>`,
   });
   writeRoute(route, html);
   articleCount++;
@@ -421,6 +462,33 @@ for (const gross of ALL_SITEMAP_SALARIES) {
     title,
     description: desc,
     jsonLd: [webPageSchema, faqSchema],
+    injectContent:
+      `<main>` +
+      `<h1>${label} After Tax UK 2026/27</h1>` +
+      `<p>On a gross salary of ${label} in the 2026/27 tax year, your estimated take-home pay is ` +
+      `${fmtGBP(result.net)} per year, which is about ${fmtGBP(result.net / 12)} per month or ` +
+      `${fmtGBP(result.net / 52)} per week in England, Wales and Northern Ireland.</p>` +
+      `<h2>Tax breakdown on ${label}</h2>` +
+      `<ul>` +
+      `<li>Gross annual salary: ${label}</li>` +
+      `<li>Income Tax: ${fmtGBP(result.incomeTax)} per year</li>` +
+      `<li>National Insurance: ${fmtGBP(result.ni)} per year</li>` +
+      `<li>Total deductions: ${fmtGBP(totalDeductions)} (${effectiveRate}% effective rate)</li>` +
+      `<li>Take-home pay: ${fmtGBP(result.net)} per year</li>` +
+      `<li>Monthly take-home: ${fmtGBP(result.net / 12)}</li>` +
+      `</ul>` +
+      `<h2>${label} after tax in Scotland</h2>` +
+      `<p>Under Scottish income tax rates, a ${label} salary gives a take-home of ` +
+      `${fmtGBP(scotResult.net)} per year (${fmtGBP(scotResult.net / 12)} per month). ` +
+      (annualDiff > 0
+        ? `That is ${fmtGBP(Math.abs(annualDiff))} less than in England and Wales.`
+        : annualDiff < 0
+          ? `That is ${fmtGBP(Math.abs(annualDiff))} more than in England and Wales.`
+          : `This is almost identical to England and Wales.`) +
+      `</p>` +
+      `<p>These figures assume the standard tax code, no pension contributions, and no student loan. ` +
+      `Use the calculator above to add pension, student loan plan, bonus and other adjustments.</p>` +
+      `</main>`,
   });
   writeRoute(route, html);
   salaryCount++;
