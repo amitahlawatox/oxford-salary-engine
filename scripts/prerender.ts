@@ -156,6 +156,67 @@ writeRoute(
     description:
       "Free UK salary and tax calculator for the 2026/27 tax year. See take-home pay after Income Tax, NI, Student Loan, pension, and dividends.",
     jsonLd: homeJsonLd,
+    injectContent:
+      `<main>` +
+      `<h1>UK Salary Calculator 2026/27</h1>` +
+      `<p>Free UK take-home pay calculator for 2026/27. See exactly what you keep after Income Tax, National Insurance, Student Loan, and pension contributions. No sign-up required.</p>` +
+      `<nav aria-label="Calculator tools">` +
+      `<h2>Salary and tax calculators</h2>` +
+      `<ul>` +
+      `<li><a href="/take-home">Take-Home Pay Calculator</a></li>` +
+      `<li><a href="/hourly">Hourly Rate Calculator</a></li>` +
+      `<li><a href="/reverse">Reverse Salary Calculator</a></li>` +
+      `<li><a href="/pay-rise">Pay Rise Calculator</a></li>` +
+      `<li><a href="/compare">Compare Two Salaries</a></li>` +
+      `<li><a href="/pro-rata">Pro Rata Salary Calculator</a></li>` +
+      `<li><a href="/two-jobs">Two Jobs Tax Calculator</a></li>` +
+      `<li><a href="/maternity">Maternity Pay Calculator</a></li>` +
+      `<li><a href="/self-employed">Self-Employed Tax Calculator</a></li>` +
+      `<li><a href="/dividend">Dividend Tax Calculator</a></li>` +
+      `<li><a href="/ir35">IR35 Calculator</a></li>` +
+      `<li><a href="/cost-of-living">Cost of Living Calculator</a></li>` +
+      `<li><a href="/childcare">Childcare Cost Calculator</a></li>` +
+      `<li><a href="/salary-sacrifice/electric-car">EV Salary Sacrifice Calculator</a></li>` +
+      `<li><a href="/contractor/take-home">Contractor Take-Home Calculator</a></li>` +
+      `<li><a href="/nhs">NHS Pay Calculator</a></li>` +
+      `<li><a href="/teacher">Teacher Pay Calculator</a></li>` +
+      `<li><a href="/umbrella">Umbrella Company Calculator</a></li>` +
+      `<li><a href="/day-rate">Day Rate Calculator</a></li>` +
+      `<li><a href="/bonus">Bonus Tax Calculator</a></li>` +
+      `<li><a href="/overtime">Overtime Pay Calculator</a></li>` +
+      `</ul>` +
+      `</nav>` +
+      `<nav aria-label="Popular salary breakdowns">` +
+      `<h2>Popular salary after tax pages</h2>` +
+      `<ul>` +
+      [20000,25000,30000,35000,40000,45000,50000,55000,60000,65000,
+       70000,75000,80000,85000,90000,100000,110000,120000,150000,200000]
+        .map(s => `<li><a href="/salary/${s}-after-tax">£${s.toLocaleString("en-GB")} after tax</a></li>`)
+        .join("") +
+      `</ul>` +
+      `</nav>` +
+      `<nav aria-label="Salary guides and articles">` +
+      `<h2>UK salary guides and tax articles</h2>` +
+      `<ul>` +
+      `<li><a href="/insights/average-salary-uk-2026">Average UK Salary 2026</a></li>` +
+      `<li><a href="/insights/average-salary-london-2026">Average Salary in London 2026</a></li>` +
+      `<li><a href="/insights/average-salary-manchester-2026">Average Salary in Manchester 2026</a></li>` +
+      `<li><a href="/insights/average-salary-birmingham-2026">Average Salary in Birmingham 2026</a></li>` +
+      `<li><a href="/insights/average-salary-edinburgh-2026">Average Salary in Edinburgh 2026</a></li>` +
+      `<li><a href="/insights/average-salary-scotland-2026">Average Salary in Scotland 2026</a></li>` +
+      `<li><a href="/insights/teacher-salary-uk-2026">Teacher Salary UK 2026</a></li>` +
+      `<li><a href="/insights/teacher-pay-scale-2026-27">Teacher Pay Scale 2026-27</a></li>` +
+      `<li><a href="/insights/nurse-salary-uk-2026">NHS Nurse Salary UK 2026</a></li>` +
+      `<li><a href="/insights/nhs-pay-bands-2026-27">NHS Pay Bands 2026-27</a></li>` +
+      `<li><a href="/insights/income-tax-bands-2026-27">Income Tax Bands 2026-27</a></li>` +
+      `<li><a href="/insights/employer-ni-guide-2026">Employer NI Guide 2026</a></li>` +
+      `<li><a href="/insights/what-is-a-good-salary-uk-2026">What Is a Good Salary in the UK?</a></li>` +
+      `<li><a href="/insights/gp-doctor-salary-uk-2026">GP Doctor Salary UK 2026</a></li>` +
+      `<li><a href="/insights/software-engineer-salary-uk-2026">Software Engineer Salary UK 2026</a></li>` +
+      `<li><a href="/insights">All UK salary and tax guides</a></li>` +
+      `</ul>` +
+      `</nav>` +
+      `</main>`,
   }),
 );
 
@@ -457,6 +518,15 @@ for (const gross of ALL_SITEMAP_SALARIES) {
     description: desc,
   };
 
+  // Related salary amounts — 4 nearest values for internal linking
+  const idx = ALL_SITEMAP_SALARIES.indexOf(gross);
+  const related = [
+    ALL_SITEMAP_SALARIES[idx - 2],
+    ALL_SITEMAP_SALARIES[idx - 1],
+    ALL_SITEMAP_SALARIES[idx + 1],
+    ALL_SITEMAP_SALARIES[idx + 2],
+  ].filter(Boolean);
+
   const html = applyMeta(template, {
     route,
     title,
@@ -487,7 +557,14 @@ for (const gross of ALL_SITEMAP_SALARIES) {
           : `This is almost identical to England and Wales.`) +
       `</p>` +
       `<p>These figures assume the standard tax code, no pension contributions, and no student loan. ` +
-      `Use the calculator above to add pension, student loan plan, bonus and other adjustments.</p>` +
+      `Use the <a href="/take-home">take-home pay calculator</a> to add pension, student loan, bonus and other adjustments.</p>` +
+      `<nav aria-label="Related salary pages">` +
+      `<h2>Related salary breakdowns</h2>` +
+      `<ul>` +
+      related.map(s => `<li><a href="/salary/${s}-after-tax">£${s.toLocaleString("en-GB")} after tax</a></li>`).join("") +
+      `<li><a href="/directory">All salary calculators</a></li>` +
+      `</ul>` +
+      `</nav>` +
       `</main>`,
   });
   writeRoute(route, html);
