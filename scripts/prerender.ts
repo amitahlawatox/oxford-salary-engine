@@ -305,6 +305,32 @@ for (const article of ARTICLES) {
     });
   }
 
+  // Teacher pay articles get extra static pay-table content for Googlebot
+  const teacherStaticTable = (article.slug === "teacher-salary-uk-2026" || article.slug === "teacher-pay-scale-2026-27")
+    ? `<section>` +
+      `<h2>Teacher pay scale 2026/27 — full table (England, outside London)</h2>` +
+      `<table><thead><tr><th>Scale point</th><th>Gross salary</th><th>Monthly take-home</th><th>Inner London gross</th></tr></thead>` +
+      `<tbody>` +
+      `<tr><td>M1 (NQT)</td><td>£31,650</td><td>£2,212/month</td><td>£42,637</td></tr>` +
+      `<tr><td>M2</td><td>£33,483</td><td>£2,330/month</td><td>£44,305</td></tr>` +
+      `<tr><td>M3</td><td>£35,674</td><td>£2,473/month</td><td>£46,235</td></tr>` +
+      `<tr><td>M4</td><td>£37,935</td><td>£2,630/month</td><td>£48,235</td></tr>` +
+      `<tr><td>M5</td><td>£40,625</td><td>£2,804/month</td><td>£50,471</td></tr>` +
+      `<tr><td>M6</td><td>£43,685</td><td>£2,987/month</td><td>£53,482</td></tr>` +
+      `<tr><td>U1 (Upper Pay Range)</td><td>£46,525</td><td>£3,130/month</td><td>£57,959</td></tr>` +
+      `<tr><td>U2</td><td>£48,389</td><td>£3,238/month</td><td>£59,965</td></tr>` +
+      `<tr><td>U3</td><td>£50,500</td><td>£3,339/month</td><td>£62,138</td></tr>` +
+      `</tbody></table>` +
+      `<p>Take-home figures are after income tax and NI only (2025/26 thresholds). Teachers also pay TPS pension contributions: 7.4% on salaries up to £32,135, rising to 11.2% above £51,292. ` +
+      `The Outer London scale adds approximately £7,000–£8,000 above outside-London rates. The London Fringe adds approximately £1,400–£1,600.</p>` +
+      `<h2>Proposed teacher pay for 2026/27</h2>` +
+      `<p>As of June 2026, no confirmed 2026/27 teacher pay award has been announced. The DfE has proposed a 6.5% cumulative increase over three years (2026/27 to 2028/29). ` +
+      `The first-year uplift (2026/27) may be approximately 1.5–2%, with the larger increases weighted towards later years. ` +
+      `The STRB is expected to publish its recommendations before the end of the 2025/26 school year. ` +
+      `Any award takes effect from 1 September 2026.</p>` +
+      `</section>`
+    : "";
+
   const html = applyMeta(template, {
     route,
     title: fullTitle,
@@ -316,6 +342,7 @@ for (const article of ARTICLES) {
       `<article>` +
       `<h1>${escapeHtml(article.title)}</h1>` +
       `<p>${escapeHtml(article.excerpt || article.description)}</p>` +
+      teacherStaticTable +
       (article.faq?.length
         ? `<section><h2>Frequently asked questions</h2>` +
           article.faq
