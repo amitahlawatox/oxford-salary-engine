@@ -5,7 +5,7 @@ const UPDATED = "7 May 2026";
 const YEAR = new Date().getFullYear();
 
 const Terms = () => (
-  <Shell>
+  <Shell showAd={false}>
     <Seo
       title="Terms of Use | UK Net Pay"
       description="Terms of use for UK Net Pay salary calculators. No personal data collected. Not financial advice. Free to use for personal and professional reference."

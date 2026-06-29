@@ -4,7 +4,7 @@ import { Seo } from "@/components/seo/Seo";
 const UPDATED = "7 May 2026";
 
 const Disclaimer = () => (
-  <Shell>
+  <Shell showAd={false}>
     <Seo
       title="Legal Disclaimer — Not Financial or Tax Advice | UK Net Pay"
       description="UK Net Pay provides illustrative calculations only. We are not regulated by the FCA, do not provide financial advice, and collect no personal data. Read our full disclaimer."

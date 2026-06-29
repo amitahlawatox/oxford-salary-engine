@@ -4,7 +4,7 @@ import { Seo } from "@/components/seo/Seo";
 const UPDATED = "9 June 2026";
 
 const Privacy = () => (
-  <Shell>
+  <Shell showAd={false}>
     <Seo
       title="Privacy Policy — Zero Personal Data Collection | UK Net Pay"
       description="UK Net Pay collects zero personal data. No name, email, phone, or financial information is ever stored. All calculations run in your browser. Full GDPR policy."
