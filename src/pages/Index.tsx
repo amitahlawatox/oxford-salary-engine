@@ -127,7 +127,7 @@ const Index = () => {
   ];
 
   return (
-    <Shell>
+    <Shell showAd={false}>
       <Seo
         title="UK Salary Calculator 2026/27 - Take-Home Pay After Tax"
         description="Free UK salary, tax and childcare calculators for 2026/27. Take-home pay, 30 hours free childcare, Tax-Free Childcare, IR35, dividends and more. Privacy-first, no sign-up."
