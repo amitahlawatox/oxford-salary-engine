@@ -171,7 +171,7 @@ const IR35 = () => {
           <h3>Frequently Asked Questions</h3>
           <p><strong>Can I be inside IR35 for one contract and outside for another?</strong> Yes — IR35 status is determined per contract, not per contractor. You can have multiple simultaneous contracts with different IR35 status determinations.</p>
           <p><strong>What is the Intermediaries Legislation threshold for small companies?</strong> For 2026/27, small companies (the client's own classification) still allow the contractor's own IR35 self-assessment. A client is small if it meets two of these three: annual turnover not exceeding £10.2M, balance sheet not exceeding £5.1M, and no more than 50 employees.</p>
-          <p><strong>Does operating through an umbrella company affect IR35?</strong> Umbrella company workers are always taxed as employees — umbrella is effectively always "inside IR35" equivalent. The trade-off is simplicity and PAYE compliance at the cost of take-home pay. Compare umbrella vs limited company with our <a href="/contractor">Contractor Calculator</a>.</p>
+          <p><strong>Does operating through an umbrella company affect IR35?</strong> Umbrella company workers are always taxed as employees — umbrella is effectively always "inside IR35" equivalent. The trade-off is simplicity and PAYE compliance at the cost of take-home pay. Compare umbrella vs limited company with our <a href="/contractor/take-home">Contractor Calculator</a>.</p>
         </div>
       </section>
     </Shell>
