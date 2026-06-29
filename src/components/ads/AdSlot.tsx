@@ -48,7 +48,11 @@ export function AdSlot({
   }, []);
 
   useEffect(() => {
-    if (!consented || pushed.current || !ref.current) return;
+    if (!consented) {
+      pushed.current = false;
+      return;
+    }
+    if (pushed.current || !ref.current) return;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
       pushed.current = true;
