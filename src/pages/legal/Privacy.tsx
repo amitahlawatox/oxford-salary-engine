@@ -1,7 +1,7 @@
 import { Shell } from "@/components/layout/Shell";
 import { Seo } from "@/components/seo/Seo";
 
-const UPDATED = "7 May 2026";
+const UPDATED = "9 June 2026";
 
 const Privacy = () => (
   <Shell>
@@ -122,16 +122,30 @@ const Privacy = () => (
         You can withdraw analytics consent at any time via the Cookie Settings link in the footer.
       </p>
 
-      <h2>5. Advertising cookies (only with your consent)</h2>
+      <h2>5. Advertising (Google AdSense)</h2>
       <p>
-        We may in future display advertisements through a third-party advertising
-        network (such as Google AdSense). Advertising cookies are <strong>disabled
-        by default</strong> and are only enabled if you explicitly consent.
+        We display advertisements through <strong>Google AdSense</strong>, a third-party
+        advertising service provided by Google LLC. Google AdSense may use cookies and
+        similar technologies to serve ads based on your prior visits to this website or
+        other websites. Advertising cookies are <strong>disabled by default</strong> and
+        are only enabled if you explicitly consent via the cookie consent banner.
       </p>
       <p>
-        When advertising is enabled, the advertising provider may set cookies to
-        deliver and measure ads. We do not pass any personal data, salary data,
-        or financial data to any advertising provider.
+        When advertising is enabled, Google may collect and use data as described in the{" "}
+        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">
+          Google Privacy & Terms
+        </a>. You can opt out of personalised advertising at any time by visiting{" "}
+        <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">
+          Google Ads Settings
+        </a> or{" "}
+        <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">
+          www.aboutads.info
+        </a>.
+      </p>
+      <p>
+        We do not pass any personal data, salary data, or financial data to Google
+        AdSense or any other advertising provider. The ad code loads asynchronously
+        and does not affect the speed or accuracy of our calculators.
       </p>
 
       <h2>6. Server logs</h2>

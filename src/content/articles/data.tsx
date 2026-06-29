@@ -444,7 +444,7 @@ export const ARTICLES: Article[] = [
         <p>Many inside-IR35 contractors operate through umbrella companies rather than their own limited company. Umbrella companies act as the employer, handle PAYE, and charge a weekly margin (typically £20–£35). This simplifies administration but does not improve take-home pay — you still pay full PAYE rates. The advantage of umbrella over a limited company inside IR35 is reduced admin: no annual accounts, corporation tax returns, or director responsibilities.</p>
         <MiniCalculator />
         <RelatedTools
-          tools={[{path:"/ir35",label:"IR35 Calculator"},{path:"/contractor",label:"Contractor vs Umbrella Calculator"},{path:"/insights/self-employed-tax-calculator-2026",label:"Self-Employed Tax Guide"}]}
+          tools={[{path:"/ir35",label:"IR35 Calculator"},{path:"/contractor/take-home",label:"Contractor vs Umbrella Calculator"},{path:"/insights/self-employed-tax-calculator-2026",label:"Self-Employed Tax Guide"}]}
           salaries={[{amount:60000},{amount:80000},{amount:110000},{amount:140000},{amount:180000}]}
         />
       </>
