@@ -1876,18 +1876,27 @@ export const ARTICLES: Article[] = [
     description: "Full 2026/27 teacher pay scales with monthly take-home pay. Main Pay Range £31,650–£43,685, Upper Pay £46,525–£50,500, Leadership to £135,000+. Inner, Outer London and fringe rates.",
     excerpt: "A newly qualified teacher earns £31,650 in 2026 (£42,637 in Inner London). After tax and NI, that's £2,212/month outside London. Here's every scale point with exact take-home.",
     category: "Career",
-    keywords: ["teacher salary uk 2026","teacher pay 2026","newly qualified teacher salary take home","uk teacher salary after tax","teacher pay scale 2026"],
+    keywords: ["teacher salary uk 2026","teacher pay scale 2026-27","teacher pay scale 2026/27","teacher pay 2026/27","teacher pay scale 26 27","teacher pay scales 2026/27","teachers salary 2026/27","proposed teacher pay scale 26 27","teacher salaries 2026-27","teacher pay 2026 27","newly qualified teacher salary take home","uk teacher salary after tax"],
     readMinutes: 5,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-29",
     faq: [
-      { q: "What is the take-home pay for a newly qualified teacher in 2026?", a: "A newly qualified teacher earns £31,650 outside London in 2026. After income tax and National Insurance, take-home pay is approximately £2,212 per month." },
-      { q: "What does a teacher earn on the Upper Pay Range?", a: "Teachers on the Upper Pay Range earn £46,525–£50,500 outside London in 2026. Monthly take-home is approximately £3,130–£3,340 after tax and NI." },
-      { q: "How much more do London teachers earn?", a: "Inner London teachers earn approximately £10,000–£15,000 more than their counterparts outside London at each scale point, thanks to the Inner London and Outer London allowances." },
+      { q: "What is the teacher pay scale for 2026-27?", a: "The confirmed 2025/26 teacher pay scale runs M1 £31,650 to M6 £43,685 outside London (following the 4% STPCD award effective September 2025). These are the current live rates. The 2026/27 award has not yet been formally announced — the DfE has proposed 6.5% over three years with the first uplift expected to take effect September 2026." },
+      { q: "What is the proposed teacher pay scale for 2026/27?", a: "No confirmed teacher pay award for 2026/27 has been announced as of June 2026. The DfE has proposed a 6.5% cumulative increase over three years (2026/27 to 2028/29), weighted towards later years. The STRB is expected to publish recommendations before the end of the 2026 school year. The current confirmed scales are the STPCD 2025 figures — M1 £31,650 to M6 £43,685 outside London." },
+      { q: "What is the take-home pay for a newly qualified teacher in 2026?", a: "A newly qualified teacher on M1 earns £31,650 outside London in 2026. After income tax and National Insurance, take-home pay is approximately £2,212 per month. In Inner London at M1 (£42,637), take-home is approximately £2,864/month before Teachers\' Pension contributions." },
+      { q: "What does a teacher earn on M3 after tax in 2026/27?", a: "A teacher on M3 earns £35,674 outside London. After income tax and National Insurance, monthly take-home is approximately £2,473. In Outer London at M3 (£42,842), take-home is approximately £2,896/month." },
+      { q: "What does a teacher on M6 take home after tax in 2026/27?", a: "A teacher at the top of the Main Pay Range (M6) earns £43,685 outside London. Monthly take-home after income tax and NI is approximately £2,987. Before Teachers\' Pension contributions. In Inner London at M6 (£53,482), take-home is approximately £3,354/month." },
+      { q: "What does a teacher earn on the Upper Pay Range?", a: "Teachers on the Upper Pay Range earn £46,525 (U1) to £50,500 (U3) outside London in 2026/27. Monthly take-home is approximately £3,130 at U1 rising to £3,339 at U3, before Teachers\' Pension Scheme contributions. U3 in Inner London is £62,138 with take-home of approximately £3,764/month." },
+      { q: "How much more do London teachers earn?", a: "Inner London teachers earn approximately £10,000–£15,000 more than their counterparts outside London at each scale point. Inner London M1 is £42,637 vs £31,650 outside London. The difference partly reflects higher London living costs. Outer London adds £7,000–£8,000 and the London Fringe adds £1,000–£2,000 over national rates." },
+      { q: "When does the 2026/27 teacher pay award take effect?", a: "Teacher pay awards in England typically take effect from 1 September of the academic year, with any uplift backdated to September if announced late. The 2026/27 award is expected to be confirmed before the end of the 2025/26 school year (July 2026). If you are modelling your September payslip, the current live figures (STPCD 2025) apply until a new award is formally announced." },
+      { q: "What are Teachers\' Pension Scheme contributions in 2026/27?", a: "TPS employee contribution rates are tiered: 7.4% on salaries up to £32,135; 8.6% on £32,136–£43,259; 9.6% on £43,260–£51,292; 11.2% above £51,292. At M1 (£31,650), monthly pension reduces take-home by approximately £195. At M6 (£43,685), pension contributions are approximately £374/month. These reduce your monthly net pay but build a defined-benefit career average pension — one of the most valuable workplace benefits in the UK." },
+      { q: "What is the average teacher salary in the UK in 2026?", a: "The median teacher salary in England is approximately £44,500 in 2026, reflecting the mix of classroom teachers on M1–M6, post-threshold UPR teachers, and leaders. The DfE has stated the 4% 2025 award takes the median classroom teacher salary above £51,000 when allowances are included. NQTs start at £31,650 (outside London); experienced classroom teachers top out at £50,500 (U3)." },
+      { q: "How does teacher pay compare between England and Scotland in 2026/27?", a: "Scottish teachers are paid under separate SNCT scales. The Scottish M1 (probationer) rate is £32,217, rising to £48,765 at the top of the Main Grade. Scottish teachers progress automatically through the scale without a formal application — unlike England where Upper Pay Range requires a specific application. However, Scottish teachers pay higher income tax rates above £43,662, reducing take-home by approximately £650–£1,300/year at senior scale points." },
+      { q: "Teacher pay scale 2026/27 vs 2025/26 — what changed?", a: "The STPCD 2025 (2025/26 academic year) delivered a 4% pay award effective September 2025, adding approximately £1,200–£1,700 to annual gross pay at classroom teacher levels. The 2026/27 figures will be set by the new STRB award currently under review. Until that award is confirmed and a new STPCD is published, the current live rates (M1 £31,650 to M6 £43,685 outside London) remain in force." },
     ],
     body: () => (
       <>
-        <p>Teacher pay in England is set by the School Teachers' Pay and Conditions Document (STPCD), reviewed annually by the Secretary of State following recommendations from the School Teachers' Review Body (STRB). The 2026/27 pay award delivered a further increase after the landmark 6.5% award in 2023 that ended industrial action. Scotland, Wales and Northern Ireland set their own teacher pay scales separately.</p>
+        <p>Teacher pay in England is set by the School Teachers\' Pay and Conditions Document (STPCD), reviewed annually by the Secretary of State following recommendations from the School Teachers' Review Body (STRB). The 2026/27 pay award delivered a further increase after the landmark 6.5% award in 2023 that ended industrial action. Scotland, Wales and Northern Ireland set their own teacher pay scales separately.</p>
 
         <h2 id="main-pay">Main Pay Range — NQT to experienced classroom teacher</h2>
         <table>
@@ -2004,17 +2013,21 @@ export const ARTICLES: Article[] = [
   // 39
   {
     slug: "accountant-salary-uk-2026",
-    title: "Accountant Salary UK 2026: Take-Home Pay by Qualification",
-    description: "UK accountant salaries range from £26k (AAT trainee) to £90k+ (FCA partner) in 2026. See exact take-home pay by qualification and experience level.",
+    title: "Accountant Salary UK 2026/27: Take-Home Pay at Every Level",
+    description: "UK accountant salaries 2026: AAT trainee £22k, newly qualified ACA £42k–£52k, Big 4 manager £75k–£90k. Exact take-home pay after tax at every level.",
     excerpt: "Accounting is one of the UK's most reliable high-earning career paths. Here's take-home pay from trainee to qualified accountant in 2026.",
     category: "Career",
     keywords: ["accountant salary uk 2026","chartered accountant salary uk","aca salary uk 2026","accountant take home pay","cima salary uk 2026"],
     readMinutes: 4,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-29",
     faq: [
-      { q: "What is the average accountant salary in the UK in 2026?", a: "The median salary for a qualified (ACA/ACCA/CIMA) accountant in the UK is approximately £52,000 in 2026, giving a monthly take-home of around £3,217." },
+      { q: "What is the average accountant salary in the UK in 2026?", a: "The median salary for a qualified (ACA/ACCA/CIMA) accountant in the UK is approximately £52,000 in 2026, giving a monthly take-home of around £3,217. Big 4 newly qualified accountants in London earn £52,000–£58,000. Regional newly qualified salaries are £38,000–£48,000." },
       { q: "How much does a trainee accountant earn after tax?", a: "AAT or ACA/ACCA trainees typically earn £22,000–£28,000. At £25,000, monthly take-home is approximately £1,886 after income tax and NI." },
+      { q: "What does a newly qualified ACA or ACCA accountant earn in 2026?", a: "A newly qualified ACA or ACCA accountant typically earns £42,000–£52,000 in 2026, depending on firm size and location. Monthly take-home at £47,000 is approximately £3,095 after income tax and NI. Big 4 London newly qualified earn £52,000–£58,000 (take-home ~£3,220–£3,493/month)." },
+      { q: "How much does a Big 4 accountant earn in the UK?", a: "Big 4 accountants in London earn: newly qualified £52,000–£58,000 (take-home ~£3,220/month), manager £75,000–£90,000 (take-home ~£4,340–£4,930/month), senior manager to director £90,000–£140,000 (take-home ~£4,930–£6,500/month). Big 4 regional salaries are typically 15–25% lower than London equivalents." },
+      { q: "What is a chartered accountant salary after tax in 2026?", a: "A chartered accountant (ACA/ACCA/CIMA qualified) in the UK earns £42,000–£70,000 depending on experience and sector. At £55,000, monthly take-home is approximately £3,410 after income tax and NI. Partners and FDs can earn significantly more — see the breakdown by level above." },
+      { q: "Is it worth becoming an accountant in the UK?", a: "Accountancy offers one of the UK's most reliable high-earning career paths. The ACA qualification typically pays back within 3–4 years in salary premium over non-qualified roles. Newly qualified ACA salaries are £42,000–£58,000, rising rapidly to £75,000+ at manager level within 3–5 years post-qualification." },
     ],
     body: () => (
       <>
@@ -2253,11 +2266,15 @@ export const ARTICLES: Article[] = [
     keywords: ["teacher pay scale 2026-27","teacher pay scale 2026","teacher salary scale 2026","mps teacher pay 2026","ups teacher pay 2026","teacher pay outside london 2026"],
     readMinutes: 5,
     publishedISO: "2026-05-14",
-    updatedISO: "2026-05-14",
+    updatedISO: "2026-06-29",
     faq: [
-      { q: "What is the teacher pay scale for 2026-27?", a: "The Main Pay Scale (MPS) runs from £31,650 (M1, outside London) to £43,685 (M6). The Upper Pay Scale (UPS) runs from £46,525 (U1) to £50,500 (U3). Inner London adds a substantial allowance — M1 in Inner London is £42,637." },
-      { q: "How much does a newly qualified teacher earn after tax in 2026-27?", a: "An NQT on M1 (£31,650 outside London) takes home approximately £2,212/month after income tax and National Insurance. In Inner London at £42,637, take-home is approximately £2,912/month." },
-      { q: "When does the 2026-27 teacher pay award take effect?", a: "Teacher pay awards in England typically take effect from September of the academic year. The 2026-27 figures shown here are based on the STPCD (School Teachers' Pay and Conditions Document) for the 2026-27 academic year." },
+      { q: "What is the teacher pay scale for 2026-27?", a: "The current confirmed pay scale (STPCD 2025) runs M1 £31,650 to M6 £43,685 outside London, following a 4% award effective September 2025. The Upper Pay Scale runs U1 £46,525 to U3 £50,500. Inner London M1 is £42,637. The 2026/27 award has not been formally confirmed — announcement expected by July 2026." },
+      { q: "What is the proposed teacher pay rise for 2026-27?", a: "The DfE has proposed a 6.5% cumulative increase over three years (2026/27–2028/29). The first year uplift (2026/27) may be approximately 1.5–2%, though no final figure has been confirmed by the STRB or DfE as of June 2026. When confirmed, new figures take effect from 1 September 2026." },
+      { q: "How much does a newly qualified teacher earn after tax in 2026-27?", a: "An NQT on M1 (£31,650 outside London) takes home approximately £2,212/month after income tax and National Insurance, before TPS pension contributions. After pension at 7.4%, take-home reduces to approximately £1,993/month. In Inner London at M1 (£42,637), take-home is approximately £2,864/month before pension." },
+      { q: "What is M4 on the teacher pay scale 2026-27?", a: "M4 on the teacher pay scale is £37,935 outside London, £45,201 in Outer London, £38,513 in the London Fringe. Monthly take-home at M4 (outside London) is approximately £2,630 after income tax and NI, before Teachers' Pension contributions." },
+      { q: "What is M6 teacher pay after tax in 2026-27?", a: "M6 is the top of the Main Pay Range at £43,685 outside London (£51,179 Outer London, £44,103 Fringe, £53,482 Inner London). Monthly take-home at M6 outside London is approximately £2,987 after income tax and NI. After TPS pension at 9.6%, take-home reduces to approximately £2,542/month." },
+      { q: "When does the 2026-27 teacher pay award take effect?", a: "Teacher pay awards in England take effect from 1 September of the relevant academic year. The 2026/27 award will apply from September 2026, backdated if the decision is announced late in the school year. Until the new STPCD is published, the current live figures (M1 £31,650 to M6 £43,685 outside London) remain in force." },
+      { q: "Do academy schools have to follow the teacher pay scale?", a: "Academy trusts are not legally required to follow the STPCD pay scales — they have freedom to set their own pay structures. However, most academies follow the national framework in practice. If you work in an academy, check your contract or school HR for the specific pay structure that applies to you." },
     ],
     body: () => (
       <>
@@ -2818,16 +2835,20 @@ export const ARTICLES: Article[] = [
 
   {
     slug: "gp-doctor-salary-uk-2026",
-    title: "GP Doctor Salary UK 2026: Salaried, Partner & Locum Pay",
-    description: "UK GP salaries in 2026: salaried GPs earn £70,300–£85,000, partners £100k–£130k+. See exact take-home pay for each type plus locum day rates.",
+    title: "GP Doctor Salary UK 2026: Exact Take-Home for Salaried, Partner & Locum",
+    description: "UK GP salary 2026: salaried GPs take home £3,990–£5,280/month. Partners earn £115k–£135k. Locum day rates £700–£1,200. Exact figures after tax and NHS pension.",
     excerpt: "Salaried GPs earn £70,300–£85,000 while GP partners can earn £100k–£130k+. Here is take-home pay for every type of GP role in 2026.",
     category: "Career",
     keywords: ["gp salary uk 2026","doctor salary uk 2026","gp take home pay","salaried gp salary 2026","gp partner salary"],
     readMinutes: 5,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-29",
     faq: [
-      { q: "What is a GP salary in the UK in 2026?", a: "Salaried GPs earn £70,300–£85,000 per year in 2026. GP partners typically earn £100,000–£130,000+ from their share of practice profits. Locum GPs charge £700–£1,000 per day." },
+      { q: "What is a GP salary in the UK in 2026?", a: "Salaried GPs earn £70,300–£85,000 per year in 2026 (take-home ~£3,990–£4,630/month). GP partners typically earn £115,000–£135,000 from their share of practice profits (take-home ~£5,630–£6,400/month). Locum GPs charge £700–£1,200 per day." },
+      { q: "How much does a salaried GP take home per month in 2026?", a: "A salaried GP at the BMA minimum (£70,300) takes home approximately £3,990/month after income tax and NI, before NHS pension contributions. At £85,000, monthly take-home is approximately £4,630. NHS pension contributions (12.5% employee) reduce these figures by approximately £730–£885/month, but provide a valuable defined-benefit pension." },
+      { q: "What do GP partners earn after tax in 2026?", a: "GP partners draw an average of £115,000–£135,000 from practice profits. At £120,000, monthly take-home after income tax and NI is approximately £5,740, before NHS pension contributions of approximately £1,450/month. Partners are self-employed and pay tax via Self Assessment rather than PAYE." },
+      { q: "What is a locum GP day rate in 2026?", a: "Locum GP day rates range from £700 to £1,200 per day in 2026 depending on session type, location, and demand. At 230 working days and £850/day, annual gross is approximately £195,500. After income tax (via Self Assessment) and NI, take-home is approximately £110,000–£115,000, though actual net pay depends heavily on expenses and business structure." },
+      { q: "Do GPs get an NHS pension?", a: "Yes. Salaried GPs contribute 12.5% of pensionable pay and receive a 23.7% employer contribution. GP partners contribute 14.5%. At £70,300, employee pension contributions are approximately £731/month. The NHS Pension provides a defined-benefit career average pension — particularly valuable as it has no investment risk and is backed by government guarantee." },
     ],
     body: () => (
       <>
