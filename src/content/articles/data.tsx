@@ -18,7 +18,7 @@ export const ARTICLES: Article[] = [
     keywords: ["salary calculator", "take home pay", "2026/27"],
     readMinutes: 7,
     publishedISO: "2026-04-08",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the personal allowance for 2026/27?", a: "£12,570 — frozen since 2021/22 and locked in until at least April 2028." },
       { q: "How is take-home pay actually calculated?", a: "Gross salary, minus pension contributions (if salary sacrifice), minus Income Tax on the taxable portion, minus Class 1 National Insurance, minus any Student Loan repayment." },
@@ -77,7 +77,7 @@ export const ARTICLES: Article[] = [
     keywords: ["scotland", "tax", "comparison", "take home pay"],
     readMinutes: 6,
     publishedISO: "2026-04-10",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "When does Scottish income tax become more expensive than rUK?", a: "From around £29,000 the Intermediate rate begins to bite, and from £43,663 the Higher rate of 42% applies — well below England's £50,270 40% threshold." },
       { q: "Do I pay Scottish tax if I work remotely from Scotland for a London employer?", a: "Yes — your tax residence (where you live) determines whether you pay Scottish rates, not your employer's location." },
@@ -133,7 +133,7 @@ export const ARTICLES: Article[] = [
     keywords: ["scotland", "tax", "pension"],
     readMinutes: 5,
     publishedISO: "2026-04-12",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>Scotland's income tax rates have diverged significantly from England since the Scottish Parliament gained tax-varying powers. The 2023 Scottish Budget introduced a new Advanced Rate of 45% (above the English higher rate of 40%) and maintained the intermediate rate of 21%, creating meaningful take-home pay differences for Scottish earners above £43,662. This guide explains exactly what changed and what it means for your payslip.</p>
@@ -184,7 +184,7 @@ export const ARTICLES: Article[] = [
     keywords: ["student loan", "plan 5", "graduate"],
     readMinutes: 6,
     publishedISO: "2026-04-14",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "Who is on Plan 5?", a: "English and Welsh students who started undergraduate study from 1 August 2023 onwards." },
       { q: "What's the threshold?", a: "£25,000 per year — significantly lower than Plan 2's £29,385." },
@@ -242,7 +242,7 @@ export const ARTICLES: Article[] = [
     keywords: ["tax code", "1257L", "PAYE"],
     readMinutes: 5,
     publishedISO: "2026-04-15",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>An emergency tax code is a temporary tax code HMRC assigns when your employer doesn't have enough information to use your correct code. The most common emergency code in 2026/27 is <strong>1257L W1</strong> (or 1257L M1, or simply 1257L X). The number 1257 reflects the £12,570 Personal Allowance, but the W1/M1/X suffix changes how it's applied — and this difference costs you money.</p>
@@ -274,7 +274,7 @@ export const ARTICLES: Article[] = [
     keywords: ["50k salary", "take home pay", "salary calculator"],
     readMinutes: 4,
     publishedISO: "2026-04-16",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>A £50,000 salary is a significant milestone in the UK — it sits just below the Higher Rate Income Tax threshold of £50,270, which means almost all of a £50,000 salary is taxed at the basic rate. Understanding exactly what you take home on £50,000 — including the impact of student loans, pension contributions, and location — is essential for financial planning.</p>
@@ -321,7 +321,7 @@ export const ARTICLES: Article[] = [
     keywords: ["pension", "salary sacrifice", "tax relief"],
     readMinutes: 5,
     publishedISO: "2026-04-17",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>Salary sacrifice pension is an arrangement where you formally reduce your gross salary by the amount of your pension contribution, and your employer pays that amount directly into your pension instead. The result: you pay Income Tax and National Insurance on a lower salary, and your employer saves on the National Insurance they'd otherwise pay on that portion of your earnings. Most employers pass some or all of their NI saving back to you, making salary sacrifice the most tax-efficient way to save into a pension.</p>
@@ -360,7 +360,7 @@ export const ARTICLES: Article[] = [
     keywords: ["self employed", "tax", "sole trader"],
     readMinutes: 7,
     publishedISO: "2026-04-18",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>Self-employed people in the UK pay tax differently from employees — there is no employer to withhold PAYE on your behalf, so you calculate and pay your own tax through Self Assessment. Understanding exactly what you owe — and when — is essential to avoid underpaying and facing unexpected bills or penalties.</p>
@@ -416,7 +416,7 @@ export const ARTICLES: Article[] = [
     keywords: ["IR35", "contractor", "ltd company"],
     readMinutes: 6,
     publishedISO: "2026-04-19",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>IR35 — formally the Intermediaries Legislation — determines whether HMRC views your contractor arrangement as genuine self-employment or "disguised employment." If you are inside IR35, the fee payer (your client or agency) must deduct PAYE Income Tax and National Insurance from your payments before they reach your limited company, just as if you were an employee. If outside IR35, you operate as a business, pay corporation tax on profits, and extract income as a combination of salary and dividends — keeping significantly more of your earnings.</p>
@@ -461,7 +461,7 @@ export const ARTICLES: Article[] = [
     keywords: ["dividend", "director", "ltd company"],
     readMinutes: 5,
     publishedISO: "2026-04-20",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>Operating as a director of your own limited company gives you flexibility to structure your income in the most tax-efficient way. The standard strategy is to pay yourself a low salary (at or near the National Insurance threshold) and take the remainder of your income as dividends, which are taxed at lower rates than employment income. Here is how the optimal split works for 2026/27.</p>
@@ -502,7 +502,7 @@ export const ARTICLES: Article[] = [
     keywords: ["two jobs", "tax code", "second job"],
     readMinutes: 5,
     publishedISO: "2026-04-21",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>Working two jobs in the UK is perfectly legal and increasingly common — but the tax treatment is often misunderstood. HMRC does not tax your second job differently by design; rather, the system works by assigning your full Personal Allowance to one job, which means your second employer deducts tax from the first penny of earnings. This guide explains exactly how it works and what you can do about it.</p>
@@ -555,7 +555,7 @@ export const ARTICLES: Article[] = [
     keywords: ["pay rise", "marginal tax", "raise"],
     readMinutes: 5,
     publishedISO: "2026-04-22",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>A pay rise sounds straightforward, but the amount that actually reaches your bank account depends on your current salary, the size of the rise, and whether the increase pushes you across a tax band boundary. Understanding the marginal rate you pay — what you keep on the next £1 — is essential for evaluating job offers, negotiating salary, or comparing a raise to a pension contribution.</p>
@@ -608,7 +608,7 @@ export const ARTICLES: Article[] = [
     keywords: ["national insurance", "NI", "tax"],
     readMinutes: 5,
     publishedISO: "2026-04-23",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>National Insurance (NI) is a tax on earnings paid by employees, employers, and the self-employed. It funds the NHS, State Pension, and certain benefits. Unlike Income Tax, NI has separate classes depending on your employment status — and each class has different rates and thresholds for 2026/27.</p>
@@ -663,7 +663,7 @@ export const ARTICLES: Article[] = [
     keywords: ["personal allowance", "100k", "tax trap", "pension"],
     readMinutes: 6,
     publishedISO: "2026-04-25",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>The Personal Allowance taper is one of the UK tax system's most damaging quirks. If your income exceeds £100,000, HMRC reduces your Personal Allowance by £1 for every £2 you earn above that threshold. By £125,140, your allowance has been entirely eliminated — and while HMRC levies your income at the standard 40% higher rate, the simultaneous removal of the allowance creates an effective marginal tax rate of 60% on income in the £100,000–£125,140 band. Add 2% NI and the effective rate rises to 62%, making this the UK's highest marginal tax rate for employed individuals.</p>
@@ -707,7 +707,7 @@ export const ARTICLES: Article[] = [
     keywords: ["cost of living", "london", "manchester", "salary"],
     readMinutes: 5,
     publishedISO: "2026-04-27",
-    updatedISO: "2026-04-29",
+    updatedISO: "2026-06-30",
     body: () => (
       <>
         <p>Headline salaries are one thing — what you actually have left after housing, tax, and basic living costs is what matters. The UK's significant regional variation in housing costs means that a £45,000 salary stretches very differently in London versus Manchester, Edinburgh, or Bristol. This guide shows post-tax, post-rent disposable income across the UK's major cities.</p>
@@ -751,7 +751,7 @@ export const ARTICLES: Article[] = [
     keywords: ["minimum wage", "national living wage", "2026/27", "hourly rate"],
     readMinutes: 6,
     publishedISO: "2026-04-30",
-    updatedISO: "2026-04-30",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the UK minimum wage in 2026?", a: "£12.71 per hour for workers aged 21 and over (National Living Wage). For 18–20 year olds it's £10.85, and for under-18s and apprentices it's £8.00." },
       { q: "What is the annual salary on minimum wage?", a: "Working 37.5 hours per week at £12.71/hr gives a gross annual salary of approximately £24,783. After tax and NI, take-home is around £21,892." },
@@ -803,7 +803,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary", "median salary", "UK salary", "salary comparison"],
     readMinutes: 7,
     publishedISO: "2026-04-30",
-    updatedISO: "2026-04-30",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in the UK in 2026?", a: "The median full-time salary is approximately £35,000 per year (ONS ASHE 2025 data). The mean is higher at around £39,500, pulled up by high earners." },
       { q: "What is a good salary in the UK?", a: "Anything above the median of £35,000 puts you in the top half of earners. A salary above £50,270 puts you in the higher-rate tax bracket." },
@@ -878,7 +878,7 @@ export const ARTICLES: Article[] = [
     keywords: ["marriage allowance", "tax", "personal allowance", "couples"],
     readMinutes: 5,
     publishedISO: "2026-04-30",
-    updatedISO: "2026-04-30",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How much can you save with Marriage Allowance?", a: "Up to £252 per year in the 2026/27 tax year. You can also backdate claims for up to 4 previous tax years, potentially saving up to £1,260 in total." },
       { q: "Who is eligible for Marriage Allowance?", a: "Married couples or civil partners where one partner earns below the Personal Allowance (£12,570) and the other pays basic-rate tax (earning between £12,571 and £50,270)." },
@@ -922,7 +922,7 @@ export const ARTICLES: Article[] = [
     keywords: ["pension", "auto enrolment", "workplace pension", "employer contribution"],
     readMinutes: 6,
     publishedISO: "2026-04-30",
-    updatedISO: "2026-04-30",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the minimum pension contribution in 2026?", a: "8% of qualifying earnings — at least 3% from the employer and 5% from the employee. Qualifying earnings are between £6,240 and £50,270." },
       { q: "Can I opt out of auto-enrolment?", a: "Yes, but your employer must re-enrol you every 3 years. You lose both the employer contribution and the tax relief if you opt out." },
@@ -970,7 +970,7 @@ export const ARTICLES: Article[] = [
     keywords: ["PAYE", "tax code", "how tax works", "employer deductions"],
     readMinutes: 6,
     publishedISO: "2026-04-30",
-    updatedISO: "2026-04-30",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What does PAYE stand for?", a: "Pay As You Earn — the system by which UK employers deduct Income Tax and National Insurance from employees' wages before paying them." },
       { q: "Do I need to do anything for PAYE?", a: "Usually no — your employer handles everything. You just need to check your tax code is correct on your payslip. If it's wrong, contact HMRC." },
@@ -1016,7 +1016,7 @@ export const ARTICLES: Article[] = [
     keywords: ["tax refund", "overpaid tax", "HMRC", "tax rebate"],
     readMinutes: 5,
     publishedISO: "2026-04-30",
-    updatedISO: "2026-04-30",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How do I know if I'm owed a tax refund?", a: "Compare actual deductions (from payslips or P60) against the calculated liability using a salary calculator. Common causes include wrong tax codes, emergency tax, or working part of the year." },
       { q: "How long does a tax refund take?", a: "Online claims via your HMRC personal tax account typically take 5–6 weeks. Postal claims (P50 form) can take 6–8 weeks." },
@@ -1055,7 +1055,7 @@ export const ARTICLES: Article[] = [
     keywords: ["employer NI", "national insurance", "employer cost", "hiring"],
     readMinutes: 5,
     publishedISO: "2026-04-30",
-    updatedISO: "2026-04-30",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the employer NI rate in 2026/27?", a: "15% on earnings above the Secondary Threshold of £5,000 per year (reduced from £9,100 in April 2025)." },
       { q: "How much does it cost to employ someone on £30,000?", a: "Employer NI is 15% × (£30,000 − £5,000) = £3,750. Total employment cost: £33,750, plus any pension contributions." },
@@ -1105,7 +1105,7 @@ export const ARTICLES: Article[] = [
     keywords: ["working from home", "tax relief", "WFH", "home office"],
     readMinutes: 5,
     publishedISO: "2026-04-30",
-    updatedISO: "2026-04-30",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "Can I claim tax relief for working from home?", a: "Only if your employer requires you to work from home — choosing to WFH when an office is available doesn't qualify. The COVID-era blanket eligibility ended in April 2022." },
       { q: "How much is WFH tax relief?", a: "£6 per week (£312/year). At 20% basic rate, this saves £62.40/year. At 40% higher rate, it saves £124.80/year." },
@@ -1148,7 +1148,7 @@ export const ARTICLES: Article[] = [
     keywords: ["tax-free childcare", "childcare", "benefits", "working parents"],
     readMinutes: 5,
     publishedISO: "2026-04-30",
-    updatedISO: "2026-04-30",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How does Tax-Free Childcare work?", a: "You pay into an online account and the government tops up every £8 with £2 — a 20% bonus. The maximum top-up is £2,000 per child per year (£4,000 for disabled children)." },
       { q: "Who is eligible for Tax-Free Childcare?", a: "Both parents must be working and each earning at least the National Minimum Wage for 16 hours/week (about £10,581/year), but neither earning over £100,000." },
@@ -1199,7 +1199,7 @@ export const ARTICLES: Article[] = [
     keywords: ["tax bands", "income tax rates", "tax brackets", "2026/27"],
     readMinutes: 7,
     publishedISO: "2026-04-30",
-    updatedISO: "2026-04-30",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What are the UK tax bands for 2026/27?", a: "For England, Wales and NI: Personal Allowance £0–£12,570 (0%), Basic Rate £12,571–£50,270 (20%), Higher Rate £50,271–£125,140 (40%), Additional Rate over £125,140 (45%)." },
       { q: "Are tax bands different in Scotland?", a: "Yes — Scotland has six rates: Starter 19%, Basic 20%, Intermediate 21%, Higher 42%, Advanced 45%, and Top 48%. The thresholds also differ." },
@@ -1262,7 +1262,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary by age uk 2026", "uk salary by age", "what salary should i earn at 30 uk", "average earnings by age uk"],
     readMinutes: 5,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary for a 30-year-old in the UK?", a: "The median annual salary for workers aged 30–39 in the UK is approximately £36,800 in 2026, giving a monthly take-home of around £2,580 after income tax and National Insurance." },
       { q: "At what age do UK salaries peak?", a: "UK salaries typically peak between ages 40–49, where the median gross salary reaches around £41,200. After 50, many workers shift to part-time roles or less senior positions, pulling the median down." },
@@ -1315,7 +1315,7 @@ export const ARTICLES: Article[] = [
     keywords: ["what is a good salary uk 2026", "good salary uk", "is 35000 a good salary uk", "is 50000 a good salary uk 2026", "above average salary uk"],
     readMinutes: 5,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "Is £35,000 a good salary in the UK?", a: "Yes — £35,000 puts you just above the UK median and ahead of around 55% of all workers. After tax you take home approximately £2,496 per month. In most cities outside London this is a comfortable income." },
       { q: "Is £50,000 a good salary in the UK in 2026?", a: "£50,000 places you in the top 25% of UK earners. Your monthly take-home is approximately £3,217. Note that earnings above £50,270 are taxed at 40%, so each extra £1,000 gross only adds £600 to your take-home." },
@@ -1371,7 +1371,7 @@ export const ARTICLES: Article[] = [
     keywords: ["income tax bands 2026 27", "uk tax rates 2026", "income tax thresholds 2026", "higher rate tax threshold 2026", "personal allowance 2026"],
     readMinutes: 5,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the personal allowance for 2026/27?", a: "£12,570 — unchanged since 2021/22. It is frozen until at least April 2028, creating a fiscal drag effect as more wages are pulled into the tax net." },
       { q: "When does the higher rate of income tax kick in for 2026/27?", a: "The Higher Rate (40%) applies to taxable income above £50,270 in England, Wales, and Northern Ireland. In Scotland the Higher Rate is 42% and applies from £43,663." },
@@ -1433,7 +1433,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary london 2026", "average wage london", "london salary 2026", "average income london", "median salary london 2026"],
     readMinutes: 5,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in London in 2026?", a: "The median gross annual salary in London is £44,370 in 2026 — approximately £9,400 above the UK median. After tax this gives a monthly take-home of around £2,993." },
       { q: "Is a £40,000 salary good in London?", a: "It is above the UK median but below the London median. After tax your monthly take-home is £2,766. In central London this feels tight; in outer zones it is more manageable." },
@@ -1489,7 +1489,7 @@ export const ARTICLES: Article[] = [
     keywords: ["how to calculate take home pay uk", "calculate net salary uk", "gross to net salary uk", "uk take home pay calculation", "how much take home from salary"],
     readMinutes: 6,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How do I calculate my take-home pay from my gross salary?", a: "Subtract income tax (using UK tax bands), National Insurance (8% on earnings £12,570–£50,270, 2% above), any pension contributions, and student loan repayments if applicable. Our calculator does all of this instantly." },
       { q: "What is the take-home pay on a £35,000 salary?", a: "On a £35,000 salary in England with no pension or student loan, your take-home is approximately £28,720 per year — £2,393 per month. Tax: £4,486. NI: £1,794." },
@@ -1549,7 +1549,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary manchester 2026","average wage manchester","manchester salary 2026","median salary manchester"],
     readMinutes: 4,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Manchester in 2026?", a: "The median gross annual salary in Manchester is approximately £34,100 in 2026, giving a monthly take-home of around £2,444 after income tax and National Insurance." },
       { q: "Is Manchester a good place to earn a high salary?", a: "Yes — Manchester has strong tech, finance, media and professional services sectors. The average tech salary in Manchester is around £52,000, well above the city median." },
@@ -1599,17 +1599,21 @@ export const ARTICLES: Article[] = [
   // 32
   {
     slug: "average-salary-birmingham-2026",
-    title: "Average Salary in Birmingham 2026",
-    description: "The average salary in Birmingham is £32,400 in 2026. Breakdown by sector, take-home pay figures, and how Birmingham salaries compare to the UK average.",
+    title: "Average Salary in Birmingham 2026: £32,400 Median — Take-Home Pay",
+    description: "Birmingham median salary is £32,400 in 2026. Monthly take-home ~£2,340. HSBC, KPMG and Deloitte drive finance/tech salaries to £45k–£70k. Full sector breakdown.",
     excerpt: "Birmingham salaries sit below the UK median, but the city's growing tech and professional services sectors are pushing wages up fast.",
     category: "Wages",
     keywords: ["average salary birmingham 2026","average wage birmingham","birmingham salary 2026","median salary birmingham"],
     readMinutes: 4,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
-      { q: "What is the average salary in Birmingham in 2026?", a: "The median gross annual salary in Birmingham is approximately £32,400 in 2026, giving a monthly take-home of around £2,340 after income tax and National Insurance." },
-      { q: "Is Birmingham a good city for salaries?", a: "Birmingham is improving rapidly. The tech and professional services sectors offer salaries well above the city median, and lower living costs than London or Manchester mean your money goes further." },
+      { q: "What is the average salary in Birmingham in 2026?", a: "The median gross annual salary in Birmingham is approximately £32,400 in 2026, giving a monthly take-home of around £2,340 after income tax and National Insurance. Birmingham salaries have grown roughly 4-5% since 2024, driven by financial services relocation and the city\'s growing tech sector." },
+      { q: "What is the average take-home pay in Birmingham?", a: "On Birmingham\'s median salary of £32,400, monthly take-home is approximately £2,340 after income tax and NI with the standard 1257L tax code. At the higher finance/tech average of £45,000, monthly take-home rises to approximately £2,993/month." },
+      { q: "What are the highest-paying jobs in Birmingham in 2026?", a: "The highest-paying sectors in Birmingham are financial services (HSBC UK HQ, KPMG, Deloitte — £50,000–£100,000+ for senior roles), technology (£45,000–£85,000 for senior engineers), legal (solicitors £40,000–£80,000), and healthcare consultants (£80,000–£120,000). KPMG and Deloitte have large offices in Birmingham city centre." },
+      { q: "Is Birmingham a good city for salaries?", a: "Yes, particularly for 2026. The combination of HSBC UK headquarters relocation (bringing £60,000–£120,000 finance salaries), a growing tech scene around Digbeth, and living costs roughly 35-40% below London mean your take-home salary goes further in Birmingham than almost any other major UK city." },
+      { q: "How do Birmingham salaries compare to the UK average?", a: "The Birmingham median (£32,400) is approximately £2,600 below the UK median (£35,000) in 2026. However, Birmingham\'s finance and tech sector salaries are competitive with national equivalents, and housing costs in Birmingham are roughly 60% lower than London, making purchasing power significantly better than the raw numbers suggest." },
+      { q: "What is the average graduate salary in Birmingham?", a: "Graduate starting salaries in Birmingham average £25,000–£28,000 in 2026, rising to £30,000–£35,000 by year three for most disciplines. Graduate roles in financial services at major firms start at £30,000–£35,000. Monthly take-home at £26,500 is approximately £1,940 after income tax and NI." },
     ],
     body: () => (
       <>
@@ -1664,7 +1668,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary leeds 2026","average wage leeds","leeds salary 2026","median salary leeds"],
     readMinutes: 4,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Leeds in 2026?", a: "The median gross annual salary in Leeds is approximately £33,800 in 2026, giving a monthly take-home of around £2,427 after income tax and National Insurance." },
       { q: "What are the best-paid jobs in Leeds?", a: "Financial services, legal, and technology are the top-paying sectors in Leeds. Senior roles in these sectors commonly offer £50,000–£80,000." },
@@ -1721,7 +1725,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary bristol 2026","average wage bristol","bristol salary 2026","median salary bristol"],
     readMinutes: 4,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Bristol in 2026?", a: "The median gross annual salary in Bristol is approximately £36,200 in 2026, giving a monthly take-home of around £2,562 after income tax and National Insurance." },
       { q: "Why are Bristol salaries above the UK average?", a: "Bristol has a strong concentration of aerospace, defence, technology, and financial services employers. Companies including Airbus, Rolls-Royce, and several major banks have significant operations there." },
@@ -1771,17 +1775,21 @@ export const ARTICLES: Article[] = [
   // 35
   {
     slug: "average-salary-edinburgh-2026",
-    title: "Average Salary in Edinburgh 2026",
-    description: "The average salary in Edinburgh is £37,500 in 2026. See take-home under Scottish tax rates, top-paying sectors, and how Edinburgh compares to Glasgow.",
+    title: "Average Salary in Edinburgh 2026: £37,500 Median — Scottish Tax Take-Home",
+    description: "Edinburgh median salary £37,500 in 2026 — take-home ~£2,600/month under Scottish income tax. Standard Life, Baillie Gifford and RBS drive finance salaries. Full breakdown.",
     excerpt: "Edinburgh has the highest average salary in Scotland — but Scottish income tax rates mean your take-home differs from the rest of the UK at the same gross salary.",
     category: "Wages",
     keywords: ["average salary edinburgh 2026","average wage edinburgh","edinburgh salary 2026","median salary edinburgh","scottish salary calculator"],
     readMinutes: 5,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
-      { q: "What is the average salary in Edinburgh in 2026?", a: "The median gross annual salary in Edinburgh is approximately £37,500 in 2026. Under Scottish income tax rates, this gives a monthly take-home of around £2,600." },
-      { q: "Do Edinburgh workers pay more tax than English workers?", a: "Yes, for most salary levels. Scottish income tax rates are higher from around £29,000 upwards. On a £37,500 salary, a Scottish worker pays roughly £400 more per year in income tax than an equivalent worker in England." },
+      { q: "What is the average salary in Edinburgh in 2026?", a: "The median gross annual salary in Edinburgh is approximately £37,500 in 2026. Under Scottish income tax rates, this gives a monthly take-home of around £2,600/month after income tax and NI. Edinburgh is Scotland\'s highest-paying city and the 3rd highest-paying city in the UK after London and Cambridge." },
+      { q: "What is the take-home pay on the average Edinburgh salary?", a: "On Edinburgh\'s median salary of £37,500, monthly take-home under Scottish income tax is approximately £2,597/month (£31,164/year) — about £40/month less than the same salary in England due to Scotland\'s higher tax rates above £27,491. Use the take-home calculator to see your exact figure." },
+      { q: "Do Edinburgh workers pay more tax than English workers?", a: "Yes, above approximately £29,000. Scottish income tax rates are higher from the Intermediate Rate (21% from £27,491 vs England\'s 20% from £12,571). On £37,500 a Scottish worker pays approximately £470 more per year. On £60,000 the extra tax is approximately £1,644/year compared to England." },
+      { q: "What are the highest-paying employers in Edinburgh?", a: "Edinburgh\'s top-paying employers are in financial services: Standard Life Aberdeen, Baillie Gifford, and Royal Bank of Scotland offer £50,000–£150,000+ for senior investment and banking roles. Deloitte and PwC Edinburgh offices offer £40,000–£80,000 for senior consultants. The Scottish Government employs large numbers at £30,000–£70,000." },
+      { q: "How does Edinburgh salary compare to Glasgow?", a: "Edinburgh\'s median salary (£37,500) is approximately £3,700 higher than Glasgow\'s (£33,800) in 2026. Edinburgh\'s concentration of financial services, investment management, and legal firms drives higher average pay. However, Glasgow housing costs are lower, partially offsetting the salary difference." },
+      { q: "What is a good salary in Edinburgh in 2026?", a: "In Edinburgh, a salary above £45,000 puts you in the top 25% of earners in the city. At £45,000 under Scottish tax, monthly take-home is approximately £2,969/month. A salary above £60,000 puts you in roughly the top 10% of Edinburgh earners. Given Edinburgh\'s higher housing costs relative to other Scottish cities, many financial planners suggest £35,000+ as a comfortable living wage in Edinburgh." },
     ],
     body: () => (
       <>
@@ -1832,7 +1840,7 @@ export const ARTICLES: Article[] = [
     keywords: ["nurse salary uk 2026","nhs nurse pay 2026","band 5 nurse salary take home","nursing salary uk after tax","nhs pay bands 2026"],
     readMinutes: 5,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the take-home pay for a Band 5 nurse in 2026?", a: "A Band 5 nurse earns £29,970–£36,483 gross. After income tax and NI, take-home pay ranges from approximately £2,050 to £2,490 per month. The exact figure depends on your point on the pay scale and pension contribution rate." },
       { q: "How much does a Band 6 nurse earn after tax?", a: "A Band 6 nurse earns £37,338–£44,962 gross. Monthly take-home ranges from approximately £2,610 to £3,010 after tax and NI, before pension deductions." },
@@ -1879,7 +1887,7 @@ export const ARTICLES: Article[] = [
     keywords: ["teacher salary uk 2026","teacher pay scale 2026-27","teacher pay scale 2026/27","teacher pay 2026/27","teacher pay scale 26 27","teacher pay scales 2026/27","teachers salary 2026/27","proposed teacher pay scale 26 27","teacher salaries 2026-27","teacher pay 2026 27","newly qualified teacher salary take home","uk teacher salary after tax"],
     readMinutes: 5,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-06-29",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the teacher pay scale for 2026-27?", a: "The confirmed 2025/26 teacher pay scale runs M1 £31,650 to M6 £43,685 outside London (following the 4% STPCD award effective September 2025). These are the current live rates. The 2026/27 award has not yet been formally announced — the DfE has proposed 6.5% over three years with the first uplift expected to take effect September 2026." },
       { q: "What is the proposed teacher pay scale for 2026/27?", a: "No confirmed teacher pay award for 2026/27 has been announced as of June 2026. The DfE has proposed a 6.5% cumulative increase over three years (2026/27 to 2028/29), weighted towards later years. The STRB is expected to publish recommendations before the end of the 2026 school year. The current confirmed scales are the STPCD 2025 figures — M1 £31,650 to M6 £43,685 outside London." },
@@ -1958,7 +1966,7 @@ export const ARTICLES: Article[] = [
     keywords: ["software engineer salary uk 2026","developer salary uk 2026","software developer take home pay uk","junior developer salary uk","senior software engineer salary uk"],
     readMinutes: 5,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average software engineer salary in the UK in 2026?", a: "The median software engineer salary in the UK is approximately £58,000 in 2026. Monthly take-home after tax and NI is approximately £3,553." },
       { q: "What does a junior developer earn after tax in the UK?", a: "Junior software engineers typically earn £28,000–£38,000. At £33,000, monthly take-home is approximately £2,380 after income tax and NI." },
@@ -2020,7 +2028,7 @@ export const ARTICLES: Article[] = [
     keywords: ["accountant salary uk 2026","chartered accountant salary uk","aca salary uk 2026","accountant take home pay","cima salary uk 2026"],
     readMinutes: 4,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-06-29",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average accountant salary in the UK in 2026?", a: "The median salary for a qualified (ACA/ACCA/CIMA) accountant in the UK is approximately £52,000 in 2026, giving a monthly take-home of around £3,217. Big 4 newly qualified accountants in London earn £52,000–£58,000. Regional newly qualified salaries are £38,000–£48,000." },
       { q: "How much does a trainee accountant earn after tax?", a: "AAT or ACA/ACCA trainees typically earn £22,000–£28,000. At £25,000, monthly take-home is approximately £1,886 after income tax and NI." },
@@ -2083,7 +2091,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary by profession uk 2026","uk salary by job 2026","average salary by occupation uk","uk job salary comparison 2026","highest paying jobs uk 2026"],
     readMinutes: 7,
     publishedISO: "2026-05-07",
-    updatedISO: "2026-05-07",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What are the highest-paying jobs in the UK in 2026?", a: "The highest-paying professions in the UK include surgeons (£100k–£200k), senior software engineers (£80k–£120k), investment bankers (£80k–£150k+), barristers (£80k–£200k+), and commercial pilots (£80k–£120k)." },
       { q: "What is the best-paid graduate job in the UK?", a: "Investment banking, management consulting, and technology (software engineering) are consistently the highest-paid graduate entry routes, with starting salaries of £45,000–£60,000 at major firms." },
@@ -2136,7 +2144,7 @@ export const ARTICLES: Article[] = [
     keywords: ["uk tax calculator 2026","uk tax calculator 2026/27","income tax calculator uk 2026","how much tax do i pay uk 2026","uk tax and ni calculator"],
     readMinutes: 5,
     publishedISO: "2026-05-14",
-    updatedISO: "2026-05-14",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How do I calculate my UK income tax for 2026/27?", a: "Your income tax is calculated in bands. You pay 0% on the first £12,570 (personal allowance), 20% on earnings from £12,571 to £50,270, and 40% on earnings above £50,270. Use our take-home calculator for the exact figure including National Insurance." },
       { q: "How much National Insurance do I pay in 2026/27?", a: "Employees pay 8% NI on earnings between £12,570 and £50,270, and 2% on earnings above £50,270. Employers pay 15% on earnings above £5,000." },
@@ -2205,7 +2213,7 @@ export const ARTICLES: Article[] = [
     keywords: ["scottish income tax bands 2026/27","scotland income tax 2026","scottish tax rates 2026 27","scotland vs england tax 2026","scottish higher rate tax 2026"],
     readMinutes: 5,
     publishedISO: "2026-05-14",
-    updatedISO: "2026-05-14",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What are the Scottish income tax bands for 2026/27?", a: "Scotland has 6 bands: Starter Rate 19% (£12,571–£15,397), Basic Rate 20% (£15,398–£27,491), Intermediate Rate 21% (£27,492–£43,662), Higher Rate 42% (£43,663–£75,000), Advanced Rate 45% (£75,001–£125,140), and Top Rate 48% (over £125,140)." },
       { q: "Do Scottish taxpayers pay more tax than English taxpayers?", a: "For most earnings above £27,491 yes — the Intermediate Rate (21%) and Higher Rate (42%) are both higher than their English equivalents (20% and 40%). On a £50,000 salary, a Scottish taxpayer pays approximately £1,500 more per year than an equivalent English taxpayer." },
@@ -2266,7 +2274,7 @@ export const ARTICLES: Article[] = [
     keywords: ["teacher pay scale 2026-27","teacher pay scale 2026","teacher salary scale 2026","mps teacher pay 2026","ups teacher pay 2026","teacher pay outside london 2026"],
     readMinutes: 5,
     publishedISO: "2026-05-14",
-    updatedISO: "2026-06-29",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the teacher pay scale for 2026-27?", a: "The current confirmed pay scale (STPCD 2025) runs M1 £31,650 to M6 £43,685 outside London, following a 4% award effective September 2025. The Upper Pay Scale runs U1 £46,525 to U3 £50,500. Inner London M1 is £42,637. The 2026/27 award has not been formally confirmed — announcement expected by July 2026." },
       { q: "What is the proposed teacher pay rise for 2026-27?", a: "The DfE has proposed a 6.5% cumulative increase over three years (2026/27–2028/29). The first year uplift (2026/27) may be approximately 1.5–2%, though no final figure has been confirmed by the STRB or DfE as of June 2026. When confirmed, new figures take effect from 1 September 2026." },
@@ -2335,7 +2343,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary glasgow 2026","average wage glasgow","glasgow salary 2026","median salary glasgow"],
     readMinutes: 4,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Glasgow in 2026?", a: "The median gross annual salary in Glasgow is approximately £33,200 in 2026. Under Scottish income tax rates, monthly take-home is around £2,310." },
       { q: "Is Glasgow cheaper than Edinburgh?", a: "Yes — Glasgow housing costs are approximately 15–20% lower than Edinburgh. A £33,200 salary in Glasgow can offer similar purchasing power to a £37,000+ salary in Edinburgh." },
@@ -2387,7 +2395,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary liverpool 2026","average wage liverpool","liverpool salary 2026","median salary liverpool"],
     readMinutes: 4,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Liverpool in 2026?", a: "The median gross annual salary in Liverpool is approximately £31,800 in 2026, giving a monthly take-home of around £2,300." },
     ],
@@ -2443,7 +2451,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary sheffield 2026","average wage sheffield","sheffield salary 2026"],
     readMinutes: 4,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Sheffield in 2026?", a: "The median gross annual salary in Sheffield is approximately £31,500 in 2026, giving a monthly take-home of around £2,282." },
     ],
@@ -2498,7 +2506,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary nottingham 2026","average wage nottingham","nottingham salary 2026"],
     readMinutes: 4,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Nottingham in 2026?", a: "The median gross annual salary in Nottingham is approximately £31,200 in 2026, giving a monthly take-home of around £2,264." },
     ],
@@ -2553,7 +2561,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary cardiff 2026","average wage cardiff","cardiff salary 2026","average salary wales 2026"],
     readMinutes: 4,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Cardiff in 2026?", a: "The median gross annual salary in Cardiff is approximately £31,000 in 2026, giving a monthly take-home of around £2,252." },
       { q: "Does Wales have different tax rates?", a: "No — Wales currently uses the same income tax rates as England. Welsh Rate of Income Tax exists but is set at the same level. National Insurance is also the same UK-wide." },
@@ -2610,7 +2618,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary scotland 2026","average scottish salary 2026","median salary scotland","scotland average wage 2026","average salary in scotland"],
     readMinutes: 5,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Scotland in 2026?", a: "The median gross annual salary in Scotland is approximately £33,800 in 2026. Under Scottish income tax rates, monthly take-home is around £2,346 — approximately £50/month less than the same salary in England due to higher Scottish tax rates above £27,491." },
       { q: "Which Scottish city has the highest salary?", a: "Edinburgh has the highest average salary in Scotland at approximately £37,500, followed by Aberdeen at £36,000 and Glasgow at £33,200." },
@@ -2671,7 +2679,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary wales 2026","average wage wales","wales salary 2026","median salary wales"],
     readMinutes: 4,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Wales in 2026?", a: "The median gross annual salary in Wales is approximately £30,500 in 2026, giving a monthly take-home of around £2,218." },
       { q: "Does Wales have different tax rates?", a: "Wales has the Welsh Rate of Income Tax, but it is currently set at the same level as England's rates. Practically, Welsh taxpayers pay the same income tax as English taxpayers." },
@@ -2727,7 +2735,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary northern ireland 2026","average wage northern ireland","northern ireland salary 2026"],
     readMinutes: 4,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Northern Ireland in 2026?", a: "The median gross annual salary in Northern Ireland is approximately £30,200 in 2026, giving a monthly take-home of around £2,200." },
     ],
@@ -2783,7 +2791,7 @@ export const ARTICLES: Article[] = [
     keywords: ["solicitor salary uk 2026","lawyer salary uk 2026","nq solicitor salary","solicitor take home pay"],
     readMinutes: 5,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What does a newly qualified solicitor earn in the UK?", a: "NQ solicitor salaries range from £38,000–£42,000 at regional firms to £100,000–£150,000 at Magic Circle firms in London in 2026." },
     ],
@@ -2842,7 +2850,7 @@ export const ARTICLES: Article[] = [
     keywords: ["gp salary uk 2026","doctor salary uk 2026","gp take home pay","salaried gp salary 2026","gp partner salary"],
     readMinutes: 5,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-06-29",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is a GP salary in the UK in 2026?", a: "Salaried GPs earn £70,300–£85,000 per year in 2026 (take-home ~£3,990–£4,630/month). GP partners typically earn £115,000–£135,000 from their share of practice profits (take-home ~£5,630–£6,400/month). Locum GPs charge £700–£1,200 per day." },
       { q: "How much does a salaried GP take home per month in 2026?", a: "A salaried GP at the BMA minimum (£70,300) takes home approximately £3,990/month after income tax and NI, before NHS pension contributions. At £85,000, monthly take-home is approximately £4,630. NHS pension contributions (12.5% employee) reduce these figures by approximately £730–£885/month, but provide a valuable defined-benefit pension." },
@@ -2901,7 +2909,7 @@ export const ARTICLES: Article[] = [
     keywords: ["project manager salary uk 2026","pm salary uk","project manager take home pay","senior project manager salary uk"],
     readMinutes: 4,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average project manager salary in the UK in 2026?", a: "The median project manager salary in the UK is approximately £48,000 in 2026, giving a monthly take-home of around £3,139." },
     ],
@@ -2958,7 +2966,7 @@ export const ARTICLES: Article[] = [
     keywords: ["electrician salary uk 2026","electrician take home pay","self employed electrician salary","electrician wages uk"],
     readMinutes: 4,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How much does an electrician earn in the UK in 2026?", a: "Employed electricians earn £34,000–£48,000 depending on experience and region. Self-employed electricians typically earn £40,000–£70,000+ and retain more due to tax-deductible business expenses." },
     ],
@@ -3006,7 +3014,7 @@ export const ARTICLES: Article[] = [
     keywords: ["hgv driver salary uk 2026","lorry driver salary uk","hgv driver take home pay","cat c+e driver salary","class 1 hgv driver salary"],
     readMinutes: 4,
     publishedISO: "2026-05-24",
-    updatedISO: "2026-05-24",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How much does an HGV driver earn in the UK in 2026?", a: "A Cat C (rigid) HGV driver earns £32,000–£38,000. A Cat C+E (articulated) driver earns £36,000–£48,000. Agency and tramping drivers can earn £45,000–£60,000+." },
     ],
@@ -3064,7 +3072,7 @@ export const ARTICLES: Article[] = [
     keywords: ["police officer salary uk 2026","police constable salary take home","uk police pay 2026","police sergeant salary uk","inspector salary uk 2026"],
     readMinutes: 5,
     publishedISO: "2026-06-16",
-    updatedISO: "2026-06-16",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How much does a Police Constable earn in 2026?", a: "A newly joined Police Constable earns £26,682 during their probationary period. After two years' service, pay rises to the constable scale of £30,456–£46,044, depending on force and service length. Monthly take-home at the starting rate is approximately £1,870 after income tax and National Insurance." },
       { q: "How much more do Metropolitan Police officers earn?", a: "Metropolitan Police officers receive a London weighting allowance on top of the national pay scale. A Metropolitan PC earns £31,011 on appointment, rising to £46,044 at the top of the scale. Inner London officers additionally receive a £1,000–£2,000 per year location allowance." },
@@ -3111,7 +3119,7 @@ export const ARTICLES: Article[] = [
     keywords: ["paramedic salary uk 2026","nhs paramedic pay bands 2026","band 5 paramedic take home","ambulance technician salary uk","advanced paramedic salary 2026"],
     readMinutes: 5,
     publishedISO: "2026-06-16",
-    updatedISO: "2026-06-16",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the starting salary for a paramedic in the UK in 2026?", a: "A newly qualified NHS paramedic starts on Agenda for Change Band 5, which pays £29,970–£36,483 per year. Monthly take-home at the starting point is approximately £2,050 after income tax and National Insurance." },
       { q: "How much does a specialist paramedic earn?", a: "Specialist Paramedics are typically Band 6, earning £37,338–£44,962 per year. Monthly take-home ranges from approximately £2,610 to £3,010 after tax and NI." },
@@ -3155,7 +3163,7 @@ export const ARTICLES: Article[] = [
     keywords: ["dentist salary uk 2026","nhs dentist salary take home","private dentist salary uk 2026","associate dentist earnings uk","dental foundation training salary 2026"],
     readMinutes: 5,
     publishedISO: "2026-06-16",
-    updatedISO: "2026-06-16",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How much does a dentist earn in the UK in 2026?", a: "It depends on the employment model. NHS salaried dentists earn £42,000–£83,000. NHS associate dentists earn £40,000–£70,000 depending on NHS Unit of Dental Activity (UDA) targets. Private associate dentists earn £70,000–£150,000+, and principal/partner dentists in well-established practices can earn significantly more." },
       { q: "What is the take-home pay for a foundation dentist?", a: "Dental Foundation Trainees earn a salary of approximately £32,000–£35,000 in 2026. After income tax and National Insurance, monthly take-home is approximately £2,240–£2,440." },
@@ -3199,7 +3207,7 @@ export const ARTICLES: Article[] = [
     keywords: ["pharmacist salary uk 2026","nhs pharmacist pay bands 2026","community pharmacist salary uk","hospital pharmacist salary 2026","band 6 pharmacist take home"],
     readMinutes: 5,
     publishedISO: "2026-06-16",
-    updatedISO: "2026-06-16",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What band is a newly qualified pharmacist in the NHS?", a: "Most newly qualified pharmacists enter the NHS on Band 6, which pays £37,338–£44,962 per year in 2026. Monthly take-home at the starting point is approximately £2,610 after income tax and National Insurance." },
       { q: "How much does a community pharmacist earn in 2026?", a: "Community pharmacists (working in high-street or supermarket pharmacies) typically earn £32,000–£55,000 depending on experience and responsibility. Superintendent Pharmacists overseeing multiple branches can earn £60,000–£90,000+." },
@@ -3243,7 +3251,7 @@ export const ARTICLES: Article[] = [
     keywords: ["physiotherapist salary uk 2026","nhs physiotherapist pay 2026","band 6 physiotherapist salary take home","private physiotherapist earnings uk","advanced physiotherapist salary 2026"],
     readMinutes: 5,
     publishedISO: "2026-06-16",
-    updatedISO: "2026-06-16",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How much does a newly qualified physiotherapist earn in the UK?", a: "A newly qualified NHS physiotherapist starts on Band 5, earning £29,970–£36,483 per year in 2026. Monthly take-home at the starting point is approximately £2,050 after income tax and National Insurance." },
       { q: "How much can a senior physiotherapist earn?", a: "Senior (Band 7) physiotherapists earn £46,148–£52,809. At mid-point, monthly take-home is approximately £3,140 after tax and NI. Advanced and Consultant Physiotherapists on Band 8a earn £53,755–£60,504." },
@@ -3286,7 +3294,7 @@ export const ARTICLES: Article[] = [
     keywords: ["firefighter salary uk 2026","fire service pay 2026","crew manager salary uk","watch manager salary uk","firefighter take home pay 2026"],
     readMinutes: 5,
     publishedISO: "2026-06-16",
-    updatedISO: "2026-06-16",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How much does a firefighter earn in the UK in 2026?", a: "A competent (fully qualified) firefighter in England earns £33,019–£37,937 per year in 2026, depending on their fire service. Monthly take-home at the midpoint is approximately £2,350 after income tax and National Insurance." },
       { q: "How much do retained (on-call) firefighters earn?", a: "Retained and on-call firefighters receive an annual retaining fee (typically £2,500–£5,000) plus a drill fee per training session and a fire call fee per incident. Active retained firefighters typically earn £8,000–£18,000 per year on top of their primary employment." },
@@ -3331,7 +3339,7 @@ export const ARTICLES: Article[] = [
     keywords: ["social worker salary uk 2026","nqsw salary uk 2026","team manager social worker salary","social worker take home pay 2026","local authority social worker salary 2026"],
     readMinutes: 5,
     publishedISO: "2026-06-16",
-    updatedISO: "2026-06-16",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "How much does a newly qualified social worker earn in 2026?", a: "A Newly Qualified Social Worker (NQSW) completing the Assessed and Supported Year in Employment (ASYE) earns £28,000–£35,000 depending on local authority and region. Monthly take-home at the midpoint is approximately £2,060 after income tax and National Insurance." },
       { q: "Do London social workers earn significantly more?", a: "Yes. Local authorities in Inner London pay a London weighting allowance of £5,000–£8,000 on top of the base salary. Social workers employed in Inner London boroughs can earn £38,000–£45,000 as NQSWs, and £50,000–£65,000 as Team Managers." },
@@ -3375,7 +3383,7 @@ export const ARTICLES: Article[] = [
     keywords: ["data analyst salary uk 2026","junior data analyst salary uk","senior data analyst salary uk 2026","data scientist salary uk 2026","analytics salary uk take home"],
     readMinutes: 5,
     publishedISO: "2026-06-16",
-    updatedISO: "2026-06-16",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the starting salary for a data analyst in the UK?", a: "A junior or graduate data analyst typically earns £26,000–£35,000 in the UK in 2026. Monthly take-home at the midpoint is approximately £2,100 after income tax and National Insurance." },
       { q: "How much does a senior data analyst earn?", a: "Senior data analysts with 4–7 years of experience earn £50,000–£70,000 in 2026. Monthly take-home at the midpoint is approximately £3,400 after tax and NI. London-based senior analysts typically earn £55,000–£80,000." },
@@ -3428,7 +3436,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary newcastle 2026","newcastle upon tyne salary 2026","take home pay newcastle 2026","newcastle wages 2026","salary comparison newcastle uk"],
     readMinutes: 4,
     publishedISO: "2026-06-16",
-    updatedISO: "2026-06-16",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Newcastle in 2026?", a: "The median full-time salary in Newcastle upon Tyne is approximately £32,500 in 2026, based on ONS ASHE data. After income tax and National Insurance, this gives a monthly take-home of approximately £2,270." },
       { q: "How does Newcastle compare to the UK average salary?", a: "The UK median full-time salary is £37,430 in 2026. Newcastle sits approximately £4,900 below that — making it notably cheaper to live in but also a lower-wage market than the South East and London." },
@@ -3480,7 +3488,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary oxford 2026","oxford salary 2026","take home pay oxford","oxford wages 2026","salary comparison oxford uk"],
     readMinutes: 4,
     publishedISO: "2026-06-16",
-    updatedISO: "2026-06-16",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Oxford in 2026?", a: "The median full-time salary in Oxford is approximately £38,500 in 2026, slightly above the UK median of £37,430. Monthly take-home at this salary is approximately £2,650 after income tax and National Insurance." },
       { q: "Does Oxford pay as well as London?", a: "Oxford salaries are notably above the UK average but below London. A tech or biotech professional in Oxford typically earns 15–20% less than an equivalent London role, but housing costs are also around 30% lower, often making Oxford a financially better choice on a net basis." },
@@ -3532,7 +3540,7 @@ export const ARTICLES: Article[] = [
     keywords: ["average salary cambridge 2026","cambridge salary 2026","take home pay cambridge","cambridge silicon fen salaries 2026","salary comparison cambridge uk"],
     readMinutes: 4,
     publishedISO: "2026-06-16",
-    updatedISO: "2026-06-16",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What is the average salary in Cambridge in 2026?", a: "The median full-time salary in Cambridge is approximately £40,000 in 2026, significantly above the UK median of £37,430. Monthly take-home at this salary is approximately £2,750 after income tax and National Insurance." },
       { q: "Why are Cambridge salaries so high?", a: "Cambridge is home to one of Europe's densest technology and biotech clusters — known as Silicon Fen. Companies including ARM, AstraZeneca, Microsoft Research, and hundreds of biotech startups compete for highly skilled graduates from the University of Cambridge, pushing salaries above UK norms. A software engineer at an ARM or deep tech firm earns £60,000–£120,000+." },
@@ -3586,11 +3594,18 @@ export const ARTICLES: Article[] = [
     keywords: ["nhs pay bands 2026","agenda for change pay scales 2026","nhs band 5 salary 2026","nhs band 6 salary 2026","nhs band 7 pay 2026","nhs salary bands","afc pay scales 2026"],
     readMinutes: 5,
     publishedISO: "2026-06-19",
-    updatedISO: "2026-06-19",
+    updatedISO: "2026-06-30",
     faq: [
-      { q: "What is NHS Band 5 salary in 2026/27?", a: "NHS Band 5 pays £29,970–£36,483 in 2026/27 under the Agenda for Change framework. This covers newly qualified nurses, paramedics, radiographers, and other healthcare professionals. At the Band 5 minimum, monthly take-home (before NHS pension) is approximately £2,050. After 8.3% TPS pension contributions, take-home is approximately £1,805." },
-      { q: "What is the Agenda for Change (AfC) framework?", a: "Agenda for Change is the national pay framework for most NHS staff in England, Scotland, Wales and Northern Ireland. It replaced dozens of separate pay scales with a single unified structure of 9 bands, each with a series of spine points. Progression through spine points is based on years of service and performance." },
-      { q: "Do all NHS staff use AfC pay bands?", a: "Most NHS staff use AfC bands. The main exceptions are doctors and dentists (who use separate pay scales set by the Review Body on Doctors' and Dentists' Remuneration) and some very senior managers on executive pay scales." },
+      { q: "What is the NHS pay rise for 2026/27?", a: "The NHS Agenda for Change pay award for 2026/27 has not been formally confirmed as of June 2026. Current live scales reflect the 5.5% award from September 2025. The DDRB and PRRB are expected to publish recommendations by July 2026. Any award takes effect from September 2026." },
+      { q: "What is the Band 5 NHS salary take-home in 2026/27?", a: "Band 5 (£29,970–£36,483) is the starting band for newly qualified nurses and allied health professionals. Monthly take-home at Band 5 minimum is approximately £2,050; at maximum approximately £2,490 after income tax and NI — before NHS pension contributions of 8.3%." },
+      { q: "What is the Band 6 NHS salary take-home?", a: "Band 6 (£37,338–£44,962) covers senior nurses and specialist practitioners. Monthly take-home at minimum is approximately £2,610; at maximum approximately £3,010/month. Pension contributions at Band 6 are 9.8%–10.7%, reducing take-home by approximately £305–£400/month." },
+      { q: "What does a Band 7 NHS manager earn after tax?", a: "Band 7 (£46,148–£52,809) covers senior nurses, lead AHPs and specialist managers. Monthly take-home at minimum is approximately £2,827; at maximum approximately £3,267 before NHS pension. At £50,270+, higher-rate income tax (40%) begins to apply." },
+      { q: "What does a Band 8a NHS manager earn after tax?", a: "Band 8a (£53,755–£60,504) is for advanced clinical and management roles. Monthly take-home at minimum is approximately £3,178; at maximum approximately £3,538. At Band 8a, you pay 40% income tax on salary above £50,270 and 12.5% NHS pension contributions." },
+      { q: "What are the NHS pension contribution rates for 2026/27?", a: "NHS employee pension tiers: 5.2% up to £13,259; 6.5% on £13,260–£26,831; 8.3% on £26,832–£32,690; 9.8% on £32,691–£49,078; 10.7% on £49,079–£62,268; 12.5% above £62,268. At Band 5 minimum (£29,970), that is 8.3% = £207/month. Employer contribution is 23.7%." },
+      { q: "What is the Band 3 NHS salary?", a: "Band 3 (£24,625–£26,280) covers healthcare assistants, medical secretaries and senior admin staff. Monthly take-home at minimum is approximately £1,866; at maximum approximately £1,980 after income tax and NI." },
+      { q: "What are the NHS Agenda for Change pay bands in full?", a: "Key bands: Band 2 £23,615 (entry support), Band 3 £24,625–£26,280, Band 4 £26,530–£29,114, Band 5 £29,970–£36,483 (NQ nurses), Band 6 £37,338–£44,962 (senior nurses), Band 7 £46,148–£52,809 (specialists), Band 8a £53,755–£60,504, Band 8b £62,215–£72,293, Band 9 £105,385–£121,271." },
+      { q: "How do I progress to the next NHS pay band?", a: "Automatic progression: each year you move up one spine point within your current band (incremental progression), adding £700–£2,000/year. Moving to the next band requires applying for a higher-banded post — it is not automatic. Many NHS staff supplement income through bank shifts, which pay the minimum rate for the relevant band." },
+      { q: "What is the difference between NHS Band 4 and Band 5?", a: "Band 4 (£26,530–£29,114) covers associate practitioners and senior healthcare support workers. Band 5 (£29,970–£36,483) is the minimum band for registered professionals (nurses, paramedics, AHPs). The gap at minimum is approximately £856/year gross. Band 5 requires degree-level professional registration (NMC, HCPC, etc.)." },
     ],
     body: () => (
       <>
@@ -3673,11 +3688,23 @@ export const ARTICLES: Article[] = [
     keywords: ["what does pro rata mean","pro rata meaning","pro rata salary meaning","what does pro rata salary mean","pro rata definition uk","how to calculate pro rata","pro rata meaning salary"],
     readMinutes: 4,
     publishedISO: "2026-06-19",
-    updatedISO: "2026-06-19",
+    updatedISO: "2026-06-30",
     faq: [
-      { q: "What does pro rata mean?", a: "Pro rata is Latin for 'in proportion'. In employment, a pro rata salary means your pay is scaled proportionally to the hours or days you work compared to a full-time employee. If a full-time role pays £40,000 per year for 5 days a week, a 3-day-a-week employee earns £40,000 × (3÷5) = £24,000 pro rata." },
-      { q: "How do I calculate my pro rata salary?", a: "Pro rata salary = (your working hours or days) ÷ (full-time hours or days) × full-time annual salary. For example: full-time is 37.5 hours/week at £45,000. You work 22.5 hours/week. Pro rata salary = 22.5 ÷ 37.5 × £45,000 = £27,000." },
-      { q: "Does pro rata affect my tax or National Insurance?", a: "No — your tax and NI are calculated on your actual pro rata salary, not the full-time equivalent. Your Personal Allowance (£12,570) applies in full regardless of how many hours you work." },
+      { q: "What does pro rata mean?", a: "Pro rata is Latin for \'in proportion\'. In UK employment, a pro rata salary means your pay is scaled to match the proportion of full-time hours you work. If a full-time role pays £40,000/year for 37.5 hours/week and you work 22.5 hours/week (3 days), your pro rata salary is £40,000 × (22.5 ÷ 37.5) = £24,000." },
+      { q: "How do I calculate my pro rata salary in the UK?", a: "Pro rata salary = (your hours per week ÷ full-time hours per week) × full-time annual salary. Example: full-time is 37.5 hours at £45,000/year; you work 25 hours. Pro rata = 25 ÷ 37.5 × £45,000 = £30,000/year. Monthly take-home at £30,000 is approximately £2,066 after income tax and NI." },
+      { q: "What does pro rata mean on a job offer?", a: "When a job advert says \'£35,000 pro rata\' it means the salary is quoted as if the role were full-time. Your actual annual pay is that figure scaled to your contracted hours. Always confirm your exact annual salary and weekly hours in writing before accepting." },
+      { q: "Pro rata example: what is 3 days a week on a £40,000 job?", a: "Three days out of five full-time days: 3÷5 × £40,000 = £24,000/year. Assuming 37.5-hour week: three days = 22.5 hours, so 22.5÷37.5 × £40,000 = £24,000 — same result. Monthly take-home at £24,000 is approximately £1,828 after income tax and NI." },
+      { q: "What is 20 hours a week pro rata on £30,000?", a: "20 hours out of a 37.5-hour full-time week = 53.3%. Pro rata salary = 53.3% × £30,000 = £16,000/year. Monthly take-home at £16,000 is approximately £1,315 after income tax and NI. Your Personal Allowance covers £12,570, so you only pay tax on £3,430 of this." },
+      { q: "Does pro rata affect my tax or National Insurance?", a: "No — tax and NI are calculated on your actual pro rata salary, not the full-time equivalent. Your Personal Allowance (£12,570 in 2026/27) applies in full regardless of hours worked. Part-time workers earning under £12,570/year pay no income tax at all." },
+      { q: "How does pro rata work for annual leave in the UK?", a: "Part-time employees get leave in proportion to full-time entitlement. If full-time workers get 28 days (including bank holidays), a 3-day week worker gets 28 × (3÷5) = 16.8 days. Bank holidays are also pro-rated: 8 bank holidays on weekdays × (3÷5) = 4.8 days entitlement." },
+      { q: "How does pro rata work for sick pay?", a: "Statutory Sick Pay (SSP) is £116.75/week for eligible employees regardless of hours, as long as you earn above the Lower Earnings Limit (£123/week). Contractual sick pay above SSP is usually pro-rated by contracted hours — check your employment contract." },
+      { q: "Can I get pro rata pay for part of a year?", a: "Yes. Mid-year starters or leavers are paid for days worked: (days worked ÷ 365) × annual salary. Example: starting 1 October on £36,000/year, you work 183 days to 5 April (tax year end). Pro rata = (183 ÷ 365) × £36,000 = £18,049 for that tax year." },
+      { q: "What is the difference between pro rata and part-time?", a: "Part-time describes your working arrangement (fewer hours than full-time). Pro rata is the calculation method used to determine your pay. Part-time workers are paid on a pro rata basis — the terms often appear together but mean different things." },
+      { q: "How does pro rata work for bonuses?", a: "Contractual bonuses should be pro-rated based on contracted hours or portion of the bonus period worked. Discretionary bonuses are at employer discretion. If a full-time employee earns a £5,000 annual bonus and you work 3 of 5 days, pro rata entitlement would be £3,000 — but contractual terms vary, always check your contract." },
+      { q: "What does FTE mean in relation to pro rata?", a: "FTE stands for Full-Time Equivalent. A 0.6 FTE = 60% of full-time hours. Pro rata salary = FTE × full-time salary. A 0.6 FTE on a £35,000 full-time role earns £21,000/year. FTE is widely used in NHS and public sector job adverts." },
+      { q: "Does pro rata salary affect pension contributions?", a: "Auto-enrolment pension contributions use your actual pro rata qualifying earnings (between £6,240 and £50,270). Minimum is 5% employee + 3% employer. A 3-day worker on £24,000 pays 5% of (£24,000 − £6,240) = £888/year in employee pension contributions." },
+      { q: "How does pro rata maternity pay work?", a: "Statutory Maternity Pay (SMP) uses your average weekly earnings from your actual pro rata salary — not the full-time equivalent. SMP is 90% of average weekly earnings for 6 weeks, then £184.03/week for 33 weeks (2026/27). Enhanced contractual maternity pay is usually pro-rated — check your contract." },
+      { q: "What is the National Living Wage pro rata for 30 hours per week?", a: "The National Living Wage in 2026/27 is £12.21/hour (aged 21+). For 30 hours/week: £12.21 × 30 × 52 = £19,047/year. Monthly take-home at £19,047 is approximately £1,581 after income tax and NI. For term-time only workers, multiply by actual weeks worked rather than 52." },
     ],
     body: () => (
       <>
@@ -3723,7 +3750,7 @@ export const ARTICLES: Article[] = [
     keywords: ["uk salary percentiles 2026","what percentile is my salary uk","top 10 percent income uk","top 1 percent income uk","top 5 percent salary uk","median salary uk 2026","average uk salary percentile"],
     readMinutes: 4,
     publishedISO: "2026-06-19",
-    updatedISO: "2026-06-19",
+    updatedISO: "2026-06-30",
     faq: [
       { q: "What salary puts you in the top 10% in the UK in 2026?", a: "To be in the top 10% of UK full-time earners in 2026, you need a gross salary of approximately £60,000 or above. Monthly take-home at £60,000 is approximately £3,583 in England after income tax and NI." },
       { q: "What is the top 1% income threshold in the UK?", a: "The top 1% of UK taxpayers earn approximately £180,000 or more per year. At this level, the additional rate of income tax (45%) applies above £125,140, and the Personal Allowance has been fully withdrawn above £125,140." },
@@ -3770,4 +3797,43 @@ export const ARTICLES: Article[] = [
       </>
     ),
   },
+  {
+    slug: "teaching-assistant-salary-uk-2026",
+    title: "Teaching Assistant Salary UK 2026/27: TA Pay Scale & Take-Home",
+    description: "UK teaching assistant salaries 2026: Level 1 TA £19k–£22k, Level 3 TA £25k–£28k, HLTA £28k–£34k. Exact take-home after tax. NJC scale, term-time pay explained.",
+    excerpt: "A Level 1 teaching assistant earns £19,000–£22,000 in 2026. After tax and NI, that\u2019s approximately £1,562–£1,744/month. Higher Level Teaching Assistants (HLTAs) earn £28,000–£34,000 — here\u2019s every level with exact take-home.",
+    category: "Career",
+    keywords: ["teaching assistant salary uk 2026", "ta salary 2026", "hlta salary 2026", "teaching assistant pay scale 2026-27", "ta pay scale uk", "teaching assistant take home pay", "hlta pay 2026/27", "level 3 ta salary"],
+    readMinutes: 6,
+    publishedISO: "2026-06-30",
+    updatedISO: "2026-06-30",
+    faq: [
+      { q: "What is the average teaching assistant salary in the UK in 2026?", a: "The average teaching assistant salary in the UK is approximately £22,000–£24,000 full-time equivalent in 2026. Most TAs work term-time only (39 weeks), which means their actual annual pay is lower — a £24,000 FTE term-time role pays approximately £17,800 actual annual salary. Monthly take-home at the actual salary is approximately £1,475 after income tax and NI." },
+      { q: "What is the teaching assistant pay scale for 2026/27?", a: "Teaching assistant pay is set by local authorities using the NJC (National Joint Council for Local Government Services) pay spine, not by a national STPCD scale. Typical ranges: Level 1 TA £19,000–£22,000 FTE (NJC scale points 5–10), Level 2 TA £22,000–£25,000 (scale points 7–14), Level 3 Senior TA £25,000–£28,000 (scale points 13–19), HLTA £28,000–£34,000 (scale points 19–26). Actual pay varies by local authority." },
+      { q: "What is an HLTA salary after tax in 2026/27?", a: "A Higher Level Teaching Assistant (HLTA) earns £28,000–£34,000 FTE. At £30,000, monthly take-home is approximately £2,066 after income tax and NI — before Teachers\' Pension Scheme contributions if enrolled. At £34,000, take-home is approximately £2,302/month. Most HLTA roles are term-time only, so actual annual earnings depend on weeks contracted." },
+      { q: "Do teaching assistants work full year or term-time only?", a: "Most teaching assistant contracts are term-time only (approximately 39 weeks including inset days). This means you do not work during school holidays unless you have a 52-week contract. A term-time only TA on NJC Grade 4 (£23,500 FTE) receives approximately £17,430 actual annual pay — the FTE salary multiplied by 39÷52. Check your contract for the exact calculation method used by your school or trust." },
+      { q: "What is a Level 3 teaching assistant salary take-home?", a: "A Level 3 (Senior) teaching assistant earns £25,000–£28,000 FTE. At £26,000, monthly take-home is approximately £1,898 after income tax and NI. At £28,000, take-home is approximately £2,035/month. If you are term-time only at £26,000 FTE, your actual annual earnings are approximately £19,500 (39÷52 × £26,000), giving a monthly take-home of approximately £1,623." },
+      { q: "Do teaching assistants get a pension?", a: "Many teaching assistants are enrolled in the Local Government Pension Scheme (LGPS), not the Teachers\' Pension Scheme (TPS). LGPS employee contributions range from 5.5% to 12.5% depending on salary tier. At £22,000, the contribution rate is 5.5% = approximately £101/month, reducing take-home but building a defined-benefit pension." },
+      { q: "What is the difference between a TA and an HLTA?", a: "A standard teaching assistant supports teachers in the classroom under supervision. A Higher Level Teaching Assistant (HLTA) can lead lessons independently when the class teacher is absent, cover PPA (planning, preparation and assessment) time, and take responsibility for a group or class. HLTA status requires an assessment process through HLTA status confirmation. HLTAs typically earn £28,000–£34,000 FTE vs £19,000–£25,000 for standard TAs." },
+      { q: "How does teaching assistant pay compare to teacher pay?", a: "There is a significant pay gap. An NQT teacher earns £31,650 (M1, outside London) vs a Level 3 TA at £25,000–£28,000 FTE. However, most TAs work term-time only, while teachers also work term-time but have additional planning time and responsibilities. A teacher on M6 (£43,685) earns approximately £15,000–£20,000 more per year than an experienced HLTA." },
+      { q: "What is a teaching assistant salary in London in 2026?", a: "London teaching assistants receive an Inner London, Outer London or London Fringe supplement on top of national NJC rates. Inner London TAs typically earn £24,000–£28,000 (Level 1–2) and £30,000–£36,000 (HLTA). At £32,000, Inner London monthly take-home is approximately £2,177 after income tax and NI." },
+    ],
+    body: () => (
+      <>
+        <p>Teaching assistant (TA) salaries in the UK are set by individual local authorities using the National Joint Council (NJC) pay spine for local government services — not by the School Teachers\u2019 Pay and Conditions Document (STPCD) that governs teacher pay.</p>
+        <p>This means TA pay varies more than teacher pay across England, Wales, and Scotland, and there is no single national scale point table equivalent to the teacher M1\u2013M6 structure. However, most maintained schools follow NJC guidance, giving a broadly consistent framework.</p>
+        <h2>Teaching assistant pay levels in 2026/27</h2>
+        <p>Most schools distinguish four levels of TA, with pay bands aligned to NJC scale points:</p>
+        <ul>
+          <li><strong>Level 1 TA / Classroom Support Assistant</strong>: NJC scale points 5\u201310, typically £19,000\u2013£22,000 FTE. Entry-level role supporting the class teacher. Monthly take-home at £20,000 is approximately £1,613 after income tax and NI.</li>
+          <li><strong>Level 2 TA</strong>: NJC scale points 7\u201314, typically £22,000\u2013£25,000 FTE. More responsibility, may support specific pupils with SEND. Monthly take-home at £23,500 is approximately £1,799.</li>
+          <li><strong>Level 3 / Senior TA</strong>: NJC scale points 13\u201319, typically £25,000\u2013£28,000 FTE. May cover classes short-term and support intervention programmes. Monthly take-home at £26,000 is approximately £1,898.</li>
+          <li><strong>HLTA (Higher Level Teaching Assistant)</strong>: NJC scale points 19\u201326, typically £28,000\u2013£34,000 FTE. Can lead lessons independently. Monthly take-home at £30,000 is approximately £2,066.</li>
+        </ul>
+        <p>All figures are FTE (full-time equivalent) — most TA contracts are term-time only, which reduces actual annual pay by approximately 25% (52 \u2212 39 = 13 unpaid weeks).</p>
+        <h2>Term-time only: actual vs FTE salary</h2>
+        <p>If your contract is term-time only (39 weeks), your actual annual salary = FTE salary × (39 \u00f7 52) = FTE × 0.75. A £24,000 FTE term-time salary gives actual annual pay of £18,000 — and a monthly take-home of approximately £1,521 after income tax and NI.</p>
+      </>
+    ),
+  }
 ];
