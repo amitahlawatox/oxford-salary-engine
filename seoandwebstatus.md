@@ -1,57 +1,42 @@
 # UK Net Pay — SEO & Web Status Log
 
-Append-only. Newest entry at the top. Read this file first at the start of every session before doing anything else — it tells you exactly what changed, why, and what's still open.
+Append-only. Newest entry at the top. Read this file first at the start of every session.
 
 ---
 
-## 2026-06-30 — FAQ expansion + teacher pay table injection (PR #23, merged)
+## 2026-06-30 — Bulk content sprint (PR #24, merged c5ab944704c4)
 
-### Session trigger
-Amit uploaded 3 fresh GSC exports (7-day, 24h, 28-day windows, all ending 27/28 Jun 2026).
-
-### What the data showed
-- 7-day clicks: 158, up 4.4x from the prior 7-day period (36)
-- 7-day impressions: 17,379, up 2.5x (~6,900 prior)
-- Average position over the last 3 days: 12.9, improved from 33.2 on 21 Jun — a 20-place jump in 5 days
-- Peak day: 44 clicks on 26 Jun
-- Traffic concentration risk confirmed: `teacher-salary-uk-2026` alone drove 91 of 158 clicks this week (57.6%)
-- 3 page-1 articles ranking but getting zero clicks: accountant-salary-uk-2026 (pos 6.1, 185 impressions), gp-doctor-salary-uk-2026 (pos 9.5, 260 impressions), average-salary-birmingham-2026 (pos 8.1, 213 impressions)
-- www vs non-www split confirmed costing ~5,745 impressions (14% of 28-day total) — still unresolved, see Open Issues below
-- Domain Rating: still 0 per Ahrefs — unchanged, still the primary growth ceiling
-- pro-rata page: 990 impressions / 28d, 1 click, position 75 — content is too thin to compete
+### Context
+AdSense under review. ~30 clicks/day trending up. Canonical/www issue confirmed self-resolving — sitemap clean (681 non-www URLs), Google already showing non-www URLs only.
 
 ### Changes shipped
-**PR #23, squash-merged to main as commit `567940805fbc1e3eeef004fe9b68a3e759d501e3`. Vercel production deploy confirmed READY (dpl_77syU9Vp3bx8UaxjVsBsexH5NNsK).**
+1. All 71 articles: updatedISO -> 2026-06-30 (freshness signal)
+2. average-salary-birmingham-2026: CTR title + desc rewrite, 2->6 FAQs (pos 8.09, 213 impr, 0 clicks)
+3. average-salary-edinburgh-2026: CTR title + desc rewrite, 2->6 FAQs (pos 7.49, 254 impr, 0 clicks)
+4. what-does-pro-rata-mean-uk: 3->15 FAQs — worked examples, leave, sick pay, pensions (pos 75, 990 impr, 1 click)
+5. nhs-pay-bands-2026-27: 3->10 FAQs covering pay rise status, band take-homes, pensions (18k/mo volume)
+6. NEW teaching-assistant-salary-uk-2026: 9 FAQs, L1-HLTA pay table, term-time vs FTE, LGPS pension
 
-`src/content/articles/data.tsx`
-- `teacher-salary-uk-2026`: FAQs expanded 3 → 12, now covering the exact query patterns showing up in GSC ("teacher pay scale 2026-27", "proposed teacher pay scale 26 27", M3/M6 take-home, TPS pension tiers, Scotland comparison). Keywords list expanded to match. `updatedISO` set to 2026-06-29.
-- `teacher-pay-scale-2026-27`: FAQs expanded 3 → 7, added explicit "proposed 2026/27 award" FAQ since that query has a 25% CTR and nobody else covers the announcement angle well. `updatedISO` set to 2026-06-29.
-- `accountant-salary-uk-2026`: title and meta description rewritten for CTR (added "Take-Home Pay at Every Level"), FAQs expanded 2 → 6.
-- `gp-doctor-salary-uk-2026`: title and meta description rewritten for CTR (added "Exact Take-Home"), FAQs expanded 1 → 5.
+### AdSense note
+Do NOT merge PR #22 (ad units) until AdSense approval email arrives. Review is based on PR #21 state.
 
-`scripts/prerender.ts`
-- Teacher articles (`teacher-salary-uk-2026`, `teacher-pay-scale-2026-27`) now get a dedicated static HTML block injected at prerender time: full M1–U3 pay table plus a "proposed 2026/27" paragraph, so Googlebot sees this content without executing JS. Previously these pages only got the excerpt + FAQ block like every other article.
+### File SHAs (main at c5ab944704c4)
+- data.tsx: fetch fresh from API (changes each commit)
+- prerender.ts: 97d80bc023ae1a59aec0ba9ddbf0ffcf4e016d51 (unchanged)
+- Latest main commit: c5ab944704c4
 
-### Current file SHAs (as of this merge — will go stale on next edit, always re-fetch)
-- `src/content/articles/data.tsx`: `eea5228a9a49d5a532ffc075627982383c95dbbb`
-- `scripts/prerender.ts`: `97d80bc023ae1a59aec0ba9ddbf0ffcf4e016d51`
-- Latest main commit: `567940805fbc1e3eeef004fe9b68a3e759d501e3`
+### Next session priorities
+1. SEND backlink outreach emails — most overdue action, only fix for DR 0
+2. Merge PR #22 once AdSense approved
+3. Monitor Birmingham/Edinburgh/pro-rata position improvements (allow 5-7 days)
+4. New articles: NHS pay rise 2026/27, supply teacher salary, civil servant salary
 
-### Open issues — not touched this session
-1. **www vs non-www canonical split** — 453 www-prefixed URLs still indexed separately, diluting authority. Needs a canonical-tag audit across prerender output plus a GSC removals request for the www host. Highest-priority unresolved item.
-2. **Pro-rata page rebuild** — position 75 with near-1,000 monthly impressions is a content-quality problem, not a technical one. Needs a full rewrite: clear definition, worked examples, embedded calculator, FAQ schema — same treatment that worked on the teacher article.
-3. **PR #22 (AdSense ad units)** — was open as of session start, unrelated to this sprint. Check status next session.
-4. **Backlink outreach** — 5 templates built (AccountingWEB, HR Magazine, This Is Money, People Management, Reed). None confirmed sent. Still the single highest-leverage lever for fixing Domain Rating 0.
+---
 
-### Next session priorities, in order
-1. Confirm the CTR fix on accountant/GP/Birmingham pages is working — needs 5–7 days of GSC data post-deploy before this is measurable, so don't check before ~5 July.
-2. www/non-www canonical fix.
-3. Pro-rata page rebuild.
-4. Send the backlink outreach emails — they've been sitting built but unsent for too long.
+## 2026-06-30 — FAQ expansion + teacher pay table injection (PR #23, merged 567940805fbc)
 
-### Operational notes for next session
-- Proven push pattern (works, reuse it): create branch from latest main SHA → PUT to Contents API per file with current blob SHA → open PR → squash-merge via PUT `/pulls/{n}/merge`. Vercel auto-deploys main on merge; always check `Vercel:list_deployments` afterward to confirm `state: READY` rather than assuming the push succeeded — don't sugarcoat a build failure if one shows up.
-- A GitHub PAT was pasted directly in chat twice this session for this push. It's done its job — recommend Amit revokes/rotates it from GitHub → Settings → Developer settings → Personal access tokens once he's reviewed this merge, and issues a fresh one only when next session actually needs to push. No need to keep a long-lived token sitting in chat history.
-- Today's actual date per system clock is Tuesday 30 June 2026; the GSC export and `updatedISO` values reference 27–29 June since that's what the data covers — don't treat that as a logging error in future sessions.
+GSC data showed 44 clicks on 26 Jun, 158 clicks last 7 days (4.4x growth). Teacher article at pos 7.9 driving 57% of traffic.
+
+Changes: teacher 3->12 FAQs, teacher-pay-scale 3->7 FAQs, accountant CTR title, GP CTR title, prerender.ts pay table injection.
 
 ---
