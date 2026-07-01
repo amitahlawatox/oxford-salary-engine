@@ -11,10 +11,10 @@ function getSystemTheme(): ResolvedTheme {
 }
 
 function getSavedChoice(): ThemeChoice {
-  if (typeof window === "undefined") return "system";
+  if (typeof window === "undefined") return "light";
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved === "light" || saved === "dark" || saved === "system") return saved;
-  return "system";
+  return "light"; // default: light mode for all new visitors
 }
 
 function applyTheme(resolved: ResolvedTheme) {
