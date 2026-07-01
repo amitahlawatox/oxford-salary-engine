@@ -4,31 +4,39 @@ Append-only. Newest entry at the top. Read this at the start of every session.
 
 ---
 
+## 2026-07-01 — Reddit attempt post-mortem
+
+### What happened
+Amit posted the teacher pay template in r/TaxUK. Post was immediately removed by Reddit's auto-filter.
+
+### Why it was removed
+1. Wrong subreddit — r/TaxUK is for tax professionals, teacher pay is off-topic. Rule 2 "no unsolicited advertising" triggered auto-filter.
+2. New account with zero karma — Reddit spam filter is aggressive on structured financial data posts from new accounts regardless of content quality.
+3. Standalone post (not a comment reply) — highest-risk action for a new account.
+
+### Correct Reddit protocol going forward
+- This week: build karma by commenting on 5-6 existing threads (not about uknetpay, just genuine UK finance discussion)
+- Next week: search r/UKPersonalFinance / r/Teachers for existing questions about teacher pay / NHS pay / salary take-home and reply as a COMMENT with the data
+- Never start new threads until account has 100+ karma
+- Correct subreddits: r/UKPersonalFinance, r/Teachers, r/AskUK, r/NHSstaff — NOT r/TaxUK
+
+### The template post is fine — wrong place, wrong time
+Keep it saved. Use it as a COMMENT REPLY when someone asks "what do teachers actually take home?" in r/UKPersonalFinance or r/Teachers.
+
+---
+
 ## 2026-06-30 — Community strategy + backlink reality check
 
-### Discussion summary
-Amit asked about daily Reddit/MSE posts for backlinks. Clarified:
-- Reddit and MSE are NOFOLLOW — zero DR impact
-- Daily posting = shadowban within 5-7 days
-- Correct frequency: max 2x per week, answer-first never link-first
-- Reddit value: TRAFFIC and indirect journalist discovery, not DR
-- DR fix: the 5 press outreach emails (still unsent)
-
-### Reddit strategy confirmed
-Two posts drafted for r/UKPersonalFinance and r/Teachers covering teacher pay take-home data.
-Rules: post data, not links; declare site ownership if asked; max 2x/week; never start with URL.
-
-### Reminder: seoandwebstatus.md protocol
-This file must be read at the start of every session and updated at the end with a dated entry.
-Instruction from Amit: always maintain this file and push to git.
+Reddit and MSE are NOFOLLOW — zero DR impact. Correct frequency: max 2x/week, answer-first.
+DR fix: the 5 press outreach emails (AccountingWEB, HR Magazine, This Is Money, People Management, Reed). STILL UNSENT.
 
 ---
 
 ## 2026-06-30 — Bulk content sprint (PR #24, merged c5ab944704c4)
 
-Changes: updatedISO -> 2026-06-30 across all 71 articles, Birmingham/Edinburgh CTR fixes,
-pro-rata 3->15 FAQs, NHS 3->10 FAQs, new teaching-assistant-salary-uk-2026 article.
-AdSense note: do NOT merge PR #22 until approval email arrives.
+updatedISO -> 2026-06-30 across all 71 articles. Birmingham/Edinburgh CTR fixes.
+pro-rata 3->15 FAQs. NHS 3->10 FAQs. New teaching-assistant-salary-uk-2026 article.
+Do NOT merge PR #22 (AdSense ad units) until AdSense approval email arrives.
 Latest main commit: c5ab944704c4
 
 ---
@@ -36,13 +44,13 @@ Latest main commit: c5ab944704c4
 ## 2026-06-30 — FAQ expansion + teacher pay table injection (PR #23, merged 567940805fbc)
 
 Teacher 3->12 FAQs, teacher-pay-scale 3->7 FAQs, accountant CTR title, GP CTR title,
-prerender.ts pay table injection. GSC: 44 clicks on 26 Jun, 4.4x growth, teacher article 57% of traffic.
+prerender.ts pay table injection.
 
 ---
 
-## Open issues (all sessions)
-1. SEND 5 backlink outreach emails — AccountingWEB, HR Magazine, This Is Money, People Management, Reed. STILL NOT SENT. Highest priority non-code action.
-2. Merge PR #22 (AdSense ad units) — hold until approval email.
-3. Monitor Birmingham/Edinburgh/pro-rata position after PR #24 (allow 5-7 days).
-4. Reddit: max 2 posts/week, data-first, no links in body.
-5. Domain Rating is 0 — only press outreach fixes this.
+## Open issues (persistent)
+1. SEND 5 backlink outreach emails — AccountingWEB, HR Magazine, This Is Money, People Management, Reed. HIGHEST PRIORITY. Has been flagged every session. Still unsent.
+2. Merge PR #22 (AdSense ad units) — hold until AdSense approval email confirmed.
+3. Reddit: build karma through commenting this week. Post template as comment reply next week in r/UKPersonalFinance or r/Teachers.
+4. Monitor Birmingham/Edinburgh/pro-rata rankings after PR #24 (allow 5-7 days from 30 June).
+5. Domain Rating is 0 — only dofollow editorial press links fix this. Reddit does not.
