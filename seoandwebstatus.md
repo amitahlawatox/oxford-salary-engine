@@ -1,42 +1,48 @@
 # UK Net Pay — SEO & Web Status Log
 
-Append-only. Newest entry at the top. Read this file first at the start of every session.
+Append-only. Newest entry at the top. Read this at the start of every session.
+
+---
+
+## 2026-06-30 — Community strategy + backlink reality check
+
+### Discussion summary
+Amit asked about daily Reddit/MSE posts for backlinks. Clarified:
+- Reddit and MSE are NOFOLLOW — zero DR impact
+- Daily posting = shadowban within 5-7 days
+- Correct frequency: max 2x per week, answer-first never link-first
+- Reddit value: TRAFFIC and indirect journalist discovery, not DR
+- DR fix: the 5 press outreach emails (still unsent)
+
+### Reddit strategy confirmed
+Two posts drafted for r/UKPersonalFinance and r/Teachers covering teacher pay take-home data.
+Rules: post data, not links; declare site ownership if asked; max 2x/week; never start with URL.
+
+### Reminder: seoandwebstatus.md protocol
+This file must be read at the start of every session and updated at the end with a dated entry.
+Instruction from Amit: always maintain this file and push to git.
 
 ---
 
 ## 2026-06-30 — Bulk content sprint (PR #24, merged c5ab944704c4)
 
-### Context
-AdSense under review. ~30 clicks/day trending up. Canonical/www issue confirmed self-resolving — sitemap clean (681 non-www URLs), Google already showing non-www URLs only.
-
-### Changes shipped
-1. All 71 articles: updatedISO -> 2026-06-30 (freshness signal)
-2. average-salary-birmingham-2026: CTR title + desc rewrite, 2->6 FAQs (pos 8.09, 213 impr, 0 clicks)
-3. average-salary-edinburgh-2026: CTR title + desc rewrite, 2->6 FAQs (pos 7.49, 254 impr, 0 clicks)
-4. what-does-pro-rata-mean-uk: 3->15 FAQs — worked examples, leave, sick pay, pensions (pos 75, 990 impr, 1 click)
-5. nhs-pay-bands-2026-27: 3->10 FAQs covering pay rise status, band take-homes, pensions (18k/mo volume)
-6. NEW teaching-assistant-salary-uk-2026: 9 FAQs, L1-HLTA pay table, term-time vs FTE, LGPS pension
-
-### AdSense note
-Do NOT merge PR #22 (ad units) until AdSense approval email arrives. Review is based on PR #21 state.
-
-### File SHAs (main at c5ab944704c4)
-- data.tsx: fetch fresh from API (changes each commit)
-- prerender.ts: 97d80bc023ae1a59aec0ba9ddbf0ffcf4e016d51 (unchanged)
-- Latest main commit: c5ab944704c4
-
-### Next session priorities
-1. SEND backlink outreach emails — most overdue action, only fix for DR 0
-2. Merge PR #22 once AdSense approved
-3. Monitor Birmingham/Edinburgh/pro-rata position improvements (allow 5-7 days)
-4. New articles: NHS pay rise 2026/27, supply teacher salary, civil servant salary
+Changes: updatedISO -> 2026-06-30 across all 71 articles, Birmingham/Edinburgh CTR fixes,
+pro-rata 3->15 FAQs, NHS 3->10 FAQs, new teaching-assistant-salary-uk-2026 article.
+AdSense note: do NOT merge PR #22 until approval email arrives.
+Latest main commit: c5ab944704c4
 
 ---
 
 ## 2026-06-30 — FAQ expansion + teacher pay table injection (PR #23, merged 567940805fbc)
 
-GSC data showed 44 clicks on 26 Jun, 158 clicks last 7 days (4.4x growth). Teacher article at pos 7.9 driving 57% of traffic.
-
-Changes: teacher 3->12 FAQs, teacher-pay-scale 3->7 FAQs, accountant CTR title, GP CTR title, prerender.ts pay table injection.
+Teacher 3->12 FAQs, teacher-pay-scale 3->7 FAQs, accountant CTR title, GP CTR title,
+prerender.ts pay table injection. GSC: 44 clicks on 26 Jun, 4.4x growth, teacher article 57% of traffic.
 
 ---
+
+## Open issues (all sessions)
+1. SEND 5 backlink outreach emails — AccountingWEB, HR Magazine, This Is Money, People Management, Reed. STILL NOT SENT. Highest priority non-code action.
+2. Merge PR #22 (AdSense ad units) — hold until approval email.
+3. Monitor Birmingham/Edinburgh/pro-rata position after PR #24 (allow 5-7 days).
+4. Reddit: max 2 posts/week, data-first, no links in body.
+5. Domain Rating is 0 — only press outreach fixes this.
